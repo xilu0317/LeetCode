@@ -1,3 +1,5 @@
+//TODO: will need to rework the logic here
+
 // Node
 var Node = function(val) {
   this.val = val;
