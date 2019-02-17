@@ -1,0 +1,71 @@
+# Two sum
+a = [1,3,4,5,6]
+num = 5
+
+1) build the table
+1 -> 0 
+3 -> 1
+4 -> 2
+5 -> 3
+6 -> 4
+
+2) calculate the target value
+
+for ( var i in a)
+{
+  target = num - a[i]
+
+  if ( target ) {
+    return [index of target, current index]
+  }
+}
+
+return -1;
+
+# Word pattern I 
+[a,b,b,a] => [cat, dog, dog, cat]     TRUE
+[a,b,b,a] => [cat, cat, dog, cat]     FALSE
+
+Core idea:
+check length if not equal return false
+
+build a running map as we go
+var a2b = {}
+var b2a = {} // I like object created this way
+
+1) loop thru the list=
+  if (!a2b[a[i]]) 
+    a2b[a[i]] = b
+  else
+    if ( a2b[a[i] !== b])
+      return false
+
+# Clone graph
+visited = {}
+
+Graph programmatic representation
+label | neighbors
+------|------------
+   A  |   B, C
+   B  |   A
+   C  |   D, E
+   D  |   C
+   E  |   B
+
+if (!visited[A]) 
+  visited[A] = [B,C]
+
+
+
+dfs (node.neightbors)
+  if ( node NOT visited ) 
+    dfs ( node )
+
+
+  
+
+
+
+
+
+
