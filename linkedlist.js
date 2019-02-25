@@ -1,4 +1,5 @@
-//TODO: will need to rework the logic here
+// Step 1) high level value
+// Step 2) When you are doing the linkedlist, remember to draw some diagram and write the pseudocode
 
 // Node
 var Node = function(val) {
@@ -15,89 +16,117 @@ var Queue = function(capacity) {
   this.tail = null;
 }
 
-/**
- * @param Node
- */
-Queue.prototype.append = function(node) {
-  if (!this.head){
+Queue.prototype.enqueue = function(node) {
+  if (this.count === 0) {
     this.head = node;
-    this.tail = this.head;
+    this.tail = node;
+  } else {
+    this.tail.next = node;
+    node.prev = this.tail;
+    this.tail = this.tail.next;
   }
-  
-  if (this.count >= this.capacity) {
-    let temp = this.head;
-    this.head = this.head.next;
-    this.count--;
-
-    // purge the old `head`
-    temp.next = null;
-    temp.value = null;
-  }
-
-  this.tail.next = node;
-  this.tail = this.tail.next;
   this.count++;
 }
 
+Queue.prototype.dequeue = function() {
+  if (this.count > 0) {
+    // edge case only 1 element
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      let temp = this.head;
+      this.head = this.head.next;
+      
+      // setting value to null here
+      temp.val = null;
+  
+      temp.next = null;
+      this.head.prev = null; 
+    }
+
+    // decrement count after dequeue action
+    this.count--;
+  }
+}
+
+Queue.prototype.moveToBack = function(node) {
+  if (node === this.head){
+    this.tail.next = node;
+    this.tail = this.tail.next;
+    node.prev = this.tail;
+    this.head = this.head.next;
+    node.next = null;
+    this.head.prev = null;
+    node = null;
+  } else if (node === this.tail) {
+    // NOP already at the back
+  } else if ( this.head === this.tail) {
+    // No need to move anything for just 1 element
+  } else {
+    node.prev = node.next;
+    node.next.prev = node.prev;
+    this.tail.next = node;
+    node.prev = this.tail;
+    node.next = null;
+    node = null;
+  }
+
+}
+
 // LRU Cache
-/**
- * @param capacity
- */
 var LRUCache = function(capacity){
   this.capacity = capacity;
   this.queue = new Queue(capacity);
   this.dict = {};
 }
 
-/**
- * @param key
- */
 LRUCache.prototype.get = function(key){
-  let node = this.dict[key];
-  if (node){
-    let fast = this.queue.head.next;
-    let slow = this.queue.head;
-
-    while (true) {
-      if (fast === node){
-        break;
-      }
-
-      fast = fast.next;
-      slow = slow.next;
-    }
-
-    slow.next = fast.next;
-    this.queue.tail.next = fast;
-    fast.next = null;
+  var node = this.dict[key];
+  
+  if (node !== undefined && node !== null && node.val !== null) {
+    this.queue.moveToBack(node);
+  } else {
+    return -1;
   }
 
-  return this.dict[key];
+  return node.val;
 }
 
-/**
- * @param key
- * @param value
- */
 LRUCache.prototype.put = function(key, value) {
-  let newNode = new Node(value);
-  this.dict[key] = newNode;
-  this.queue.append(newNode);
+  let node = this.dict[key];
+  if (node) {
+    node.value = value;
+    this.queue.moveToBack(node);
+  } else {
+    let node = new Node(value);
+    this.dict[key] = node;
+    if (this.queue.count >= this.capacity) {
+      this.queue.dequeue();
+    }
+    this.queue.enqueue(node);
+  }
 }
 
-// Main
-var cache = new LRUCache( 2 /* capacity */ );
+// TODO: Testing code:
+var cache = new LRUCache( 3 /* capacity */ );
 
 try {
   cache.put(1, 1);
   cache.put(2, 2);
-  cache.get(1);       // returns 1
+        // returns 1
   cache.put(3, 3);    // evicts key 2
+  cache.put(4, 4);    // evicts key 2
+  cache.get(4);       // returns -1 (not found)
+  cache.get(3);       // returns -1 (not found)
   cache.get(2);       // returns -1 (not found)
-  cache.put(4, 4);    // evicts key 1
   cache.get(1);       // returns -1 (not found)
-  cache.get(3);       // returns 3
-  cache.get(4);       // returns 4
+  cache.put(5, 5);    // evicts key 2
+  cache.get(1);       // returns -1 (not found)
+  cache.get(2);       // returns -1 (not found)
+  cache.get(3);       // returns -1 (not found)
+  cache.get(4);       // returns -1 (not found)
+  cache.get(5);       // returns -1 (not found)
 } catch (error) {
   console.log(error.stack);
 }
