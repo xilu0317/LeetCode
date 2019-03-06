@@ -3,30 +3,26 @@
  * @return {string[]}
  */
 var commonChars = function(A) {
+  // 1) please use map, otherwise the copied object will copy by reference
+  // 2) you cannot return {} while using the arrow function, use `new Ojbect()` instead
   let arrOfDict = Array(A.length).fill().map(() => new Object());
 
   for(let i = 0; i < A.length; i++) {
-    let curDic = arrOfDict[i];
+    let curDict = arrOfDict[i];
     let word = A[i];
     for (let j = 0; j < word.length; j++) {
-      if (!curDic[word[j]]) {
-        curDic[word[j]] = 1;
+      if (!curDict[word[j]]) {
+        curDict[word[j]] = 1;
       } else {
-        curDic[word[j]]++;
+        curDict[word[j]]++;
       }
     }
   }
 
-  let res = arrOfDict.reduce((acc,cur) =>dictSubtraction(acc,cur) ,arrOfDict[0]);
+  let res = arrOfDict.reduce((acc,cur) => dictSubtraction(acc,cur), arrOfDict[0]);
 
-  let outputArr = [];
-  for (let key in res) {
-    outputArr = outputArr.concat(Array(res[key]).fill(key));
-  }
-
-  
-
-  return outputArr;
+  // The object flattening is not really necessary here, note the reduce method cannot be used on objects
+  return Object.entries(res).reduce((acc,cur) => acc.concat(Array(cur[1]).fill(cur[0])),[]);
 };
 
 var dictSubtraction = (dict1, dict2) => {
