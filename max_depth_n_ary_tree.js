@@ -1,7 +1,9 @@
-function Node(val,children) {
-  this.val = val;
-  this.children = children;
-};
+class Node {
+  constructor(val, children) {
+    this.val = val;
+    this.children = children;
+  }
+}
 
 // note queue is dynamic
 // must record the size of the current queue
@@ -21,3 +23,12 @@ const  maxDepth = (root) => {
   }
   return res;
 }
+// r
+// 1        2     3     4
+// 5 6 7 8              9 10
+//                      11
+
+// BFS is essentially layer by layer exploration
+// Queue evolving like following
+// | 1 2 3 4 | 5 6 7 8 9 10 | 11 
+// Whenever you finish the first for loop you finish a layer
