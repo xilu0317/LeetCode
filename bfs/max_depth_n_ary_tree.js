@@ -16,7 +16,7 @@ const  maxDepth = (root) => {
       for (let i = 0; i < curQueueLen; ++i) {
           let node = q.shift(); // queue is shrinking
           for (let child of node.children) {
-            if (child) q.push(child); // queue is expanding
+            q.push(child); // queue is expanding
           }
       }
       ++res;
