@@ -1,3 +1,4 @@
+// Generate a BST
 class TreeNode {
   constructor(val) {
     this.val = val;
@@ -55,6 +56,3 @@ const bfs = (root) => {
 // main code
 let root = generateBST(10);
 bfs(root);
-
-
-
