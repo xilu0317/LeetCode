@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-// BFS = layer-by-layer exploration
+// BFS = layer-by-layer exploration (if the graph is acyclic)
 
 // BFS iterative
 const bfs = (root) => {
