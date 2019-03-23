@@ -5,9 +5,21 @@ class Node {
   }
 }
 
+
+// Generate graph
+
+
+// main testing code
+
+
+
+
+
+
 // BFS = layer-by-layer exploration (if the graph is acyclic)
 
-// BFS iterative
+// BFS Iterative
+// Probably should use `Neighbor` instead of `Children`
 const bfs = (root) => {
   if (!root) return;
 
@@ -27,6 +39,9 @@ const bfs = (root) => {
   }
 }
 
-// BFS recursive
+// BFS Recursive
 // Not really necessary unless there is a specific interview question asking for it
 // https://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively
+
+
+

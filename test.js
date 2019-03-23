@@ -27,6 +27,46 @@ const generateBST = (num) => {
   return _generateBSTRec(arr, 0, arr.length - 1);
 }
 
+// Generate a tree from an array
+// Input array:
+// [1, 3, 2, 5, 3, null, 9]
+//         1
+//      /     \
+//     3       2
+//    / \     / \
+//   5   3   X   9
+/**
+ * @param {number[]} arr
+ * @return {TreeNode} root
+ */
+const generateBinaryTreeFromArray = (arr) => {
+  if (!arr) return null;
+
+  let root = new TreeNode(arr[0]);
+  let q = [root];
+
+  for (let i = 0; i < arr.length; i++) {
+    let left = 2 * i + 1;
+    let right = 2 * i + 2;
+    let node = q.shift();
+
+    if (left < arr.length && arr[left]) {
+      let newLeft = new TreeNode(arr[left]);
+      q.push(newLeft);
+      node.left = newLeft;
+    }
+
+    if (right < arr.length && arr[right]) {
+      let newRight =  new TreeNode(arr[right]);
+      q.push(newRight);
+      node.right = newRight;
+    }
+  }
+
+  return root;
+}
+
+// Tree Traversal 
 // BFS iterative
 const bfs = (root) => {
   if (!root) return;
@@ -48,24 +88,18 @@ const bfs = (root) => {
   }
 }
 
-// DFS Backtrack iterative using stack
+// DFS Backtrack iterative using stack, In-order traversal
 
 // DFS recursive
 
-// Generate a tree from an array
-// Input array:
-// [1, 3, 2, 5, 3, null, 9]
-//         1
-//      /     \
-//     3       2
-//    / \     / \
-//   5   3   X   9
 
 
 
-// main code
-let root = generateBST(10);
+
+
+
+// Main
+// let root = generateBST(10);
+let root = generateBinaryTreeFromArray([1,3,2,5,3,null,9]);
 bfs(root);
-
-
 
