@@ -50,13 +50,13 @@ const generateBinaryTreeFromArray = (arr) => {
     let right = 2 * i + 2;
     let node = q.shift();
 
-    if (left < arr.length && arr[left]) {
+    if (left < arr.length && arr[left] !== null) {
       let newLeft = new TreeNode(arr[left]);
       q.push(newLeft);
       node.left = newLeft;
     }
 
-    if (right < arr.length && arr[right]) {
+    if (right < arr.length && arr[right] !== null) {
       let newRight =  new TreeNode(arr[right]);
       q.push(newRight);
       node.right = newRight;
