@@ -1,177 +1,103 @@
-class TreeNode {
+// In leetcode `neighbor` is normally refered to as `children`
+class Node {
+  // More general node can be consisted of key, data, neighbors, visited
+  // ----------------------
+  //          Node
+  // ----------------------
+  //   * key (val): unique
+  //   * data
+  //   * visited
+  //   * neighbors
+  // ----------------------
   constructor(val) {
     this.val = val;
-    this.left = this.right = null;
+    this.neighbors = [];
+    this.visited = false;
+  }
+
+  addNeighbor(node) {
+    if (node) {
+      this.neighbors.push(node);
+    }
   }
 }
 
-const _generateBSTRec = (arr, low, high) => {
-  if (!arr) return null;
-  if (low > high) return null;
+// Difference between graph and tree: A graph can have a cycle
 
-  let mid = parseInt((low + high)/2);
-  let root = new TreeNode(arr[mid]);
+// A graph with 6 nodes and 6 edges
+//
+//         (1) (root)
+//       /     \
+//      /       \
+//    (2)-------(3)------(4)
+//     |          \
+//     |           \
+//    (5)          (6)
+//
+// Describe the graph its edges
+// 2D array [[1,2],[1,3],[2,3],[2,5],[3,4],[4,6]]
 
-  root.left = _generateBSTRec(arr, low, mid - 1);
-  root.right = _generateBSTRec(arr, mid + 1, high);
-
-  return root;
-};
-
+// Generate graph
 /**
- * @param {number} num
- * @return {TreeNode} root
+ * @param {number[number[]]} edgeList
+ * @return {Node} root
  */
-// BST from 1 to 15
-//
-//               8 (root)
-//             /   \
-//            /     \
-//           /       \
-//          /         \
-//         /           \
-//        4            12
-//      /   \        /    \
-//     2     6      10    14
-//    / \   / \    / \   /  \
-//   1   3 5   7  9  11 13  15
-//
-const generateBST = (num) => {
-  let arr = Array(num).fill().map((v,i) => i+1);
-  return _generateBSTRec(arr, 0, arr.length - 1);
-};
+const generateGraphByEdgeList = (edgeList) => {
+  if (!edgeList) return null;
 
-// Generate a tree from an array
-// Input array:
-// [1, 3, 2, 5, 3, null, 9]
-//
-//         1
-//       /   \
-//      /     \
-//     3       2
-//    / \     / \
-//   5   3  nul  9
-//
-/**
- * @param {number[]} arr
- * @return {TreeNode} root
- */
-const generateBinaryTreeFromArray = (arr) => {
-  if (!arr) return null;
+  let root;
+  let dict = {};
+  let set = new Set(edgeList.flat().sort());
+  let flag = true;
 
-  let root = new TreeNode(arr[0]);
-  let q = [root];
-
-  for (let i = 0; i < arr.length; i++) {
-    let left = 2 * i + 1;
-    let right = 2 * i + 2;
-    let node = q.shift();
-
-    if (left < arr.length && arr[left] !== null) {
-      let newLeft = new TreeNode(arr[left]);
-      q.push(newLeft);
-      node.left = newLeft;
-    }
-
-    if (right < arr.length && arr[right] !== null) {
-      let newRight =  new TreeNode(arr[right]);
-      q.push(newRight);
-      node.right = newRight;
+  for (let item of set) {
+    dict[item] = new Node(item);
+    if (flag) {
+      root = dict[item];
+      flag = false; // only set root once and it
     }
   }
 
-  return root;
-};
+  for (let edge of edgeList) {
+    let key0 = edge[0];
+    let key1 = edge[1];
 
-// Tree Traversal
-// BFS iterative
+    let startNode = dict[key0];
+    let endNode = dict[key1];
+
+    startNode.addNeighbor(endNode);
+    endNode.addNeighbor(startNode);
+  }
+
+  return root;
+}
+
+// BFS Iterative
 const bfs = (root) => {
   if (!root) return;
 
   let q = [root];
-  while(q.length) {
-    let len = q.length;
-    for (let i = 0; i < len; i++) {
-      let node = q.shift();
-      console.log('vist -> ' + node.val);
-      if (node.left) {
-        q.push(node.left);
+  while (q.length) {
+    let len = q.length; // Record current length at the level
+    for (let i = 0; i < len; ++i) {
+      let node = q.shift(); // Dequeue nodes that were loaded from the last round
+      // Node visit
+      console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
+      node.visited = true;
+      for (let neighbor of node.neighbors) { // Use `of` not `in`
+        if (neighbor && !neighbor.visited) { // If the current is null or undefined, don't push to queue
+          q.push(neighbor);
+        }
       }
-      if (node.right) {
-        q.push(node.right);
-      }
-    }
-    console.log("-----level-------");
+    } // end of level for-loop
   }
-};
+}
 
-// DFS [Backtrack] iterative using stack, In-order traversal
-// Here is how you remember it.
-// You are entering in the woods. To make sure that you don't lost in the woods you keep a notebook with you to keep track.
-// The notebook is called `stack`.  When you enter a new area/node, you mark it down on your note book before you go further.
-// You keep going to the left until there is no way left to go. Now you pull out your notebook to `backtrack` to the previous
-// location, once you have arrived at the previous position from where you came from, you mark it off your notebook/stack.
-// At the backtracked position, you know the way to the left is a deadend, you then wisely decided to move to the right this time.
-// You tirelessly repeat the above procedure, once you have marked off all positions in your notebook you have finally arived in
-// destination! Surprise surpise you are still stuck in the fking woods LOL!
-const dfs = (root) => {
-  if (!root) return;
-
-  let node = root;
-  let stack = [];
-
-  while (true) {
-    if (node) {
-      stack.push(node);
-      node = node.left;
-    } else {
-      if (stack.length) {
-        node = stack.pop(); // backtrack to the last position
-        console.log('visit -> ' + node.val); // visit
-        node = node.right;
-      } else {
-        break;
-      }
-    }
-  }
-};
-
-// PreOrder Recursive
-const preOrderTraversal = (root) => {
-  if (!root) return;
-
-  console.log('visit -> ' + root.val);
-  preOrderTraversal(root.left);
-  preOrderTraversal(root.right);
- };
-
-// InOrder Recursive
-const InOrderTraversal = (root) => {
-  if (!root) return;
-
-  InOrderTraversal(root.left);
-  console.log('visit -> ' + root.val);
-  InOrderTraversal(root.right);
-};
-
-// PostOrder Recursive
-const postOrderTraversal = (root) => {
-  if (!root) return;
-
-  postOrderTraversal(root.left);
-  postOrderTraversal(root.right);
-  console.log('visit -> ' + root.val);
- };
-
+// BFS Recursive = [Not necessary]
+// https://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively
 
 // Main
-// Binary tree initialization
-let root = generateBST(15);
-//let root = generateBinaryTreeFromArray([1,3,2,5,3,null,9]);
-
-// Tree traversal
+let root = generateGraphByEdgeList([[1,2],[1,3],[2,3],[2,5],[3,4],[4,6]]);
 bfs(root);
-// dfs(root);
-// preOrderTraversal(root);
-// InOrderTraversal(root);
-// postOrderTraversal(root);
+
+
