@@ -83,10 +83,12 @@ const bfs = (root) => {
     for (let i = 0; i < len; ++i) {
       let node = q.shift(); // Dequeue nodes that were loaded from the last round
       // Node visit
-      console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
-      node.visited = true;
+      if (!node.visited) {
+        console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
+        node.visited = true;
+      }
       for (let neighbor of node.neighbors) { // Use `of` not `in`
-        if (neighbor && !neighbor.visited) { // If the current is null or undefined, don't push to queue
+        if (neighbor) { // If the current is null or undefined, don't push to queue
           q.push(neighbor);
         }
       }
