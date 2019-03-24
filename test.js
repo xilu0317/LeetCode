@@ -46,10 +46,11 @@ const generateBST = (num) => {
 // [1, 3, 2, 5, 3, null, 9]
 //
 //         1
+//       /   \
 //      /     \
 //     3       2
 //    / \     / \
-//   5   3   X   9
+//   5   3  nul  9
 //
 /**
  * @param {number[]} arr
@@ -113,7 +114,7 @@ const bfs = (root) => {
 // At the backtracked position, you know the way to the left is a deadend, you then wisely decided to move to the right this time.
 // You tirelessly repeat the above procedure, once you have marked off all positions in your notebook you have finally arived in
 // destination! Surprise surpise you are still stuck in the fking woods LOL!
-const dfsIterative = (root) => {
+const dfs = (root) => {
   if (!root) return;
 
   let node = root;
@@ -126,7 +127,7 @@ const dfsIterative = (root) => {
     } else {
       if (stack.length) {
         node = stack.pop(); // backtrack to the last position
-        console.log(node.val); // visit
+        console.log('visit -> ' + node.val); // visit
         node = node.right;
       } else {
         break;
@@ -139,7 +140,7 @@ const dfsIterative = (root) => {
 const preOrderTraversal = (root) => {
   if (!root) return;
 
-  console.log(root.val);
+  console.log('visit -> ' + root.val);
   preOrderTraversal(root.left);
   preOrderTraversal(root.right);
  };
@@ -149,7 +150,7 @@ const InOrderTraversal = (root) => {
   if (!root) return;
 
   InOrderTraversal(root.left);
-  console.log(root.val);
+  console.log('visit -> ' + root.val);
   InOrderTraversal(root.right);
 };
 
@@ -159,7 +160,7 @@ const postOrderTraversal = (root) => {
 
   postOrderTraversal(root.left);
   postOrderTraversal(root.right);
-  console.log(root.val);
+  console.log('visit -> ' + root.val);
  };
 
 
@@ -170,7 +171,7 @@ let root = generateBST(15);
 
 // Tree traversal
 bfs(root);
-// dfsIterative(root);
+// dfs(root);
 // preOrderTraversal(root);
 // InOrderTraversal(root);
 // postOrderTraversal(root);
