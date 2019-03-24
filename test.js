@@ -35,7 +35,7 @@ class Node {
 //    (5)          (6)
 //
 // Describe the graph its edges
-// 2D array [[1,2],[1,3],[2,3],[2,5],[3,4],[4,6]]
+// 2D array [[1,2],[1,3],[2,3],[2,5],[3,4],[3,6]]
 
 // Generate graph
 /**
@@ -73,6 +73,7 @@ const generateGraphByEdgeList = (edgeList) => {
 }
 
 // BFS Iterative
+// it seems node 3 and node 6 have been visited twice
 const bfs = (root) => {
   if (!root) return;
 
@@ -97,7 +98,7 @@ const bfs = (root) => {
 // https://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively
 
 // Main
-let root = generateGraphByEdgeList([[1,2],[1,3],[2,3],[2,5],[3,4],[4,6]]);
+let root = generateGraphByEdgeList([[1,2],[1,3],[2,3],[2,5],[3,4],[3,6]]);
 bfs(root);
 
 
