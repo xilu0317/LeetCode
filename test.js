@@ -16,25 +16,41 @@ const _generateBSTRec = (arr, low, high) => {
   root.right = _generateBSTRec(arr, mid + 1, high);
 
   return root;
-}
+};
 
 /**
  * @param {number} num
  * @return {TreeNode} root
  */
+// BST from 1 to 15
+//
+//               8 (root)
+//             /   \
+//            /     \
+//           /       \
+//          /         \
+//         /           \
+//        4            12
+//      /   \        /    \
+//     2     6      10    14
+//    / \   / \    / \   /  \
+//   1   3 5   7  9  11 13  15
+//
 const generateBST = (num) => {
   let arr = Array(num).fill().map((v,i) => i+1);
   return _generateBSTRec(arr, 0, arr.length - 1);
-}
+};
 
 // Generate a tree from an array
 // Input array:
 // [1, 3, 2, 5, 3, null, 9]
+//
 //         1
 //      /     \
 //     3       2
 //    / \     / \
 //   5   3   X   9
+//
 /**
  * @param {number[]} arr
  * @return {TreeNode} root
@@ -50,13 +66,13 @@ const generateBinaryTreeFromArray = (arr) => {
     let right = 2 * i + 2;
     let node = q.shift();
 
-    if (left < arr.length && arr[left]) {
+    if (left < arr.length && arr[left] !== null) {
       let newLeft = new TreeNode(arr[left]);
       q.push(newLeft);
       node.left = newLeft;
     }
 
-    if (right < arr.length && arr[right]) {
+    if (right < arr.length && arr[right] !== null) {
       let newRight =  new TreeNode(arr[right]);
       q.push(newRight);
       node.right = newRight;
@@ -64,9 +80,9 @@ const generateBinaryTreeFromArray = (arr) => {
   }
 
   return root;
-}
+};
 
-// Tree Traversal 
+// Tree Traversal
 // BFS iterative
 const bfs = (root) => {
   if (!root) return;
@@ -86,20 +102,75 @@ const bfs = (root) => {
     }
     console.log("-----level-------");
   }
-}
+};
 
-// DFS Backtrack iterative using stack, In-order traversal
+// DFS [Backtrack] iterative using stack, In-order traversal
+// Here is how you remember it.
+// You are entering in the woods. To make sure that you don't lost in the woods you keep a notebook with you to keep track.
+// The notebook is called `stack`.  When you enter a new area/node, you mark it down on your note book before you go further.
+// You keep going to the left until there is no way left to go. Now you pull out your notebook to `backtrack` to the previous
+// location, once you have arrived at the previous position from where you came from, you mark it off your notebook/stack.
+// At the backtracked position, you know the way to the left is a deadend, you then wisely decided to move to the right this time.
+// You tirelessly repeat the above procedure, once you have marked off all positions in your notebook you have finally arived in
+// destination! Surprise surpise you are still stuck in the fking woods LOL!
+const dfsIterative = (root) => {
+  if (!root) return;
 
-// DFS recursive
+  let node = root;
+  let stack = [];
 
+  while (true) {
+    if (node) {
+      stack.push(node);
+      node = node.left;
+    } else {
+      if (stack.length) {
+        node = stack.pop(); // backtrack to the last position
+        console.log(node.val); // visit
+        node = node.right;
+      } else {
+        break;
+      }
+    }
+  }
+};
 
+// PreOrder Recursive
+const preOrderTraversal = (root) => {
+  if (!root) return;
 
+  console.log(root.val);
+  preOrderTraversal(root.left);
+  preOrderTraversal(root.right);
+ };
 
+// InOrder Recursive
+const InOrderTraversal = (root) => {
+  if (!root) return;
 
+  InOrderTraversal(root.left);
+  console.log(root.val);
+  InOrderTraversal(root.right);
+};
+
+// PostOrder Recursive
+const postOrderTraversal = (root) => {
+  if (!root) return;
+
+  postOrderTraversal(root.left);
+  postOrderTraversal(root.right);
+  console.log(root.val);
+ };
 
 
 // Main
-// let root = generateBST(10);
-let root = generateBinaryTreeFromArray([1,3,2,5,3,null,9]);
-bfs(root);
+// Binary tree initialization
+let root = generateBST(15);
+//let root = generateBinaryTreeFromArray([1,3,2,5,3,null,9]);
 
+// Tree traversal
+bfs(root);
+// dfsIterative(root);
+// preOrderTraversal(root);
+// InOrderTraversal(root);
+// postOrderTraversal(root);
