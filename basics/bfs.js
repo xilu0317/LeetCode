@@ -82,11 +82,12 @@ const bfs = (root) => {
     let len = q.length; // Record current length at the level
     for (let i = 0; i < len; ++i) {
       let node = q.shift(); // Dequeue nodes that were loaded from the last round
-      // Node visit
+      // Node visit if haven't visited before
       if (!node.visited) {
         console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
         node.visited = true;
       }
+
       for (let neighbor of node.neighbors) { // Use `of` not `in`
         if (neighbor) { // If the current is null or undefined, don't push to queue
           q.push(neighbor);
