@@ -1,106 +1,72 @@
-// In leetcode `neighbor` is normally refered to as `children`
-class Node {
-  // More general node can be consisted of key, data, neighbors, visited
-  // ----------------------
-  //          Node
-  // ----------------------
-  //   * key (val): unique
-  //   * data
-  //   * visited
-  //   * neighbors
-  // ----------------------
-  constructor(val) {
-    this.val = val;
-    this.neighbors = [];
-    this.visited = false;
-  }
-
-  addNeighbor(node) {
-    if (node) {
-      this.neighbors.push(node);
-    }
-  }
-}
-
-// Difference between graph and tree: A graph can have a cycle
-
-// A graph with 6 nodes and 6 edges
-//
-//         (1) (root)
-//       /     \
-//      /       \
-//    (2)-------(3)------(4)
-//     |          \
-//     |           \
-//    (5)          (6)
-//
-// Describe the graph its edges
-// 2D array [[1,2],[1,3],[2,3],[2,5],[3,4],[3,6]]
-
-// Generate graph
 /**
- * @param {number[number[]]} edgeList
- * @return {Node} root
+ * // Definition for a Node.
+ * function Node(val,neighbors) {
+ *    this.val = val;
+ *    this.neighbors = neighbors;
+ * };
  */
-const generateGraphByEdgeList = (edgeList) => {
-  if (!edgeList) return null;
+/**
+ * @param {Node} node
+ * @return {Node}
+ */
 
-  let root;
-  let dict = {};
-  let set = new Set(edgeList.flat().sort());
-  let flag = true;
-
-  for (let item of set) {
-    dict[item] = new Node(item);
-    if (flag) {
-      root = dict[item];
-      flag = false; // only set root once and it
-    }
+class Node {
+  constructor(val, neighbors) {
+    this.val = val;
+    this.neighbors = neighbors;
   }
-
-  for (let edge of edgeList) {
-    let key0 = edge[0];
-    let key1 = edge[1];
-
-    let startNode = dict[key0];
-    let endNode = dict[key1];
-
-    startNode.addNeighbor(endNode);
-    endNode.addNeighbor(startNode);
-  }
-
-  return root;
 }
 
-// BFS Iterative
-// it seems node 3 and node 6 have been visited twice
-const bfs = (root) => {
-  if (!root) return;
+const cloneGraph = (root) => {
+  if (!root) return null;
 
   let q = [root];
-  while (q.length) {
-    let len = q.length; // Record current length at the level
-    for (let i = 0; i < len; ++i) {
-      let node = q.shift(); // Dequeue nodes that were loaded from the last round
-      // Node visit
-      if (!node.visited) {
-        console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
-        node.visited = true;
-      }
-      for (let neighbor of node.neighbors) { // Use `of` not `in`
-        if (neighbor) { // If the current is null or undefined, don't push to queue
-          q.push(neighbor);
+  let hm = new Map();
+
+  while(q.length) {
+    let node = q.shift();
+    let node2 = hm.get(node.val);
+
+    if (node2 === undefined) {
+      node2 = new Node(node.val,[]);
+      hm.set(node.val, node2);
+
+      for (let nb of node.neighbors) {
+        let nb2 = hm.get(nb.val);
+        if (nb2 === undefined) {
+          nb2 = new Node(nb.val,[]);
+          q.push(nb);
         }
+        node2.neighbors.push(nb2);
       }
-    } // end of level for-loop
+    }
   }
-}
 
-// BFS Recursive = [Not necessary]
-// https://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively
+  return hm.get(root.val);
+};
 
-// Main
-let root = generateGraphByEdgeList([[1,2],[1,3],[2,3],[2,5],[3,4],[3,6]]);
-bfs(root);
+
+// main
+let node1 = new Node(1,[]);
+let node2 = new Node(2,[]);
+let node3 = new Node(3,[]);
+let node4 = new Node(4,[]);
+
+node1.neighbors.push(node2);
+node1.neighbors.push(node4);
+
+node2.neighbors.push(node1);
+node2.neighbors.push(node3);
+
+node3.neighbors.push(node2);
+node3.neighbors.push(node4);
+
+node4.neighbors.push(node1);
+node4.neighbors.push(node3);
+
+let root2 = cloneGraph(node1);
+console.log(root2);
+
+console.log('done');
 
 
