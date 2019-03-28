@@ -42,7 +42,8 @@ const cloneGraph = (root) => {
     }
   }
 
-  return hm.get(root.val);
+  let root2 = hm.get(root.val);
+  return root2;
 };
 
 
@@ -67,6 +68,6 @@ node4.neighbors.push(node3);
 let root2 = cloneGraph(node1);
 console.log(root2);
 
-console.log('done');
+console.log('done done done');
 
 

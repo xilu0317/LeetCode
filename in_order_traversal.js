@@ -24,3 +24,30 @@ const inorderTraversal = (root) => {
 };
 
 // Think about my original algorithm where `in-order` didn't matter.
+
+// using do-while loop
+const inorderTraversal = (root) => {
+  if (!root) return [];
+
+  let curNode = root;
+  let stack = [];
+  let res = [];
+
+  do {
+    if (curNode) {
+      stack.push(curNode);
+      curNode = curNode.left;
+    } else {
+      curNode = stack.pop();
+      
+      // visit
+      if (curNode) {
+        res.push(curNode.val);
+      }
+      
+      curNode = curNode.right;
+    }
+  } while (curNode || stack.length);
+
+  return res;
+};
