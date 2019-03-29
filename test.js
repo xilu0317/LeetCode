@@ -25,27 +25,33 @@ const cloneGraph = (root) => {
 
   while(q.length) {
     let node = q.shift();
-    let node2 = hm.get(node.val);
-
-    if (node2 === undefined) {
-      node2 = new Node(node.val,[]);
-      hm.set(node.val, node2);
+    if (!hm.get(node))  {
+      let node2 = new Node(node.val,[]);
+      hm.set(node, node2);
 
       for (let nb of node.neighbors) {
-        let nb2 = hm.get(nb.val);
-        if (nb2 === undefined) {
-          nb2 = new Node(nb.val,[]);
-          q.push(nb);
-        }
+      q.push(nb);
+      }
+    }
+  }
+
+  let s = new Set();
+  q = [root];
+  while (q.length) {
+    let node = q.shift();
+    if (!s.has(node)) {
+      let node2 = hm.get(node);
+      s.add(node);
+      for (let nb of node.neighbors) {
+        q.push(nb);
+        let nb2 = hm.get(nb);
         node2.neighbors.push(nb2);
       }
     }
   }
 
-  let root2 = hm.get(root.val);
-  return root2;
+  return hm.get(root);
 };
-
 
 // main
 let node1 = new Node(1,[]);
