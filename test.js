@@ -1,63 +1,62 @@
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = this.right = null;
+  }
+}
+
 /**
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
 
+// My incorrect recursive solution
+var flatten = function(root) {
+if (!root) return;
 
+flatten(root.left);
+flatten(root.right);
 
- var flatten = function(root) {
-  if (!root) return;
-  
-  flatten(root.left);
-  flatten(root.right);
+let tmp = root.right;
+root.right = root.left;
 
-  let tmp = root.right;
-  root.right = root.left;
-  
-  let node = root.left;
-  while (node && node.right) {
-    node = node.right;
-  }
-  
-  if (node) {
-    node.right = tmp;
-  }
+let node = root.left;
+while (node && node.right) {
+  node = node.right;
+}
+
+if (node) {
+  node.right = tmp;
+}
 };
 
-
+// Pre-Order
 // https://longwayjade.wordpress.com/2015/04/23/leetcode-recursion-flatten-binary-tree-to-linked-list/
-// public class Solution {
-//   // We have to define a separete field to record which is our last vist node
-//   public TreeNode lastvisit = null; 
-//   public void flatten(TreeNode root) {
-//      if (root == null) return;
-//        TreeNode savedRight = root.right;  // have to save right, since right is going to be changed.
-//        if (lastvisit != null){
-//            lastvisit.left = null;
-//            lastvisit.right = root;
-//        }
-//        lastvisit = root;
-//        flatten(root.left);
-//        flatten(savedRight);
-//   }
-// }
+let curNode = null;
+const flatten = (node) => {
+  if (!node) return;
 
-// leet solution 2
-// private TreeNode prev = null;
+  let tmp = node.right;
 
-// public void flatten(TreeNode root) {
-//     if (root == null)
-//         return;
-//     flatten(root.right);
-//     flatten(root.left);
-//     root.right = prev;
-//     root.left = null;
-//     prev = root;
-// }
+  if (curNode) {
+    curNode.left = null;
+    curNode.right = node;
+  }
+
+  curNode = node;
+  flatten(node.left);
+  flatten(tmp);
+}
+
+// Post-Order
+let prev = null;
+const flatten_postOrder = (node) => {
+  if (!node) return;
+
+  flatten(node.right);
+  flatten(node.left);
+
+  node.right = prev;
+  node.left = null;
+  prev = node;
+}
