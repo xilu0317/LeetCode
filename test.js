@@ -1,79 +1,63 @@
 /**
- * // Definition for a Node.
- * function Node(val,neighbors) {
- *    this.val = val;
- *    this.neighbors = neighbors;
- * };
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
  */
 /**
- * @param {Node} node
- * @return {Node}
+ * @param {TreeNode} root
+ * @return {void} Do not return anything, modify root in-place instead.
  */
 
-class Node {
-  constructor(val, neighbors) {
-    this.val = val;
-    this.neighbors = neighbors;
+
+
+ var flatten = function(root) {
+  if (!root) return;
+  
+  flatten(root.left);
+  flatten(root.right);
+
+  let tmp = root.right;
+  root.right = root.left;
+  
+  let node = root.left;
+  while (node && node.right) {
+    node = node.right;
   }
-}
-
-const cloneGraph = (root) => {
-  if (!root) return null;
-
-  let q = [root];
-  let hm = new Map();
-
-  while(q.length) {
-    let node = q.shift();
-    if (!hm.get(node))  {
-      let node2 = new Node(node.val,[]);
-      hm.set(node, node2);
-
-      for (let nb of node.neighbors) {
-      q.push(nb);
-      }
-    }
+  
+  if (node) {
+    node.right = tmp;
   }
-
-  let s = new Set();
-  q = [root];
-  while (q.length) {
-    let node = q.shift();
-    if (!s.has(node)) {
-      let node2 = hm.get(node);
-      s.add(node);
-      for (let nb of node.neighbors) {
-        q.push(nb);
-        let nb2 = hm.get(nb);
-        node2.neighbors.push(nb2);
-      }
-    }
-  }
-
-  return hm.get(root);
 };
 
-// main
-let node1 = new Node(1,[]);
-let node2 = new Node(2,[]);
-let node3 = new Node(3,[]);
-let node4 = new Node(4,[]);
 
-node1.neighbors.push(node2);
-node1.neighbors.push(node4);
+// https://longwayjade.wordpress.com/2015/04/23/leetcode-recursion-flatten-binary-tree-to-linked-list/
+// public class Solution {
+//   // We have to define a separete field to record which is our last vist node
+//   public TreeNode lastvisit = null; 
+//   public void flatten(TreeNode root) {
+//      if (root == null) return;
+//        TreeNode savedRight = root.right;  // have to save right, since right is going to be changed.
+//        if (lastvisit != null){
+//            lastvisit.left = null;
+//            lastvisit.right = root;
+//        }
+//        lastvisit = root;
+//        flatten(root.left);
+//        flatten(savedRight);
+//   }
+// }
 
-node2.neighbors.push(node1);
-node2.neighbors.push(node3);
+// leet solution 2
+// private TreeNode prev = null;
 
-node3.neighbors.push(node2);
-node3.neighbors.push(node4);
-
-node4.neighbors.push(node1);
-node4.neighbors.push(node3);
-
-let root2 = cloneGraph(node1);
-console.log(root2);
-
-console.log('done done done');
-
-
+// public void flatten(TreeNode root) {
+//     if (root == null)
+//         return;
+//     flatten(root.right);
+//     flatten(root.left);
+//     root.right = prev;
+//     root.left = null;
+//     prev = root;
+// }
