@@ -171,7 +171,7 @@ module.exports = generateBinaryTreeFromArray;
 // Main
 // Binary tree initialization
 //let root = generateBST(15);
-//let root = generateBinaryTreeFromArray([1,3,2,5,3,null,9]);
+//let root = generateBinaryTreeFromArray([1,2,5,3,4,null,6]);
 
 // Tree traversal
 // bfs(root);

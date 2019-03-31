@@ -32,20 +32,20 @@ if (node) {
 
 // Pre-Order
 // https://longwayjade.wordpress.com/2015/04/23/leetcode-recursion-flatten-binary-tree-to-linked-list/
-let curNode = null;
+let prev = null;
 const flatten = (node) => {
   if (!node) return;
 
-  let tmp = node.right;
+  let temp = node.right;
 
-  if (curNode) {
-    curNode.left = null;
-    curNode.right = node;
+  if (prev) {
+    prev.left = null;
+    prev.right = node;
   }
 
-  curNode = node;
+  prev = node;
   flatten(node.left);
-  flatten(tmp);
+  flatten(temp);
 }
 
 // Post-Order
