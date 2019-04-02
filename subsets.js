@@ -1,20 +1,19 @@
 const subsets = (nums) => {
-  return _subsets(nums, 0, [], []);
+  return backtrack(nums, 0, [], []);
 }
 
-const _subsets = (nums, start, set, res) => {
+const backtrack = (nums, startIndex, stack, res) => {
 
-  res.push(set);
+  res.push(stack);
 
-  for(let i = start; i < nums.length; i++) {
-    set.push(nums[i]);
+  for(let i = startIndex; i < nums.length; i++) {
+    stack.push(nums[i]);
     // [...subset] is the key part here
     // the above will give a new array with different address
-    _subsets(nums, i+1, Array.from(set), res);
+    backtrack(nums, i+1, Array.from(stack), res);
     
-    set.pop();
+    stack.pop();
   }
   
   return res;
 }
-
