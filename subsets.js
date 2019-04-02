@@ -2,16 +2,16 @@ const subsets = (nums) => {
   return backtrack(nums, 0, [], []);
 }
 
-const backtrack = (nums, startIndex, stack, res) => {
+const backtrack = (nums, start, set, res) => {
 
-  res.push(stack);
+  res.push(set);
 
-  for(let i = startIndex; i < nums.length; i++) {
-    stack.push(nums[i]);
+  for(let i = start; i < nums.length; i++) {
+    set.push(nums[i]);
 
-    backtrack(nums, i + 1, Array.from(stack), res);
+    backtrack(nums, i + 1, Array.from(set), res);
 
-    stack.pop();
+    set.pop();
   }
 
   return res;
