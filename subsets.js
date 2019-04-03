@@ -1,4 +1,43 @@
+// My own easy-to-understand solution
+// Check an element from the array
+// The set without the element and the set with the elment will make up the powerset
+// And this relationship is recursively true as we build up the set
+
+// []
+// [] | [1] Add 1
+// [] [1] | [2] [1,2]  Add 2 
+// [] [1] [2] [1,2] | [3] [1,3] [2,3] [1,2,3] Add 3 
+
+// First inner for loop copies the set which is res[j]
+// [IMPORTANT] This copy cannot be done using reference
+// [...res[j]] is there to make sure the address is different
+
 const subsets = (nums) => {
+
+  let res = [];
+  res.push([]);
+
+  for (let i = 0; i < nums.length; ++i) {
+
+    let len = res.length;
+
+    for (let j = 0; j < len; ++j) {
+      // Remember how many hours you spent on debugging this shit
+      // [...res[j]] is a fking must, this will provide a new reference for the array!!!
+      res.push([...res[j]]);
+    }
+
+    for (let j = 0; j < len; ++j) {
+      res[j].push(nums[i]);
+    }
+
+  }
+
+  return res;
+}
+
+// From leetcode solution
+const subsets_solution = (nums) => {
   return backtrack(nums, 0, [], []);
 }
 

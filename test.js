@@ -1,21 +1,27 @@
+
 const subsets = (nums) => {
-  return backtrack(nums, 0, [], []);
-}
 
-const backtrack = (nums, start, stack, res) => {
+  let res = [];
+  res.push([]);
 
-  res.push(stack);
+  for (let i = 0; i < nums.length; ++i) {
 
-  for(let i = start; i < nums.length; i++) {
-    stack.push(nums[i]);
-    // [...subset] is the key part here
-    // the above will give a new array with different address
-    backtrack(nums, i+1, Array.from(stack), res);
-    
-    stack.pop();
+    let len = res.length;
+
+    for (let j = 0; j < len; ++j) {
+      res.push([...res[j]]);
+    }
+
+    for (let j = 0; j < len; ++j) {
+      res[j].push(nums[i]);
+    }
+
+    //res = oldArr.concat(res);
   }
-  
+
   return res;
+
 }
 
-subsets([1,2,3]);
+let s = subsets([1,2,3]);
+console.log(s);
