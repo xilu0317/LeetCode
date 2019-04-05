@@ -166,7 +166,9 @@ const postOrderTraversal = (root) => {
 // use this line to export the function you want in Nodejs, note browser Javascript might be different
 // const stuff = require('./basics/bst.js');
 // `stuff` will then be an alias to `generateBinaryTreeFromArray` in the calling file
-module.exports = generateBinaryTreeFromArray;
+
+// module.exports = generateBinaryTreeFromArray;
+module.exports = generateBST;
 
 // Main
 // Binary tree initialization

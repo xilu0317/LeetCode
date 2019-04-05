@@ -5,20 +5,18 @@
 
 // []
 // [] | [1] Add 1
-// [] [1] | [2] [1,2]  Add 2 
-// [] [1] [2] [1,2] | [3] [1,3] [2,3] [1,2,3] Add 3 
+// [] [1] | [2] [1,2]  Add 2
+// [] [1] [2] [1,2] | [3] [1,3] [2,3] [1,2,3] Add 3
 
 // First inner for loop copies the set which is res[j]
 // [IMPORTANT] This copy cannot be done using reference
 // [...res[j]] is there to make sure the address is different
 
 const subsets = (nums) => {
-
   let res = [];
   res.push([]);
 
   for (let i = 0; i < nums.length; ++i) {
-
     let len = res.length;
 
     for (let j = 0; j < len; ++j) {
@@ -30,7 +28,6 @@ const subsets = (nums) => {
     for (let j = 0; j < len; ++j) {
       res[j].push(nums[i]);
     }
-
   }
 
   return res;
