@@ -1,43 +1,22 @@
 /**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-/**
- * @param {TreeNode} root
- * @return {boolean}
- */
-const isSymmetric = (root) => {
-  if (!root) return false;
+const merge = (nums1, m, nums2, n) => {
+  let i = m - 1;
+  let j = n - 1;
+  let k = m + n - 1;
 
-  let node = root;
-  let stack = [];
-  let res = [];
-  let checkSymmetry = false;
-
-  while (true) {
-    if (node) {
-      stack.push(node);
-      node = node.left;
+  while (i >= 0 && j >= 0) {
+    if (nums1[i] > nums2[j]) {
+      nums1[k--] = nums1[i--];
     } else {
-      if (stack.length) {
-        node = stack.pop();
-        
-        if (node === root) checkSymmetry = true;
-        if (node !== root && checkSymmetry) {
-          if (res.pop() !== node.val) return false;
-        } else {
-          res.push(node.val);
-        }
-        
-        node = node.right;
-      } else {
-        break;
-      }
+      nums1[k--] = nums2[j--];
     }
   }
 
-  return true;
+  while (j >= 0) nums1[k--] = nums2[j--];
 };
