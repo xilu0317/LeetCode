@@ -46,6 +46,8 @@ const cloneGraph = (root) => {
   if (!root) return null;
 
   let q = [root];
+  // For the love of god, don't do hm = {} because the simple dict only do string -> object
+  // For object -> object mapping, use ES6 Map() instead!
   let hm = new Map();
 
   while(q.length) {
