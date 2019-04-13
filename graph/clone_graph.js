@@ -52,7 +52,7 @@ const cloneGraph = (root) => {
 
   while(q.length) {
     let node = q.shift();
-    if (!hm.get(node))  {
+    if (!hm.get(node)) {
       let node2 = new Node(node.val,[]);
       hm.set(node, node2);
 
