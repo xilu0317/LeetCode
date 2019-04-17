@@ -12,7 +12,7 @@ class TreeNode {
  * @return {void} Do not return anything, modify root in-place instead.
  */
 
-// My incorrect recursive solution
+// AC solution of my own
 function _flatten(node) {
   if (!node) return null;
 
