@@ -1,13 +1,8 @@
-/**
- * @param {string} digits
- * @return {string[]}
- */
-
-
-
 const letterCombinations = (digits) => {
+  // exit condition
   if (!digits) return [];
-  // to share the data across all recursed methods, I am passing them in
+  
+  // data setup
   let res = [];
   const dict = {};
   dict['2'] = 'abc';
@@ -20,11 +15,13 @@ const letterCombinations = (digits) => {
   dict['9'] = 'wxyz';
 
   backTrack('', digits, res, dict);
+  
   return res;
 };
 
-// effective this is some form of DFS
-// thus, this can be done by stack too
+// Effectively this is some form of recurisve DFS. Thus, this can be done by stack too.
+// Please review DFS files for details.
+// To share the data across all recursed methods, I am passing them in.
 const backTrack = (combinations, digits, res, dict) => {
   if (!digits.length) {
     res.push(combinations);
@@ -38,5 +35,3 @@ const backTrack = (combinations, digits, res, dict) => {
     backTrack(combinations + char, digits.substring(1), res, dict);
   }
 }
-
-
