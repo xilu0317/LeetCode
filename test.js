@@ -1,31 +1,45 @@
-const maxArea = (height) => {
-  if (!height) return 0;
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
 
-  let start = 0;
-  let end = height.length - 1;
-  let area = max = 0;
+// 1 ->    2 <- 3 <- rest
+// h
 
-  while (start < end) {
-    while (height[start] >= height[start + 1]) {
-      if (start >= end) return max;
-      ++start;
-    }
+const reverse = (head) => {
+  if (!head) return null;
 
-    area = (end - start) * Math.min(height[start], height[end]);
-    if (area > max) max = area;
-    ++start;
-      
-    while (height[end] >= height[end - 1]) {
-      if (start >= end) return max;
-      --end;
-    }
+  if (!head.next) return head;
 
-    area = (end - start) * Math.min(height[start], height[end]);
-    if (area > max) max = area;
-    --end;
+  let rest = reverse(head.next);
+
+  head.next = head;
+
+  return rest;
+}
+var isPalindrome = function(head) {
+  if (!head) return null;
+  
+  let slow = fast = head;
+
+  while (fast || fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
   }
 
-  return max;
-};
+  let mid = slow;
+  let head2 = reverse(mid);
 
-maxArea([1,8,6,2,5,4,8,3,7])
+  for (let node = head; node; node = node.next) {
+    if (head.val !== head2.val) return false
+  }
+
+  return true;
+};
