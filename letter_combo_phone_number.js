@@ -1,7 +1,7 @@
 const letterCombinations = (digits) => {
   // exit condition
   if (!digits) return [];
-  
+
   // data setup
   let res = [];
   const dict = {};
@@ -15,7 +15,7 @@ const letterCombinations = (digits) => {
   dict['9'] = 'wxyz';
 
   backTrack('', digits, res, dict);
-  
+
   return res;
 };
 
