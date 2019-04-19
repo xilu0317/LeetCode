@@ -163,18 +163,19 @@ const getHier = (hierString) => {
   for (let nodeClass of nodeClassList) {
     let node = nodeClass;
     let i = 1;
-    while (node.parentNode) {
+    while (node !== document.body) {
       if (node.classList.contains(hierList[i])) {
         ++i;
       }
 
       if (i === hierList.length) {
         res.push(nodeClass);
+        break; // this break is important
       }
 
       node = node.parentNode;
     }
   }
 
-  return [...new Set(res)];
+  return res;
 }
