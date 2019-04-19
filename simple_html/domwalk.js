@@ -163,7 +163,8 @@ const getHier = (hierString) => {
   for (let nodeClass of nodeClassList) {
     let node = nodeClass;
     let i = 1;
-    while (node !== document.body) {
+
+    while (node) {
       if (node.classList.contains(hierList[i])) {
         ++i;
       }
@@ -178,4 +179,4 @@ const getHier = (hierString) => {
   }
 
   return res;
-}
+};
