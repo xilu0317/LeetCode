@@ -1,6 +1,12 @@
-var render = function (template, node) {
-    node.innerHTML = template;
-};
+function render(template, node) {
+  // I think inner html is better because it does that interpretation
+  node.innerHTML = template;
+}
 
-var template = '<p>Hello world!</p>';
+function loadTemplate() {
+  let template = '<a href="https://www.google.com">click me</a>';
+
+  return template;
+}
+
 render(template, document.querySelector('#main'));

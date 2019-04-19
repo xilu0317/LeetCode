@@ -98,7 +98,9 @@ function getMyClassDFS(className, root = document.body) {
 // If the path contains every elements then increment the counter
 
 function getClassNameByHier(hierName) {
-  let hierList = hierName.split(/>/).reverse();
+  let hierList = hierName
+                  .split(/>/)
+                  .reverse();
   let lastClassName = hierList[0];
 
   let classNameArr = getMyClassBFS(lastClassName);
@@ -108,7 +110,7 @@ function getClassNameByHier(hierName) {
     let i = 1;
     let node = nodeWithClass;
     while (node.parentNode) {
-      
+
       // if contains hier increment count
       if (node.classList.contains(hierList[i])) {
         ++i;
@@ -117,10 +119,62 @@ function getClassNameByHier(hierName) {
       if (i === hierList.length) {
         classNamesRes.push(nodeWithClass);
       }
-      
+
       node = node.parentNode;
     }
   }
 
   return [...new Set(classNamesRes)];
+}
+
+// Beautiful ES6 syntax! I love it!
+const bfs = (className, root = document.body) => {
+  if (!className) return null;
+
+  let q = [root];
+  let res = [];
+
+  while (q.length) {
+    let node = q.shift();
+
+    if (node.classList.contains(className)) {
+      res.push(node);
+    }
+
+    for (let child of node.children) {
+      q.push(child);
+    }
+  }
+
+  return res;
+};
+
+const getHier = (hierString) => {
+  if (!hierString) return null;
+
+  let hierList = hierString
+                 .split(/>/)
+                 .reverse();
+
+  let lastClassName = hierList[0];
+  let nodeClassList = bfs(lastClassName);
+  let res = [];
+
+  for (let nodeClass of nodeClassList) {
+    let node = nodeClass;
+    let i = 1;
+    while (node.parentNode) {
+      if (node.classList.contains(hierList[i])) {
+        ++i;
+      }
+
+      if (i === hierList.length) {
+        res.push(nodeClass);
+      }
+
+      node = node.parentNode;
+    }
+  }
+
+  return [...new Set(res)];
 }
