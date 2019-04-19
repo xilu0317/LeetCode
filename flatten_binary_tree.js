@@ -12,7 +12,7 @@ class TreeNode {
  * @return {void} Do not return anything, modify root in-place instead.
  */
 
-// My incorrect recursive solution
+// AC solution of my own
 function _flatten(node) {
   if (!node) return null;
 
@@ -66,15 +66,16 @@ const flatten = (node) => {
   flatten(temp);
 }
 
-// Post-Order from leetcode
-let prev2 = null;
-const flatten_postOrder = (node) => {
-  if (!node) return;
+// Might not be right
+// // Post-Order from leetcode
+// let prev2 = null;
+// const flatten_postOrder = (node) => {
+//   if (!node) return;
 
-  flatten(node.right);
-  flatten(node.left);
+//   flatten_postOrder(node.right);
+//   flatten_postOrder(node.left);
 
-  node.right = prev2;
-  node.left = null;
-  prev2 = node;
-}
+//   node.right = prev2;
+//   node.left = null;
+//   prev2 = node;
+// }
