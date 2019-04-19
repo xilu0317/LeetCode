@@ -93,9 +93,13 @@ function getMyClassDFS(className, root = document.body) {
   return classList;
 }
 
+// The idea is to go from the `leaf` back up to the root
+// We only consider nodes that are `prefiltered` by the BFS/DFS traversal
+// If the path contains every elements then increment the counter
+
 function getClassNameByHier(hierName) {
-  let hierArr = hierName.split(/>/).reverse();
-  let lastClassName = hierArr[0];
+  let hierList = hierName.split(/>/).reverse();
+  let lastClassName = hierList[0];
 
   let classNameArr = getMyClassBFS(lastClassName);
   let classNamesRes = [];
@@ -105,12 +109,12 @@ function getClassNameByHier(hierName) {
     let node = nodeWithClass;
     while (node.parentNode) {
       
-      // contains
-      if (node.classList.contains(hierArr[i])) {
-        i++;
+      // if contains hier increment count
+      if (node.classList.contains(hierList[i])) {
+        ++i;
       }
 
-      if (i === hierArr.length) {
+      if (i === hierList.length) {
         classNamesRes.push(nodeWithClass);
       }
       
