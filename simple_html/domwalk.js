@@ -93,34 +93,90 @@ function getMyClassDFS(className, root = document.body) {
   return classList;
 }
 
-// Find the class hierachy
-// Method 1:
-// bottom up method: go from the leaf/node and home it back to root
-// if c b a are found before root, keep the d node, otherwise ignore it
-let hierachy = 'a>b>c>d';
+// The idea is to go from the `leaf` back up to the root
+// We only consider nodes that are `prefiltered` by the BFS/DFS traversal
+// If the path contains every elements then increment the counter
 
 function getClassNameByHier(hierName) {
-  let hierArr = hierName.split(/>/).reverse();
-  let lastClassName = hierArr[0];
+  let hierList = hierName
+                  .split(/>/)
+                  .reverse();
+  let lastClassName = hierList[0];
 
   let classNameArr = getMyClassBFS(lastClassName);
   let classNamesRes = [];
 
-  let node = null;
-  let i = 1;
-  for (let classNode of classNameArr) {
-    while (classNode.parentNode !== document.body && i < hierArr.length) {
-      node = classNode.parentNode;
-      if (node.contains(hierArr[i])) {
-        i++;
-        node = node.parentNode;
+  for (let nodeWithClass of classNameArr) {
+    let i = 1;
+    let node = nodeWithClass;
+    while (node.parentNode) {
+
+      // if contains hier increment count
+      if (node.classList.contains(hierList[i])) {
+        ++i;
       }
 
-      if (i === hierArr.length) {
-        classNamesRes.push(classNode);
+      if (i === hierList.length) {
+        classNamesRes.push(nodeWithClass);
       }
+
+      node = node.parentNode;
     }
   }
 
-  return classNamesRes;
+  return [...new Set(classNamesRes)];
 }
+
+// Beautiful ES6 syntax! I love it!
+const bfs = (className, root = document.body) => {
+  if (!className) return null;
+
+  let q = [root];
+  let res = [];
+
+  while (q.length) {
+    let node = q.shift();
+
+    if (node.classList.contains(className)) {
+      res.push(node);
+    }
+
+    for (let child of node.children) {
+      q.push(child);
+    }
+  }
+
+  return res;
+};
+
+const getHier = (hierString) => {
+  if (!hierString) return null;
+
+  let hierList = hierString
+                 .split(/>/)
+                 .reverse();
+
+  let lastClassName = hierList[0];
+  let nodeClassList = bfs(lastClassName);
+  let res = [];
+
+  for (let nodeClass of nodeClassList) {
+    let node = nodeClass;
+    let i = 1;
+
+    while (node) {
+      if (node.classList.contains(hierList[i])) {
+        ++i;
+      }
+
+      if (i === hierList.length) {
+        res.push(nodeClass);
+        break; // this break is important
+      }
+
+      node = node.parentNode;
+    }
+  }
+
+  return res;
+};
