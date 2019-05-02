@@ -26,14 +26,17 @@ const calculate = (s) => {
       num = 0;
       sign = -1;
     } else if (c === '(') {
+      // notice the order is reversed so when poping
       stack.push(res);
       stack.push(sign);
       sign = 1;
       res = 0;
     } else if (c === ')') {
-      res += sign * num;  
+      res += sign * num;
       num = 0;
-      res *= stack.pop(); 
+      // first the sign is popped
+      res *= stack.pop();
+      // then the number is popped
       res += stack.pop();
     }
   }
