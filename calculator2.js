@@ -41,5 +41,5 @@ const calculate = (s) => {
     }
   }
 
-  return stack.reduce((acc, cur) => acc + cur);;
+  return stack.reduce((acc, cur) => acc + cur);
 };
