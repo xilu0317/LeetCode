@@ -10,15 +10,15 @@ const generateParenthesis = (n) => {
 
 // This is backtrack but however it is less akin to the dfs.
 // It doesn't seem to have the notion of children.
-const backtrack = (list, str, open, close, max) => {
+const backtrack = (list, str, numOpen, numClose, max) => {
   // exit condition
   if (str.length === max * 2) {
     list.push(str);
     return;
   }
 
-  // number of open bracket less than the max number of brackets allowed
-  if (open < max) backtrack(list, str + '(', open + 1, close, max);
-  // if the number of close bracket is lower than the open bracket recurse
-  if (close < open) backtrack(list, str + ')', open, close + 1, max);
+  // number of numOpen bracket less than the max number of brackets allowed
+  if (numOpen < max) backtrack(list, str + '(', numOpen + 1, numClose, max);
+  // if the number of close bracket is lower than the numOpen bracket recurse
+  if (numClose < numOpen) backtrack(list, str + ')', numOpen, numClose + 1, max);
 }
