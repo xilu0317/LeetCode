@@ -1,0 +1,236 @@
+<html>
+
+<head>
+  <style>
+    #wrap {
+      margin:0 auto;
+    }
+
+    #left_col {
+      float:left;
+      width:50%;
+      height:90%;
+    }
+
+    #right_col {
+      float:right;
+      width:50%;
+      height:90%;
+    }
+
+    #my_button {
+      width: 8%;
+      height: 6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 90%;
+      right: 50%;
+      font-size: 100%;
+    }
+
+    div.scale {
+      width: 20px;
+      height: 500px;
+      margin: 0px 0px 0px 60px;
+      position: absolute;
+    }
+
+    div.marker {
+      height: 123px;
+      width: 20px;
+      border-width: 1px 0px 1px 0px;
+      border-style: solid;
+      border-color: #888888;
+      position: static;
+    }
+
+    div.topmarker {
+      border-width: 2px 0px 1px 0px;
+      height: 122px;
+    }
+
+    div.bottommarker {
+      border-width: 1px 0px 2px 0px;
+      height: 122px;
+    }
+
+    div.bar {
+      width: 30px;
+      height: 500px;
+      border: 0px 30px;
+      margin: 0px 30px;
+      position: absolute;
+      background: linear-gradient(to bottom, #dd8888 0%, #cc9955 30%, #cccc88 70%, #88cc88 100%);
+    }
+
+    div.blob {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      position: absolute;
+      border: 1px solid #999999;
+    }
+
+    .a1 {
+      position: absolute;
+      top: 120px;
+      background-color: rgba(204, 165, 95, 0.45);
+    }
+
+    .a2 {
+      position: absolute;
+      top: 90px;
+      background-color: rgba(204, 153, 85, 0.45);
+    }
+
+    .a3 {
+      position: absolute;
+      top: 300px;
+      background-color: rgba(204, 204, 136, 0.45);
+    }
+
+    .a4 {
+      position: absolute;
+      top: 400px;
+      background-color: rgba(204, 204, 136, 0.45);
+    }
+
+    p.left_text {
+      font-size: x-large;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    .marker:after {
+      content:'';
+      display:inline-block;
+      width:100%; height:100%;
+      margin-right:-100%;
+      border-bottom:1px solid #000;
+    }
+
+    /* how to rotate the text */
+    /* p {
+      -ms-transform: rotate(-90deg); 
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+      position: absolute;
+      top: 40%;
+      right: 50%;
+    } */
+
+    /* how to draw a line */
+    .line {
+      position: absolute;
+      background-color: #756e6e;
+    }
+
+    .horizontal {
+      width: 10%;
+      height: 1px;
+      
+    }
+
+    #line2 {
+      top: 10%;
+      left: 10%;
+    }
+
+    /* text for the graphical bar */
+    .bar_text {
+      position: absolute;
+    }
+
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="test.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+
+    <div id="left_col" style="background-color:#fff;">
+        <p class="left_text">Overall verdict</p>
+        <p class="left_text">Suspicious</p>
+
+        <p class="left_text">XG Antivirus Scan</p>
+        <p class="left_text">No detections</p>
+
+        <p class="left_text">Threat Intelligence result</p>
+        <p class="left_text">%86 Suspicious</p>
+
+        <p class="left_text">Based on:</p>
+
+        <ul>
+          <li><a href="">File Reputation</a></li>
+          <li><a href="">Code similiarity index</a></li>
+          <li><a href="">ML Score</a></li>
+        </ul>
+
+        <p>Sandstorm result</p>
+        <p>Not run</p>
+        <p>Incompatible file</p>
+
+    </div>
+
+    <div id="right_col" style="background-color:#fff;">
+      
+      <!-- text for graph -->
+      <div>
+        <p class="bar_text" id="bar_text_sandstorm">
+        Sandstorm
+        </p>
+      </div>
+
+      <div>
+        <p class="bar_text" id="bar_text_file_rep">
+        File Reputation
+        </p>
+      </div>
+
+      <div>
+        <p class="bar_text" id="bar_text_ml_score">
+        ML Score
+        </p>
+      </div>
+
+      <div>
+        <p class="bar_text" id="bar_text_attribute">
+        Attribute Cascade
+        </p>
+      </div>
+
+      <!-- line connecting text and graph -->
+      <div id="line1" class="line horizontal"></div>
+      <div id="line2" class="line horizontal"></div>
+      <div id="line3" class="line horizontal"></div>
+      <div id="line4" class="line horizontal"></div>
+
+      <!-- graph -->
+      <div class="bar"></div>
+      <div class="blob a1"></div>
+      <div class="blob a2"></div>
+      <div class="blob a3"></div>
+      <div class="blob a4"></div>
+      <!-- <div class="scale"></div> -->
+      <!-- <div class="marker topmarker"></div> -->
+      <!-- <div class="marker"></div> -->
+      <!-- <div class="marker"></div> -->
+      <!-- <div class="marker bottommarker"></div> -->
+      
+    </div>
+
+  </div>
+
+  <div>
+    <button id="my_button">View full report</button>
+  </div>
+
+</body>
+
+</html>
