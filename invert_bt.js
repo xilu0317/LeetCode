@@ -5,14 +5,13 @@
  *     this.left = this.right = null;
  * }
  */
+
 /**
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-  if (root === null) {
-    return null;
-  }
+const invertTree = (root) => {
+  if (!root) return null;
 
   if (root.left === null && root.right === null) {
     return root;

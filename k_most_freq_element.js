@@ -3,8 +3,8 @@
  * @param {number} k
  * @return {number[]}
  */
-var topKFrequent = function(nums, k) {
 
+const topKFrequent = (nums, k) => {
   var dict = {};
 
   for(let num of nums) {
@@ -21,15 +21,15 @@ var topKFrequent = function(nums, k) {
   }
 
   // sort based on the value
-  arr.sort( (a, b) => b[1] - a[1]);
-  // retain only first k element
+  arr.sort((a, b) => b[1] - a[1]);
+  // retain only the first k elements
   arr.length = k;
 
-  return arr.map( x => x[0]);
+  return arr.map(x => x[0]);
 };
 
 
-// testing code
+// test case
 let nums = [4,1,-1,2,-1,2,3];
 let k = 2;
 

@@ -1,5 +1,6 @@
 const buildDict = (words) => {
   const dict = {};
+
   for (let word of words) {
     if (!dict[word]) {
       dict[word] = 1;
@@ -7,24 +8,26 @@ const buildDict = (words) => {
       dict[word]++;
     }
   }
+
   return dict;
-}
+};
 
 // This is the most important part!
-const twoRowComparator = (a,b) => {
+const twoRowComparator = (a, b) => {
   // descending order
-  if (b[1]>a[1]) return 1;
-  if (a[1]>b[1]) return -1;
+  if (b[1] > a[1]) return 1;
+  if (a[1] > b[1]) return -1;
+
   // intentionally leaving out the case when a[1] === b[1]
 
   // ascending order
   if (a[0] > b[0]) return 1;
   if (a[0] < b[0]) return -1;
   if (a[0] === b[0]) return 0;
-}
+};
 
-var topKFrequent = function(words, k) {
-  if (words === null || k <= 0 ) throw 'Illegal argument exception!';
+const topKFrequent = (words, k) => {
+  if (words === null || k <= 0) throw 'Illegal argument exception!';
 
   const dict = buildDict(words);
 
@@ -32,6 +35,7 @@ var topKFrequent = function(words, k) {
                      .sort(twoRowComparator)
                      .map(x => x[0]);
 
+  // truncation here
   outArr.length = k;
 
   return outArr;

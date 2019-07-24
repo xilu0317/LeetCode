@@ -32,5 +32,6 @@ const isUnivalTree = (root) => {
           }
       }
   }
+  
   return true;
 };

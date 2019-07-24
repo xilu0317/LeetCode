@@ -7,7 +7,7 @@
 // Speical processing of the boundary condition where you have 'abbccbbbb'
 // Note there is no way to use the `change of character` to detect the last group
 
-var largeGroupPositions = function(S) {
+var largeGroupPositions = (S) => {
   if (!S) return null;
   
   let start = 0;
