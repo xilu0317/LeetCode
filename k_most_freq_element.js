@@ -28,7 +28,6 @@ const topKFrequent = (nums, k) => {
     return arr.map(x => x[0]);
 };
 
-
 // test case
 let nums = [4, 1, -1, 2, -1, 2, 3];
 let k = 2;

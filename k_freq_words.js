@@ -31,12 +31,12 @@ const topKFrequent = (words, k) => {
 
     const dict = buildDict(words);
 
-    let outArr = Object.entries(dict)
-        .sort(twoRowComparator)
-        .map(x => x[0]);
+    let res = Object.entries(dict)
+                    .sort(twoRowComparator)
+                    .map(x => x[0]);
 
     // truncation here
-    outArr.length = k;
+    res.length = k;
 
-    return outArr;
+    return res;
 };
