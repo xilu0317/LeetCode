@@ -23,7 +23,6 @@ const oddEvenList = (head) => {
             if (cur1.next) {
                 cur1 = cur1.next;
             }
-
         }
         if (cur1) {
             cur2.next = cur1.next;

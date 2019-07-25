@@ -5,7 +5,7 @@ const isDigit = (c) => {
     if (c === ' ') return false;
 
     return !isNaN(c);
-}
+};
 
 const calculate = (s) => {
     if (!s || !s.length) return 0;
