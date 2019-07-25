@@ -96,7 +96,7 @@ const bfs = (root) => {
             }
         } // end of level for-loop
     }
-}
+};
 
 // BFS Recursive = [Not necessary]
 // https://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively

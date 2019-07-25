@@ -21,4 +21,4 @@ const binaryTreePaths = (root) => {
     }
 
     return res;
-}
+};

@@ -85,7 +85,7 @@ const generateGraphByEdgeList = (edgeList) => {
     }
 
     return root;
-}
+};
 
 // DFS iterative + using node's is visisted method
 const dfs = (root) => {
@@ -107,7 +107,7 @@ const dfs = (root) => {
             }
         }
     }
-}
+};
 
 // DFS iterative + Set method
 const dfs2 = (root) => {
@@ -131,7 +131,7 @@ const dfs2 = (root) => {
             }
         }
     }
-}
+};
 
 // DFS Recursive method
 const dfsRec = (root) => {
@@ -145,9 +145,9 @@ const dfsRec = (root) => {
             dfsRec(nb);
         }
     }
-}
+};
 
-// Main
+// test case
 
 // Setup the graph
 // 9 Nodes, 11 Edges

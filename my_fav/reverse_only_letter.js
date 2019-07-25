@@ -2,7 +2,7 @@
  * @param {string} S
  * @return {string}
  */
-var reverseOnlyLetters = function (S) {
+const reverseOnlyLetters = (S) => {
     if (!S) return S;
 
     let letterRegex = /\b[a-z]\b/i;
@@ -14,14 +14,14 @@ var reverseOnlyLetters = function (S) {
         }
     }
 
-    let stringArr = [];
+    let res = [];
     for (let i = 0; i < S.length; i++) {
         if (letterRegex.test(S[i])) {
-            stringArr.push(stack.pop());
+            res.push(stack.pop());
         } else {
-            stringArr.push(S[i]);
+            res.push(S[i]);
         }
     }
 
-    return stringArr.join('');
+    return res.join('');
 };

@@ -2,7 +2,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var orangesRotting = function (grid) {
+const orangesRotting = (grid) => {
     let m = grid.length;
     let n = grid[0].length;
     let q = [];

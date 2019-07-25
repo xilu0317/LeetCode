@@ -2,7 +2,7 @@
  * @param {string[]} A
  * @return {string[]}
  */
-var commonChars = function (A) {
+const commonChars = (A) => {
     // 1) please use map, otherwise the copied object will copy by reference
     // 2) you cannot return {} while using the arrow function, use `new Ojbect()` instead
     let arrOfDict = Array(A.length).fill().map(() => new Object());
@@ -25,7 +25,7 @@ var commonChars = function (A) {
     return Object.entries(res).reduce((acc, cur) => acc.concat(Array(cur[1]).fill(cur[0])), []);
 };
 
-var dictSubtraction = (dict1, dict2) => {
+const dictSubtraction = (dict1, dict2) => {
     if (dict1 === null || Object.keys(dict1).length === 0) {
         return {};
     }
@@ -46,4 +46,4 @@ var dictSubtraction = (dict1, dict2) => {
     }
 
     return dict1;
-}
+};

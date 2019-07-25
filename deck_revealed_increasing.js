@@ -13,20 +13,20 @@
 // 2 13 3 11 5 17 7 
 
 
-var deckRevealedIncreasing = function (deck) {
+const deckRevealedIncreasing = (deck) => {
     if (!deck) return deck;
 
     deck.sort((a, b) => b - a)
-    let outArr = [];
+    let res = [];
 
     while (deck.length > 0) {
-        outArr.unshift(deck.shift());
+        res.unshift(deck.shift());
 
         // I won't figure out the edge case without the simulation 
         if (deck.length > 0) {
-            outArr.unshift(outArr.pop())
+            res.unshift(res.pop())
         }
     }
 
-    return outArr;
+    return res;
 };

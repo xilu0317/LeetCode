@@ -19,6 +19,6 @@ const generateListNodeFromArray = (arr) => {
     }
 
     return head;
-}
+};
 
 module.exports = generateListNodeFromArray;
