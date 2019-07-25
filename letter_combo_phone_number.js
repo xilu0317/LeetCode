@@ -31,7 +31,7 @@ const backTrack = (combinations, digits, res, dict) => {
     let digit = digits[0];
     let letters = dict[digit];
 
-    for (let char of letters) {
-        backTrack(combinations + char, digits.substring(1), res, dict);
+    for (let c of letters) {
+        backTrack(combinations + c, digits.substring(1), res, dict);
     }
 };
