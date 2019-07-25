@@ -6,13 +6,8 @@ class ListNode {
 }
 
 var addTwoNumbers = function (l1, l2) {
-    if (!l1) {
-        return l2;
-    }
-
-    if (!l2) {
-        return l1;
-    }
+    if (!l1) return l2;
+    if (!l2) return l1;
 
     let head = new ListNode(0);
     let cur = head;
