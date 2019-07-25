@@ -1,42 +1,42 @@
 const buildDict = (words) => {
-  const dict = {};
+    const dict = {};
 
-  for (let word of words) {
-    if (!dict[word]) {
-      dict[word] = 1;
-    } else {
-      dict[word]++;
+    for (let word of words) {
+        if (!dict[word]) {
+            dict[word] = 1;
+        } else {
+            dict[word]++;
+        }
     }
-  }
 
-  return dict;
+    return dict;
 };
 
 // This is the most important part!
 const twoRowComparator = (a, b) => {
-  // descending order
-  if (b[1] > a[1]) return 1;
-  if (a[1] > b[1]) return -1;
+    // descending order
+    if (b[1] > a[1]) return 1;
+    if (a[1] > b[1]) return -1;
 
-  // intentionally leaving out the case when a[1] === b[1]
+    // intentionally leaving out the case when a[1] === b[1]
 
-  // ascending order
-  if (a[0] > b[0]) return 1;
-  if (a[0] < b[0]) return -1;
-  if (a[0] === b[0]) return 0;
+    // ascending order
+    if (a[0] > b[0]) return 1;
+    if (a[0] < b[0]) return -1;
+    if (a[0] === b[0]) return 0;
 };
 
 const topKFrequent = (words, k) => {
-  if (words === null || k <= 0) throw 'Illegal argument exception!';
+    if (words === null || k <= 0) throw 'Illegal argument exception!';
 
-  const dict = buildDict(words);
+    const dict = buildDict(words);
 
-  let outArr = Object.entries(dict)
-                     .sort(twoRowComparator)
-                     .map(x => x[0]);
+    let outArr = Object.entries(dict)
+        .sort(twoRowComparator)
+        .map(x => x[0]);
 
-  // truncation here
-  outArr.length = k;
+    // truncation here
+    outArr.length = k;
 
-  return outArr;
+    return outArr;
 };

@@ -4,5 +4,5 @@
  * @return {boolean}
  */
 const wordBreak = (s, wordDict) => {
-  
+
 };

@@ -5,13 +5,13 @@ let long2short = {};
 let short2long = {};
 let domainName = null;
 
-let encode = function(longUrl) {
+let encode = function (longUrl) {
     domainName = extractDomainName(longUrl);
 
     let shortKey = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(36);
 
-    if (long2short[longUrl]){
-      return domainName + "/" + long2short[longUrl];
+    if (long2short[longUrl]) {
+        return domainName + "/" + long2short[longUrl];
     }
 
     // need two dictionaries
@@ -21,11 +21,11 @@ let encode = function(longUrl) {
     return domainName + "/" + shortKey;
 };
 
-let decode = function(shortUrl) {
+let decode = function (shortUrl) {
     return short2long[shortUrl.split(domainName + "/")[1]];
 };
 
-let extractDomainName = function(url) {
-  let num = url.match(/[a-zA-Z]\/[A-Za-z0-9]/).index + 1;
-  return url.substring(0,num);
+let extractDomainName = function (url) {
+    let num = url.match(/[a-zA-Z]\/[A-Za-z0-9]/).index + 1;
+    return url.substring(0, num);
 }

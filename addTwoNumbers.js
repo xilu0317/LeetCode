@@ -1,48 +1,48 @@
 function ListNode(val) {
-  this.val = val;
-  this.next = null;
+    this.val = val;
+    this.next = null;
 }
 
-var addTwoNumbers = function(l1, l2) {
-  if (!l1) {
-    return l2;
-  }
-
-  if (!l2) {
-    return l1;
-  }
-
-  let head = new ListNode(0);
-  let cur = head;
-  let cur1 = head;
-  let cur = head;
-  
-  let carry = 0;
-  while ( l1 || l2 ){
-    let out = 0;
-      
-    if (l1) {
-      out += l1.val;
-      l1 = l1.next;
+var addTwoNumbers = function (l1, l2) {
+    if (!l1) {
+        return l2;
     }
 
-    if (l2) {
-      out += l2.val;
-      l2 = l2.next;
+    if (!l2) {
+        return l1;
     }
 
-    if (out >= 10){
-      out %= 10;
-      carry = 1;
-    } else {
-      carry = 0;
+    let head = new ListNode(0);
+    let cur = head;
+    let cur1 = head;
+    let cur = head;
+
+    let carry = 0;
+    while (l1 || l2) {
+        let out = 0;
+
+        if (l1) {
+            out += l1.val;
+            l1 = l1.next;
+        }
+
+        if (l2) {
+            out += l2.val;
+            l2 = l2.next;
+        }
+
+        if (out >= 10) {
+            out %= 10;
+            carry = 1;
+        } else {
+            carry = 0;
+        }
+
+        cur.val = out + carry;
+        cur.next = new ListNode(0);
     }
 
-    cur.val = out + carry;
-    cur.next = new ListNode(0);
-  }
-
-  return head;
+    return head;
 };
 
 // [2,4,3]

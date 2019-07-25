@@ -13,44 +13,44 @@
 // [...res[j]] is there to make sure the address is different
 
 const subsets = (nums) => {
-  let res = [];
-  res.push([]);
+    let res = [];
+    res.push([]);
 
-  for (let i = 0; i < nums.length; ++i) {
-    let len = res.length;
+    for (let i = 0; i < nums.length; ++i) {
+        let len = res.length;
 
-    for (let j = 0; j < len; ++j) {
-      // Remember how many hours you spent on debugging this shit
-      // [...res[j]] is a fking must, this will provide a new reference for the array!!!
-      res.push([...res[j]]);
+        for (let j = 0; j < len; ++j) {
+            // Remember how many hours you spent on debugging this shit
+            // [...res[j]] is a fking must, this will provide a new reference for the array!!!
+            res.push([...res[j]]);
+        }
+
+        for (let j = 0; j < len; ++j) {
+            res[j].push(nums[i]);
+        }
     }
 
-    for (let j = 0; j < len; ++j) {
-      res[j].push(nums[i]);
-    }
-  }
-
-  return res;
+    return res;
 }
 
 // From leetcode solution
 const subsets_solution = (nums) => {
-  return backtrack(nums, 0, [], []);
+    return backtrack(nums, 0, [], []);
 }
 
 const backtrack = (nums, start, set, res) => {
 
-  res.push(set);
+    res.push(set);
 
-  for(let i = start; i < nums.length; i++) {
-    set.push(nums[i]);
+    for (let i = start; i < nums.length; i++) {
+        set.push(nums[i]);
 
-    backtrack(nums, i + 1, Array.from(set), res);
+        backtrack(nums, i + 1, Array.from(set), res);
 
-    set.pop();
-  }
+        set.pop();
+    }
 
-  return res;
+    return res;
 }
 
 // [IMPORTANT]

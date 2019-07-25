@@ -1,96 +1,96 @@
 // BFS full tree
 function domTreeTraversalBFS(root = document.getRootNode()) {
-  let q = [root];
-  let nodeList = [];
+    let q = [root];
+    let nodeList = [];
 
-  while (q.length) {
-    let node = q.shift();
+    while (q.length) {
+        let node = q.shift();
 
-    nodeList.push(node);
+        nodeList.push(node);
 
-    for (let child of node.children) {
-        q.push(child);
+        for (let child of node.children) {
+            q.push(child);
+        }
     }
-  }
 
-  return nodeList;
+    return nodeList;
 }
 
 // DFS full tree, iterative
 function domTreeTraversalDFS(root = document.getRootNode()) {
-  let stack = [root];
-  let nodeList = [];
+    let stack = [root];
+    let nodeList = [];
 
-  while (stack.length) {
-    let node = stack.pop();
+    while (stack.length) {
+        let node = stack.pop();
 
-    nodeList.push(node);
+        nodeList.push(node);
 
-    for (let child of node.children) {
-      stack.push(child);
+        for (let child of node.children) {
+            stack.push(child);
+        }
     }
-  }
 
-  return nodeList;
+    return nodeList;
 }
 
 // DFS full tree, recursive
 function _domTreeTraversalDFSRecursive(root, nodeList) {
-  if (!root) return;
+    if (!root) return;
 
-  nodeList.push(root);
+    nodeList.push(root);
 
-  for (let child of root.children) {
-    _domTreeTraversalDFSRecursive(child, nodeList);
-  }
+    for (let child of root.children) {
+        _domTreeTraversalDFSRecursive(child, nodeList);
+    }
 }
 
 function domTreeTraversalDFSRecursive(root = document.getRootNode()) {
-  let nodeList = [];
-  _domTreeTraversalDFSRecursive(root, nodeList);
-  return nodeList;
+    let nodeList = [];
+    _domTreeTraversalDFSRecursive(root, nodeList);
+    return nodeList;
 }
 
 // get `class name` by BFS
 // default param should be the last param
 function getMyClassBFS(className, root = document.body) {
-  let q = [root];
-  let classList = [];
+    let q = [root];
+    let classList = [];
 
-  while (q.length) {
-    let node = q.shift();
+    while (q.length) {
+        let node = q.shift();
 
-    if (node.classList.contains(className)) {
-      classList.push(node);
+        if (node.classList.contains(className)) {
+            classList.push(node);
+        }
+
+        for (let child of node.children) {
+            q.push(child);
+        }
     }
 
-    for (let child of node.children) {
-        q.push(child);
-    }
-  }
-
-  return classList;
+    return classList;
 }
 
 // get `class name` by DFS
 // default param should be the last param
 function getMyClassDFS(className, root = document.body) {
-  let stack = [root];
-  let classList = [];
+    let stack = [root];
+    let classList = [];
 
-  while (stack.length) {
-    let node = stack.pop();
+    while (stack.length) {
+        let node = stack.pop();
 
-    if (node.classList.contains(className)) {
-      classList.push(node);
+        if (node.classList.contains(className)) {
+            classList.push(node);
+        }
+
+        for (let child of node.children) {
+            stack.push(child);
+        }
     }
 
-    for (let child of node.children) {
-      stack.push(child);
-    }
-  }
-
-  return classList;
+    return classList;
 }
 
 // Find the class hierachy
@@ -100,27 +100,27 @@ function getMyClassDFS(className, root = document.body) {
 let hierachy = 'a>b>c>d';
 
 function getClassNameByHier(hierName) {
-  let hierArr = hierName.split(/>/).reverse();
-  let lastClassName = hierArr[0];
+    let hierArr = hierName.split(/>/).reverse();
+    let lastClassName = hierArr[0];
 
-  let classNameArr = getMyClassBFS(lastClassName);
-  let classNamesRes = [];
+    let classNameArr = getMyClassBFS(lastClassName);
+    let classNamesRes = [];
 
-  let node = null;
-  let i = 1;
-  for (let classNode of classNameArr) {
-    while (classNode.parentNode !== document.body && i < hierArr.length) {
-      node = classNode.parentNode;
-      if (node.contains(hierArr[i])) {
-        i++;
-        node = node.parentNode;
-      }
+    let node = null;
+    let i = 1;
+    for (let classNode of classNameArr) {
+        while (classNode.parentNode !== document.body && i < hierArr.length) {
+            node = classNode.parentNode;
+            if (node.contains(hierArr[i])) {
+                i++;
+                node = node.parentNode;
+            }
 
-      if (i === hierArr.length) {
-        classNamesRes.push(classNode);
-      }
+            if (i === hierArr.length) {
+                classNamesRes.push(classNode);
+            }
+        }
     }
-  }
 
-  return classNamesRes;
+    return classNamesRes;
 }

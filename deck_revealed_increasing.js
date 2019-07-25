@@ -13,20 +13,20 @@
 // 2 13 3 11 5 17 7 
 
 
-var deckRevealedIncreasing = function(deck) {
-  if(!deck) return deck;
-  
-  deck.sort((a,b) => b-a)
-  let outArr = [];
+var deckRevealedIncreasing = function (deck) {
+    if (!deck) return deck;
 
-  while (deck.length > 0) {
-    outArr.unshift(deck.shift());
-    
-    // I won't figure out the edge case without the simulation 
-    if (deck.length > 0) {
-      outArr.unshift(outArr.pop())
+    deck.sort((a, b) => b - a)
+    let outArr = [];
+
+    while (deck.length > 0) {
+        outArr.unshift(deck.shift());
+
+        // I won't figure out the edge case without the simulation 
+        if (deck.length > 0) {
+            outArr.unshift(outArr.pop())
+        }
     }
-  }
 
-  return outArr;
+    return outArr;
 };

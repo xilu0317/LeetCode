@@ -13,25 +13,25 @@ const isUnivalTree = (root) => {
 
 // Iterative
 const isUnivalTree = (root) => {
-  if (!root) return false;
+    if (!root) return false;
 
-  let stack = [];
-  let node = root;
+    let stack = [];
+    let node = root;
 
-  while (true) {
-      if (node) {
-          stack.push(node);
-          node = node.left;
-      } else {
-          if (stack.length) {
-              node = stack.pop();
-              if (node.val != root.val) return false;
-              node = node.right;
-          } else {
-              break;
-          }
-      }
-  }
-  
-  return true;
+    while (true) {
+        if (node) {
+            stack.push(node);
+            node = node.left;
+        } else {
+            if (stack.length) {
+                node = stack.pop();
+                if (node.val != root.val) return false;
+                node = node.right;
+            } else {
+                break;
+            }
+        }
+    }
+
+    return true;
 };

@@ -1,17 +1,17 @@
 const convertToTitle = (n) => {
-  const len = 26;  
-  let dict = {};
-  
-  for (let i = 0; i < len; i++) {
-    dict[i] = String.fromCharCode(i + 65);
-  }
+    const len = 26;
+    let dict = {};
 
-  let res = [];
+    for (let i = 0; i < len; i++) {
+        dict[i] = String.fromCharCode(i + 65);
+    }
 
-  while (n > 0) {
-    res.push(dict[(n - 1) % len]);
-    n = parseInt((n - 1) / len);
-  }
+    let res = [];
 
-  return res.reverse().join('');
+    while (n > 0) {
+        res.push(dict[(n - 1) % len]);
+        n = parseInt((n - 1) / len);
+    }
+
+    return res.reverse().join('');
 };
