@@ -21,11 +21,11 @@ const encode = (longUrl) => {
     return domainName + "/" + shortKey;
 };
 
-let decode = (shortUrl) => {
+const decode = (shortUrl) => {
     return short2long[shortUrl.split(domainName + "/")[1]];
 };
 
-let extractDomainName = (url) => {
+const extractDomainName = (url) => {
     let num = url.match(/[a-zA-Z]\/[A-Za-z0-9]/).index + 1;
     return url.substring(0, num);
 }

@@ -27,5 +27,6 @@ const generate = (numRows) => {
     return a;
 };
 
+// test case
 console.log(generate(4));
 
