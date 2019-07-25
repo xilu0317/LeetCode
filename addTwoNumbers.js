@@ -1,6 +1,8 @@
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
+class ListNode {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
 }
 
 var addTwoNumbers = function (l1, l2) {
@@ -45,9 +47,10 @@ var addTwoNumbers = function (l1, l2) {
     return head;
 };
 
+// test case
+
 // [2,4,3]
 // [5,6,4]
-
 // [7,0,8]
 l1 = new ListNode(2);
 l1.next = new ListNode(4);
