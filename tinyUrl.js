@@ -11,18 +11,18 @@ const encode = (longUrl) => {
     let shortKey = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(36);
 
     if (long2short[longUrl]) {
-        return domainName + "/" + long2short[longUrl];
+        return domainName + '/' + long2short[longUrl];
     }
 
     // need two dictionaries
     short2long[shortKey] = longUrl;
     long2short[longUrl] = shortKey;
 
-    return domainName + "/" + shortKey;
+    return domainName + '/' + shortKey;
 };
 
 const decode = (shortUrl) => {
-    return short2long[shortUrl.split(domainName + "/")[1]];
+    return short2long[shortUrl.split(domainName + '/')[1]];
 };
 
 const extractDomainName = (url) => {
