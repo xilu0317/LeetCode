@@ -25,7 +25,8 @@ const isUnivalTree = (root) => {
         } else {
             if (stack.length) {
                 node = stack.pop();
-                if (node.val != root.val) return false;
+                // visit
+                if (node.val !== root.val) return false;
                 node = node.right;
             } else {
                 break;
