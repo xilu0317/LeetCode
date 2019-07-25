@@ -54,9 +54,9 @@ const cloneGraph = (root) => {
         let node = q.shift();
         if (!map.get(node)) {
             // clone happens here
-            let node2 = new Node(node.val, []);
+            let newNode = new Node(node.val, []);
             // associate the old node to the cloned node
-            map.set(node, node2);
+            map.set(node, newNode);
 
             for (let nb of node.neighbors) {
                 q.push(nb);
@@ -69,12 +69,13 @@ const cloneGraph = (root) => {
     while (q.length) {
         let node = q.shift();
         if (!set.has(node)) {
-            let node2 = map.get(node);
+            let newNode = map.get(node);
             set.add(node);
+
             for (let nb of node.neighbors) {
                 q.push(nb);
                 let nb2 = map.get(nb);
-                node2.neighbors.push(nb2);
+                newNode.neighbors.push(nb2);
             }
         }
     }
