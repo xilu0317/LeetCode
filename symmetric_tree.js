@@ -9,4 +9,4 @@ const _isSymmetric = (left, right) => {
     if (left.val !== right.val) return false;
 
     return _isSymmetric(left.left, right.right) && _isSymmetric(left.right, right.left);
-}
+};

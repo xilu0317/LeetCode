@@ -5,11 +5,12 @@
  *     this.left = this.right = null;
  * }
  */
+
 /**
  * @param {TreeNode} root
  * @return {number}
  */
-var minDepth = function (root) {
+const minDepth = (root) => {
     if (!root) return 0;
 
     let leftMinDepth = minDepth(root.left);
