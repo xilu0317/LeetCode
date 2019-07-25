@@ -16,8 +16,6 @@ var addTwoNumbers = function (l1, l2) {
 
     let head = new ListNode(0);
     let cur = head;
-    let cur1 = head;
-    let cur = head;
 
     let carry = 0;
     while (l1 || l2) {
