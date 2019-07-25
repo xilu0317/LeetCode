@@ -1,4 +1,4 @@
-var generate = function (numRows) {
+const generate = (numRows) => {
     var a = [];
     for (let i = 0; i < numRows; i++) {
         let temp = new Array(numRows).fill(0);

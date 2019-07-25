@@ -46,15 +46,17 @@ const cloneGraph = (root) => {
     if (!root) return null;
 
     let q = [root];
-    // For the love of god, don't do hm = {} because the simple dict only do string -> object
+    // For the love of god, don't do map = {} because the simple dict only do string -> object
     // For object -> object mapping, use ES6 Map() instead!
-    let hm = new Map();
+    let map = new Map();
 
     while (q.length) {
         let node = q.shift();
-        if (!hm.get(node)) {
+        if (!map.get(node)) {
+            // clone happens here
             let node2 = new Node(node.val, []);
-            hm.set(node, node2);
+            // associate the old node to the cloned node
+            map.set(node, node2);
 
             for (let nb of node.neighbors) {
                 q.push(nb);
@@ -62,25 +64,25 @@ const cloneGraph = (root) => {
         }
     }
 
-    let s = new Set();
+    let set = new Set();
     q = [root];
     while (q.length) {
         let node = q.shift();
-        if (!s.has(node)) {
-            let node2 = hm.get(node);
-            s.add(node);
+        if (!set.has(node)) {
+            let node2 = map.get(node);
+            set.add(node);
             for (let nb of node.neighbors) {
                 q.push(nb);
-                let nb2 = hm.get(nb);
+                let nb2 = map.get(nb);
                 node2.neighbors.push(nb2);
             }
         }
     }
 
-    return hm.get(root);
+    return map.get(root);
 };
 
-// main
+// test case
 let node1 = new Node(1, []);
 let node2 = new Node(2, []);
 let node3 = new Node(3, []);

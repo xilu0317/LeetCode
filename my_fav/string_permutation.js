@@ -1,4 +1,4 @@
-function getAllPermutations(word) {
+const getAllPermutations = (word) => {
     var results = [];
 
     if (word.length === 1) {

@@ -5,7 +5,7 @@ let long2short = {};
 let short2long = {};
 let domainName = null;
 
-let encode = function (longUrl) {
+const encode = (longUrl) => {
     domainName = extractDomainName(longUrl);
 
     let shortKey = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(36);
@@ -21,11 +21,11 @@ let encode = function (longUrl) {
     return domainName + "/" + shortKey;
 };
 
-let decode = function (shortUrl) {
+let decode = (shortUrl) => {
     return short2long[shortUrl.split(domainName + "/")[1]];
 };
 
-let extractDomainName = function (url) {
+let extractDomainName = (url) => {
     let num = url.match(/[a-zA-Z]\/[A-Za-z0-9]/).index + 1;
     return url.substring(0, num);
 }

@@ -8,7 +8,7 @@ const buildDict = (words) => {
         }
     }
     return dict;
-}
+};
 
 // This is the most important part!
 const twoRowComparator = (a, b) => {
@@ -21,22 +21,22 @@ const twoRowComparator = (a, b) => {
     if (a[0] > b[0]) return 1;
     if (a[0] < b[0]) return -1;
     if (a[0] === b[0]) return 0;
-}
+};
 
-var topKFrequent = function (words, k) {
+var topKFrequent = (words, k) => {
     if (words === null || k <= 0) throw 'Illegal argument exception!';
 
     const dict = buildDict(words);
 
-    let outArr = Object.entries(dict)
+    let res = Object.entries(dict)
         .sort(twoRowComparator)
         .map(x => x[0]);
 
-    outArr.length = k;
+    res.length = k;
 
-    return outArr;
+    return res;
 };
 
-
+// test case
 var res = topKFrequent(["a", "z", "d", "b", "b", "b", "d", "z", "z"], 4);
 console.log(res);
