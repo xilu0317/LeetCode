@@ -4,7 +4,7 @@ const getHeight = (root) => {
     if (!root) return 0;
 
     return 1 + Math.max(getHeight(root.left), getHeight(root.right));
-}
+};
 
 const updateOutput = (root, row, left, right) => {
     if (!root) return;
@@ -14,7 +14,7 @@ const updateOutput = (root, row, left, right) => {
     output[row][mid] = root.val.toString();
     updateOutput(root.left, row + 1, left, mid - 1);
     updateOutput(root.right, row + 1, mid + 1, right);
-}
+};
 
 const printTree = (root) => {
     let h = getHeight(root);

@@ -34,4 +34,4 @@ const backTrack = (combinations, digits, res, dict) => {
     for (let char of letters) {
         backTrack(combinations + char, digits.substring(1), res, dict);
     }
-}
+};

@@ -7,7 +7,7 @@
 // Speical processing of the boundary condition where you have 'abbccbbbb'
 // Note there is no way to use the `change of character` to detect the last group
 
-var largeGroupPositions = (S) => {
+const largeGroupPositions = (S) => {
     if (!S) return null;
 
     let start = 0;
@@ -22,6 +22,7 @@ var largeGroupPositions = (S) => {
             if (finish === len && finish - 1 - start >= 2) {
                 res.push([start, finish - 1]);
             }
+            
         } else {
             res.push([start, finish - 1]);
             start = finish;
