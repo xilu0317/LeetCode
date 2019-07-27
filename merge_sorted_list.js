@@ -16,6 +16,7 @@ class ListNode {
  */
 const mergeTwoLists = (head1, head2) => {
     // Note the use of sentenial aka `dummy` here
+    // The value we feed into the dummy is irrelevant
 	let dummy = new ListNode(Number.MAX_SAFE_INTEGER);
 	let cur = dummy;
 
