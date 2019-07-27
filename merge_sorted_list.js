@@ -14,7 +14,7 @@ class ListNode {
  * @param {ListNode} l2
  * @return {ListNode}
  */
-const mergeTwoLists = (head1, head2) => {
+const mergeTwoListsIterative = (head1, head2) => {
     if (!head1 && !head2) return null;
 
     let cur1 = head1;
@@ -67,6 +67,19 @@ const mergeTwoLists = (head1, head2) => {
 
     return head;
 };
+
+const mergeTwoLists = (head1, head2) => { 
+	if (head1 === null) return head2;
+	if (head2 === null) return head1;
+
+	if (head1.val < head2.val) {
+		head1.next = mergeTwoLists(head1.next, head2);
+		return head1;
+	} else {
+		head2.next = mergeTwoLists(head1, head2.next);
+		return head2;
+	}
+}
 
 let head1 = stuff([1]);
 let head2 = stuff([2]);
