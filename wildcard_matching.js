@@ -5,18 +5,22 @@
  */
 
 const isMatch = (str, pattern) => {
-	let s = 0, p = 0, match = 0, starIndex = -1;
+	// s = index for str
+	// p = index for pattern
+
+	// starSaveIndex = index for star in the pattern
+	let s = 0, p = 0, match = 0, starSaveIndex = -1;
 
 	while (s < str.length) {
-		if (p < pattern.length && (pattern[p] === '?' || str[s] === pattern[p])) {
+		if (p < pattern.length && (pattern[p] === '?' || pattern[p] === str[s])) {
 			s++;
 			p++;
 		} else if (p < pattern.length && pattern[p] === '*') {
-			starIndex = p;
-			match = s;
+			starSaveIndex = p;
 			p++; // If `*` is found, only advance pattern pointer
-		} else if (starIndex !== -1) {
-			p = starIndex + 1;
+			match = s;
+		} else if (starSaveIndex !== -1) {
+			p = starSaveIndex + 1;
 			match++;
 			s = match; // If the last pattern pointer is `*`, then advance string pointer
 		} else {
