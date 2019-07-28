@@ -33,5 +33,5 @@ const isMatch = (str, pattern) => {
 		p++;
 	}
 
-	return p === pattern.length;
+	return (p === pattern.length);
 };
