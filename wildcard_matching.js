@@ -8,19 +8,19 @@ const isMatch = (str, pattern) => {
 	// s = index for str
 	// p = index for pattern
 
-	// starSaveIndex = index for the star in the pattern
-	let s = 0, p = 0, match = 0, starSaveIndex = -1;
+	// ss = index for the star
+	let s = 0, p = 0, match = 0, ss = -1;
 
 	while (s < str.length) {
 		if ((pattern[p] === '?' || pattern[p] === str[s]) && p < pattern.length) {
 			s++;
 			p++;
 		} else if (pattern[p] === '*' && p < pattern.length) {
-			starSaveIndex = p;
+			ss = p;
 			p++;
 			match = s; // Save the current pos of the string
-		} else if (starSaveIndex !== -1) { // If the previous pattern index is `*`
-			p = starSaveIndex + 1; // Then advance string pointer
+		} else if (ss !== -1) { // If the previous pattern index is `*`
+			p = ss + 1; // Then advance string pointer
 			match++;
 			s = match; // Extract the next pos of the string
 		} else {
