@@ -17,12 +17,12 @@ const isMatch = (str, pattern) => {
 			p++;
 		} else if (p < pattern.length && pattern[p] === '*') {
 			starSaveIndex = p;
-			p++; // If `*` is found, only advance pattern pointer
-			match = s;
-		} else if (starSaveIndex !== -1) {
-			p = starSaveIndex + 1;
+			p++;
+			match = s; // cache the current pos of the string
+		} else if (starSaveIndex !== -1) { // If the last pattern pointer is `*`
+			p = starSaveIndex + 1; //then advance string pointer
 			match++;
-			s = match; // If the last pattern pointer is `*`, then advance string pointer
+			s = match; // extract the pos of the string
 		} else {
 			return false;
 		}
