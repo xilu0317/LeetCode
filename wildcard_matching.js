@@ -12,10 +12,10 @@ const isMatch = (str, pattern) => {
 	let s = 0, p = 0, match = 0, starSaveIndex = -1;
 
 	while (s < str.length) {
-		if (p < pattern.length && (pattern[p] === '?' || pattern[p] === str[s])) {
+		if ((pattern[p] === '?' || pattern[p] === str[s]) && p < pattern.length) {
 			s++;
 			p++;
-		} else if (p < pattern.length && pattern[p] === '*') {
+		} else if (pattern[p] === '*' && p < pattern.length) {
 			starSaveIndex = p;
 			p++;
 			match = s; // cache the current pos of the string
