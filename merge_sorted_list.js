@@ -15,7 +15,7 @@ class ListNode {
  * @return {ListNode}
  */
 const mergeTwoLists = (head1, head2) => {
-    // `dummy` is just an auxiliary placeholder
+    // Note `dummy` is just an auxiliary placeholder
 	let dummy = new ListNode(Number.MAX_SAFE_INTEGER);
 	let cur = dummy;
 
@@ -30,8 +30,10 @@ const mergeTwoLists = (head1, head2) => {
 		cur = cur.next;
 	}
 
+    // Handle the leftover linked list
 	cur.next = head1 ? head1 : head2;
 
+    // Note it is *not* returning `dummy` but `dummy.next`
 	return dummy.next;
 };
 
