@@ -1,27 +1,37 @@
-// needs a better comparator
-const compare = (a, b) => {
-    let i = a.indexOf(' ');
-    const at = a.substring(i + 1);
-    i = b.indexOf(' ');
-    const bt = b.substring(i + 1);
-    return at.localeCompare(bt);
-}
+const comparator = (a, b) => {
+    let aRest = a.substring(a.indexOf(' ') + 1);
+    let bRest = b.substring(b.indexOf(' ') + 1);
 
-// key idea is to seperate the letter from the digit 
+    if (aRest > bRest) {
+        return 1;
+    } else if (aRest < bRest) {
+        return -1;
+    }
+
+    let aBefore = a.substring(0, a.indexOf('_') + 1);
+    let bBefore = b.substring(0, b.indexOf('_') + 1);
+
+    if (aBefore > bBefore) {
+        return -1;
+    } else {
+        return 1;
+    }
+};
 
 const reorderLogFiles = (logs) => {
-    const letterLogs = [];
-	const digitLogs = [];
+    let letterList = [];
+	let digitList = [];
 	
-    for (const l of logs) {
-        const charCode = l.charCodeAt(l.length - 1);
-        if (charCode <= 57 && charCode >= 48) {
-            digitLogs.push(l);
+    for (let log of logs) {
+        let isDigit = !isNaN(log[log.length - 1]);
+        if (isDigit) {
+            digitList.push(log);
         } else {
-            letterLogs.push(l);
+            letterList.push(log);
         }
 	}
 	
-    letterLogs.sort(compare); 
-    return [...letterLogs, ...digitLogs];
+    letterList.sort(comparator); 
+    
+    return [ ... letterList, ... digitList];
 };
