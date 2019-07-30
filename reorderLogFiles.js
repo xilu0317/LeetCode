@@ -1,4 +1,5 @@
-function compare(a, b) {
+// needs a better comparator
+const compare = (a, b) => {
     let i = a.indexOf(' ');
     const at = a.substring(i + 1);
     i = b.indexOf(' ');
@@ -6,9 +7,12 @@ function compare(a, b) {
     return at.localeCompare(bt);
 }
 
-var reorderLogFiles = function(logs) {
+// key idea is to seperate the letter from the digit 
+
+const reorderLogFiles = (logs) => {
     const letterLogs = [];
-    const digitLogs = [];
+	const digitLogs = [];
+	
     for (const l of logs) {
         const charCode = l.charCodeAt(l.length - 1);
         if (charCode <= 57 && charCode >= 48) {
@@ -16,7 +20,8 @@ var reorderLogFiles = function(logs) {
         } else {
             letterLogs.push(l);
         }
-    }
+	}
+	
     letterLogs.sort(compare); 
     return [...letterLogs, ...digitLogs];
 };
