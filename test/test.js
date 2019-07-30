@@ -1,24 +1,42 @@
 (function () {
-    // test
-    let str = 'abcdeABEG';
-    console.log(fun(str));
+    let aa = ['a', 'a', '4'];
+    let bb = ['b', 'b', '3'];
+    let cc = ['c', '2', '2'];
+    let dd = ['d', '1', '1'];
 
-    function isLowerCase(c) {
-        return c === c.toLowerCase();
-    }
+    let arr = [aa, bb, cc, dd];
 
-    function fun(str) {
-        let arr = [...str];    
-    
-        let lowArr = arr.filter(x => isLowerCase(x)).sort();
-        let upperArr = arr.filter(x => !isLowerCase(x)).sort();
-    
-        for (let i = upperArr.length - 1; i >= 0; i--) {
-            for (let j = lowArr.length - 1; j >= 0; j--) {
-                if (upperArr[i].toLowerCase() === lowArr[j]) return upperArr[i];
+
+
+
+    const comp = (a, b) => {
+        let a = a.split(/\s/);
+        let b = b.split(/\s/);
+
+        let len = a.length > b.length ? a.length : b.length;
+
+        for (let i = 1; i < len; i++) {
+            if (a[i] === undefined) {
+                return 1;
             }
+
+            if (b[i] === undefined) {
+                return -1;
+            }
+
+            if (a[i] > b[i]) {
+                return 1;
+            } else if ((a[i] < b[i])) {
+                return -1;
+            }
+
+            continue;
         }
-    
-        return '-1';
-    }
+
+        return a[0] > b[0] ? 1 : -1;
+    };
+
+
+    arr.sort(comp);
+    arr.forEach(x => console.log(x));
 })();
