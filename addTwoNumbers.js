@@ -6,42 +6,37 @@ class ListNode {
 }
 
 const addTwoNumbers = (l1, l2) => {
-    if (!l1) return l2;
-    if (!l2) return l1;
+    let cur1 = l1;
+    let cur2 = l2;
 
-    let head = new ListNode(0);
-    let cur = head;
-    let carry = 0;
+    let node = new ListNode(0);
+    let cur = node;
 
-    while (l1 || l2) {
-        let res = 0;
-
-        if (l1) {
-            res += l1.val;
-            l1 = l1.next;
+    let sum = 0;
+    
+    while (cur1 || cur2) {
+        sum = Math.floor(sum / 10);
+        
+        if (cur1) {
+            sum += cur1.val;
+            cur1 = cur1.next;
         }
-
-        if (l2) {
-            res += l2.val;
-            l2 = l2.next;
+        
+        if (cur2) {
+            sum += cur2.val;
+            cur2 = cur2.next;
         }
-
-        if (res >= 10) {
-            res %= 10;
-            carry = 1;
-        } else {
-            carry = 0;
-        }
-
-        cur.val = res + carry;
-        cur.next = new ListNode(0);
+        
+        cur.next = new ListNode(sum % 10);
+        cur = cur.next;
     }
-
-    return head;
+    
+    if (Math.floor(sum / 10) === 1) cur.next = new ListNode(1);
+    
+    return node.next;
 };
 
 // test case
-
 // [2,4,3]
 l1 = new ListNode(2);
 l1.next = new ListNode(4);
