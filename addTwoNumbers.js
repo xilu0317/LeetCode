@@ -5,6 +5,7 @@ class ListNode {
     }
 }
 
+// Note in javascript Math.floor is needed
 const addTwoNumbers = (l1, l2) => {
     let cur1 = l1;
     let cur2 = l2;
