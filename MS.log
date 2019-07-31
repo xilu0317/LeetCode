@@ -1,14 +1,1 @@
-1. 给定一个string，只有大写和小写字母组成，要求返回一个大写字母，which is the largest alphabetically order and occurs both in lower and upper cases in the string。例如"aabBcDEe"，B和E都符合题意，但E的字母序比较大，所以返回E。
-
-2. 给定一个string，只有小写字母和问号组成，例如"ab?dc?j"，要
-
-https://leetcode.com/problems/wildcard-matching/
-Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*'.
-
-https://www.programcreek.com/2014/06/leetcode-wildcard-matching-java/
-
-2 输入一个只包含'a'~ 
-
-1 swap two integers without using temp variable
-2 merge two sorted list
-https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
+	
