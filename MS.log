@@ -1,1 +1,34 @@
-	
+1）Given two numbers, count bit difference.
+2）Given matrix with 0s and 1s, count island. DFS and BFS.
+3）Given weight graph, find shortest path from start to destination. 
+
+1 ood design bing page, system design search engine
+2 LRU LFU. 
+3 一道topo sort + 简历
+4 string compression, 一道queue的题加一点ood
+5 boss 介绍组，加两道tree的题， 判断tree 是不是balance， 类似 二八五 given value may or may not exist in tree.
+
+1. 打印二叉树边界
+2. 给一堆integer pair，有交集的进行分组合并，求最终有多少组
+3. 简历各种问
+4. 设计log monitor service+链表奇偶重排
+5. 给一个黑箱猜里面的数字大小，如数
+
+cycle in graph
+
+1 ood design bing page, system design search engine
+2 LRU LFU
+3 一道topo sort + 简历
+4 string compression, 一道queue的题加一点ood.
+5 boss 介绍组，加两道tree的题， 判断tree 是不是balance， 类似 二八五 given value may or may not exist in tree.
+
+第一轮：Word Ladder，利口127，只要求返回长度，不用返回路径
+第二轮：Design Tic-Tac-Toe
+
+1) reverse string
+
+1) design a hashmap with O(1) deletion
+   the goal was design a data structure have O1 add remove and random remove
+2) find a missing number into an array
+3) DFS tree recursion and recursion (parent node, first child and siblings
+4) insert number into a linked list
