@@ -10,6 +10,14 @@ class MinHeap {
         this.bubbleUp(this.data.length - 1);
     }
 
+    dequeue() {
+        let min = this.data[0];
+        // set first element to last element
+        this.data[0] = this.data.pop();
+        this.bubbleDown(0);
+        return min;
+    }
+
     bubbleUp(index) {
         while (index > 0) {
             let parent = Math.floor((index + 1) / 2) - 1;
@@ -18,14 +26,6 @@ class MinHeap {
             }
             index = parent;
         }
-    }
-
-    dequeue() {
-        let min = this.data[0];
-        // set first element to last element
-        this.data[0] = this.data.pop();
-        this.bubbleDown(0);
-        return min;
     }
 
     bubbleDown(index) {
@@ -48,5 +48,4 @@ class MinHeap {
             index = toSwap;
         }
     }
-
 }
