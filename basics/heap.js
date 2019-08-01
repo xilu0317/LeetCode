@@ -5,7 +5,7 @@ class MinHeap {
         this.data = [];
     }
 
-    insert(val) {
+    enqueue(val) {
         this.data.push(val);
         this.bubbleUp(this.data.length - 1);
     }
@@ -20,7 +20,7 @@ class MinHeap {
         }
     }
 
-    extractMin() {
+    dequeue() {
         let min = this.data[0];
         // set first element to last element
         this.data[0] = this.data.pop();
@@ -37,20 +37,16 @@ class MinHeap {
                 toSwap = child;
             }
             // if sibling is smaller than child, but also smaller than current
-            if (this.data[index] > this.data[sibling] && (this.data[child] == null || (this.data[child] !== null && this.data[sibling] < this.data[child]))) {
+            if (this.data[index] > this.data[sibling] && (this.data[child] === null || (this.data[child] !== null && this.data[sibling] < this.data[child]))) {
                 toSwap = sibling;
             }
             // if we don't need to swap, then break.
-            if (toSwap == null) {
+            if (toSwap === null) {
                 break;
             }
             [this.data[toSwap], this.data[index]] = [this.data[index], this.data[toSwap]];
             index = toSwap;
         }
     }
-    
+
 }
-
-
-
-
