@@ -5,16 +5,31 @@ class MinHeap {
         this.data = [];
     }
 
-    enqueue(val) {
+    // this is just for debugging
+    dump() {
+       return this.data;
+    }
+
+    push(val) {
         this.data.push(val);
         this.bubbleUp(this.data.length - 1);
     }
 
-    dequeue() {
+    pop() {
+        if (this.data.length === 0) return 'The heap is empty!';
+
+        if (this.data.length === 1) {
+            let min = this.data[0];
+            this.data = [];
+            
+            return min;
+        }
+
         let min = this.data[0];
         // set first element to last element
         this.data[0] = this.data.pop();
         this.bubbleDown(0);
+
         return min;
     }
 
@@ -22,6 +37,7 @@ class MinHeap {
         while (index > 0) {
             let parent = Math.floor((index + 1) / 2) - 1;
             if (this.data[parent] > this.data[index]) {
+                // nice syntax for swapping
                 [this.data[parent], this.data[index]] = [this.data[index], this.data[parent]];
             }
             index = parent;
