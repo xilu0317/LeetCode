@@ -15,9 +15,8 @@
 
 cycle in graph
 
-第一轮：Word Ladder，利口127，只要求返回长度，不用返回路径
-第二轮：Design Tic-Tac-Toe
-
+1：Word Ladder，leetcode 127
+2：Design Tic-Tac-Toe
 1) reverse string
 
 1) design a hashmap with O(1) deletion
