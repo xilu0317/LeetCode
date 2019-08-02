@@ -11,26 +11,22 @@
  */
 
 const oddEvenList = (head) => {
-    if (!head) return null;
-
-    let head2 = head.next;
-    let cur1 = head;
-    let cur2 = head2;
-
-    while (cur1 && cur2) {
-        if (cur2) {
-            cur1.next = cur2.next;
-            if (cur1.next) {
-                cur1 = cur1.next;
-            }
+    if (head) {
+    
+        let odd = head;
+        let even = head.next;
+        // record the head here
+        let evenHead = even; 
+    
+        while (even && even.next) {
+            odd.next = odd.next.next; 
+            even.next = even.next.next; 
+            odd = odd.next;
+            even = even.next;
         }
-        if (cur1) {
-            cur2.next = cur1.next;
-            cur2 = cur2.next;
-        }
+        
+        odd.next = evenHead; 
     }
-
-    cur1.next = head2;
 
     return head;
 };
