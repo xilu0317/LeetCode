@@ -11,6 +11,7 @@ Two Sum Closest / Movies on Flight
 Two Sum / Sort Center / Music Paring 
 Remove obstacle / Maze / Treasure Island / Shortest path
 Robot Simulation
+Substrings of size K with K distinct chars
 
 TO DO:
 Min Cost to Add New Roads (MST)
@@ -19,7 +20,6 @@ Min Cost to Connect Ropes (Merge Files)
 Optimal Aircraft Utilization (Foreground/Background Apps)
 Longest string without 3 consecutive characters
 Longest string made up of only vowels
-Substrings of size K with K distinct chars
 Subtree with Maximum Average
 
 ======
@@ -361,4 +361,28 @@ const kClosest = (points, K) => {
 
 	return flat(dictArr).filter((v, k) => k % 2 !== 0);
 };
+
 =====
+Substrings of size K with K distinct chars
+=====
+
+const getKDist = (str, k) => {
+	if (k > str.length) return null;
+
+	if (k === str.length) return str;
+
+	let s = new Set();
+	for (let i = 0; i < str.length - k; i++) {
+		s.add(str.substring(i, i + k));
+	}
+
+	let words = [...s];
+	let res = [];
+	for (let word of words) {
+		if (new Set(word).size === word.length) {
+			res.push(word);
+		}
+	}
+
+	return res;
+};
