@@ -1,25 +1,26 @@
+Amazon OA2 2019
 https://leetcode.com/discuss/interview-question/344650/Amazon-Online-Assessment-Questions-2019
 
-	Done:
-    Most Common Word
-    Prison Cells After N Days
-    K Closest Points to Origin
-    Reorder Log Files / Reorder server tag
-    Partition Labels
-	Two Sum Closest / Movies on Flight
-	Two Sum / Sort Center / Music Paring 
-	Remove obstacle / Maze / Treasure Island / Shortest path
-	Robot Simulation
+Done:
+Most Common Word
+Prison Cells After N Days
+K Closest Points to Origin
+Reorder Log Files / Reorder server tag
+Partition Labels
+Two Sum Closest / Movies on Flight
+Two Sum / Sort Center / Music Paring 
+Remove obstacle / Maze / Treasure Island / Shortest path
+Robot Simulation
 
-	TO DO:
-    Min Cost to Add New Roads (MST)
-    Roll Dice
-    Min Cost to Connect Ropes (Merge Files)
-    Optimal Aircraft Utilization (Foreground/Background Apps)
-    Longest string without 3 consecutive characters
-    Longest string made up of only vowels
-    Substrings of size K with K distinct chars
-    Subtree with Maximum Average
+TO DO:
+Min Cost to Add New Roads (MST)
+Roll Dice
+Min Cost to Connect Ropes (Merge Files)
+Optimal Aircraft Utilization (Foreground/Background Apps)
+Longest string without 3 consecutive characters
+Longest string made up of only vowels
+Substrings of size K with K distinct chars
+Subtree with Maximum Average
 
 ======
 
@@ -184,6 +185,7 @@ const comparator = (a, b) => {
         return -1;
     }
 
+	// when aRest and bRest are equal only then sort the keys
     let aBefore = a.substring(0, a.indexOf('_') + 1);
     let bBefore = b.substring(0, b.indexOf('_') + 1);
 
