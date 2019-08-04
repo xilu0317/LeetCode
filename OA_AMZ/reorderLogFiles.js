@@ -20,18 +20,19 @@ const comparator = (a, b) => {
 
 const reorderLogFiles = (logs) => {
     let letterList = [];
-	let digitList = [];
-	
+    let digitList = [];
+
     for (let log of logs) {
+        // this is smart: looking at the last char to determine if the file is a digit file or string file
         let isDigit = !isNaN(log[log.length - 1]);
         if (isDigit) {
             digitList.push(log);
         } else {
             letterList.push(log);
         }
-	}
-	
-    letterList.sort(comparator); 
-    
-    return [ ... letterList, ... digitList];
+    }
+
+    letterList.sort(comparator);
+
+    return [...letterList, ...digitList];
 };
