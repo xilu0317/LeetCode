@@ -127,7 +127,7 @@ Two sum closest
 =====
 
 const twoSumClosest = (nums, target) => {
-    Arrays.sort(nums);
+    nums.sort((a,b) => a > b);
     let min = Number.MAX_SAFE_INTEGER;
 
     // define left indices at two ends
