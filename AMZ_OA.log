@@ -333,5 +333,29 @@ Partition labels
 =====
 https://leetcode.com/problems/partition-labels/
 
+const partitionLabels = (S) => {
+	if(!S || S.length === 0) return null;
 
-===
+
+	// record the last index of the each char
+	let dict = {};
+	let k = 0;
+	for (let c of S) {
+		dict[c] = k++;
+	}
+
+	// record the end index of the current sub string
+	let list = [];
+	let start = last = 0;
+	for (let i = 0; i < S.length; i++) {
+		last = Math.max(last, dict[S[i]]);
+		if(last === i){
+			list.push(last - start + 1);
+			start = last + 1;
+		}
+	}
+
+	return list;
+};
+
+=====
