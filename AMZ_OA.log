@@ -1,36 +1,28 @@
 https://leetcode.com/discuss/interview-question/344650/Amazon-Online-Assessment-Questions-2019
+
+	Done:
     Most Common Word
     Prison Cells After N Days
     K Closest Points to Origin
-    Reorder Log Files
+    Reorder Log Files / Reorder server tag
     Partition Labels
+	Two Sum Closest / Movies on Flight
+	Two Sum / Sort Center / Music Paring 
+	Remove obstacle / Maze / Treasure Island / Shortest path
+	Robot Simulation
+
+	TO DO:
     Min Cost to Add New Roads (MST)
     Roll Dice
     Min Cost to Connect Ropes (Merge Files)
     Optimal Aircraft Utilization (Foreground/Background Apps)
     Longest string without 3 consecutive characters
-    Movies on Flight (Two Sum Closest)
-    Sort Center (Two Sum)
     Longest string made up of only vowels
     Substrings of size K with K distinct chars
-    Treasure Island (Remove obstacle - BFS)
     Subtree with Maximum Average
-======
-
-1. Reorder server tag
-https://leetcode.com/problems/reorder-log-files/
-
-2. 两个list 分别是 前/后台程序 <id, mem size>，问在total mem limit下最大组合（必须是一前一后）
 
 ======
 
-2.  Maze (2d array) / Shortest path / Remove obstacle
-/*
- [[1, 0, 0],
-  [1, 0, 0],
-  [1, 9 ,0]]
-outout: 3 [0, 0] -> [1, 0] -> [2, 0] -> [2, 1]
-*/
 
 /**********************************************************************************************************
  Building Remove Obstacle - Time: O(mn)
@@ -113,36 +105,21 @@ const removeObstacle = (numRows, numColumns, lot) => {
     }
 };
 
-======
 
-var b = 1;
-function outer(){
-    var b = 2
-    function inner(){
-        b++;
-        console.log(b)
-        var b = 3
-        console.log(b)
-    }
-    inner();
-}
-outer();
-Output to the console will be  undefined“3”.
-
-There are three closures in the example, each with it’s own var b declaration. When a variable is invoked closures will be checked in order from local to global until an instance is found. Sinc
-is NaN
-     console.log(b) // output "NaN"
-    b = 3; // b is 3
-    console.log(b); // output "3"
-}
 
 ======
-
 1.零件组装 (MST) Write an algorithm to output the minimum possible time to put the N parts together and build the final product.
 注意的一点， 如果input只有一个零件，要返回0.
-2. 前后台进程: 输入：List<List<Integer>>一堆前台进程，List<List<Integer>>一堆后台进程，int memoryCapacit
-0],[3,1000]], [[1,9000],[2,1000],[3,1000]], 10000,  输出: [[1,1],[3,1]]
+2. 前后台进程: 输入：List<List<Integer>>一堆前台进程，List<List<Integer>>一堆后台进程，int memoryCapacit 0],[3,1000]], [[1,9000],[2,1000],[3,1000]], 10000,  输出: [[1,1],[3,1]]
+3. 两个list 分别是 前/后台程序 <id, mem size>，问在total mem limit下最大组合（必须是一前一后）
 
+************************************************************************************************************
+** 								   
+** 								   
+** 												SOLUTIONS	   
+** 								   
+** 								   
+************************************************************************************************************
 
 =====
 Two sum closest
@@ -168,7 +145,7 @@ const twoSumClosest = (nums, target) => {
     }
 
     return min;
-}
+};
 
 =====
 Two sum
@@ -196,6 +173,7 @@ Reorder Log Files
 =====
 https://leetcode.com/problems/reorder-log-files/
 
+// The key of this problem is the comparator
 const comparator = (a, b) => {
     let aRest = a.substring(a.indexOf(' ') + 1);
     let bRest = b.substring(b.indexOf(' ') + 1);
@@ -216,6 +194,7 @@ const comparator = (a, b) => {
     }
 };
 
+// key idea: split the array into two and then do a custom sort
 const reorderLogFiles = (logs) => {
     let letterList = [];
     let digitList = [];
@@ -273,7 +252,7 @@ const robotSim = (commands, obstacles) => {
 };
 
 =====
-prison cell after n days
+Prison Cells After N Days
 =====
 https://leetcode.com/problems/prison-cells-after-n-days/
 
@@ -336,7 +315,6 @@ https://leetcode.com/problems/partition-labels/
 const partitionLabels = (S) => {
 	if(!S || S.length === 0) return null;
 
-
 	// record the last index of the each char
 	let dict = {};
 	let k = 0;
@@ -358,4 +336,27 @@ const partitionLabels = (S) => {
 	return list;
 };
 
+=====
+K closest points to origin
+=====
+https://leetcode.com/problems/k-closest-points-to-origin/
+
+// Don't need this for the latest nodejs runtime
+const flat = (arr) => {
+	return arr.reduce((a,b) => a.concat(b));
+};
+
+const kClosest = (points, K) => {
+	let dictArr = [];
+	for (let point of points) {
+		let distanceSquare = point[0] * point[0] + point[1] * point[1];
+		dictArr.push([distanceSquare, point]);
+	}
+
+	dictArr.sort((a, b) => a[0] > b[0] ? 1 : -1);
+	// truncate the first K elements
+	dictArr.length = K;
+
+	return flat(dictArr).filter((v, k) => k % 2 !== 0);
+};
 =====
