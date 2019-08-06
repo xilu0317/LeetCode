@@ -7,20 +7,20 @@ Prison Cells After N Days
 K Closest Points to Origin
 Reorder Log Files / Reorder server tag
 Partition Labels
-Two Sum Closest / Movies on Flight
+Two Sum Closest / Movies on Flight / Optimal Aircraft Utilization / Foreground-Background Apps
 Two Sum / Sort Center / Music Paring 
 Remove obstacle / Maze / Treasure Island / Shortest path
 Robot Simulation
 Substrings of size K with K distinct chars
+Subtree with Maximum Average
 
 TO DO:
 Min Cost to Add New Roads (MST)
 Roll Dice
 Min Cost to Connect Ropes (Merge Files)
-Optimal Aircraft Utilization (Foreground/Background Apps)
+
 Longest string without 3 consecutive characters
 Longest string made up of only vowels
-Subtree with Maximum Average
 
 ======
 
@@ -46,10 +46,10 @@ public static int removeObstacle(int numRows, int numColumns, List<List<Integer>
     Queue<int[]> queue = new LinkedList<>();
     queue.offer(new int[]{0, 0});
     while (!queue.isEmpty()) {
-        int size = queue.size();
+        int size = queue.size(); // push
         // interate the map layer by layer
         for (int i = 0; i < size; i++) {
-            int[] cor = queue.poll();
+            int[] cor = queue.poll(); // shift
             int x = cor[0];
             int y = cor[1];
             visited[x][y] = 1;
@@ -386,3 +386,60 @@ const getKDist = (str, k) => {
 
 	return res;
 };
+
+=====
+Subtree with Maximum Average
+=====
+
+public class Solution {
+    private class ResultType {
+        public int sum, size;
+        public ResultType(int sum, int size) {
+            this.sum = sum;
+            this.size = size;
+        }
+    }
+    
+    private TreeNode subtree = null;
+    private ResultType subtreeResult = null;
+    
+    /**
+     * @param root the root of binary tree
+     * @return the root of the maximum average of subtree
+     */
+    public TreeNode findSubtree(TreeNode root) {
+        helper(root);
+        return subtree;
+    }
+    
+    private ResultType helper(TreeNode root) {
+        if (root == null) {
+            return new ResultType(0, 0);
+        }
+        // Divide and conquer
+        ResultType left = helper(root.left);
+        ResultType right = helper(root.right);
+        // construct the result using left subtree, current node and right subtree.
+        ResultType result = new ResultType(
+            left.sum + right.sum + root.val,
+            left.size + right.size + 1
+        );
+        // Compare every substree's median with subtreeResult
+        if (subtree == null ||
+            (subtreeResult.sum / subtreeResult.size) < (result.sum / result.size)
+        ) {
+            subtree = root;
+            subtreeResult = result;
+        }
+        // Return current result, rather than subtreeResult, because subtreeResult is global
+        // subtreeResult is returned in the main function findSubtree
+        return result;
+    }
+}
+
+=====
+Longest string made up of only vowels
+=====
+
+
+
