@@ -1,25 +1,25 @@
 // In leetcode `neighbor` is normally refered to as `children`
 class Node {
-    // More general node can be consisted of key, data, neighbors, visited
-    // ----------------------
-    //          Node
-    // ----------------------
-    //   * key (val): unique
-    //   * data
-    //   * visited
-    //   * neighbors
-    // ----------------------
-    constructor(val) {
-        this.val = val;
-        this.neighbors = [];
-        this.visited = false;
-    }
+	// More general node can be consisted of key, data, neighbors, visited
+	// ----------------------
+	//          Node
+	// ----------------------
+	//   * key (val): unique
+	//   * data
+	//   * visited
+	//   * neighbors
+	// ----------------------
+	constructor(val) {
+		this.val = val;
+		this.neighbors = [];
+		this.visited = false;
+	}
 
-    addNeighbor(node) {
-        if (node) {
-            this.neighbors.push(node);
-        }
-    }
+	addNeighbor(node) {
+		if (node) {
+			this.neighbors.push(node);
+		}
+	}
 }
 
 // Difference between graph and tree: A graph can have a cycle
@@ -44,58 +44,58 @@ class Node {
  */
 
 const generateGraphByEdgeList = (edgeList) => {
-    if (!edgeList) return null;
+	if (!edgeList) return null;
 
-    let root;
-    let dict = {};
-    let set = new Set(edgeList.flat().sort());
-    let flag = true;
+	let root;
+	let dict = {};
+	let set = new Set(edgeList.flat().sort());
+	let flag = true;
 
-    for (let item of set) {
-        dict[item] = new Node(item);
-        if (flag) {
-            root = dict[item];
-            flag = false; // only set root once and it
-        }
-    }
+	for (let item of set) {
+		dict[item] = new Node(item);
+		if (flag) {
+			root = dict[item];
+			flag = false; // only set root once and it
+		}
+	}
 
-    for (let edge of edgeList) {
-        let key0 = edge[0];
-        let key1 = edge[1];
+	for (let edge of edgeList) {
+		let key0 = edge[0];
+		let key1 = edge[1];
 
-        let startNode = dict[key0];
-        let endNode = dict[key1];
+		let startNode = dict[key0];
+		let endNode = dict[key1];
 
-        startNode.addNeighbor(endNode);
-        endNode.addNeighbor(startNode);
-    }
+		startNode.addNeighbor(endNode);
+		endNode.addNeighbor(startNode);
+	}
 
-    return root;
+	return root;
 }
 
 // BFS Iterative
 // it seems node 3 and node 6 have been visited twice
 const bfs = (root) => {
-    if (!root) return;
+	if (!root) return;
 
-    let q = [root];
-    while (q.length) {
-        let len = q.length; // Record current length at the level
-        for (let i = 0; i < len; ++i) { // This line is NOT necessary unless you want to do the layer by layer exploration
-            let node = q.shift(); // Dequeue nodes that were loaded from the last round
-            // Node visit if haven't visited before
-            if (!node.visited) {
-                console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
-                node.visited = true;
-            }
+	let q = [root];
+	while (q.length) {
+		let len = q.length; // Record current length at the level
+		for (let i = 0; i < len; ++i) { // This line is NOT necessary unless you want to do the layer by layer exploration
+			let node = q.shift(); // Dequeue nodes that were loaded from the last round
+			// Node visit if haven't visited before
+			if (!node.visited) {
+				console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
+				node.visited = true;
+			}
 
-            for (let neighbor of node.neighbors) { // Use `of` not `in`
-                if (neighbor) { // If the current is null or undefined, don't push to queue
-                    q.push(neighbor);
-                }
-            }
-        } // end of level for-loop
-    }
+			for (let neighbor of node.neighbors) { // Use `of` not `in`
+				if (neighbor) { // If the current is null or undefined, don't push to queue
+					q.push(neighbor);
+				}
+			}
+		} // end of level for-loop
+	}
 };
 
 // BFS Recursive = [Not necessary]

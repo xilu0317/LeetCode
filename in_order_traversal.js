@@ -1,53 +1,53 @@
 const inorderTraversal = (root) => {
-    if (!root) return [];
+	if (!root) return [];
 
-    let res = [];
-    let stack = [];
-    let node = root; // node is basically cur, the reference will move
+	let res = [];
+	let stack = [];
+	let node = root; // node is basically cur, the reference will move
 
-    while (true) {
-        if (node) {
-            stack.push(node); // This is like trail blazing, we `record` the path that we have taken already
-            node = node.left; // keep going left as long as we could, note that the leftmost node would the absolute min when the entry point is the root
-        } else {
-            if (stack.length) {  // The stack.pop() part is the `backtrack` part
-                node = stack.pop(); // Cannot add the `let` keyword here, bc of the block scope. It will be problematic when going right in next 2 lines.
-                res.push(node.val); // The `do` or `print` operation
-                node = node.right; // rturn from the left, now go right
-            } else {
-                break; // no `left` to go and stack is empty
-            }
-        }
-    }
+	while (true) {
+		if (node) {
+			stack.push(node); // This is like trail blazing, we `record` the path that we have taken already
+			node = node.left; // keep going left as long as we could, note that the leftmost node would the absolute min when the entry point is the root
+		} else {
+			if (stack.length) {  // The stack.pop() part is the `backtrack` part
+				node = stack.pop(); // Cannot add the `let` keyword here, bc of the block scope. It will be problematic when going right in next 2 lines.
+				res.push(node.val); // The `do` or `print` operation
+				node = node.right; // rturn from the left, now go right
+			} else {
+				break; // no `left` to go and stack is empty
+			}
+		}
+	}
 
-    return res;
+	return res;
 };
 
 // Think about my original algorithm where `in-order` didn't matter.
 
 // using do-while loop
 const inorderTraversal = (root) => {
-    if (!root) return [];
+	if (!root) return [];
 
-    let curNode = root;
-    let stack = [];
-    let res = [];
+	let curNode = root;
+	let stack = [];
+	let res = [];
 
-    do {
-        if (curNode) {
-            stack.push(curNode);
-            curNode = curNode.left;
-        } else {
-            curNode = stack.pop();
+	do {
+		if (curNode) {
+			stack.push(curNode);
+			curNode = curNode.left;
+		} else {
+			curNode = stack.pop();
 
-            // visit
-            if (curNode) {
-                res.push(curNode.val);
-            }
+			// visit
+			if (curNode) {
+				res.push(curNode.val);
+			}
 
-            curNode = curNode.right;
-        }
-    } while (curNode || stack.length);
+			curNode = curNode.right;
+		}
+	} while (curNode || stack.length);
 
-    return res;
+	return res;
 };
