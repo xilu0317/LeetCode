@@ -6,6 +6,7 @@ class Trie {
         this.root = {};
     }
 
+    // The essence is to build the prefix tree using the insert method
     insert(word) {
         let cur = this.root;
         for (const c of word) {
@@ -48,7 +49,7 @@ function Trie() {
 
     function insert(word) {
         let cur = root;
-        word.split('').forEach(c => cur = cur[c] = cur[c] || {});
+        word.split('').forEach(c => cur = cur[c] = (cur[c] || {}));
         cur.isWord = true;
     }
 
@@ -64,9 +65,9 @@ function Trie() {
     }
 
     function search(word) {
-        let node = traverse(word);
+        let lastNode = traverse(word);
 
-        return !!node && !!node.isWord;
+        return !!lastNode && !!lastNode.isWord;
     }
 
     function startsWith(word) {
