@@ -32,7 +32,7 @@ class Trie {
         // if the last node exists and the terminal flag is true, then the word is found
         let lastNode = this.traverse(word);
 
-        // `!!` is a common pratice to booleaniz variables
+        // `!!` is a common pratice to booleanize variables
         return !!lastNode && !!lastNode.isWord;
     }
 
