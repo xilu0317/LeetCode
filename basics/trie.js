@@ -1,3 +1,4 @@
+// ES6 class
 class Trie {
     constructor() {
         // instance variable
@@ -39,7 +40,7 @@ class Trie {
     }
 }
 
-// Old function object style
+// Old function as object style
 function Trie() {
     const root = {};
 
