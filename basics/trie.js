@@ -1,47 +1,47 @@
 class Trie {
-	constructor() {
-		// instance variable
-		// `{}` same as an new object
-		this.root = {};
-	}
+    constructor() {
+        // instance variable
+        // `{}` same as an new object
+        this.root = {};
+    }
 
-	insert(word) {
-		let cur = this.root;
+    insert(word) {
+        let cur = this.root;
         for (const c of word) {
-			// if cur[c] exists use current, otherwise create an new object
-            cur[c] =  cur[c] || {};
+            // if cur[c] exists use current, otherwise create an new object
+            cur[c] = cur[c] || {};
             // update the `cur` pointer
             cur = cur[c];
         }
         cur.isWord = true;
-	}
+    }
 
-	traverse(word) {
-		let cur = this.root;
+    traverse(word) {
+        let cur = this.root;
         for (const c of word) {
             if (!cur) return null;
             cur = cur[c];
-		}
+        }
 
         return cur;
-	}
+    }
 
-	search(word) {
+    search(word) {
         // if the last node exists and the terminal flag is true, then the word is found
-		let lastNode = this.traverse(word);
+        let lastNode = this.traverse(word);
 
         // `!!` is a common pratice to booleaniz variables
         return !!lastNode && !!lastNode.isWord;
-	}
+    }
 
-	startsWith(word) {
-		return !!this.traverse(word);
-	}
+    startsWith(word) {
+        return !!this.traverse(word);
+    }
 }
 
 // Old function object style
 function Trie() {
-	const root = {};
+    const root = {};
 
     return { insert, search, startsWith };
 
@@ -56,13 +56,13 @@ function Trie() {
         for (let i = 0; i < word.length; i++) {
             if (!cur) return null;
             cur = cur[word[i]];
-		}
+        }
 
         return cur;
     }
 
     function search(word) {
-		let node = traverse(word);
+        let node = traverse(word);
 
         return !!node && !!node.isWord;
     }
