@@ -47,16 +47,17 @@ function Trie() {
 
     function insert(word) {
         let cur = root;
-        word.split('').forEach(ch => cur = cur[ch] = cur[ch] || {});
+        word.split('').forEach(c => cur = cur[c] = cur[c] || {});
         cur.isWord = true;
     }
 
     function traverse(word) {
         let cur = root;
-        for (let i = 0; i < word.length; i++) {
-            if (!cur) return null;
-            cur = cur[word[i]];
-        }
+        word.split('')
+            .forEach(c => {
+                if (!cur) return null;
+                cur = cur[c];
+            });
 
         return cur;
     }
