@@ -98,6 +98,7 @@ const dfs = (root) => {
 
 		if (!node.visited) {
 			node.visited = true;
+			// visit
 			console.log(node.val);
 		}
 
