@@ -15,13 +15,18 @@ class Trie {
             // update the `cur` pointer
             cur = cur[c];
         }
+        // Make sure to flag the last node
         cur.isWord = true;
     }
 
+    // This method will traverse all the way till the last node
     traverse(word) {
         let cur = this.root;
         for (const c of word) {
-            if (!cur) return null;
+            if (!cur) {
+                return null;
+            }
+            // Look-up in the current node
             cur = cur[c];
         }
 
@@ -29,10 +34,10 @@ class Trie {
     }
 
     search(word) {
-        // if the last node exists and the terminal flag is true, then the word is found
+        // Get the last node
         let lastNode = this.traverse(word);
 
-        // `!!` is a common pratice to booleanize variables
+        // `!!` = converts everything else to bool
         return !!lastNode && !!lastNode.isWord;
     }
 
@@ -41,7 +46,7 @@ class Trie {
     }
 }
 
-// Old function as object style
+// #2 Old function as object style
 function Trie() {
     const root = {};
 
@@ -74,3 +79,21 @@ function Trie() {
         return !!traverse(word);
     }
 }
+
+// #3 Yet another way to do 'class'
+let Trie = function() {
+    
+};
+
+Trie.prototype.insert = function(word) {
+    
+};
+
+Trie.prototype.search = function(word) {
+    
+};
+
+Trie.prototype.startsWith = function(prefix) {
+    
+};
+
