@@ -1,13 +1,9 @@
 Location: SF
-take-home assignment: string parsing problem regarding unique number combinations, moderate-hard difficulty depending on your coding level.
+take-home assignment: string parsing problem regarding unique number combinations
 
-coding challenge which was pretty easy. string manipulation.
+string manipulation.
 
-were around data structures
-
-i was being asked with data structure problems
-
-some tree, trie, hashmap.design calculator
+some tree, trie, hashmap. design calculator
 
 describe one of your technical projects in depth
 
@@ -19,20 +15,15 @@ design a way to check if a specific 10-digit number is in use or not
 
 design a chess game
 
-Dynamic programming, but it wasn't too tough
+Dynamic programming
 
 determine if a given tree fulfills all requirements to be a binary search tree and write code to test.
-
-Standard algorithms and data structures. nothing out of the ordinary
-
 
 Location: VAN
 linked list, binary tree and design.
 
-lottery question around uncle morty's choices
-
 // TODO:
-1) maintain string class and support certain API operations => need to try more string manipulation problems
+1) maintain string class and support certain API operations
 2) autocomplete
 3) two sum, two sum cloest
 4) DFS, BFS => treasure island or similar

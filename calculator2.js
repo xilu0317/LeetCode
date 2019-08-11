@@ -1,16 +1,20 @@
 const isDigit = (c) => {
+    // If doesn't exisit
     if (!c) return false;
 
     // apparently empty space is not a digit
     if (c === ' ') return false;
 
+    // not not a number
     return !isNaN(c);
 };
 
+// The input is a string
 const calculate = (s) => {
     if (!s || !s.length) return 0;
 
-    // don't forget to re-assign the processed string back to s
+    // 1) remove spaces
+    // 2) don't forget to re-assign the processed string back to s
     s = s.replace(/\s+/g,'');
 
     let len = s.length;
@@ -39,7 +43,7 @@ const calculate = (s) => {
             sign = s[i];
             num = 0;
         }
-    }   
+    }
 
     return stack.reduce((acc, cur) => acc + cur);
 };
