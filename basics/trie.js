@@ -81,19 +81,19 @@ function Trie() {
 }
 
 // #3 Yet another way to do 'class'
-let Trie = function() {
-    
+let Trie = function () {
+
 };
 
-Trie.prototype.insert = function(word) {
-    
+Trie.prototype.insert = function (word) {
+
 };
 
-Trie.prototype.search = function(word) {
-    
+Trie.prototype.search = function (word) {
+
 };
 
-Trie.prototype.startsWith = function(prefix) {
-    
+Trie.prototype.startsWith = function (prefix) {
+
 };
 
