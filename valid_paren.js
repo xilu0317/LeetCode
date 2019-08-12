@@ -6,8 +6,7 @@ const isValid = (s) => {
     dict['['] = ']';
     dict['('] = ')';
 
-    let charArr = Array.from(s);
-    for (let c of charArr) {
+    for (const c of s) {
         if (c === '{' || c === '[' || c === '(') {
             stack.push(c);
         } else {

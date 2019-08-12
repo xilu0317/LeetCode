@@ -10,6 +10,7 @@ const addTwoNumbers = (l1, l2) => {
     let cur1 = l1;
     let cur2 = l2;
 
+    // Create a dummy node
     let node = new ListNode(0);
     let cur = node;
 
