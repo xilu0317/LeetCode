@@ -46,8 +46,8 @@ const cloneGraph = (root) => {
     if (!root) return null;
 
     let q = [root];
-    // For the love of god, don't do map = {} because the simple dict only do string -> object
-    // For object -> object mapping, use ES6 Map() instead!
+    // '{}' string -> object mapping
+    // 'Map' object -> object mapping
     let map = new Map();
 
     while (q.length) {
@@ -58,8 +58,8 @@ const cloneGraph = (root) => {
             // associate the old node to the cloned node
             map.set(node, newNode);
 
-            for (let nb of node.neighbors) {
-                q.push(nb);
+            for (const n of node.neighbors) {
+                q.push(n);
             }
         }
     }
@@ -74,10 +74,10 @@ const cloneGraph = (root) => {
             let newNode = map.get(node);
             set.add(node);
 
-            for (let nb of node.neighbors) {
-                q.push(nb);
-                let nb2 = map.get(nb);
-                newNode.neighbors.push(nb2);
+            for (const n of node.neighbors) {
+                q.push(n);
+                let nNew = map.get(n);
+                newNode.neighbors.push(nNew);
             }
         }
     }
