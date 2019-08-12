@@ -1,11 +1,12 @@
 // BFS full tree
-function domTreeTraversalBFS(root = document.getRootNode()) {
+const domTreeTraversalBFS = (root = document.getRootNode()) => {
     let q = [root];
     let nodeList = [];
 
     while (q.length) {
         let node = q.shift();
 
+        // `the Do`
         nodeList.push(node);
 
         for (let child of node.children) {
@@ -53,23 +54,25 @@ function domTreeTraversalDFSRecursive(root = document.getRootNode()) {
 
 // get `class name` by BFS
 // default param should be the last param
+// Point of entry is set to body to avoid irrelevant nodes
 function getMyClassBFS(className, root = document.body) {
     let q = [root];
-    let classList = [];
+    let res = [];
 
     while (q.length) {
         let node = q.shift();
 
+        // If the className is a match, add it to the result list
         if (node.classList.contains(className)) {
-            classList.push(node);
+            res.push(node);
         }
 
-        for (let child of node.children) {
-            q.push(child);
+        for (const c of node.children) {
+            q.push(c);
         }
     }
 
-    return classList;
+    return res;
 }
 
 // get `class name` by DFS

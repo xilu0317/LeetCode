@@ -17,8 +17,8 @@ const bfs = (root) => {
         let len = q.length;
         for (let i = 0; i < len; ++i) {
             let node = q.shift(); // dequeue
-            for (let child of node.children) {
-                q.push(child);
+            for (const c of node.children) {
+                q.push(c);
             }
         }
     }

@@ -89,9 +89,9 @@ const bfs = (root) => {
                 node.visited = true;
             }
 
-            for (let neighbor of node.neighbors) { // Use `of` not `in`
-                if (neighbor) { // If the current is null or undefined, don't push to queue
-                    q.push(neighbor);
+            for (const n of node.neighbors) { // Use `of` not `in`
+                if (n) { // If the current is null or undefined, don't push to queue
+                    q.push(n);
                 }
             }
         } // end of level for-loop

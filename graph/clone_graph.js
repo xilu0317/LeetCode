@@ -64,6 +64,8 @@ const cloneGraph = (root) => {
         }
     }
 
+    // set is probably not even necessary
+    // The second traversal is also on the old graph and will link up the children
     let set = new Set();
     q = [root];
     while (q.length) {

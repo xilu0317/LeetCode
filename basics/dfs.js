@@ -102,9 +102,9 @@ const dfs = (root) => {
             console.log(node.val);
         }
 
-        for (let nb of node.neighbors) {
-            if (!nb.visited) {
-                stack.push(nb);
+        for (const n of node.neighbors) {
+            if (!n.visited) {
+                stack.push(n);
             }
         }
     }
