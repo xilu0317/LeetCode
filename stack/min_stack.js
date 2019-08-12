@@ -39,7 +39,6 @@ class MinStack {
     /**
     * @return {number}
     */
-
     top() {
         return this.s1[this.s1.length - 1];
     }
