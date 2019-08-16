@@ -7,12 +7,19 @@ class MinHeap {
 
     // this is just for debugging
     dump() {
-       return this.data;
+        return this.data;
     }
 
     push(val) {
         this.data.push(val);
         this.bubbleUp(this.data.length - 1);
+    }
+
+    // load a list
+    load(list) {
+        for (let el of list) {
+            this.push(el);
+        }
     }
 
     pop() {
@@ -21,7 +28,7 @@ class MinHeap {
         if (this.data.length === 1) {
             let min = this.data[0];
             this.data = [];
-            
+
             return min;
         }
 

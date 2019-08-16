@@ -19,6 +19,7 @@ const calculate = (s) => {
     let sign = '+';
 
     for (let i = 0; i < len; i++) {
+        // calculate the number
         if (isDigit(s[i])) {
             num = num * 10 + parseInt(s[i]);
         }
@@ -39,7 +40,8 @@ const calculate = (s) => {
             sign = s[i];
             num = 0;
         }
-    }   
+    }
 
+    // sum of all elements in the stack
     return stack.reduce((acc, cur) => acc + cur);
 };
