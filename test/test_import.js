@@ -13,6 +13,7 @@ zigzagWalk = (root) => {
         let len = q.length;
         for (let i = 0; i < len; i++) {
             let node = q.shift();
+            // don't requeue the null nodes
             if (node) {
                 levelList.push(node.val);
                 q.push(node.left);
@@ -23,12 +24,14 @@ zigzagWalk = (root) => {
         if (flag) {
             levelList.forEach(x => console.log(x));
         } else {
-            levelList.slice().reverse().forEach(x => console.log(x))
+            levelList.reverse().forEach(x => console.log(x))
         }
+        // change flag
         flag = !flag;
+        // clear out the level list
         levelList = [];
     }
 
 }
 
-zigzagWalk(root)
+zigzagWalk(root);
