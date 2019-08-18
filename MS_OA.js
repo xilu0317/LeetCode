@@ -80,7 +80,7 @@ const intSum = (list) => {
 
     let res = [];
     for (let key in dict) {
-        dict[key].sort((a, b) => a - b);
+        dict[key].sort((a, b) => b - a);
         if (dict[key].length > 1) {
             sum = dict[key][0] + dict[key][1];
             res.push(sum);
@@ -92,6 +92,7 @@ const intSum = (list) => {
     return res[0];
 };
 
+console.log(intSum([51, 71, 17, 42]));
 console.log(intSum([42, 33, 60]));
 
 
