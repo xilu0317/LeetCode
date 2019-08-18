@@ -49,6 +49,7 @@ const removeLetters = (s) => {
 console.log(removeLetters('aaabbbccc'));
 // =====
 
+// problem 2
 
 const num2Arr = (num) => {
     if (!num) return null;
@@ -66,7 +67,7 @@ const num2Arr = (num) => {
 const intSum = (list) => {
     if (!list || !list.length) return -1;
 
-    let dict = {};
+    const dict = {};
     for (let item of list) {
         let itemArr = num2Arr(item);
         let sum = itemArr.reduce((acc, cur) => acc + cur);
@@ -78,7 +79,7 @@ const intSum = (list) => {
         }
     }
 
-    let res = [];
+    const res = [];
     for (let key in dict) {
         dict[key].sort((a, b) => b - a);
         if (dict[key].length > 1) {
