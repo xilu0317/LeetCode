@@ -31,8 +31,10 @@ const removeLetters = (s) => {
     let i = 1;
     while (i < list.length) {
         if (list[i] === list[i - 1]) {
-            list[i]--;
-            count++;
+            if (list[i]) {
+                list[i]--;
+                count++;
+            }
         }
         i++;
 
@@ -46,7 +48,7 @@ const removeLetters = (s) => {
 };
 
 // =====
-console.log(removeLetters('aaabbbccc'));
+console.log(removeLetters('example'));
 // =====
 
 // problem 2
@@ -95,8 +97,4 @@ const intSum = (list) => {
 
 console.log(intSum([51, 71, 17, 42]));
 console.log(intSum([42, 33, 60]));
-
-
-
-
 
