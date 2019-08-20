@@ -23,9 +23,9 @@ Location: VAN
 linked list, binary tree and design.
 
 // TODO:
-1) maintain string class and support certain API operations
+1) Maintain string class and support certain API operations
 2) Autocomplete
-3) two sum, two sum cloest
+3) Two sum, two sum cloest
 4) DFS, BFS
 5) Tree travrsal
 

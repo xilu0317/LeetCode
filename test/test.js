@@ -1,6 +1,21 @@
-const stuff = require('../basics/bst.js');
+const twoSum = function (nums, target) {
+    let dict = {};
 
-let root = stuff([1,2,3,4,5,6,7,8,9]);
+    let i = 0;
+    for (let num of nums) {
+        dict[num] = i++;
+    }
+
+    i = 0;
+    for (let num of nums) {
+        let goal = target - num;
+        if (dict[goal] && dict[goal] !== i) {
+            return [i, dict[goal]];
+        }
+    }
+
+    return -1;
+};
 
 
-console.log(root);
+twoSum([3, 2, 4], 6)
