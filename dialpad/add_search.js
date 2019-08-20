@@ -5,9 +5,6 @@ class TrieNode {
     }
 }
 
-/**
- * Initialize your data structure here.
- */
 class WordDictionary {
     constructor() {
         this.root = new TrieNode();
@@ -37,7 +34,6 @@ class WordDictionary {
      */
     search(word) {
         const search = (cur, level) => {
-            // Cannot search for the word
             if (!cur || (level === word.length && !cur.isEnd)) {
                 return false;
             }
@@ -63,10 +59,3 @@ class WordDictionary {
         return search(this.root, 0);
     }
 }
-
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * var obj = Object.create(WordDictionary).createNew()
- * obj.addWord(word)
- * var param_2 = obj.search(word)
- */

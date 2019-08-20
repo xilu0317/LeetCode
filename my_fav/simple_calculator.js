@@ -11,7 +11,7 @@ const calculate = (s) => {
     if (!s || !s.length) return 0;
 
     // don't forget to re-assign the processed string back to s
-    s = s.replace(/\s+/g,'');
+    s = s.replace(/\s+/g, '');
 
     let len = s.length;
     let stack = [];
