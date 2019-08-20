@@ -1,9 +1,4 @@
 const isDigit = (c) => {
-    if (!c) return false;
-
-    // apparently empty space is not a digit
-    if (c === ' ') return false;
-
     return !isNaN(c);
 };
 
