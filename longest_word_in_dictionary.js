@@ -22,7 +22,6 @@ const longestWord = (words) => {
     }
 
     // build tire
-    words.sort(comp);
     const root = {};
     for (const word of words) {
         let cur = root;
@@ -45,7 +44,9 @@ const longestWord = (words) => {
                 }
             }
         }
-        strArr.push(str);
+        if (str.length) {
+            strArr.push(str);
+        }
     }
 
     return strArr.sort(comp)[0];
