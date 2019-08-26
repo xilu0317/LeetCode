@@ -1,21 +1,30 @@
-const twoSum = function (nums, target) {
-    let dict = {};
+// public int rob(TreeNode root) {
+// 	int[] num = dfs(root);
+// 	return Math.max(num[0], num[1]);
+// }
+// private int[] dfs(TreeNode x) {
+// 	if (x == null) return new int[2];
+// 	int[] left = dfs(x.left);
+// 	int[] right = dfs(x.right);
+// 	int[] res = new int[2];
+// 	res[0] = left[1] + right[1] + x.val;
+// 	res[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+// 	return res;
+// }
 
-    let i = 0;
-    for (let num of nums) {
-        dict[num] = i++;
-    }
-
-    i = 0;
-    for (let num of nums) {
-        let goal = target - num;
-        if (dict[goal] && dict[goal] !== i) {
-            return [i, dict[goal]];
-        }
-    }
-
-    return -1;
+const rob = (root) => {
+	let num = dfs(root);
+	return Math.max(num[0], num[1]);
 };
 
+const dfs = (x) => {
+	if (x === null) return Array(2).fill();
 
-twoSum([3, 2, 4], 6)
+	let left = dfs(x.left);
+	let right = dfs(x.right);
+	let res = Array(2).fill();
+	res[0] = left[1] + right[1] + x.val;
+	res[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+
+	return res;
+};
