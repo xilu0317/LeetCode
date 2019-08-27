@@ -27,7 +27,35 @@ const wordBreak = (s, wordDict) => {
 
     q = [0];
     while (q.length) {
-        let i = q.shift();
+        let i = q.shift(); // dequeue
+        if (!visited.has(i)) {
+            visited.add(i);
+
+            // for current index, check the dictionary
+            for (let word of wordDict) {
+                let m = word.length;
+                if (i + m <= n && s.substring(i, i + m) === word) {
+                    if (i + m === n) {
+                        return true;
+                    }
+                    q.push(i + m);
+                }
+            }
+        }
+    }
+
+    return false;
+};
+
+// DFS
+const wordBreak = (s, wordDict) => {
+    let stack = [];
+    let n = s.length;
+    let visited = new Set();
+
+    stack = [0];
+    while (stack.length) {
+        let i = stack.pop(); // only difference!
         if (!visited.has(i)) {
             visited.add(i);
             for (let word of wordDict) {
@@ -41,5 +69,6 @@ const wordBreak = (s, wordDict) => {
             }
         }
     }
+    
     return false;
 };
