@@ -64,11 +64,11 @@ const wordBreak = (s, wordDict) => {
                     if (i + m === n) {
                         return true;
                     }
-                    q.push(i + m);
+                    stack.push(i + m);
                 }
             }
         }
     }
-    
+
     return false;
 };
