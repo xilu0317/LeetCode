@@ -32,7 +32,7 @@ const wordBreak = (s, wordDict) => {
             visited.add(i);
             for (let word of wordDict) {
                 let m = word.length;
-                if (i + m <= s.length && s.substring(i, i + m) === word) {
+                if (i + m <= n && s.substring(i, i + m) === word) {
                     if (i + m === n) {
                         return true;
                     }
