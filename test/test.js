@@ -1,30 +1,26 @@
-// public int rob(TreeNode root) {
-// 	int[] num = dfs(root);
-// 	return Math.max(num[0], num[1]);
-// }
-// private int[] dfs(TreeNode x) {
-// 	if (x == null) return new int[2];
-// 	int[] left = dfs(x.left);
-// 	int[] right = dfs(x.right);
-// 	int[] res = new int[2];
-// 	res[0] = left[1] + right[1] + x.val;
-// 	res[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
-// 	return res;
-// }
+const wordBreak = (s, wordDict) => {
+    let q = [];
+    let n = s.length;
+    let visited = new Set();
 
-const rob = (root) => {
-	let num = dfs(root);
-	return Math.max(num[0], num[1]);
+    q = [0];
+    while (q.length) {
+        let i = q.shift();
+        if (!visited.has(i)) {
+            visited.add(i);
+            for (let word of wordDict) {
+                let m = word.length;
+                if (i + m <= s.length && s.substring(i, i + m) === word) {
+                    if (i + m === n) {
+                        return true;
+                    }
+                    q.push(i + m);
+                }
+            }
+        }
+    }
+    return false;
 };
 
-const dfs = (x) => {
-	if (x === null) return Array(2).fill();
 
-	let left = dfs(x.left);
-	let right = dfs(x.right);
-	let res = Array(2).fill();
-	res[0] = left[1] + right[1] + x.val;
-	res[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
-
-	return res;
-};
+wordBreak('leetcode', ['leet', 'code'])
