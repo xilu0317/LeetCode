@@ -58,7 +58,7 @@ const wordBreak = (s, wordDict) => {
         let i = stack.pop(); // only difference!
         if (!visited.has(i)) {
             visited.add(i);
-            
+
             for (let word of wordDict) {
                 let m = word.length;
                 if (i + m <= n && s.substring(i, i + m) === word) {
