@@ -3,6 +3,7 @@
  * @param {string[]} wordDict
  * @return {boolean}
  */
+// DP
 const wordBreak = (s, wordDict) => {
     let dp = Array(s.length + 1).fill(false);
     dp[0] = true;
