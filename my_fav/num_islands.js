@@ -1,4 +1,3 @@
-// This is so to share `m` and `n` between two methods
 let n, m;
 
 const dfsMarking = (grid, i, j) => {
@@ -14,9 +13,8 @@ const dfsMarking = (grid, i, j) => {
 
 const numIslands = (grid) => {
     n = grid.length;
-    m = grid[0].length;
-
     if (n === 0) return 0;
+    m = grid[0].length;
 
     let count = 0;
     for (let i = 0; i < n; i++) {
