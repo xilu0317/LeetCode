@@ -3,10 +3,11 @@ const cloneGraph = (root) => {
     if (!root) return null;
 
     let q = [root];
-    // For the love of god, don't do map = {} because the simple dict only do string -> object
-    // For object -> object mapping, use ES6 Map() instead!
+    // Do *NOT* use let map = {}; because the JS objects only do `string -> object` mapping
+    // For `object -> object` mapping, use ES6 Map() instead.
     let map = new Map();
 
+    // First traversal is aimed to created a collection of disconnected nodes    
     while (q.length) {
         let node = q.shift();
         if (!map.get(node)) {
@@ -21,18 +22,21 @@ const cloneGraph = (root) => {
         }
     }
 
+    // Second traveral is intended to associate neighbors of each new nodes in the new graph
     let set = new Set();
     q = [root];
     while (q.length) {
         let node = q.shift();
         if (!set.has(node)) {
             let newNode = map.get(node);
+            // mark as visisted by adding the node into the set
             set.add(node);
 
             for (let nb of node.neighbors) {
                 q.push(nb);
-                let nb2 = map.get(nb);
-                newNode.neighbors.push(nb2);
+                let newNb = map.get(nb);
+                // add new neighbor to new node
+                newNode.neighbors.push(newNb);
             }
         }
     }
