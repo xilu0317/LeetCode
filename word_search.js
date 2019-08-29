@@ -1,16 +1,16 @@
 let visited;
-let rowLen;
-let colLen;
+let m;
+let n;
 
 const exist = (board, word) => {
-    rowLen = board.length;
-    colLen = board[0].length;
+    m = board.length;
+    n = board[0].length;
     // Underlying visit map is to mark the visit status
-    visited = Array(rowLen).fill().map(x => Array(colLen).fill(false));
+    visited = Array(m).fill().map(x => Array(n).fill(false));
 
     // Use every point as a starting point
-    for (let i = 0; i < rowLen; ++i) {
-        for (let j = 0; j < colLen; ++j) {
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
             if (search(board, word, i, j, 0)) return true;
         }
     }
@@ -25,8 +25,8 @@ const search = (board, word, i, j, index) => {
     if (index === word.length) return true;
 
     // Validating boundary edge cases
-    if (i < 0 || i >= rowLen ||
-        j < 0 || j >= colLen ||
+    if (i < 0 || i >= m ||
+        j < 0 || j >= n ||
         board[i][j] !== word[index] ||
         visited[i][j]) return false;
 
