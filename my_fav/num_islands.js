@@ -8,6 +8,7 @@ const dfsEraseLand = (grid, i, j) => {
     // Turn current grid into water
     grid[i][j] = '0';
 
+    // Recursive dfs
     dfsEraseLand(grid, i + 1, j);
     dfsEraseLand(grid, i - 1, j);
     dfsEraseLand(grid, i, j + 1);
