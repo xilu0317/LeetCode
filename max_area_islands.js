@@ -21,9 +21,12 @@ const dfs = (grid, i, j) => {
         return 0;
     }
 
+    // Flip it off to avoid double counting
     grid[i][j] = 0;
+    // Add current land area
     let area = 1;
 
+    // Recursive dfs visits
     area += dfs(grid, i - 1, j);
     area += dfs(grid, i + 1, j);
     area += dfs(grid, i, j - 1);
