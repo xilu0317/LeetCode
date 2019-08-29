@@ -8,7 +8,6 @@ const maxAreaOfIsland = (grid) => {
     let maxArea = -Infinity;
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
-            // Running max
             maxArea = Math.max(maxArea, dfs(grid, i, j));
         }
     }
