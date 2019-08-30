@@ -1,4 +1,3 @@
-// Share common variables
 let n, m;
 
 const dfsEraseLand = (grid, i, j) => {
@@ -16,17 +15,18 @@ const dfsEraseLand = (grid, i, j) => {
 };
 
 const numIslands = (grid) => {
+    if (!grid || !grid.length) return 0;
+
     n = grid.length;
-    if (n === 0) return 0;
     m = grid[0].length;
 
     let count = 0;
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < m; j++)
-            // If this grid is land, erase all _reachable_ land nearby
+            // If this grid is land, erase all reachable lands nearby
             if (grid[i][j] === '1') {
                 dfsEraseLand(grid, i, j);
-                // Don't forget count
+                // Don't forget to count
                 count++;
             }
     }
