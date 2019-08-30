@@ -1,24 +1,5 @@
 class AutocompleteSystem {
-    class TrieNode {
-        Map<Character, TrieNode> children;
-        Map<String, Integer> counts;
-        boolean isWord;
-        public TrieNode() {
-            children = new HashMap<>();
-            counts = new HashMap<>();
-            isWord = false;
-        }
-    }
-
-    class Node {
-        String word;
-        int count;
-        public Node(String s, int c) {
-            this.word = s;
-            this.count = c;
-        }
-    }
-
+    // Memeber variable of the outer class
     TrieNode root;
     String prefix;
 
@@ -39,7 +20,7 @@ class AutocompleteSystem {
                 cur.children.put(ch, next);
             }
             cur = next;
-            cur.counts.put(word, cur.counts.getOrDefault(word, 0)+count);
+            cur.counts.put(word, cur.counts.getOrDefault(word, 0) + count);
         }
         cur.isWord = true;
     }
@@ -59,7 +40,7 @@ class AutocompleteSystem {
             else cur = next;
         }
 
-        PriorityQueue<Node> queue = new PriorityQueue<>((a, b)->(a.count==b.count ? a.word.compareTo(b.word) : b.count-a.count));
+        PriorityQueue<Node> queue = new PriorityQueue<>((a, b)->(a.count == b.count ? a.word.compareTo(b.word) : b.count - a.count));
         for (Map.Entry<String, Integer> entry: cur.counts.entrySet()) {
             queue.offer(new Node(entry.getKey(), entry.getValue()));
         }
@@ -69,5 +50,27 @@ class AutocompleteSystem {
             res.add(queue.poll().word);
         }
         return res;
+    }
+}
+
+class TrieNode {
+    Map<Character, TrieNode> children;
+    Map<String, Integer> counts;
+    boolean isWord;
+
+    public TrieNode() {
+        children = new HashMap<>();
+        counts = new HashMap<>();
+        isWord = false;
+    }
+}
+
+class Node {
+    String word;
+    int count;
+
+    public Node(String s, int c) {
+        this.word = s;
+        this.count = c;
     }
 }
