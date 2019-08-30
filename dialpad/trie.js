@@ -15,7 +15,7 @@ class Trie {
             cur = cur[c];
         }
         // Make sure to flag the last node
-        cur.isWord = true;
+        cur.isLastNode = true;
     }
 
     // This method will traverse all the way till the last node
@@ -36,8 +36,9 @@ class Trie {
         // Get the last node
         let lastNode = this.traverse(word);
 
-        // `!!` = converts everything else to bool
-        return !!lastNode && !!lastNode.isWord;
+        // `!!` will turn truthy to true
+        // If the last node exists and it is the last word
+        return !!lastNode && !!lastNode.isLastNode;
     }
 
     startsWith(word) {
@@ -54,7 +55,7 @@ function Trie() {
     function insert(word) {
         let cur = root;
         word.split('').forEach(c => cur = cur[c] = (cur[c] || {}));
-        cur.isWord = true;
+        cur.isLastNode = true;
     }
 
     function traverse(word) {
@@ -71,7 +72,7 @@ function Trie() {
     function search(word) {
         let lastNode = traverse(word);
 
-        return !!lastNode && !!lastNode.isWord;
+        return !!lastNode && !!lastNode.isLastNode;
     }
 
     function startsWith(word) {
