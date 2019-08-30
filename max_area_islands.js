@@ -1,8 +1,9 @@
 let m, n;
 
 const maxAreaOfIsland = (grid) => {
+    if (!grid || !grid.length) return 0;
+
     m = grid.length;
-    if (m === 0) return 0;
     n = grid[0].length;
 
     let maxArea = -Infinity;
