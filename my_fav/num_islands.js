@@ -1,10 +1,10 @@
 let n, m;
 
 const dfsEraseLand = (grid, i, j) => {
-    // If out of bound or in water, return immeidately
+    // If out of bound or on water, then ignore the rest of the code
     if (i < 0 || j < 0 || i >= n || j >= m || grid[i][j] === '0') return;
 
-    // Turn current grid into water
+    // Turn current land/grid into water
     grid[i][j] = '0';
 
     // Recursive dfs
@@ -22,13 +22,14 @@ const numIslands = (grid) => {
 
     let count = 0;
     for (let i = 0; i < n; i++) {
-        for (let j = 0; j < m; j++)
-            // If this grid is land, erase all reachable lands nearby
+        for (let j = 0; j < m; j++) {
+            // If the current grid is a land, erase all lands nearby
             if (grid[i][j] === '1') {
                 dfsEraseLand(grid, i, j);
-                // Don't forget to count
+                // Don't forget to count after removing the lands
                 count++;
             }
+        }
     }
 
     return count;
