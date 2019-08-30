@@ -17,6 +17,7 @@ const maxAreaOfIsland = (grid) => {
 };
 
 const dfs = (grid, i, j) => {
+    // Indices out of bound or on water
     if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
         return 0;
     }
