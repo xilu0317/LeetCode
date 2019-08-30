@@ -1,4 +1,5 @@
 // ES6 map is ganrenteed to have O(1) lookup in V8 based browsers/Chrome
+// Essentially ES6 map is an ordered hash table
 // https://stackoverflow.com/questions/33611509/es6-map-and-set-complexity-v8-implementation?lq=1
 // https://codereview.chromium.org/220293002/
 
