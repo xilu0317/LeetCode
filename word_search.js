@@ -25,10 +25,15 @@ const search = (board, word, i, j, index) => {
     if (index === word.length) return true;
 
     // Validating boundary edge cases
-    if (i < 0 || i >= m ||
-        j < 0 || j >= n ||
-        board[i][j] !== word[index] ||
-        visited[i][j]) return false;
+    // 1) search is false if out of bound
+    // 2) search is false if current letter is not the same as the word[index]
+    // 3) search is false if we have already visited the spot
+
+    if (i < 0 || i >= m || j < 0 || j >= n ||
+        visited[i][j] ||
+        board[i][j] !== word[index]) {
+        return false;
+    }
 
     // Mark as visited
     visited[i][j] = true;
