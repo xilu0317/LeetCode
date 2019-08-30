@@ -22,7 +22,7 @@ const dfs = (grid, i, j) => {
         return 0;
     }
 
-    // Flip it off to avoid double counting
+    // Flip current land off to water avoid double counting
     grid[i][j] = 0;
     // Count current land/grid
     let area = 1;
