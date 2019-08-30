@@ -1,3 +1,7 @@
+// ES6 map is ganrenteed to have O(1) lookup in V8 based browsers/Chrome
+// https://stackoverflow.com/questions/33611509/es6-map-and-set-complexity-v8-implementation?lq=1
+// https://codereview.chromium.org/220293002/
+
 class LRUCache {
     constructor(num) {
         // capacity = number of elements allowed to put in a map
@@ -9,7 +13,6 @@ class LRUCache {
         // Javascript map is O(1) access
         const val = this.map.get(key);
 
-        // '-1' is per the problem statement
         if (!val) return -1;
 
         // Remove the key
