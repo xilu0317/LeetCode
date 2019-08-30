@@ -1,13 +1,13 @@
 class LRUCache {
-    constructor(capacity) {
+    constructor(num) {
         // capacity = number of elements allowed to put in a map
-        this.capacity = capacity;
+        this.capacity = num;
         this.map = new Map();
     }
 
     get(key) {
         // Javascript map is O(1) access
-        let val = this.map.get(key);
+        const val = this.map.get(key);
 
         if (!val) return -1;
 
