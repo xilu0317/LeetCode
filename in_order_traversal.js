@@ -6,16 +6,27 @@ const inorderTraversal = (root) => {
     let node = root; // node is basically cur, the reference will move
 
     while (true) {
+        // If current node exists
         if (node) {
-            stack.push(node); // This is like trail blazing, we `record` the path that we have taken already
-            node = node.left; // keep going left as long as we could, note that the leftmost node would the absolute min when the entry point is the root
+            // This is like trail blazing, we `record` the path that we have taken already
+            stack.push(node);
+            // keep going left as long as we could, note that the leftmost node would the absolute 
+            // min when the entry point is the root
+            node = node.left;
         } else {
-            if (stack.length) {  // The stack.pop() part is the `backtrack` part
-                node = stack.pop(); // Cannot add the `let` keyword here, bc of the block scope. It will be problematic when going right in next 2 lines.
-                res.push(node.val); // The `do` or `print` operation
-                node = node.right; // rturn from the left, now go right
+            // The stack.pop() part is the `backtrack` part
+            if (stack.length) {
+                // do not use let here
+                node = stack.pop();
+
+                // The `do` part
+                res.push(node.val);
+
+                // We have already been to the left node, now go right
+                node = node.right;
             } else {
-                break; // no `left` to go and stack is empty
+                // Stack is empty and exit out
+                break;
             }
         }
     }
