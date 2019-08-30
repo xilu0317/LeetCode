@@ -1,5 +1,6 @@
 class LRUCache {
     constructor(capacity) {
+        // capacity = number of elements allowed to put in a map
         this.capacity = capacity;
         this.map = new Map();
     }
@@ -10,7 +11,7 @@ class LRUCache {
 
         if (!val) return -1;
 
-        // remove the key
+        // Remove the key
         this.map.delete(key);
 
         // Re-queue the key
@@ -22,14 +23,13 @@ class LRUCache {
 
     put(key, value) {
         // Remove the key it exists
-        if (this.map.has(key)) {
-            this.map.delete(key);
-        }
+        this.map.delete(key);
         // Update to the new value
         this.map.set(key, value);
 
         // Get keys iterator
-        let keys = this.map.keys();
+        const keys = this.map.keys();
+        // Note the iterator is ordered by the insertion order
         while (this.map.size > this.capacity) {
             this.map.delete(keys.next().value);
         }
