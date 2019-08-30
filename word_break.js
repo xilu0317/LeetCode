@@ -20,7 +20,8 @@ const wordBreak = (s, wordDict) => {
     return dp[s.length];
 };
 
-// BFS
+// BFS: note both BFS and DFS will work and there is minimal difference between the two
+// The only conspicuous difference is the direction to pop the queue/stack
 const wordBreak = (s, wordDict) => {
     let q = [];
     let n = s.length;
@@ -35,7 +36,7 @@ const wordBreak = (s, wordDict) => {
         if (!visited.has(i)) {
             visited.add(i);
 
-            // for current index, check the dictionary
+            // For current index, check the dictionary
             for (let word of wordDict) {
                 let m = word.length;
                 if (i + m <= n && s.substring(i, i + m) === word) {
