@@ -9,6 +9,7 @@ class LRUCache {
         // Javascript map is O(1) access
         const val = this.map.get(key);
 
+        // '-1' is per the problem statement
         if (!val) return -1;
 
         // Remove the key
