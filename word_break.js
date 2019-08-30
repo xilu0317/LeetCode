@@ -61,7 +61,7 @@ const wordBreak = (s, wordDict) => {
 
     stack = [0];
     while (stack.length) {
-        let i = stack.pop(); // only difference!
+        let i = stack.pop(); // the only difference!
         if (!visited.has(i)) {
             visited.add(i);
 
