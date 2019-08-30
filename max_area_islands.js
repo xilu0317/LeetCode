@@ -3,8 +3,8 @@ let m, n;
 const maxAreaOfIsland = (grid) => {
     if (!grid || !grid.length) return 0;
 
-    m = grid.length;
-    n = grid[0].length;
+    m = grid.length; // number of rows
+    n = grid[0].length; // number of cols
 
     let maxArea = -Infinity;
     for (let i = 0; i < m; i++) {
