@@ -1,8 +1,7 @@
 // ES6 class
 class Trie {
     constructor() {
-        // instance variable
-        // `{}` same as an new object
+        // This is how you define memeber vars in ES6
         this.root = {};
     }
 
