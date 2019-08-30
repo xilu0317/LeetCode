@@ -10,7 +10,7 @@ const calculateMinimumHP = (dungeon) => {
 
     // build an underlying matrix for DP
     let mat = Array(m + 1).fill(Infinity)
-              .map(() => Array(n + 1).fill(Infinity));
+        .map(() => Array(n + 1).fill(Infinity));
 
     mat[m][n - 1] = 1;
     mat[m - 1][n] = 1;
