@@ -24,11 +24,14 @@ const wordBreak = (s, wordDict) => {
 const wordBreak = (s, wordDict) => {
     let q = [];
     let n = s.length;
+    // Use this set to mark if the node has been visited or not
     let visited = new Set();
 
+    // Just treat the indices as nodes
     q = [0];
     while (q.length) {
         let i = q.shift(); // dequeue
+
         if (!visited.has(i)) {
             visited.add(i);
 
@@ -36,6 +39,7 @@ const wordBreak = (s, wordDict) => {
             for (let word of wordDict) {
                 let m = word.length;
                 if (i + m <= n && s.substring(i, i + m) === word) {
+                    // If we can reach the end node, then we must have found the word break
                     if (i + m === n) {
                         return true;
                     }
