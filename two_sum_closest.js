@@ -1,6 +1,7 @@
 const twoSumClosest = (nums, target) => {
     nums.sort((a, b) => a > b);
     let min = Number.MAX_SAFE_INTEGER;
+
     let left = 0;
     let right = nums.length - 1;
 
@@ -16,5 +17,3 @@ const twoSumClosest = (nums, target) => {
 
     return min;
 };
-
-console.log(twoSumClosest([1, 2, 3, 7, 10], 6));
