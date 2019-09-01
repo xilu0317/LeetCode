@@ -13,11 +13,11 @@ class Solution(object):
             graph[x].append(y)
         # visit each node
         for i in range(numCourses):
-            if not self.dfs(graph, visited, i):
+            if not self.dfsCycleDetected(graph, visited, i):
                 return False
         return True
     
-    def dfs(self, graph, visited, i):
+    def dfsCycleDetected(self, graph, visited, i):
         # if ith node is marked as being visited, then a cycle is found
         if visited[i] == -1:
             return False
@@ -28,7 +28,7 @@ class Solution(object):
         visited[i] = -1
         # visit all the neighbours
         for j in graph[i]:
-            if not self.dfs(graph, visited, j):
+            if not self.dfsCycleDetected(graph, visited, j):
                 return False
         # after visit all the neighbours, mark it as done visited
         visited[i] = 1
