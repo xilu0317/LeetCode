@@ -1,6 +1,7 @@
 const getSkyline = (buildings) => {
     let res = [], height = [], pq = [0], prevMax = null;
-    for (let b of buildings) {
+
+    for (const b of buildings) {
         height.push([b[0], -b[2]]);
         height.push([b[1], b[2]]);
     }
@@ -9,7 +10,7 @@ const getSkyline = (buildings) => {
         return a[0] - b[0];
     });
 
-    for (let h of height) {
+    for (const h of height) {
         if (h[1] < 0) {
             pq.push(-h[1]);
         } else {
@@ -23,18 +24,21 @@ const getSkyline = (buildings) => {
             prevMax = maxV;
         }
     }
+
     return res;
 };
 
 // remove the first element equal to val
 const remove = (arr, val) => {
-    let ind = -1;
+    let index = -1;
     for (let i = 0; i < arr.length; i++) {
         if (val === arr[i]) {
-            ind = i;
+            index = i;
             break;
         }
     }
-    arr.splice(ind, 1);
+
+    arr.splice(index, 1);
+
     return;
 };
