@@ -1,38 +1,42 @@
-const dfs = (graph, visited, course) => {
-    if (visited[course]) {
-        return false;
-    } else {
-        visited[course] = true;
-    }
+const visited = new Set();
 
+const dfsCycleDeteced = (graph, course) => {
+    // If the course has already been visited
+    if (visited.has(course)) {
+        return true;
+    }
+    visited.add(course);
+
+    // `i` is the index for the neightbor
     for (let i = 0; i < graph[course].length; i++) {
-        if (!dfs(graph, visited, graph[course][i])) {
-            return false;
+        if (dfsCycleDeteced(graph, graph[course][i])) {
+            return true;
         }
     }
-    visited[course] = false;
 
-    return true;
+    return false;
 };
 
-const canFinish = (num, preq) => {
-    let graph = Array(num).fill();
-
-    for (let i = 0; i < num; i++) {
-        graph[i] = [];
-    }
-
-    visited = Array(num).fill(false);
+/**
+ * @param {number} numCourses
+ * @param {number[][]} prerequisites
+ * @return {boolean}
+ */
+// Brute force
+const canFinish = (numCourses, preq) => {
+    // build the graph using `preq`
+    let graph = Array(numCourses).fill().map(() => []);
     for (let i = 0; i < preq.length; i++) {
         graph[preq[i][1]].push(preq[i][0]);
     }
 
-    for (let i = 0; i < num; i++) {
-        if (!dfs(graph, visited, i)) {
+    // Use each node as a starting point to see if the course can be finished
+    // A cycle in the graph would mean the course cannot be finished because of the circular dependency
+    for (let node = 0; node < numCourses; node++) {
+        if (dfsCycleDeteced(graph, node)) {
             return false;
         }
     }
 
     return true;
 };
-
