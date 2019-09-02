@@ -40,7 +40,7 @@ class AutocompleteSystem {
     // Insert
     private void add(String word, int count) {
         TrieNode cur = root;
-        for (char ch: word.toCharArray()) {
+        for (char ch : word.toCharArray()) {
             TrieNode next = cur.children.get(ch);
             if (next == null) {
                 next = new TrieNode();
@@ -56,12 +56,12 @@ class AutocompleteSystem {
         if (c == '#') {
             add(prefix, 1);
             prefix = "";
-            return new ArrayList<>();
+            return new ArrayList<String>();
         }
 
         prefix += c;
         TrieNode cur = root;
-        for (char ch: prefix.toCharArray()) {
+        for (char ch : prefix.toCharArray()) {
             TrieNode next = cur.children.get(ch);
             if (next == null) return new ArrayList<>();
             else cur = next;
@@ -75,7 +75,7 @@ class AutocompleteSystem {
             queue.offer(new Node(entry.getKey(), entry.getValue()));
         }
 
-        List<String> res = new ArrayList<>();
+        List<String> res = new ArrayList<String>();
         for (int i = 0; i < 3 && !queue.isEmpty(); i++) {
             res.add(queue.poll().word);
         }
