@@ -1,8 +1,3 @@
-/**
- * @param {number[][]} buildings
- * @return {number[][]}
- */
-
 class MaxHeap {
     constructor() {
         this.data = [null];
