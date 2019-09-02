@@ -17,8 +17,8 @@ const dfsEraseLand = (grid, i, j) => {
 
 /*
     The gist is that go visit each grid in the matrix.
-    If the grid is a land grid then erase all neighoring girds and
-    then increment the counter by just 1 for the entire 'landmass'
+    If the grid is a land grid then erase all neighboring girds and
+    then increment the counter by just one for the entire 'landmass'
 */
 const numIslands = (grid) => {
     // The spec requires to return 0 for invalid inputs
