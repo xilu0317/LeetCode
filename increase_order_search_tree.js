@@ -10,6 +10,7 @@ const increasingBST = (root) => {
 
 // In terms of naming, it is better to use `cur` instead of `root` to reflect that it is a generic node
 const increasingBSTRec = (cur, next) => {
+    // exit condition for recursion
     if (!cur) return next;
 
     const res = increasingBSTRec(cur.left, cur);
@@ -39,8 +40,8 @@ const increasingBSTRec = (cur, next) => {
 //              /          \
 //          cur.left     cur.right
 //          /      \     /       \
-//         /\      /\   /\       /\
-//         --      --   --       --
+//        null     /\   /\       /\
+//                 --   --       --
 //
 // Recall the very definition of the BST
 // The subtree on the left is recursively smaller than the current node and subtree on the right is recursively larger
