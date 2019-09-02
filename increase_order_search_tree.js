@@ -22,17 +22,25 @@ const increasingBSTRec = (cur, next) => {
 //
 //  `next` really is the next node to be processed
 //
-//                      next
-//                      /
-//                     /
-//                 -------
+//                                    root
+//                                 /        \
+//                                .         /\
+//                               .          --
+//                              .
+//                             /
+//                            /
+//                          next
+//                       /       \
+//                      /        /\
+//                 -------       --
 //                 | cur |
-//                 -------    
+//                 -------
 //               /        \
 //              /          \
 //          cur.left     cur.right
-//
-//
+//          /      \     /       \
+//         /\      /\   /\       /\
+//         --      --   --       --
 //
 // Recall the very definition of the BST
 // The subtree on the left is recursively smaller than the current node and subtree on the right is recursively larger
