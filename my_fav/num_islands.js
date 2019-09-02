@@ -33,7 +33,7 @@ const numIslands = (grid) => {
             // If the current grid is a land, erase ALL neighboring landds
             if (grid[i][j] === '1') {
                 dfsEraseLand(grid, i, j);
-                // Do *NOT* forget to count after removing the nearby lands
+                // Do *NOT* forget to increment the counter after removing the nearby lands
                 ++count;
             }
         }
