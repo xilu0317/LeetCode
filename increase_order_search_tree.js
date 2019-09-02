@@ -22,8 +22,7 @@ const increasingBSTRec = (cur, parent) => {
     return res;
 };
 
-//
-//  `parent` really is the parent node to be processed
+//  `parent` really is just the parent node of the `cur` node
 //
 //                                    root
 //                                 /        \
@@ -32,10 +31,10 @@ const increasingBSTRec = (cur, parent) => {
 //                              .
 //                             /
 //                            /
-//                          parent
-//                       /       \
-//                      /        /\
-//                 -------       --
+//                        parent
+//                      /       \
+//                     /        /\
+//                 -------      --
 //                 | cur |
 //                 -------
 //               /        \
@@ -45,6 +44,7 @@ const increasingBSTRec = (cur, parent) => {
 //        null     /\   /\       /\
 //                 --   --       --
 //
-// Recall the very definition of the BST
+
+// BST definition
 // The subtree on the left is recursively smaller than the current node and subtree on the right is recursively larger
 // Thus the value of `cur` is smaller than the value of `parent` because cur is the root of the left subtree.
