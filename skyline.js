@@ -32,7 +32,7 @@ class MaxHeap {
 
     bubbleDown(i) {
         const largestChild = this.data[i * 2 + 1] &&
-                             this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
+            this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
         if (this.data[largestChild] && this.data[largestChild].h > this.data[i].h) {
             this.swap(largestChild, i);
             this.bubbleDown(largestChild);
@@ -74,16 +74,22 @@ class MaxHeap {
     }
 }
 
+// custom comparator 0 -> start pos 1 -> end pos 2 -> height
 const comp = (s1, s2) => {
+    // sort them by x position
     if (s1.x !== s2.x) {
         return s1.x - s2.x;
     }
+    // start = type 1; end = type 2
+    // if two are not of the same type
     else if (s1.type !== s2.type) {
         return s1.type - s2.type;
     }
+    // if it is start then sort by height
     else if (s1.type === 1) {
         return s1.h - s2.h;
     }
+    // if it is end then sort by their correpsonding start
     else {
         return s1.start.h - s2.start.h;
     }
@@ -97,7 +103,8 @@ const getSkyline = (buildings) => {
     buildings.forEach(b => {
         const start = { type: 1, x: b[0], h: b[2] };
         const end = { type: 2, x: b[1], start: start };
-        skylines.push(start, end);
+        skylines.push(start);
+        skylines.push(end);
     });
 
     skylines.sort(comp);
@@ -112,7 +119,7 @@ const getSkyline = (buildings) => {
             buildingHeap.addNode(skyline);
         } else {
             buildingHeap.deleteNode(skyline.start);
-            
+
             if (skyline.start.h > buildingHeap.getMaxHeight()) {
                 res.push([skyline.x, buildingHeap.getMaxHeight()]);
             }
