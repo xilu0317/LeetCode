@@ -63,7 +63,7 @@ class AutocompleteSystem {
         TrieNode cur = root;
         for (char ch : prefix.toCharArray()) {
             TrieNode next = cur.children.get(ch);
-            if (next == null) return new ArrayList<>();
+            if (next == null) return new ArrayList<String>();
             else cur = next;
         }
 
