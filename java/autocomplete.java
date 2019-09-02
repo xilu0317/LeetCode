@@ -5,8 +5,8 @@ class TrieNode {
     boolean isWord;
 
     public TrieNode() {
-        children = new HashMap<>();
-        counts = new HashMap<>();
+        children = new HashMap<Character, TrieNode>();
+        counts = new HashMap<String, Integer>();
         isWord = false;
     }
 }
@@ -17,8 +17,8 @@ class Node {
     int count;
 
     public Node(String s, int c) {
-        this.word = s;
-        this.count = c;
+        word = s;
+        count = c;
     }
 }
 
