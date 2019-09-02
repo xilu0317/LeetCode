@@ -5,7 +5,6 @@
 //              /          \
 //          cur.left     cur.right
 const increasingBST = (root) => {
-
     return increasingBSTRec(root, null);
 };
 
