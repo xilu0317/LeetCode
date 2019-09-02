@@ -1,8 +1,34 @@
+// Helper class
+class TrieNode {
+    Map<Character, TrieNode> children;
+    Map<String, Integer> counts;
+    boolean isWord;
+
+    public TrieNode() {
+        children = new HashMap<>();
+        counts = new HashMap<>();
+        isWord = false;
+    }
+}
+
+// Helper class
+class Node {
+    String word;
+    int count;
+
+    public Node(String s, int c) {
+        this.word = s;
+        this.count = c;
+    }
+}
+
+// Main class
 class AutocompleteSystem {
-    // Memeber variable of the outer class
+    // Memeber variables
     TrieNode root;
     String prefix;
 
+    // Constructor
     public AutocompleteSystem(String[] sentences, int[] times) {
         root = new TrieNode();
         prefix = "";
@@ -11,6 +37,7 @@ class AutocompleteSystem {
         }
     }
 
+    // Insert
     private void add(String word, int count) {
         TrieNode cur = root;
         for (char ch: word.toCharArray()) {
@@ -40,8 +67,11 @@ class AutocompleteSystem {
             else cur = next;
         }
 
-        PriorityQueue<Node> queue = new PriorityQueue<>((a, b)->(a.count == b.count ? a.word.compareTo(b.word) : b.count - a.count));
-        for (Map.Entry<String, Integer> entry: cur.counts.entrySet()) {
+        PriorityQueue<Node> queue = new PriorityQueue<Node>(
+            // when count is equal order lexicographically
+            (a, b) -> (a.count == b.count ? a.word.compareTo(b.word) : b.count - a.count)
+        );
+        for (Map.Entry<String, Integer> entry : cur.counts.entrySet()) {
             queue.offer(new Node(entry.getKey(), entry.getValue()));
         }
 
@@ -49,28 +79,7 @@ class AutocompleteSystem {
         for (int i = 0; i < 3 && !queue.isEmpty(); i++) {
             res.add(queue.poll().word);
         }
+
         return res;
-    }
-}
-
-class TrieNode {
-    Map<Character, TrieNode> children;
-    Map<String, Integer> counts;
-    boolean isWord;
-
-    public TrieNode() {
-        children = new HashMap<>();
-        counts = new HashMap<>();
-        isWord = false;
-    }
-}
-
-class Node {
-    String word;
-    int count;
-
-    public Node(String s, int c) {
-        this.word = s;
-        this.count = c;
     }
 }
