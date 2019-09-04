@@ -2,28 +2,34 @@
 
 1）Given two numbers, count bit difference.
 2）Given matrix with 0s and 1s, count island. DFS and BFS.
-3）Given weight graph, find shortest path from start to destination. 
+3）Given weight graph, find shortest path from start to destination.
+4) ood design bing page, system design search engine
 
-1 ood design bing page, system design search engine
-2 LRU LFU
-3 一道topo sort 
-4 string compression, 一道queue的题
-5 boss 介绍组，加两道tree的题， 判断tree 是不是balance， 285 given value may or may not exist in tree.
+1) LRU, LFU
+2) 一道topo sort
+3) string compression, 一道queue的题
+4) bst balanced, given value may or may not exist in tree.
 
-1. 打印二叉树边界
-2. 给一堆integer pair，有交集的进行分组合并，求最终有多少组
-4. 设计log monitor service + 链表奇偶重排
-5. 给一个黑箱猜里面的数字大小，如数
+1) 打印二叉树边界
+2) 给一堆integer pair，有交集的进行分组合并，求最终有多少组
+3) 设计log monitor service + 链表奇偶重排
+4) 给一个黑箱猜里面的数字大小，如数
 
 1) cycle in graph
-2) Word Ladder，leetcode 127
+2) Word Ladder / leetcode 127
 3) Design Tic-Tac-Toe
 4) reverse string
 
-1) design a hashmap with O(1) deletion the goal was design a data structure have O1 add remove and random remove
-2) find a missing number into an array
-3) DFS tree recursion and recursion (parent node, first child and siblings
-4) insert number into a linked list
+// Luo Sen
+1) Design a hashmap with O(1) deletion => the goal was design a data structure have O1 add remove and random remove
+2) Find a missing number into an array
+3) DFS tree recursion and recursion (parent node, first child and siblings)
+4) Insert number into a linked list
+
+1) Sql related question
+2) Binary tree level print
+3) Predecesssor and Successor
+4) FE and implement a dictionary
 
 ========================================================================================================================================================================
 =
