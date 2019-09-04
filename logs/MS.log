@@ -10,7 +10,7 @@
 3) string compression, 一道queue的题
 4) bst balanced, given value may or may not exist in tree.
 
-1) 打印二叉树边界
+1) Binary tree boundary print => https://www.geeksforgeeks.org/boundary-traversal-of-binary-tree/
 2) 给一堆integer pair，有交集的进行分组合并，求最终有多少组
 3) 设计log monitor service + 链表奇偶重排
 4) 给一个黑箱猜里面的数字大小，如数
