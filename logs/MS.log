@@ -43,10 +43,10 @@
 
 // MS Problems
 
-1 Two Sum
-101 Symmetric Tree
-102 Binary Tree Level Order Traversal
-103 Binary Tree Zigzag Level Order Traversal
+Two Sum
+Symmetric Tree 
+Binary Tree Level Order Traversal
+Binary Tree Zigzag Level Order Traversal
 106 Construct Binary Tree from Inorder and Postorder Traversal
 112 Path Sum
 114 Flatten Binary Tree to Linked List
@@ -54,12 +54,12 @@
 117 Populating Next Right Pointers in Each Node II
 121 Best Time to Buy and Sell Stock
 124 Binary Tree Maximum Path Sum
-125 Valid Palindrome
-13 Roman to Integer
+Valid Palindrome
+Roman to Integer
 138 Copy List with Random Pointer
-141 Linked List Cycle
-146 LRU Cache
-15 3Sum
+Linked List Cycle
+LRU Cache
+3Sum
 151 Reverse Words in a String
 153 Find Minimum in Rotated Sorted Array
 160 Intersection of Two Linked Lists
@@ -68,13 +68,13 @@
 168 Excel Sheet Column Title
 171 Excel Sheet Column Number
 173 Binary Search Tree Iterator
-174 Dungeon Game
+Dungeon Game
 186 Reverse Words in a String II
 189 Rotate Array
-191 Number of 1 Bits
-2 Add Two Numbers
+Number of 1 Bits
+Add Two Numbers
 20 Valid Parentheses
-200 Number of Islands
+Number of Islands
 204 Count Primes
 206 Reverse Linked List
 208 Implement Trie (Prefix Tree)
@@ -82,7 +82,7 @@
 212 Word Search II
 213 House Robber II
 215 Kth Largest Element in an Array
-218 The Skyline Problem
+The Skyline Problem
 23 Merge k Sorted Lists
 232 Implement Queue using Stacks
 235 Lowest Common Ancestor of a Binary Search Tree
