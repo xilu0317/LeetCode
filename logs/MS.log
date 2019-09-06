@@ -52,7 +52,7 @@ Binary Tree Zigzag Level Order Traversal
 114 Flatten Binary Tree to Linked List
 116 Populating Next Right Pointers in Each Node
 117 Populating Next Right Pointers in Each Node II
-121 Best Time to Buy and Sell Stock
+Best Time to Buy and Sell Stock
 124 Binary Tree Maximum Path Sum
 Valid Palindrome
 Roman to Integer
@@ -93,7 +93,7 @@ The Skyline Problem
 25 Reverse Nodes in k-Group
 258 Add Digits
 26 Remove Duplicates from Sorted Array
-268 Missing Number
+Missing Number
 270 Closest Binary Search Tree Value
 273 Integer to English Words
 28 Implement strStr()
