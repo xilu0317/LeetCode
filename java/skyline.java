@@ -8,7 +8,6 @@ class Edge {
         this.height = height;
         this.isStart = isStart;
     }
-
 }
 
 class Solution {
