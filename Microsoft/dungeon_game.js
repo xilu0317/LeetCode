@@ -7,9 +7,8 @@ const calculateMinimumHP = (dungeon) => {
 
     // build an underlying matrix for DP
     // Start by assuming you need infinite health to go around
-    const dp = Array(m + 1).fill(Infinity)
-                           .map(() => Array(n + 1)
-                           .fill(Infinity));
+    const dp = Array(m + 1).fill()
+                           .map(() => Array(n + 1).fill(Infinity));
 
     // When you have reached the destination, you need to be alive meaning at least 1 health
     dp[m][n - 1] = 1;
