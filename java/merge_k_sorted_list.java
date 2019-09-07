@@ -12,6 +12,7 @@ public class Solution {
         // Define comp - pay attention to the syntax
         Comparator<ListNode> comp = new Comparator<ListNode>() {
             // definte the comparator - how the priority is ranked
+            // order the nodes by their values
             public int compare(ListNode n1, ListNode n2) {
                 if (n1.val < n2.val)
                     return -1;
