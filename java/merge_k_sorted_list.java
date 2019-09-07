@@ -1,9 +1,16 @@
+// The java.util.PriorityQueue.poll() method in Java is used to retrieve or 
+// fetch and remove the first element of the Queue or the element present at the head of the Queue. 
+// The peek() method only retrieved the element at the head 
+// but the poll() also removes the element along with the retrieval. 
+// It returns NULL if the q is empty.
+
 public class Solution {
-    public ListNode mergeKLists(List<ListNode> lists) {
-        if (lists == null || lists.size() == 0)
+    public ListNode mergeKLists(ListNode[] lists) {
+        final int LEN = lists.length;
+        if (lists == null || LEN == 0)
             return null;
 
-        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.size(), new Comparator<ListNode>() {
+        PriorityQueue<ListNode> q = new PriorityQueue<ListNode>(LEN, new Comparator<ListNode>() {
             @Override
             public int compare(ListNode n1, ListNode n2) {
                 if (n1.val < n2.val)
@@ -20,14 +27,15 @@ public class Solution {
 
         for (ListNode node : lists)
             if (node != null)
-                queue.add(node);
+                q.add(node);
 
-        while (!queue.isEmpty()) {
-            tail.next = queue.poll();
+        while (!q.isEmpty()) {
+
+            tail.next = q.poll();
             tail = tail.next;
 
             if (tail.next != null)
-                queue.add(tail.next);
+                q.add(tail.next);
         }
         return dummy.next;
     }
