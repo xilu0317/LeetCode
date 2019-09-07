@@ -1,43 +1,51 @@
-const dfsCycleDeteced = (graph, course, visited) => {
-    // If the course has already been visited
-    if (visited.has(course)) {
-        return true;
-    }
-    visited.add(course);
+class Student {
+	// static variable
+	static count = 0;
 
-    // `i` is the index for the neightbor
-    for (let i = 0; i < graph[course].length; i++) {
-        if (dfsCycleDeteced(graph, graph[course][i], visited)) {
-            return true;
-        }
-    }
+	constructor(name, age, gpa) {
+		// instance variables
+		this.name = name;
+		this.age = age;
+		this.gpa = gpa;
 
-    return false;
-};
+		Student.count++;
+	}
 
-/**
- * @param {number} numCourses
- * @param {number[][]} prerequisites
- * @return {boolean}
- */
-// Brute force
-const canFinish = (numCourses, preq) => {
-    // build the graph using `preq`
-    let graph = Array(numCourses).fill().map(() => []);
-    for (let i = 0; i < preq.length; i++) {
-        graph[preq[i][1]].push(preq[i][0]);
-    }
+	// instance methods
+	myNameIs() {
+		console.log('Name = ',this.name);
+	}
 
-    // Use each node as a starting point to see if the course can be finished
-    // A cycle in the graph would mean the course cannot be finished because of the circular dependency
-    const visited = new Set();
-    for (let node = 0; node < numCourses; node++) {
-        if (dfsCycleDeteced(graph, node, visited)) {
-            return false;
-        }
-    }
+	myAgeIs() {
+		console.log('Age = ', this.age);
+	}
 
-    return true;
-};
+	// static methods
+	static showTotalNumberOfStudents() {
+		console.log('The total number of students is ', Student.count);
+	}
+}
 
-console.log(canFinish(3, [[0, 1], [0, 2], [1, 2]]));
+// create a bunch of objects
+let s1 = new Student('john1', 1, 1.0);
+let s2 = new Student('john2', 2, 2.0);
+let s3 = new Student('john3', 3, 3.0);
+let s4 = new Student('john4', 4, 4.0);
+let s5 = new Student('john5', 5, 5.0);
+
+// class method
+Student.showTotalNumberOfStudents();
+
+// name
+s1.myNameIs();
+s2.myNameIs();
+s3.myNameIs();
+s4.myNameIs();
+s5.myNameIs();
+
+// age
+s1.myAgeIs();
+s2.myAgeIs();
+s3.myAgeIs();
+s4.myAgeIs();
+s5.myAgeIs();
