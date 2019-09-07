@@ -15,7 +15,7 @@ const calculateMinimumHP = (dungeon) => {
     dp[m][n - 1] = 1;
     dp[m - 1][n] = 1;
 
-    // Start from the last grid back to [0][0]
+    // Start from the last grid and walk back to [0][0]
     for (let i = m - 1; i >= 0; i--) {
         for (let j = n - 1; j >= 0; j--) {
             // What you need is minimal path with what you need to pay for for the current grid
