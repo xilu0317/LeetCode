@@ -9,14 +9,9 @@ class ListNode {
     }
 }
 
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
 const mergeTwoLists = (head1, head2) => {
     // Note `dummy` is just an auxiliary placeholder
-    let dummy = new ListNode(Number.MAX_SAFE_INTEGER);
+    const dummy = new ListNode(Infinity);
     let cur = dummy;
 
     while (head1 && head2) {

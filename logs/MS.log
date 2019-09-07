@@ -48,7 +48,7 @@ Symmetric Tree
 Binary Tree Level Order Traversal
 Binary Tree Zigzag Level Order Traversal
 106 Construct Binary Tree from Inorder and Postorder Traversal
-112 Path Sum
+Path Sum
 114 Flatten Binary Tree to Linked List
 116 Populating Next Right Pointers in Each Node
 117 Populating Next Right Pointers in Each Node II
@@ -73,12 +73,12 @@ Dungeon Game
 189 Rotate Array
 Number of 1 Bits
 Add Two Numbers
-20 Valid Parentheses
+Valid Parentheses
 Number of Islands
 204 Count Primes
-206 Reverse Linked List
-208 Implement Trie (Prefix Tree)
-21 Merge Two Sorted Lists
+Reverse Linked List
+Implement Trie (Prefix Tree)
+Merge Two Sorted Lists
 212 Word Search II
 213 House Robber II
 215 Kth Largest Element in an Array
@@ -91,8 +91,8 @@ The Skyline Problem
 238 Product of Array Except Self
 24 Swap Nodes in Pairs
 25 Reverse Nodes in k-Group
-258 Add Digits
-26 Remove Duplicates from Sorted Array
+Add Digits
+Remove Duplicates from Sorted Array
 Missing Number
 270 Closest Binary Search Tree Value
 273 Integer to English Words
@@ -114,10 +114,10 @@ Missing Number
 48 Rotate Image
 5 Longest Palindromic Substring
 513 Find Bottom Left Tree Value
-53 Maximum Subarray
+Maximum Subarray
 54 Spiral Matrix
 55 Jump Game
-56 Merge Intervals
+Merge Intervals
 567 Permutation in String
 591 Tag Validator
 631 Design Excel Sum Formula
