@@ -1,7 +1,3 @@
-/**
- * @param {string[]} A
- * @return {string[]}
- */
 const commonChars = (A) => {
     // 1) please use map, otherwise the copied object will copy by reference
     // 2) you cannot return {} while using the arrow function, use `new Ojbect()` instead
