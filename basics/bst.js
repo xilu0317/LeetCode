@@ -101,7 +101,7 @@ const bfs = (root) => {
                 q.push(node.right);
             }
         }
-        console.log("-----level-------");
+        console.log('-----level-------');
     }
 };
 

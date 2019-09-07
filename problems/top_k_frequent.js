@@ -38,5 +38,5 @@ const topKFrequent = (words, k) => {
 };
 
 // test case
-const res = topKFrequent(["a", "z", "d", "b", "b", "b", "d", "z", "z"], 4);
+const res = topKFrequent(['a', 'z', 'd', 'b', 'b', 'b', 'd', 'z', 'z'], 4);
 console.log(res);
