@@ -6,12 +6,12 @@
 
 public class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        final int LEN = lists.length;
-        if (lists == null || LEN == 0)
+        if (lists == null || lists.length == 0)
             return null;
 
-        PriorityQueue<ListNode> q = new PriorityQueue<ListNode>(LEN, new Comparator<ListNode>() {
-            @Override
+        // Define comp - pay attention to the syntax
+        Comparator<ListNode> comp = new Comparator<ListNode>() {
+            // definte the comparator - how the priority is ranked
             public int compare(ListNode n1, ListNode n2) {
                 if (n1.val < n2.val)
                     return -1;
@@ -20,23 +20,29 @@ public class Solution {
                 else
                     return 1;
             }
-        });
+        };
+
+        // key to solve this problem is to have a priority queue
+        PriorityQueue<ListNode> q = new PriorityQueue<ListNode>(comp);
 
         ListNode dummy = new ListNode(0);
-        ListNode tail = dummy;
+        ListNode cur = dummy;
 
-        for (ListNode node : lists)
-            if (node != null)
-                q.add(node);
+        // qeueue up all heads
+        for (ListNode head : lists)
+            if (head != null)
+                q.add(head);
 
         while (!q.isEmpty()) {
 
-            tail.next = q.poll();
-            tail = tail.next;
+            cur.next = q.poll();
+            cur = cur.next;
 
-            if (tail.next != null)
-                q.add(tail.next);
+            if (cur.next != null)
+                q.add(cur.next);
         }
+
+        // Always what is right next to the dummy node
         return dummy.next;
     }
 }
