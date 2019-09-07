@@ -1,4 +1,5 @@
 const threeSum = (nums) => {
+    // pay attention to the numeral sort here
     nums.sort((a, b) => a - b);
     const res = [];
 
