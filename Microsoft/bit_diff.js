@@ -1,6 +1,6 @@
 //  depending on the definition
 const hammingWeight = (n) => {
-    return [ ... n.toString(2)].filter(x => x === '1').length;
+	return [...n.toString(2)].filter(x => x === '1').length;
 };
 
 const bitDiff = (a, b) => {
@@ -16,7 +16,7 @@ const bitDiff2 = (a, b) => {
 	aStr = aStr.padStart(len, '0');
 	bStr = bStr.padStart(len, '0');
 
-	return aStr^bStr;
+	return aStr ^ bStr;
 };
 
 

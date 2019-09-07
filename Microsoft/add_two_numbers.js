@@ -30,7 +30,9 @@ const addTwoNumbers = (l1, l2) => {
 		cur = cur.next;
 	}
 
-	if (parseInt(sum / 10) === 1) cur.next = new ListNode(1);
+	if (parseInt(sum / 10) === 1) {
+		cur.next = new ListNode(1);
+	}
 
 	return dummy.next;
 };
