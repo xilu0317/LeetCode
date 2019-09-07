@@ -23,7 +23,7 @@ const twoRowComparator = (a, b) => {
     if (a[0] === b[0]) return 0;
 };
 
-var topKFrequent = (words, k) => {
+const topKFrequent = (words, k) => {
     if (words === null || k <= 0) throw 'Illegal argument exception!';
 
     const dict = buildDict(words);
@@ -38,5 +38,5 @@ var topKFrequent = (words, k) => {
 };
 
 // test case
-var res = topKFrequent(["a", "z", "d", "b", "b", "b", "d", "z", "z"], 4);
+const res = topKFrequent(["a", "z", "d", "b", "b", "b", "d", "z", "z"], 4);
 console.log(res);

@@ -11,7 +11,7 @@ num = 5
 
 2) calculate the target value
 
-for ( var i in a)
+for ( let i in a)
 {
   target = num - a[i]
 
@@ -30,8 +30,8 @@ Core idea:
 check length if not equal return false
 
 build a running map as we go
-var a2b = {}
-var b2a = {} // I like object created this way
+let a2b = {}
+let b2a = {} // I like object created this way
 
 1) loop thru the list=
   if (!a2b[a[i]]) 

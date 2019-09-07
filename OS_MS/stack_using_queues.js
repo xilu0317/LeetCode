@@ -19,11 +19,11 @@ class MyStack {
      * @return {number}
      */
     pop() {
-        var len = this.q1.length;
+        let len = this.q1.length;
         for (let i = 0; i < len - 1; i++) {
             this.q2.push(this.q1.shift());
         }
-        var result = this.q1.shift();
+        let result = this.q1.shift();
         [this.q1, this.q2] = [this.q2, this.q1];
         return result;
     }
