@@ -80,7 +80,7 @@ Reverse Linked List
 Implement Trie (Prefix Tree)
 Merge Two Sorted Lists
 212 Word Search II
-213 House Robber II
+House Robber II
 215 Kth Largest Element in an Array
 The Skyline Problem
 23 Merge k Sorted Lists
@@ -109,9 +109,9 @@ Missing Number
 419 Battleships in a Board
 445 Add Two Numbers II
 452 Minimum Number of Arrows to Burst Balloons
-46 Permutations
+Permutations
 47 Permutations II
-48 Rotate Image
+Rotate Image
 5 Longest Palindromic Substring
 513 Find Bottom Left Tree Value
 Maximum Subarray
