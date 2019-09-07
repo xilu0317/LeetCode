@@ -63,9 +63,9 @@ LRU Cache
 151 Reverse Words in a String
 153 Find Minimum in Rotated Sorted Array
 160 Intersection of Two Linked Lists
-162 Find Peak Element
+Find Peak Element
 165 Compare Version Numbers
-168 Excel Sheet Column Title
+Excel Sheet Column Title
 171 Excel Sheet Column Number
 173 Binary Search Tree Iterator
 Dungeon Game
@@ -129,9 +129,9 @@ Merge Intervals
 71 Simplify Path
 73 Set Matrix Zeroes
 75 Sort Colors
-79 Word Search
+Word Search
 8 String to Integer (atoi)
 88 Merge Sorted Array
 91 Decode Ways
 94 Binary Tree Inorder Traversal
-98 Validate Binary Search Tree
+Validate Binary Search Tree
