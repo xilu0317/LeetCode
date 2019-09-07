@@ -1,6 +1,6 @@
 // 1) make sure the relative path is correct
 // 2) the browser javascript keyword `import` just doesn't work
-const stuff = require('./basics/singly_linkedlist');
+const stuff = require('../basics/singly_linkedlist');
 
 class ListNode {
     constructor(val) {
