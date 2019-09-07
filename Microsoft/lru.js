@@ -1,17 +1,18 @@
 // ES6 map is ganrenteed to have O(1) lookup in V8 based browsers/Chrome
 // Essentially ES6 map is an ordered hash table
+
 // https://stackoverflow.com/questions/33611509/es6-map-and-set-complexity-v8-implementation?lq=1
 // https://codereview.chromium.org/220293002/
 
 class LRUCache {
     constructor(num) {
-        // capacity = number of elements allowed to put in a map
+        // capacity = number of elements allowed in the lRU
         this.capacity = num;
         this.map = new Map();
     }
 
     get(key) {
-        // Javascript map is O(1) access
+        // Javascript map is O(1) access in V8 and at most sub-linear
         const val = this.map.get(key);
 
         if (!val) return -1;

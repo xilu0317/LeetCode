@@ -1,7 +1,3 @@
-/**
- * @param {ListNode} head
- * @return {boolean}
- */
 const hasCycle = (head) => {
 	if (!head) return false;
 

@@ -1,4 +1,4 @@
-// intentionally shareable
+// share var
 let max;
 
 const maxPathSum = (root) => {
@@ -16,7 +16,7 @@ const maxPathDown = (node) => {
 	const left = Math.max(0, maxPathDown(node.left));
 	const right = Math.max(0, maxPathDown(node.right));
 
-	// update absolute max
+	// update gobal max
 	max = Math.max(max, left + right + node.val);
 
 	return Math.max(left, right) + node.val;
