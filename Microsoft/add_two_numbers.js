@@ -5,18 +5,16 @@ class ListNode {
 	}
 }
 
-// Note in javascript Math.floor is needed
+// Note in javascript parseInt is needed
 const addTwoNumbers = (l1, l2) => {
-	let cur1 = l1;
-	let cur2 = l2;
+	let cur1 = l1, cur2 = l2;
 
-	let node = new ListNode(0);
-	let cur = node;
-
+	const dummy = new ListNode(0);
+	let cur = dummy;
 	let sum = 0;
 
 	while (cur1 || cur2) {
-		sum = Math.floor(sum / 10);
+		sum = parseInt(sum / 10);
 
 		if (cur1) {
 			sum += cur1.val;
@@ -32,9 +30,9 @@ const addTwoNumbers = (l1, l2) => {
 		cur = cur.next;
 	}
 
-	if (Math.floor(sum / 10) === 1) cur.next = new ListNode(1);
+	if (parseInt(sum / 10) === 1) cur.next = new ListNode(1);
 
-	return node.next;
+	return dummy.next;
 };
 
 // test case
