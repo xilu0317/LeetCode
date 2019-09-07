@@ -1,5 +1,5 @@
 const getMax = (root) => {
-    if (!root) throw "The root node cannot be null!";
+    if (!root) throw 'The root node cannot be null!';
 
     while (root.right) {
         root = root.right
@@ -9,7 +9,7 @@ const getMax = (root) => {
 };
 
 const getMin = (root) => {
-    if (!root) throw "The root node cannot be null!";
+    if (!root) throw 'The root node cannot be null!';
 
     while (root.left) {
         root = root.left;
