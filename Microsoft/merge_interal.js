@@ -3,10 +3,9 @@ const merge = (intervals) => {
 
 	if (intervals.length === 0 || intervals.length === 1) return intervals;
 
-	// sorting is the key
+	// *Important* sort based on the starting time
 	intervals.sort((a, b) => a[0] - b[0]);
 
-	// init arr
 	let res = [];
 	let merged = [];
 	// add first element so the rest have something to compare

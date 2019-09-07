@@ -2,7 +2,6 @@
 let max;
 
 const maxPathSum = (root) => {
-	// Initialize max
 	max = -Infinity;
 
 	maxPathDown(root);

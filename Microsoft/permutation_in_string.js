@@ -1,3 +1,4 @@
+// TODO: wrong solution
 const getAllPermutations = (word) => {
 	const res = [];
 

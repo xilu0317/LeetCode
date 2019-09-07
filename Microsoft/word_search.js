@@ -6,11 +6,13 @@ const exist = (board, word) => {
     m = board.length;
     n = board[0].length;
     // Underlying visit map is to mark the visit status
-    visited = Array(m).fill().map(x => Array(n).fill(false));
+    visited = Array(m)
+                .fill()
+                .map(x => Array(n).fill(false));
 
     // Use every point as a starting point
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
             if (search(board, word, i, j, 0)) return true;
         }
     }

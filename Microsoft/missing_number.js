@@ -13,3 +13,5 @@ const missingNumber = (nums) => {
 
     return res;
 };
+
+// TODO: add different methods

@@ -1,3 +1,4 @@
+// Need to explain the observation to the interviewers
 const rotate = (nums, k) => {
 	if (k <= 0 || !nums) return;
 
