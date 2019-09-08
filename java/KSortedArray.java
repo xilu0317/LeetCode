@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+// Design an array container is the key to solving this problem
 class ArrayContainer implements Comparator<ArrayContainer> {
     int[] arr;
     int index;
@@ -16,6 +17,7 @@ public class KSortedArray {
     public static int[] mergeKSortedArray(int[][] arr) {
         // specify how comparison of the container is to be made
         Comparator<ArrayContainer> comp = (ac1, ac2) -> {
+            // compare items of an array with current index
             if (ac1.arr[ac1.index] < ac2.arr[ac2.index])
                 return -1;
             else if (ac1.arr[ac1.index] == ac2.arr[ac2.index])
@@ -44,6 +46,7 @@ public class KSortedArray {
             result[m++] = ac.arr[ac.index];
 
             if (ac.index < ac.arr.length - 1) {
+                // keep queueing the array container with different index into the pq
                 q.add(new ArrayContainer(ac.arr, ac.index + 1));
             }
         }
@@ -60,5 +63,4 @@ public class KSortedArray {
         int[] result = mergeKSortedArray(new int[][] { arr1, arr2, arr3 });
         System.out.println(Arrays.toString(result));
     }
-
 }
