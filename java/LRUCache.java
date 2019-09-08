@@ -13,7 +13,6 @@ public class LRUCache {
      * Always add the new node right after head;
      */
     private void addNode(DLinkedNode node) {
-
         node.pre = head;
         node.post = head.post;
 
@@ -36,14 +35,14 @@ public class LRUCache {
      * Move certain node in between to the head.
      */
     private void moveToHead(DLinkedNode node) {
-        this.removeNode(node);
-        this.addNode(node);
+        removeNode(node);
+        addNode(node);
     }
 
     // pop the current tail.
     private DLinkedNode popTail() {
         DLinkedNode res = tail.pre;
-        this.removeNode(res);
+        removeNode(res);
         return res;
     }
 
@@ -52,9 +51,9 @@ public class LRUCache {
     private int capacity;
     private DLinkedNode head, tail;
 
-    public LRUCache(int capacity) {
-        this.count = 0;
-        this.capacity = capacity;
+    public LRUCache(int num) {
+        count = 0;
+        capacity = num;
 
         head = new DLinkedNode();
         head.pre = null;
@@ -67,14 +66,13 @@ public class LRUCache {
     }
 
     public int get(int key) {
-
         DLinkedNode node = cache.get(key);
         if (node == null) {
             return -1; // should raise exception here.
         }
 
         // move the accessed node to the head;
-        this.moveToHead(node);
+        moveToHead(node);
 
         return node.value;
     }
@@ -88,22 +86,21 @@ public class LRUCache {
             newNode.key = key;
             newNode.value = value;
 
-            this.cache.put(key, newNode);
-            this.addNode(newNode);
+            cache.put(key, newNode);
+            addNode(newNode);
 
             count++;
 
             if (count > capacity) {
                 // pop the tail
-                DLinkedNode tail = this.popTail();
-                this.cache.remove(tail.key);
+                DLinkedNode tail = popTail();
+                cache.remove(tail.key);
                 count--;
             }
         } else {
             // update the value.
             node.value = value;
-            this.moveToHead(node);
+            moveToHead(node);
         }
     }
-
 }

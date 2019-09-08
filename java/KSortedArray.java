@@ -14,16 +14,13 @@ class ArrayContainer implements Comparator<ArrayContainer> {
 
 public class KSortedArray {
     public static int[] mergeKSortedArray(int[][] arr) {
-        Comparator<ArrayContainer> comp = new Comparator<ArrayContainer>() {
-            @Override
-            public int compare(ArrayContainer ac1, ArrayContainer ac2) {
-                if (ac1.arr[ac1.index] < ac2.arr[ac2.index])
-                    return -1;
-                else if (ac1.arr[ac1.index] == ac2.arr[ac2.index])
-                    return 0;
-                else
-                    return 1;
-            }
+        Comparator<ArrayContainer> comp = (ac1, ac2) -> {
+            if (ac1.arr[ac1.index] < ac2.arr[ac2.index])
+                return -1;
+            else if (ac1.arr[ac1.index] == ac2.arr[ac2.index])
+                return 0;
+            else
+                return 1;
         };
 
         // Key to solve this problme is to use a PQ
