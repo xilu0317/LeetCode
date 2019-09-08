@@ -3,7 +3,9 @@ let m, n;
 const dfsEraseLand = (grid, i, j) => {
     // If current grid is out of bound or on water
     // then exit the funciton immeidately
-    if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] === '0') return;
+    if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] === '0') {
+        return;
+    }
 
     // Erase the current land grid by marking it as water
     grid[i][j] = '0';
@@ -34,7 +36,7 @@ const numIslands = (grid) => {
             if (grid[i][j] === '1') {
                 dfsEraseLand(grid, i, j);
                 // Do *NOT* forget to increment the counter after removing the nearby lands
-                ++count;
+                count++;
             }
         }
     }
