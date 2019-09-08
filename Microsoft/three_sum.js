@@ -1,5 +1,5 @@
 const threeSum = (nums) => {
-    // pay attention to the numeral sort here
+    // Numeral sorting! *NOT* Lex sort
     nums.sort((a, b) => a - b);
 
     // Note the right end index is nums.length - 2
