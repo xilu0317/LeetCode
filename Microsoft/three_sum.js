@@ -1,9 +1,9 @@
 const threeSum = (nums) => {
     // pay attention to the numeral sort here
     nums.sort((a, b) => a - b);
-    const res = [];
 
     // Note the right end index is nums.length - 2
+    const res = [];
     for (let i = 0; i < nums.length - 2; i++) {
         if (i === 0 || nums[i] !== nums[i - 1]) {
             let lo = i + 1, hi = nums.length - 1, sum = 0 - nums[i];
