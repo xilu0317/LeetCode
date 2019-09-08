@@ -28,12 +28,13 @@ public class KSortedArray {
 
 		// PriorityQueue is heap in Java
 		PriorityQueue<ArrayContainer> q = new PriorityQueue<ArrayContainer>(comp);
-		int total = 0;
 
-		// add arrays to heap
+		// Add array to priority queue
+		int total = 0;
 		for (int i = 0; i < arr.length; i++) {
+			// Note all array containers will have starting index of 0
 			q.add(new ArrayContainer(arr[i], 0));
-			total = total + arr[i].length;
+			total += arr[i].length;
 		}
 
 		int m = 0;
@@ -52,6 +53,7 @@ public class KSortedArray {
 		return result;
 	}
 
+	// Test code here:
 	public static void main(String[] args) {
 		int[] arr1 = { 1, 3, 5, 7 };
 		int[] arr2 = { 2, 4, 6, 8 };
