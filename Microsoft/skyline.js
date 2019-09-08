@@ -3,60 +3,29 @@ class PriorityQueue {
         this.data = [null];
     }
 
-    swap(i, j) {
-        // ES6 swap
-        [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
-    }
-
-    push(node) {
+    enqueue(node) {
         this.data.push(node);
         if (this.data.length === 2) {
             return;
         } else {
-            this.bubbleUp(this.data.length - 1);
+            this._bubbleUp(this.data.length - 1);
         }
     }
 
-    removeMax() {
-        if (this.data === 1) {
-            return null;
-        } else {
-            this.swap(this.data.length - 1, 1);
-            this.bubbleDown(1);
-        }
-    }
-
-    bubbleDown(i) {
-        const largestChild = this.data[i * 2 + 1] &&
-            this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
-        if (this.data[largestChild] && this.data[largestChild].h > this.data[i].h) {
-            this.swap(largestChild, i);
-            this.bubbleDown(largestChild);
-        }
-    }
-
-    bubbleUp(i) {
-        const parentIndex = Math.floor(i / 2);
-        if (this.data[parentIndex] && this.data[parentIndex].h < this.data[i].h) {
-            this.swap(parentIndex, i);
-            this.bubbleUp(parentIndex);
-        }
-    }
-
-    shift(node) {
+    dequeue(node) {
         const nodeIndex = this.data.indexOf(node);
         if (nodeIndex === -1) {
             return false;
         } else if (nodeIndex === this.data.length - 1) {
             this.data.pop();
         } else {
-            this.swap(this.data.length - 1, nodeIndex);
+            this._swap(this.data.length - 1, nodeIndex);
             this.data.pop();
-            const parentIndex = Math.floor(nodeIndex / 2);
+            const parentIndex = parseInt(nodeIndex / 2);
             if (this.data[parentIndex] && this.data[parentIndex].h < this.data[nodeIndex].h) {
-                this.bubbleUp(nodeIndex);
+                this._bubbleUp(nodeIndex);
             } else {
-                this.bubbleDown(nodeIndex);
+                this._bubbleDown(nodeIndex);
             }
         }
     }
@@ -66,6 +35,28 @@ class PriorityQueue {
             return 0;
         } else {
             return this.data[1].h;
+        }
+    }
+
+    _swap(i, j) {
+        // ES6 _swap
+        [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
+    }
+
+    _bubbleDown(i) {
+        const largestChild = this.data[i * 2 + 1] &&
+            this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
+        if (this.data[largestChild] && this.data[largestChild].h > this.data[i].h) {
+            this._swap(largestChild, i);
+            this._bubbleDown(largestChild);
+        }
+    }
+
+    _bubbleUp(i) {
+        const parentIndex = parseInt(i / 2);
+        if (this.data[parentIndex] && this.data[parentIndex].h < this.data[i].h) {
+            this._swap(parentIndex, i);
+            this._bubbleUp(parentIndex);
         }
     }
 }
@@ -112,9 +103,9 @@ const getSkyline = (buildings) => {
                 res.push([skyline.x, skyline.h]);
             }
 
-            pq.push(skyline);
+            pq.enqueue(skyline);
         } else {
-            pq.shift(skyline.start);
+            pq.dequeue(skyline.start);
 
             if (skyline.start.h > pq.getMaxHeight()) {
                 res.push([skyline.x, pq.getMaxHeight()]);
