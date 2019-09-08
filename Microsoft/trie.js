@@ -34,11 +34,11 @@ class Trie {
 
     search(word) {
         // Get the last node
-        let lastNode = this.traverse(word);
+        let node = this.traverse(word);
 
         // `!!` will turn truthy to true
         // If the last node exists and it is the last word
-        return !!lastNode && !!lastNode.isLastNode;
+        return !!node && !!node.isLastNode;
     }
 
     startsWith(word) {
@@ -70,9 +70,9 @@ function Trie() {
     }
 
     function search(word) {
-        let lastNode = traverse(word);
+        let node = traverse(word);
 
-        return !!lastNode && !!lastNode.isLastNode;
+        return !!node && !!node.isLastNode;
     }
 
     function startsWith(word) {
