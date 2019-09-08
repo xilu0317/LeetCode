@@ -5,7 +5,7 @@ class ListNode {
     }
 }
 
-// Note in javascript parseInt is needed
+// parseInt() is cleaner than Math.floor()
 const addTwoNumbers = (l1, l2) => {
     let cur1 = l1, cur2 = l2;
 
