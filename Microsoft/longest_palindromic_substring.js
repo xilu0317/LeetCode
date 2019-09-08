@@ -12,7 +12,7 @@ const longestPalindrome = (s) => {
     let res = '';
 
     const dp = Array(N).fill()
-        .map(() => Array(N).fill(false));
+                       .map(() => Array(N).fill(false));
 
     for (let i = N - 1; i >= 0; i--) {
         for (let j = i; j < N; j++) {
