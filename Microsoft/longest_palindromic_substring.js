@@ -3,7 +3,7 @@
 
 // dp(i, j) represents whether s(i ... j) can form a palindromic substring
 
-// dp(i, j) is true when s(i) equals to s(j) and s(i + 1 ...j - 1) is a palindromic substring.
+// dp(i, j) is true when s(i) equals to s(j) AND s(i + 1 ... j - 1)/enclosd string is palindromic.
 
 // When we found a palindrome, check if it's the longest one. Time complexity O(n^2).
 
@@ -16,10 +16,10 @@ const longestPalindrome = (s) => {
 
     for (let i = N - 1; i >= 0; i--) {
         for (let j = i; j < N; j++) {
-            if ((s[i] === s[j]) && (j - i < 3 || dp[i + 1][j - 1])) {
+            if ((s[i] === s[j]) && (j - i <= 2 || dp[i + 1][j - 1])) {
                 dp[i][j] = true;
             }
-            
+
             // If it is palindromic and the length is greater than the previous length
             if (dp[i][j] && j - i + 1 > res.length) {
                 res = s.substring(i, j + 1);
