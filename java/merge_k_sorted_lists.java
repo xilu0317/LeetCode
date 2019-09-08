@@ -33,11 +33,12 @@ public class Solution {
         ListNode cur = dummy;
 
         // push all heads of the lists onto the 'q'
-        for (ListNode head : lists)
+        for (ListNode head : lists) {
             if (head != null) {
                 // ES6 q.push()
                 q.add(head);
             }
+        }
 
         while (!q.isEmpty()) {
             // ES6 q.shift()
