@@ -4,6 +4,7 @@
 // https://stackoverflow.com/questions/33611509/es6-map-and-set-complexity-v8-implementation?lq=1
 // https://codereview.chromium.org/220293002/
 
+// ES6 class
 class LRUCache {
     constructor(num) {
         // capacity = number of elements allowed in the lRU
@@ -36,7 +37,7 @@ class LRUCache {
         // Get keys iterator
         const keys = this.map.keys();
         // Note the iterator is ordered by the insertion order
-        while (this.map.size > this.capacity) {
+        if (this.map.size > this.capacity) {
             this.map.delete(keys.next().value);
         }
     }

@@ -3,7 +3,7 @@ const digitSum = (num) => {
     while (num) {
         let tmp = num % 10;
         res += tmp;
-        // `parseInt` is cleaner than Math.floor()
+        // 'parseInt' is cleaner than Math.floor()
         num = parseInt(num / 10);
     }
 
