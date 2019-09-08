@@ -1,7 +1,6 @@
-/**
- * @param {number[]} prices
- * @return {number}
- */
+// Note that you cannot first sell and then buy the stock
+// Thus shouldn't just directly use the max number to be subtracted by the min number
+
 const maxProfit = (prices) => {
     if (!prices || prices.length === 0) return 0;
 
