@@ -20,7 +20,7 @@ const wordBreak = (s, wordDict) => {
     return dp[s.length];
 };
 
-// BFS: note both BFS and DFS will work and there is minimal difference between the two
+// BFS: not much difference between dfs and bfs here
 // The only conspicuous difference is the direction to pop the queue/stack
 const wordBreak = (s, wordDict) => {
     let q = [];
