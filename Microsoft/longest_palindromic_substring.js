@@ -19,12 +19,11 @@ const longestPalindrome = (s) => {
             if ((s[i] === s[j]) && (j - i < 3 || dp[i + 1][j - 1])) {
                 dp[i][j] = true;
             }
-
+            
             // If it is palindromic and the length is greater than the previous length
             if (dp[i][j] && j - i + 1 > res.length) {
                 res = s.substring(i, j + 1);
             }
-
         }
     }
 
