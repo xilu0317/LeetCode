@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+
 // Helper class
 class TrieNode {
 	Map<Character, TrieNode> children;
