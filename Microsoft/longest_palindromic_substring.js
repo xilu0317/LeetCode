@@ -18,7 +18,7 @@ const longestPalindrome = (s) => {
     // grow the palindrome from back to front
     for (let i = N - 1; i >= 0; i--) {
         for (let j = i; j < N; j++) {
-            if ((s[i] === s[j]) && (dp[i + 1][j - 1]) || j - i <= 2) {
+            if ((s[i] === s[j]) && (j - i <= 2 || dp[i + 1][j - 1])) {
                 dp[i][j] = true;
             }
 
