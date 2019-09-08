@@ -35,18 +35,18 @@ public class Solution {
         // push all heads of the lists onto the 'q'
         for (ListNode head : lists) {
             if (head != null) {
-                // ES6 q.push()
+                // ES6: q.push()
                 q.add(head);
             }
         }
 
         while (!q.isEmpty()) {
-            // ES6 q.shift()
+            // ES6: q.shift()
             cur.next = q.poll();
             cur = cur.next;
 
             if (cur.next != null) {
-                // ES6 q.push()
+                // ES6: q.push()
                 q.add(cur.next);
             }
         }
