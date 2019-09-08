@@ -5,7 +5,7 @@
 const merge = (intervals) => {
     if (!intervals || !intervals.length) return [];
 
-    // key step
+    // key step: sort intervals by the left end
     intervals.sort((a, b) => a[0] - b[0]);
 
     let prev = intervals[0];
