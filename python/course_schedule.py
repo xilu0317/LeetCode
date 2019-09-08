@@ -16,7 +16,7 @@ class Solution(object):
             if not self.dfsCycleDetected(graph, visited, i):
                 return False
         return True
-    
+
     def dfsCycleDetected(self, graph, visited, i):
         # if ith node is marked as being visited, then a cycle is found
         if visited[i] == -1:
