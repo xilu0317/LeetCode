@@ -1,5 +1,6 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class ListNode {
     int val;
@@ -15,7 +16,7 @@ public class Solution {
         if (lists == null || lists.length == 0)
             return null;
 
-        // Comp
+        // lambda expression
         Comparator<ListNode> comp = (n1, n2) -> {
             if (n1.val < n2.val)
                 return -1;
@@ -25,27 +26,30 @@ public class Solution {
                 return 1;
         };
 
-        // key
-        PriorityQueue<ListNode> q = new PriorityQueue<ListNode>(comp);
+        // KEY
+        Queue<ListNode> q = new PriorityQueue<ListNode>(comp);
 
         ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
 
-        // qeueue up all heads
+        // push all heads of the lists onto the 'q'
         for (ListNode head : lists)
-            if (head != null)
+            if (head != null) {
+                // ES6 q.push()
                 q.add(head);
+            }
 
         while (!q.isEmpty()) {
-            // poll() is just ES6 q.shift()
+            // ES6 q.shift()
             cur.next = q.poll();
             cur = cur.next;
 
-            if (cur.next != null)
+            if (cur.next != null) {
+                // ES6 q.push()
                 q.add(cur.next);
+            }
         }
 
-        // Always what is right next to the dummy node
         return dummy.next;
     }
 }
