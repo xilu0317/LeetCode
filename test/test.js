@@ -1,51 +1,34 @@
-class Student {
-	// static variable
-	static count = 0;
+const compareVersion = (v1, v2) => {
+    const list1 = v1.split(/\./).map(x => parseInt(x));
+    const list2 = v2.split(/\./).map(x => parseInt(x));
 
-	constructor(name, age, gpa) {
-		// instance variables
-		this.name = name;
-		this.age = age;
-		this.gpa = gpa;
+    const len1 = list1.length;
+    const len2 = list2.length;
 
-		Student.count++;
-	}
+    let len = Math.min(len1, len2);
+    let lenM = Math.max(len1, len2);
 
-	// instance methods
-	myNameIs() {
-		console.log('Name = ',this.name);
-	}
+    let i;
+    for (i = 0; i < len; i++) {
+        if (list1[i] > list2[i]) {
+            return 1;
+        }
+        if (list1[i] < list2[i]) {
+            return -1
+        }
+    }
 
-	myAgeIs() {
-		console.log('Age = ', this.age);
-	}
+    while (i < lenM) {
+        if (list1[i] > 0) {
+            return 1;
+        }
+        if (list1[i] > 0) {
+            return -1;
+        }
+        i++;
+    }
 
-	// static methods
-	static showTotalNumberOfStudents() {
-		console.log('The total number of students is ', Student.count);
-	}
-}
+    return 0;
+};
 
-// create a bunch of objects
-let s1 = new Student('john1', 1, 1.0);
-let s2 = new Student('john2', 2, 2.0);
-let s3 = new Student('john3', 3, 3.0);
-let s4 = new Student('john4', 4, 4.0);
-let s5 = new Student('john5', 5, 5.0);
-
-// class method
-Student.showTotalNumberOfStudents();
-
-// name
-s1.myNameIs();
-s2.myNameIs();
-s3.myNameIs();
-s4.myNameIs();
-s5.myNameIs();
-
-// age
-s1.myAgeIs();
-s2.myAgeIs();
-s3.myAgeIs();
-s4.myAgeIs();
-s5.myAgeIs();
+compareVersion('1', '1.1');
