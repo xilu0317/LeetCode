@@ -1,5 +1,6 @@
 class PriorityQueue {
     constructor() {
+        // array-based
         this.data = [null];
     }
 
@@ -14,6 +15,7 @@ class PriorityQueue {
 
     dequeue(node) {
         const nodeIndex = this.data.indexOf(node);
+
         if (nodeIndex === -1) {
             return false;
         } else if (nodeIndex === this.data.length - 1) {
@@ -32,6 +34,7 @@ class PriorityQueue {
         }
     }
 
+    // find the max height for all the nodes in the priority queue
     getMaxHeight() {
         if (this.data.length === 1) {
             return 0;
@@ -40,20 +43,21 @@ class PriorityQueue {
         }
     }
 
+    // index-based swap
     _swap(i, j) {
         // ES6 _swap
         [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
     }
 
     _bubbleDown(i) {
-        const largestChild = this.data[i * 2 + 1] &&
+        const largestChildIndex = this.data[i * 2 + 1] &&
             this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
 
-        if (this.data[largestChild] &&
-            this.data[largestChild].h > this.data[i].h) {
+        if (this.data[largestChildIndex] &&
+            this.data[largestChildIndex].h > this.data[i].h) {
 
-            this._swap(largestChild, i);
-            this._bubbleDown(largestChild);
+            this._swap(largestChildIndex, i);
+            this._bubbleDown(largestChildIndex);
         }
     }
 
