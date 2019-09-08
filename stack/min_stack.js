@@ -17,7 +17,7 @@ class MinStack {
         // For example, min = 0 where 0 being the current min. `!min` would then return true
         // The real intention here is that when min is not defined, then initialize it using max integer
         if (min === undefined) { // Also it is easier to read when u r not doing the `!min` thing
-            min = Number.MAX_SAFE_INTEGER; // Forget initialization is a sin!
+            min = Infinity; // Forget initialization is a sin!
         }
         this.s1.push(x);
         if (x <= min) {

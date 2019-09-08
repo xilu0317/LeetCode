@@ -1,3 +1,4 @@
+// The key is to define a good comparator
 const comparator = (a, b) => {
     let aRest = a.substring(a.indexOf(' ') + 1);
     let bRest = b.substring(b.indexOf(' ') + 1);
