@@ -94,6 +94,7 @@ const comp = (s1, s2) => {
     }
 };
 
+// TODO: revisit
 const getSkyline = (buildings) => {
     const pq = new PriorityQueue();
     const skylines = [];
@@ -116,7 +117,7 @@ const getSkyline = (buildings) => {
         // the current node is a start node
         if (skyline.type === 1) {
             if (skyline.h > pq.getMaxHeight()) {
-                // only push the node whose starting position is different than the current
+                // 
                 res = res.filter(r => skyline.x !== r[0]);
                 res.push([skyline.x, skyline.h]);
             }
@@ -125,7 +126,7 @@ const getSkyline = (buildings) => {
         }
         // the current node is an end node
         else {
-            // if this is an end node then remove its mapped start
+            // if this is an end node then remove its corresponding start
             pq.dequeue(skyline.start);
 
             if (skyline.start.h > pq.getMaxHeight()) {
