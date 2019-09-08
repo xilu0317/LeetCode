@@ -42,4 +42,3 @@ class MyStack {
         return this.q1.length === 0;
     }
 }
-
