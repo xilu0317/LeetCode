@@ -16,7 +16,7 @@ const merge = (intervals) => {
         // If the starting position of the current is less than or equal to the ending of the previous
         if (cur[0] <= prev[1]) {
             // then update the previous ending to be whichever to be larger
-            prev[1] = Math.max(prev[1], cur[1])
+            prev[1] = Math.max(prev[1], cur[1]);
         } else {
             // If it is a non-touching interval, append it to the result set
             res.push(cur);
