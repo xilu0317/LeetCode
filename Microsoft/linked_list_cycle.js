@@ -1,14 +1,14 @@
 const hasCycle = (head) => {
-	if (!head) return false;
+    if (!head) return false;
 
-	let slow = fast = head;
+    let slow = fast = head;
 
-	while (true) {
-		if (!fast || !fast.next) return false;
+    while (true) {
+        if (!fast || !fast.next) return false;
 
-		slow = slow.next;
-		fast = fast.next.next;
+        slow = slow.next;
+        fast = fast.next.next;
 
-		if (slow === fast) return true;
-	}
+        if (slow === fast) return true;
+    }
 };
