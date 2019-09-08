@@ -63,12 +63,12 @@ class PriorityQueue {
 
 // custom comparator 0 -> start pos 1 -> end pos 2 -> height
 const comp = (s1, s2) => {
-    // sort them by x position
+    // first sort them by x position
     if (s1.x !== s2.x) {
         return s1.x - s2.x;
     }
     // start = type 1; end = type 2
-    // if two are not of the same type
+    // then sort by type
     else if (s1.type !== s2.type) {
         return s1.type - s2.type;
     }
