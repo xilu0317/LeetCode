@@ -2,12 +2,10 @@ const compareVersion = (v1, v2) => {
     const list1 = v1.split(/\./).map(x => parseInt(x));
     const list2 = v2.split(/\./).map(x => parseInt(x));
 
-    const len1 = list1.length;
-    const len2 = list2.length;
+    const lenMin = Math.min(list1.length, list2.length)
+    const lenMax = Math.max(list1.length, list2.length);
 
-    let lenMin = Math.min(len1, len2);
-    let lenMax = Math.max(len1, len2);
-
+    // define 'i' outside the for loop to obtain more scope
     let i;
     for (i = 0; i < lenMin; i++) {
         if (list1[i] > list2[i]) {
