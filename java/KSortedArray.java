@@ -14,6 +14,7 @@ class ArrayContainer implements Comparator<ArrayContainer> {
 
 public class KSortedArray {
     public static int[] mergeKSortedArray(int[][] arr) {
+        // specify how comparison of the container is to be made
         Comparator<ArrayContainer> comp = (ac1, ac2) -> {
             if (ac1.arr[ac1.index] < ac2.arr[ac2.index])
                 return -1;
