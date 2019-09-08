@@ -8,9 +8,9 @@
 // Could you do it in -place without allocating extra space ?
 
 const reverseWords = (s) => {
-	if (!s) return null;
+    if (!s) return null;
 
-	return s.trim().split(/\s+/).reverse().join(' ');
+    return s.trim().split(/\s+/).reverse().join(' ');
 };
 
 
