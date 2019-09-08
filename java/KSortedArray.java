@@ -3,7 +3,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 // Design an array container is the key to solving this problem
-class ArrayContainer implements Comparator<ArrayContainer> {
+class ArrayContainer {
+    // don't use private for easy access
     int[] arr;
     int index;
 
@@ -15,7 +16,7 @@ class ArrayContainer implements Comparator<ArrayContainer> {
 
 public class KSortedArray {
     public static int[] mergeKSortedArray(int[][] arr) {
-        // specify how comparison of the container is to be made
+        // specify how comparison of array containers is to be made
         Comparator<ArrayContainer> comp = (ac1, ac2) -> {
             // compare items of an array with current index
             if (ac1.arr[ac1.index] < ac2.arr[ac2.index])
@@ -26,22 +27,23 @@ public class KSortedArray {
                 return 1;
         };
 
-        // Key to solve this problme is to use a PQ
+        // key
         PriorityQueue<ArrayContainer> q = new PriorityQueue<ArrayContainer>(comp);
 
-        // Add array to priority queue
+        // Initialization
         int len = 0;
         for (int i = 0; i < arr.length; i++) {
-            // Note all array containers will have starting index of 0
+            // queue all ACs in for the first time when their indices are all at '0'
             q.add(new ArrayContainer(arr[i], 0));
+            // need the accumulated length
             len += arr[i].length;
         }
 
         int m = 0;
         int result[] = new int[len];
 
-        // while heap is not empty
         while (!q.isEmpty()) {
+            // poll() => ES6 it's shift()
             ArrayContainer ac = q.poll();
             result[m++] = ac.arr[ac.index];
 
@@ -54,7 +56,7 @@ public class KSortedArray {
         return result;
     }
 
-    // Test code here:
+    // Main:
     public static void main(String[] args) {
         int[] arr1 = { 1, 3, 5, 7 };
         int[] arr2 = { 2, 4, 6, 8 };
