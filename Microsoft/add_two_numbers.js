@@ -5,7 +5,7 @@ class ListNode {
     }
 }
 
-// parseInt() is cleaner than Math.floor()
+// l1, l2 are linkedlists
 const addTwoNumbers = (l1, l2) => {
     let cur1 = l1, cur2 = l2;
 
@@ -14,6 +14,7 @@ const addTwoNumbers = (l1, l2) => {
     let sum = 0;
 
     while (cur1 || cur2) {
+        // parseInt() is cleaner than Math.floor()
         // account for the carry over from the prev iteration
         sum = parseInt(sum / 10);
 
