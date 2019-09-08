@@ -88,12 +88,16 @@ const getSkyline = (buildings) => {
     let res = [];
 
     buildings.forEach(b => {
+        // node: {type, x, h, start}
+        // type 1 => start node; type 2 => end node
         const start = { type: 1, x: b[0], h: b[2] };
         const end = { type: 2, x: b[1], start: start };
+
         skylines.push(start);
         skylines.push(end);
     });
 
+    // key step: sort using custom comparator
     skylines.sort(comp);
 
     skylines.forEach(skyline => {
@@ -105,6 +109,7 @@ const getSkyline = (buildings) => {
 
             pq.enqueue(skyline);
         } else {
+            // if this is an end node then remove its mapped start
             pq.dequeue(skyline.start);
 
             if (skyline.start.h > pq.getMaxHeight()) {
