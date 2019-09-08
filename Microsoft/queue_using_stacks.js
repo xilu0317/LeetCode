@@ -49,4 +49,3 @@ class MyQueue {
         return this.s1.length === 0;
     }
 }
-

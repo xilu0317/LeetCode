@@ -18,7 +18,3 @@ const bitDiff2 = (a, b) => {
 
     return aStr ^ bStr;
 };
-
-
-
-

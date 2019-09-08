@@ -97,4 +97,3 @@ const intSum = (list) => {
 
 console.log(intSum([51, 71, 17, 42]));
 console.log(intSum([42, 33, 60]));
-

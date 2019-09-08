@@ -29,4 +29,3 @@ const generate = (numRows) => {
 
 // test case
 console.log(generate(4));
-

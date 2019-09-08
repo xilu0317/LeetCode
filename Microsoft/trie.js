@@ -96,4 +96,3 @@ Trie.prototype.search = function (word) {
 Trie.prototype.startsWith = function (prefix) {
 
 };
-
