@@ -113,6 +113,7 @@ const getSkyline = (buildings) => {
     skylines.sort(comp);
 
     skylines.forEach(skyline => {
+        // the current node is a start node
         if (skyline.type === 1) {
             if (skyline.h > pq.getMaxHeight()) {
                 // only push the node whose starting position is different than the current
@@ -121,7 +122,9 @@ const getSkyline = (buildings) => {
             }
 
             pq.enqueue(skyline);
-        } else {
+        }
+        // the current node is an end node
+        else {
             // if this is an end node then remove its mapped start
             pq.dequeue(skyline.start);
 
