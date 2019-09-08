@@ -1,10 +1,11 @@
 // cur => current interval
 // prev => previous interval
+// hint: order the intervals by their starting time
 
 const merge = (intervals) => {
     if (!intervals || !intervals.length) return [];
 
-    // key: sort by starting time
+    // key step
     intervals.sort((a, b) => a[0] - b[0]);
 
     let prev = intervals[0];
@@ -17,7 +18,9 @@ const merge = (intervals) => {
             // then update the previous ending to be whichever to be larger
             prev[1] = Math.max(prev[1], cur[1])
         } else {
+            // If it is a non-touching interval, append it to the result set
             res.push(cur);
+            // Update the pointer!
             prev = cur;
         }
     }
