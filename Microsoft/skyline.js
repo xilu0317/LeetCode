@@ -1,13 +1,14 @@
-class MaxHeap {
+class PriorityQueue {
     constructor() {
         this.data = [null];
     }
 
     swap(i, j) {
+        // ES6 swap
         [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
     }
 
-    addNode(node) {
+    push(node) {
         this.data.push(node);
         if (this.data.length === 2) {
             return;
@@ -42,7 +43,7 @@ class MaxHeap {
         }
     }
 
-    deleteNode(node) {
+    shift(node) {
         const nodeIndex = this.data.indexOf(node);
         if (nodeIndex === -1) {
             return false;
@@ -91,7 +92,7 @@ const comp = (s1, s2) => {
 };
 
 const getSkyline = (buildings) => {
-    const buildingHeap = new MaxHeap();
+    const pq = new PriorityQueue();
     const skylines = [];
     let res = [];
 
@@ -106,17 +107,17 @@ const getSkyline = (buildings) => {
 
     skylines.forEach(skyline => {
         if (skyline.type === 1) {
-            if (skyline.h > buildingHeap.getMaxHeight()) {
+            if (skyline.h > pq.getMaxHeight()) {
                 res = res.filter(r => r[0] !== skyline.x);
                 res.push([skyline.x, skyline.h]);
             }
 
-            buildingHeap.addNode(skyline);
+            pq.push(skyline);
         } else {
-            buildingHeap.deleteNode(skyline.start);
+            pq.shift(skyline.start);
 
-            if (skyline.start.h > buildingHeap.getMaxHeight()) {
-                res.push([skyline.x, buildingHeap.getMaxHeight()]);
+            if (skyline.start.h > pq.getMaxHeight()) {
+                res.push([skyline.x, pq.getMaxHeight()]);
             }
         }
     });

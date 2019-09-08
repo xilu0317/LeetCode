@@ -26,7 +26,7 @@ public class KSortedArray {
 			}
 		};
 
-		// PriorityQueue is heap in Java
+		// Key to solve this problme is to use a PQ
 		PriorityQueue<ArrayContainer> q = new PriorityQueue<ArrayContainer>(comp);
 
 		// Add array to priority queue
