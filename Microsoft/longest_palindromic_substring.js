@@ -15,7 +15,7 @@ const longestPalindrome = (s) => {
     const dp = Array(N).fill()
                        .map(() => Array(N).fill(false));
 
-    // grow the palindrome from back to front
+    // grow the palindrome from back to front, try to visualize the movement of indices
     for (let i = N - 1; i >= 0; i--) {
         for (let j = i; j < N; j++) {
             if ((s[i] === s[j]) && (j - i <= 2 || dp[i + 1][j - 1])) {
