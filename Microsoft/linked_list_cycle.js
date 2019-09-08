@@ -4,6 +4,7 @@ const hasCycle = (head) => {
     let slow = fast = head;
 
     while (true) {
+        // has reached the last node
         if (!fast || !fast.next) return false;
 
         slow = slow.next;
