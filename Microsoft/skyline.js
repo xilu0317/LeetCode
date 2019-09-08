@@ -115,7 +115,8 @@ const getSkyline = (buildings) => {
     skylines.forEach(skyline => {
         if (skyline.type === 1) {
             if (skyline.h > pq.getMaxHeight()) {
-                res = res.filter(r => r[0] !== skyline.x);
+                // only push the node whose starting position is different than the current
+                res = res.filter(r => skyline.x !== r[0]);
                 res.push([skyline.x, skyline.h]);
             }
 
