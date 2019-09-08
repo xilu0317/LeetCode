@@ -27,15 +27,15 @@ public class KSortedArray {
         PriorityQueue<ArrayContainer> q = new PriorityQueue<ArrayContainer>(comp);
 
         // Add array to priority queue
-        int total = 0;
+        int len = 0;
         for (int i = 0; i < arr.length; i++) {
             // Note all array containers will have starting index of 0
             q.add(new ArrayContainer(arr[i], 0));
-            total += arr[i].length;
+            len += arr[i].length;
         }
 
         int m = 0;
-        int result[] = new int[total];
+        int result[] = new int[len];
 
         // while heap is not empty
         while (!q.isEmpty()) {
