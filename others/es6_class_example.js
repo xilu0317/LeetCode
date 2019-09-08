@@ -1,29 +1,29 @@
 class Student {
-	// static variable
-	static count = 0;
+    // static variable
+    static count = 0;
 
-	constructor(name, age, gpa) {
-		// instance variables
-		this.name = name;
-		this.age = age;
-		this.gpa = gpa;
+    constructor(name, age, gpa) {
+        // instance variables
+        this.name = name;
+        this.age = age;
+        this.gpa = gpa;
 
-		Student.count++;
-	}
+        Student.count++;
+    }
 
-	// instance methods
-	myNameIs() {
-		console.log('Name = ',this.name);
-	}
+    // instance methods
+    myNameIs() {
+        console.log('Name = ',this.name);
+    }
 
-	myAgeIs() {
-		console.log('Age = ', this.age);
-	}
+    myAgeIs() {
+        console.log('Age = ', this.age);
+    }
 
-	// static methods
-	static showTotalNumberOfStudents() {
-		console.log('The total number of students is ', Student.count);
-	}
+    // static methods
+    static showTotalNumberOfStudents() {
+        console.log('The total number of students is ', Student.count);
+    }
 }
 
 // create a bunch of objects
