@@ -15,7 +15,7 @@ const bfs = (root) => {
     while (q.length) {
         // this is only needed for level by level exploration
         let len = q.length;
-        for (let i = 0; i < len; ++i) {
+        for (let i = 0; i < len; i++) {
             let node = q.shift(); // dequeue
             for (const c of node.children) {
                 q.push(c);

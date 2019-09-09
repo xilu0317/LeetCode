@@ -6,14 +6,14 @@ const gameOfLife = (board) => {
 
     let updateMatrix = Array(rowLen).fill().map(() => Array(colLen).fill(0));
 
-    for (let i = 0; i < rowLen; ++i) {
-        for (let j = 0; j < colLen; ++j) {
+    for (let i = 0; i < rowLen; i++) {
+        for (let j = 0; j < colLen; j++) {
             updateCell(board, updateMatrix, i, j);
         }
     }
 
-    for (let i = 0; i < rowLen; ++i) {
-        for (let j = 0; j < colLen; ++j) {
+    for (let i = 0; i < rowLen; i++) {
+        for (let j = 0; j < colLen; j++) {
             board[i][j] += updateMatrix[i][j];
             if (board[i][j] < 0) board[i][j] = 0;
         }

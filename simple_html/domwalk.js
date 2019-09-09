@@ -116,7 +116,7 @@ function getClassNameByHier(hierName) {
 
             // if contains hier increment count
             if (node.classList.contains(hierList[i])) {
-                ++i;
+                i++;
             }
 
             if (i === hierList.length) {
@@ -169,7 +169,7 @@ const getHier = (hierString) => {
 
         while (node) {
             if (node.classList.contains(hierList[i])) {
-                ++i;
+                i++;
             }
 
             if (i === hierList.length) {

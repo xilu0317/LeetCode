@@ -8,7 +8,7 @@ const levelOrder = (root) => {
         let len = q.length;
         let levelStore = [];
 
-        for (let i = 0; i < len; ++i) {
+        for (let i = 0; i < len; i++) {
             let node = q.shift();
             levelStore.push(node.val);
             if (node.left) {

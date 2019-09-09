@@ -20,7 +20,7 @@ const romanToInt = (s) => {
     if (s.includes('CD')) sum -= 200;
     if (s.includes('CM')) sum -= 200;
 
-    for (let i = 0; i < s.length; ++i) {
+    for (let i = 0; i < s.length; i++) {
         sum += dict[s[i]];
     }
 

@@ -16,16 +16,16 @@ const subsets = (nums) => {
     let res = [];
     res.push([]);
 
-    for (let i = 0; i < nums.length; ++i) {
+    for (let i = 0; i < nums.length; i++) {
         let len = res.length;
 
-        for (let j = 0; j < len; ++j) {
+        for (let j = 0; j < len; j++) {
             // Remember how many hours you spent on debugging this shit
             // [...res[j]] is a fking must, this will provide a new reference for the array!!!
             res.push([...res[j]]);
         }
 
-        for (let j = 0; j < len; ++j) {
+        for (let j = 0; j < len; j++) {
             res[j].push(nums[i]);
         }
     }

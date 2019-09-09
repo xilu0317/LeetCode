@@ -81,7 +81,7 @@ const bfs = (root) => {
     let q = [root];
     while (q.length) {
         let len = q.length; // Record current length at the level
-        for (let i = 0; i < len; ++i) { // This line is NOT necessary unless you want to do the layer by layer exploration
+        for (let i = 0; i < len; i++) { // This line is NOT necessary unless you want to do the layer by layer exploration
             let node = q.shift(); // Dequeue nodes that were loaded from the last round
             // Node visit if haven't visited before
             if (!node.visited) {
