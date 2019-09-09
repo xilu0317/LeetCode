@@ -11,7 +11,6 @@
 const longestPalindrome = (s) => {
     const N = s.length;
     let res = '';
-
     let dp = Array(N).fill()
                      .map(() => Array(N).fill(false));
 
