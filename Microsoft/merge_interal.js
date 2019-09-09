@@ -10,9 +10,9 @@ const merge = (intervals) => {
 
     let prev = intervals[0];
     // put the first interval into 'res'
-    const res = [prev];
+    let res = [prev];
 
-    for (const cur of intervals) {
+    for (let cur of intervals) {
         // If the starting position of the current is less than or equal to the ending of the previous
         if (cur[0] <= prev[1]) {
             // then update the previous ending to be whichever to be larger

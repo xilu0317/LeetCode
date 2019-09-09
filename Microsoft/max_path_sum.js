@@ -1,4 +1,3 @@
-// share var
 let max;
 
 const maxPathSum = (root) => {
@@ -12,8 +11,8 @@ const maxPathSum = (root) => {
 const maxPathDown = (node) => {
     if (!node) return 0;
 
-    const left = Math.max(0, maxPathDown(node.left));
-    const right = Math.max(0, maxPathDown(node.right));
+    let left = Math.max(0, maxPathDown(node.left));
+    let right = Math.max(0, maxPathDown(node.right));
 
     // update gobal max
     max = Math.max(max, left + right + node.val);
