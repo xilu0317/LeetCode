@@ -1,12 +1,12 @@
 const levelOrder = (root) => {
     if (!root) return [];
 
-    const q = [root];
-    const res = [];
+    let q = [root];
+    let res = [];
 
     while (q.length) {
-        const len = q.length;
-        const levelStore = [];
+        let len = q.length;
+        let levelStore = [];
 
         for (let i = 0; i < len; ++i) {
             let node = q.shift();

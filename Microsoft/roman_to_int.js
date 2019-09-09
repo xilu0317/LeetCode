@@ -2,7 +2,7 @@
 const romanToInt = (s) => {
     if (!s) return null;
 
-    const dict = {};
+    let dict = {};
     dict['I'] = 1;
     dict['V'] = 5;
     dict['X'] = 10;

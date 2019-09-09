@@ -8,7 +8,7 @@ class Trie {
     // The essence is to build the prefix tree using the insert method
     insert(word) {
         let cur = this.root;
-        for (const c of word) {
+        for (let c of word) {
             // if cur[c] exists use current, otherwise create an new object
             cur[c] = cur[c] || {};
             // update the 'cur' pointer
@@ -21,7 +21,7 @@ class Trie {
     // This method will traverse all the way till the last node
     traverse(word) {
         let cur = this.root;
-        for (const c of word) {
+        for (let c of word) {
             if (!cur) {
                 return null;
             }

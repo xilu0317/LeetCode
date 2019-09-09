@@ -1,5 +1,5 @@
 const convertToTitle = (n) => {
-    const len = 26;
+    let len = 26;
     let dict = {};
 
     for (let i = 0; i < len; i++) {

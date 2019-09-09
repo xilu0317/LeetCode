@@ -12,7 +12,7 @@ class LRUCache {
 
     get(key) {
         // Javascript map is O(1) access
-        const val = this.map.get(key);
+        let val = this.map.get(key);
 
         if (!val) return -1;
 
@@ -33,7 +33,7 @@ class LRUCache {
         this.map.set(key, value);
 
         // Get keys iterator
-        const keys = this.map.keys();
+        let keys = this.map.keys();
         // Note the iterator is ordered by the insertion order
         while (this.map.size > this.capacity) {
             this.map.delete(keys.next().value);

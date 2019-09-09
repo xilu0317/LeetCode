@@ -1,5 +1,5 @@
 const getAllPermutations = (word) => {
-    const res = [];
+    let res = [];
 
     if (word.length === 1) {
         res.push(word);

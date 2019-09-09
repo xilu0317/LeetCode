@@ -1,5 +1,5 @@
 const buildDict = (words) => {
-    const dict = {};
+    let dict = {};
 
     for (let word of words) {
         if (!dict[word]) {
@@ -29,7 +29,7 @@ const twoRowComparator = (a, b) => {
 const topKFrequent = (words, k) => {
     if (words === null || k <= 0) throw 'Illegal argument exception!';
 
-    const dict = buildDict(words);
+    let dict = buildDict(words);
 
     let res = Object.entries(dict)
                     .sort(twoRowComparator)

@@ -2,7 +2,7 @@
 const rotate = (matrix) => {
     if (!matrix) return null;
 
-    const len = matrix.length;
+    let len = matrix.length;
 
     if (len === 1) return matrix;
 

@@ -4,7 +4,7 @@ const letterCombinations = (digits) => {
 
     // data setup
     let res = [];
-    const dict = {};
+    let dict = {};
     dict['2'] = 'abc';
     dict['3'] = 'def';
     dict['4'] = 'ghi';

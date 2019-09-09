@@ -5,14 +5,14 @@
 const trap = (height) => {
     if (!height) return 0;
 
-    const LEN = height.length;
-    const maxLeftArr = Array(LEN).fill(0);
-    const maxRightArr = Array(LEN).fill(0);
+    let len = height.length;
 
+    let maxLeftArr = Array(len).fill(0);
+    let maxRightArr = Array(len).fill(0);
     let maxLeft = maxRight = -Infinity;
 
     // find max left
-    for (let i = 0; i < LEN; i++) {
+    for (let i = 0; i < len; i++) {
         if (height[i] > maxLeft) {
             maxLeft = height[i];
         }
@@ -20,7 +20,7 @@ const trap = (height) => {
     }
 
     // find max right
-    for (let i = LEN - 1; i >= 0; i--) {
+    for (let i = len - 1; i >= 0; i--) {
         if (height[i] > maxRight) {
             maxRight = height[i];
         }
@@ -28,7 +28,7 @@ const trap = (height) => {
     }
 
     let sum = 0;
-    for (let i = 0; i < LEN; i++) {
+    for (let i = 0; i < len; i++) {
 
         let water = Math.min(maxRightArr[i], maxLeftArr[i]) - height[i];
         if (water > 0) {

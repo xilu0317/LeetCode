@@ -1,5 +1,5 @@
 const buildDict = (nums) => {
-    const dict = {};
+    let dict = {};
 
     // Note the usage of 'of' instead of 'in' here
     // The value of 'of' is the content of the current element of the list
@@ -18,7 +18,7 @@ const buildDict = (nums) => {
 const topKFrequent = (nums, k) => {
     if (nums === null || k <= 0) throw 'Illegal argument exception!';
 
-    const dict = buildDict(nums);
+    let dict = buildDict(nums);
     let res = Object.entries(dict)
                     .sort((a, b) => b[1] > a[1])
                     .map(x => x[0]);

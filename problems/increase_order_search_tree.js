@@ -15,7 +15,7 @@ const increasingBSTRec = (cur, parent) => {
     // 'parent can also be named as 'next'.
     if (!cur) return parent;
 
-    const res = increasingBSTRec(cur.left, cur);
+    let res = increasingBSTRec(cur.left, cur);
     cur.left = null;
     cur.right = increasingBSTRec(cur.right, parent);
 

@@ -9,7 +9,7 @@ class ListNode {
 const addTwoNumbers = (l1, l2) => {
     let cur1 = l1, cur2 = l2;
 
-    const dummy = new ListNode(0);
+    let dummy = new ListNode(0);
     let cur = dummy;
     let sum = 0;
 

@@ -1,12 +1,12 @@
 const isValid = (string) => {
-    const stack = [];
-    const dict = {};
+    let stack = [];
+    let dict = {};
 
     dict['{'] = '}';
     dict['['] = ']';
     dict['('] = ')';
 
-    for (const c of string) {
+    for (let c of string) {
         if (c === '{' || c === '[' || c === '(') {
             stack.push(c);
         } else {

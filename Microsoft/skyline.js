@@ -14,7 +14,7 @@ class PriorityQueue {
     }
 
     dequeue(node) {
-        const nodeIndex = this.data.indexOf(node);
+        let nodeIndex = this.data.indexOf(node);
 
         if (nodeIndex === -1) {
             return false;
@@ -24,7 +24,7 @@ class PriorityQueue {
             this._swap(this.data.length - 1, nodeIndex);
             this.data.pop();
 
-            const parentIndex = parseInt(nodeIndex / 2);
+            let parentIndex = parseInt(nodeIndex / 2);
 
             if (this.data[parentIndex] && this.data[parentIndex].h < this.data[nodeIndex].h) {
                 this._bubbleUp(nodeIndex);
@@ -50,7 +50,7 @@ class PriorityQueue {
     }
 
     _bubbleDown(i) {
-        const largestChildIndex = this.data[i * 2 + 1] &&
+        let largestChildIndex = this.data[i * 2 + 1] &&
             this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
 
         if (this.data[largestChildIndex] &&
@@ -62,7 +62,7 @@ class PriorityQueue {
     }
 
     _bubbleUp(i) {
-        const parentIndex = parseInt(i / 2);
+        let parentIndex = parseInt(i / 2);
 
         if (this.data[parentIndex] &&
             this.data[parentIndex].h < this.data[i].h) {
@@ -96,15 +96,15 @@ const comp = (s1, s2) => {
 
 // TODO: revisit
 const getSkyline = (buildings) => {
-    const pq = new PriorityQueue();
-    const skylines = [];
+    let pq = new PriorityQueue();
+    let skylines = [];
     let res = [];
 
     buildings.forEach(b => {
         // node: {type, x, h, start}
         // type 1 => start node; type 2 => end node
-        const start = { type: 1, x: b[0], h: b[2] };
-        const end = { type: 2, x: b[1], start: start };
+        let start = { type: 1, x: b[0], h: b[2] };
+        let end = { type: 2, x: b[1], start: start };
 
         skylines.push(start);
         skylines.push(end);

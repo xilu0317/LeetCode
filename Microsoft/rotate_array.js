@@ -3,7 +3,7 @@ const rotate = (nums, k) => {
     if (k <= 0 || !nums) return;
 
     // must do mod thing here to acount for over rotation
-    const len = nums.length
+    let len = nums.length;
     k = k % len;
     if (k === 0) return nums;
 
@@ -12,6 +12,7 @@ const rotate = (nums, k) => {
     reverse(nums, k, len - 1);
 };
 
+// index-based reverse function
 const reverse = (nums, start, end) => {
     while (start < end) {
         // remember to use the latest syntax when swapping

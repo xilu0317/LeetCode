@@ -5,12 +5,12 @@
 const rob = (nums) => {
     if (!nums.length) return 0;
 
-    let mem = Array(nums.length + 1).fill(0);
-    mem[1] = nums[0];
+    let dp = Array(nums.length + 1).fill(0);
+    dp[1] = nums[0];
 
     for (let i = 1; i < nums.length; ++i) {
-        mem[i + 1] = Math.max(mem[i], mem[i - 1] + nums[i]);
+        dp[i + 1] = Math.max(dp[i], dp[i - 1] + nums[i]);
     }
 
-    return mem[nums.length];
+    return dp[nums.length];
 };

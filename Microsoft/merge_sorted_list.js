@@ -11,7 +11,7 @@ class ListNode {
 
 const mergeTwoLists = (head1, head2) => {
     // Note 'dummy' is just an auxiliary placeholder
-    const dummy = new ListNode(Infinity);
+    let dummy = new ListNode(Infinity);
     let cur = dummy;
 
     while (head1 && head2) {

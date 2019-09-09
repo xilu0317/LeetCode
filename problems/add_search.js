@@ -44,7 +44,7 @@ class WordDictionary {
 
             if (word[level] === '.') {
                 for (let i = 0; i < 26; i++) {
-                    const ch = String.fromCharCode(97 + i);
+                    let ch = String.fromCharCode(97 + i);
                     if (search(cur.children[ch], level + 1)) {
                         return true;
                     }

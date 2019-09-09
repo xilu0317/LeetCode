@@ -9,14 +9,14 @@
 // Time complexity O(n^2).
 
 const longestPalindrome = (s) => {
-    const N = s.length;
+    let n = s.length;
     let res = '';
-    let dp = Array(N).fill()
-                     .map(() => Array(N).fill(false));
+    let dp = Array(n).fill()
+                     .map(() => Array(n).fill(false));
 
     // grow the palindrome from back to front, try to visualize the movement of indices
-    for (let i = N - 1; i >= 0; i--) {
-        for (let j = i; j < N; j++) {
+    for (let i = n - 1; i >= 0; i--) {
+        for (let j = i; j < n; j++) {
             if ((s[i] === s[j]) && (j - i <= 2 || dp[i + 1][j - 1])) {
                 dp[i][j] = true;
             }

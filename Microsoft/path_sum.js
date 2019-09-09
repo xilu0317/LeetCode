@@ -1,7 +1,7 @@
 const hasPathSum = (root, sum) => {
     if (!root) return [];
 
-    const stack = [[root, 0]];
+    let stack = [[root, 0]];
 
     while (stack.length) {
         let [node, total] = stack.pop();
