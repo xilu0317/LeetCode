@@ -1,19 +1,22 @@
 const zigzagLevelOrder = (root) => {
     if (!root) return [];
 
-    const q = [root];
-    const res = [];
+    let q = [root];
+    let res = [];
     let flag = true;
 
     while (q.length) {
-        const len = q.length;
-        const level = [];
-        // level order traversal
+        // the length needs to be 'locked' for level order traversal
+        let len = q.length;
+        let level = [];
+
+        // for each level
         for (let i = 0; i < len; i++) {
             let node = q.shift();
             if (node) {
                 level.push(node.val)
             }
+            // push child nodes
             if (node.left) {
                 q.push(node.left);
             }
@@ -22,11 +25,8 @@ const zigzagLevelOrder = (root) => {
             }
         }
 
-        if (flag) {
-            res.push(level);
-        } else {
-            res.push(level.reverse())
-        }
+        res.push(flag ? level : level.reverse());
+
         flag = !flag;
     }
 
