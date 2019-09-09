@@ -1,3 +1,4 @@
+// two pointer paradigm is always prefered
 const isPalindrome = (s) => {
     if (!s) return true;
 
