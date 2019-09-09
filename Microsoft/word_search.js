@@ -44,9 +44,9 @@ const dfsSearch = (board, word, i, j, index) => {
         dfsSearch(board, word, i, j + 1, index + 1)
     ) return true;
 
-    // Erase marks so you can start a brand new dfsSearch starting from a different node
+    // Erase marks so you can start a brand new 'dfsSearch' starting from a different node
     visited[i][j] = false;
 
-    // If it gets this far and not found in using 'dfsSearch' return false
+    // If it gets this far and haven't found the word then the current search is negative
     return false;
 };
