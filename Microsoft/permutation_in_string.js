@@ -9,12 +9,12 @@ const getAllPermutations = (word) => {
     }
 
     for (let i = 0; i < word.length; i++) {
-        let firstChar = word[i];
+        let first = word[i];
         let restChars = word.substring(0, i) + word.substring(i + 1);
 
         let innerPerms = getAllPermutations(restChars);
         for (let j = 0; j < innerPerms.length; j++) {
-            res.push(firstChar + innerPerms[j]);
+            res.push(first + innerPerms[j]);
         }
     }
 

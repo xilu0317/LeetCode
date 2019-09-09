@@ -1,9 +1,5 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
 const rob = (nums) => {
-    if (!nums.length) return 0;
+    if (!nums || !nums.length) return 0;
 
     let dp = Array(nums.length + 1).fill(0);
     dp[1] = nums[0];
