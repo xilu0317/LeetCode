@@ -14,20 +14,20 @@ const exist = (board, word) => {
     // Try every starting point
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
-            if (search(board, word, i, j, 0)) return true;
+            if (dfsSearch(board, word, i, j, 0)) return true;
         }
     }
 
     return false;
 };
 
-const search = (board, word, i, j, index) => {
+const dfsSearch = (board, word, i, j, index) => {
     if (index === word.length) return true;
 
     // Check exit condition
-    // 1) search is false if out of bound
-    // 2) search is false if current letter is not the same as the word[index]
-    // 3) search is false if we have already visited the spot
+    // 1) dfsSearch is negative, if out of bound
+    // 2) dfsSearch is negative, if we have already visited the grid
+    // 3) dfsSearch is negative, if current letter is NOT the same as the word[index]
     if (i < 0 || i >= m || j < 0 || j >= n
         || visited[i][j]
         || board[i][j] !== word[index]) {
@@ -38,15 +38,15 @@ const search = (board, word, i, j, index) => {
     visited[i][j] = true;
 
     // Recursively visits all grids
-    if (search(board, word, i - 1, j, index + 1) ||
-        search(board, word, i + 1, j, index + 1) ||
-        search(board, word, i, j - 1, index + 1) ||
-        search(board, word, i, j + 1, index + 1)
+    if (dfsSearch(board, word, i - 1, j, index + 1) ||
+        dfsSearch(board, word, i + 1, j, index + 1) ||
+        dfsSearch(board, word, i, j - 1, index + 1) ||
+        dfsSearch(board, word, i, j + 1, index + 1)
     ) return true;
 
-    // Erase marks so you can start a brand new search starting from a different node
+    // Erase marks so you can start a brand new dfsSearch starting from a different node
     visited[i][j] = false;
 
-    // If it gets this far and not found in using 'search' return false
+    // If it gets this far and not found in using 'dfsSearch' return false
     return false;
 };
