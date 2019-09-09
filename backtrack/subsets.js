@@ -54,10 +54,10 @@ const backtrack = (nums, start, set, res) => {
 }
 
 // [IMPORTANT]
-// `[...stack]` or `Array.from(stack)`
+// '[...stack]' or 'Array.from(stack)'
 // The above will create a new array with different memeory address/reference
 // If we don't use the deep copied array, stack will be the same everywhere.
 // In such case, res = [ [1, 2, 3],[1, 2, 3],[1, 2, 3],[1, 2, 3],[1, 2, 3] ] since stack is a shallow copy being shared
 
 // Also note that I intentionally name the current set to stack to remind myself this is a DFS backtrack style problem
-// Please study this with Binary Tree pre-order traversal's iterative approach -- the `notebook + forest exploration story`
+// Please study this with Binary Tree pre-order traversal's iterative approach -- the 'notebook + forest exploration story'

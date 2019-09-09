@@ -576,7 +576,7 @@ Uber (52)
 254 Factor Combinations
 36 Valid Sudoku
 297 Serialize and Deserialize Binary Tree
-432 All O`one Data Structure
+432 All O(1) Data Structure
 139 Word Break
 146 LRU Cache
 249 Group Shifted Strings

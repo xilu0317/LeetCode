@@ -1,4 +1,4 @@
-// An additional underlying map/`dp` is always needed for this type of problems for making updates
+// An additional underlying map/'dp' is always needed for this type of problems for making updates
 const calculateMinimumHP = (dungeon) => {
     if (!dungeon) return -1;
 

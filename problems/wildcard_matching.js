@@ -19,7 +19,7 @@ const isMatch = (str, pattern) => {
             pStar = p;
             p++;
             sMatch = s; // Save the current pos of the string
-        } else if (pStar !== -1) { // If the previous pattern index is `*`
+        } else if (pStar !== -1) { // If the previous pattern index is '*'
             p = pStar + 1; // Then advance string pointer
             sMatch++;
             s = sMatch; // Extract the next pos of the string

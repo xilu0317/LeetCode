@@ -25,7 +25,7 @@
         console.log('a');
     }
 
-    // Function `c` is not hoisted
+    // Function 'c' is not hoisted
     const c = () => {
         // definition need to proceed its usage
     };

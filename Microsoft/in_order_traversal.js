@@ -8,18 +8,18 @@ const inorderTraversal = (root) => {
     while (true) {
         // If current node exists
         if (node) {
-            // This is like trail blazing, we `record` the path that we have taken already
+            // This is like trail blazing, we 'record' the path that we have taken already
             stack.push(node);
             // keep going left as long as we could, note that the leftmost node would the absolute 
             // min when the entry point is the root
             node = node.left;
         } else {
-            // The stack.pop() part is the `backtrack` part
+            // The stack.pop() part is the 'backtrack' part
             if (stack.length) {
                 // do not use let here
                 node = stack.pop();
 
-                // The `do` part
+                // The 'do' part
                 res.push(node.val);
 
                 // We have already been to the left node, now go right
@@ -34,7 +34,7 @@ const inorderTraversal = (root) => {
     return res;
 };
 
-// Think about my original algorithm where `in-order` didn't matter.
+// Think about my original algorithm where 'in-order' didn't matter.
 
 // using do-while loop
 const inorderTraversal = (root) => {

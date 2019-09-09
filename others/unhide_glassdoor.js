@@ -1,5 +1,5 @@
 (function () {
-    const myLocation = ".authorLocation ";
+    const myLocation = '.authorLocation ';
     const myString = '.interviewQuestion';
 
     let locations = $(myLocation);
@@ -13,20 +13,20 @@
         }
 
         document.write(geo);
-        document.write("<br>");
+        document.write('<br>');
 
         textOut = text.replace(/\s+Answer Question|\s+\d Answer$|\s+\d Answers$/g, '').toLocaleLowerCase();
         document.write(textOut);
 
-        document.write("<br>");
-        document.write("<br>");
-        document.write("<br>");
+        document.write('<br>');
+        document.write('<br>');
+        document.write('<br>');
     }
 
     // Add title
     let jobTitle = document.URL.replace(/[^]*\/Interview\/|-Interview-Questions[^]*/g, '');
 
-    let h3Element = document.createElement("h3");
+    let h3Element = document.createElement('h3');
     let h3Text = document.createTextNode(`Job title: ${jobTitle}`);
     h3Element.appendChild(h3Text);
 

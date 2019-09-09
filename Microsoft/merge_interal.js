@@ -9,7 +9,7 @@ const merge = (intervals) => {
     intervals.sort((a, b) => a[0] - b[0]);
 
     let prev = intervals[0];
-    // put the first interval into `res`
+    // put the first interval into 'res'
     const res = [prev];
 
     for (const cur of intervals) {

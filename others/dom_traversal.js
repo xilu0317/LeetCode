@@ -51,7 +51,7 @@ function domTreeTraversalDFSRecursive(root = document.getRootNode()) {
     return nodeList;
 }
 
-// get `class name` by BFS
+// get 'class name' by BFS
 // default param should be the last param
 function getMyClassBFS(className, root = document.body) {
     let q = [root];
@@ -72,7 +72,7 @@ function getMyClassBFS(className, root = document.body) {
     return classList;
 }
 
-// get `class name` by DFS
+// get 'class name' by DFS
 // default param should be the last param
 function getMyClassDFS(className, root = document.body) {
     let stack = [root];

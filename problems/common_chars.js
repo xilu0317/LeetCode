@@ -1,6 +1,6 @@
 const commonChars = (A) => {
     // 1) please use map, otherwise the copied object will copy by reference
-    // 2) you cannot return {} while using the arrow function, use `new Ojbect()` instead
+    // 2) you cannot return {} while using the arrow function, use 'new Ojbect()' instead
     let arrOfDict = Array(A.length).fill().map(() => new Object());
 
     for (let i = 0; i < A.length; i++) {

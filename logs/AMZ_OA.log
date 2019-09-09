@@ -83,7 +83,7 @@ const removeObstacle = (numRows, numColumns, lot) => {
     lot[0][0] = 2;
     while (1) {
         twoS = [];
-        let oriLot = JSON.parse(JSON.stringify(lot)).join(",");
+        let oriLot = JSON.parse(JSON.stringify(lot)).join(',');
         step++;
         for (i = 0; i < lot[0].length; i++)
             for (j = 0; j < lot.length; j++)
@@ -102,7 +102,7 @@ const removeObstacle = (numRows, numColumns, lot) => {
             if (point[1] - 1 > -1 && lot[point[0]][point[1] - 1] == 1) lot[point[0]][point[1] - 1] = 2;
             if (point[1] + 1 < lot.length && lot[point[0]][point[1] + 1] == 1) lot[point[0]][point[1] + 1] = 2;
         }
-        if (oriLot == JSON.parse(JSON.stringify(lot)).join(",")) return -1;
+        if (oriLot == JSON.parse(JSON.stringify(lot)).join(',')) return -1;
     }
 };
 

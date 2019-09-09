@@ -51,6 +51,6 @@ const search = (board, word, i, j, index) => {
     // Mark as unvisited
     visited[i][j] = false;
 
-    // If it gets this far and not found in using `search` return false
+    // If it gets this far and not found in using 'search' return false
     return false;
 };

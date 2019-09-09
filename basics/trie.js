@@ -2,7 +2,7 @@
 class Trie {
     constructor() {
         // instance variable
-        // `{}` same as an new object
+        // '{}' same as an new object
         this.root = {};
     }
 
@@ -12,7 +12,7 @@ class Trie {
         for (const c of word) {
             // if cur[c] exists use current, otherwise create an new object
             cur[c] = cur[c] || {};
-            // update the `cur` pointer
+            // update the 'cur' pointer
             cur = cur[c];
         }
         // Make sure to flag the last node
@@ -37,7 +37,7 @@ class Trie {
         // Get the last node
         let lastNode = this.traverse(word);
 
-        // `!!` = converts everything else to bool
+        // '!!' = converts everything else to bool
         return !!lastNode && !!lastNode.isWord;
     }
 

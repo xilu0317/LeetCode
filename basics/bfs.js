@@ -1,4 +1,4 @@
-// In leetcode `neighbor` is normally refered to as `children`
+// In leetcode 'neighbor' is normally refered to as 'children'
 class Node {
     // More general node can be consisted of key, data, neighbors, visited
     // ----------------------
@@ -85,11 +85,11 @@ const bfs = (root) => {
             let node = q.shift(); // Dequeue nodes that were loaded from the last round
             // Node visit if haven't visited before
             if (!node.visited) {
-                console.log('visit -> ' + node.val); // Is it possible for node to be `null` here?
+                console.log('visit -> ' + node.val); // Is it possible for node to be 'null' here?
                 node.visited = true;
             }
 
-            for (const n of node.neighbors) { // Use `of` not `in`
+            for (const n of node.neighbors) { // Use 'of' not 'in'
                 if (n) { // If the current is null or undefined, don't push to queue
                     q.push(n);
                 }

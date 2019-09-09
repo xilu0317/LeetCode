@@ -8,7 +8,7 @@ const dfsCycleDeteced = (graph, course) => {
     }
     visited.add(course);
 
-    // `i` is the index for the neightbor
+    // 'i' is the index for the neightbor
     for (let i = 0; i < graph[course].length; i++) {
         if (dfsCycleDeteced(graph, graph[course][i])) {
             return true;
@@ -25,7 +25,7 @@ const dfsCycleDeteced = (graph, course) => {
  */
 // Brute force
 const canFinish = (numCourses, preq) => {
-    // build the graph using `preq`
+    // build the graph using 'preq'
     let graph = Array(numCourses).fill().map(() => []);
     for (let i = 0; i < preq.length; i++) {
         graph[preq[i][1]].push(preq[i][0]);

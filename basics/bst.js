@@ -108,8 +108,8 @@ const bfs = (root) => {
 // DFS [Backtrack] iterative using stack, In-order traversal
 // Here is how you remember it.
 // You are entering in the woods. To make sure that you don't lost in the woods you keep a notebook with you to keep track.
-// The notebook is called `stack`.  When you enter a new area/node, you mark it down on your note book before you go further.
-// You keep going to the left until there is no way left to go. Now you pull out your notebook to `backtrack` to the previous
+// The notebook is called 'stack'.  When you enter a new area/node, you mark it down on your note book before you go further.
+// You keep going to the left until there is no way left to go. Now you pull out your notebook to 'backtrack' to the previous
 // location, once you have arrived at the previous position from where you came from, you mark it off your notebook/stack.
 // At the backtracked position, you know the way to the left is a deadend, you then wisely decided to move to the right this time.
 // You tirelessly repeat the above procedure, once you have marked off all positions in your notebook you have finally arived in
@@ -165,7 +165,7 @@ const postOrderTraversal = (root) => {
 
 // use this line to export the function you want in Nodejs, note browser Javascript might be different
 // const stuff = require('./basics/bst.js');
-// `stuff` will then be an alias to `generateBinaryTreeFromArray` in the calling file
+// 'stuff' will then be an alias to 'generateBinaryTreeFromArray' in the calling file
 
 module.exports = generateBinaryTreeFromArray;
 //module.exports = generateBST;

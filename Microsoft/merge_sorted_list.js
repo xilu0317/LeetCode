@@ -1,5 +1,5 @@
 // 1) make sure the relative path is correct
-// 2) the browser javascript keyword `import` just doesn't work
+// 2) the browser javascript keyword 'import' just doesn't work
 const stuff = require('../basics/singly_linkedlist');
 
 class ListNode {
@@ -10,7 +10,7 @@ class ListNode {
 }
 
 const mergeTwoLists = (head1, head2) => {
-    // Note `dummy` is just an auxiliary placeholder
+    // Note 'dummy' is just an auxiliary placeholder
     const dummy = new ListNode(Infinity);
     let cur = dummy;
 
@@ -28,7 +28,7 @@ const mergeTwoLists = (head1, head2) => {
     // Handle the leftover linked list
     cur.next = head1 ? head1 : head2;
 
-    // Note it is *not* returning `dummy` but `dummy.next`
+    // Note it is *not* returning 'dummy' but 'dummy.next'
     return dummy.next;
 };
 

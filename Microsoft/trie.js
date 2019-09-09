@@ -11,7 +11,7 @@ class Trie {
         for (const c of word) {
             // if cur[c] exists use current, otherwise create an new object
             cur[c] = cur[c] || {};
-            // update the `cur` pointer
+            // update the 'cur' pointer
             cur = cur[c];
         }
         // Make sure to flag the last node
@@ -36,7 +36,7 @@ class Trie {
         // Get the last node
         let node = this.traverse(word);
 
-        // `!!` will turn truthy to true
+        // '!!' will turn truthy to true
         // If the last node exists and it is the last word
         return !!node && !!node.isLastNode;
     }

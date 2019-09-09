@@ -1,9 +1,9 @@
 const buildDict = (nums) => {
     const dict = {};
 
-    // Note the usage of `of` instead of `in` here
-    // The value of `of` is the content of the current element of the list
-    // The value of `in` indicates the current index of the list
+    // Note the usage of 'of' instead of 'in' here
+    // The value of 'of' is the content of the current element of the list
+    // The value of 'in' indicates the current index of the list
     for (let value of nums) {
         if (!dict[value]) {
             dict[value] = 1;

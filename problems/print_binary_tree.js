@@ -9,7 +9,7 @@ const getHeight = (root) => {
 const updateOutput = (root, row, left, right) => {
     if (!root) return;
 
-    // missing `let` would crash your program
+    // missing 'let' would crash your program
     let mid = parseInt((left + right) / 2);
     output[row][mid] = root.val.toString();
     updateOutput(root.left, row + 1, left, mid - 1);

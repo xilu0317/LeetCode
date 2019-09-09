@@ -1,5 +1,5 @@
 // DFS
-// Notes: In leetcode `neighbor` is normally refered to as `children`
+// Notes: In leetcode 'neighbor' is normally refered to as 'children'
 
 class Node {
     // More general node can be consisted of key, data, neighbors, visited
@@ -13,7 +13,7 @@ class Node {
     //   * neighbors
     // ----------------------
 
-    // Note there are different way to represent graphs such as `ajacency matrix and ajacency list`
+    // Note there are different way to represent graphs such as 'ajacency matrix and ajacency list'
     // The graph representation here is using reference-based approach meaning the node is pointing/referncing other nodes
 
     constructor(val) {
@@ -48,7 +48,7 @@ class Node {
 // 2D array [ [A, B], [A, C], [B, C], [C, D], [B, E], [C, F], [D, F], [E, G], [E, H], [F, I], [H, I] ]
 
 /**
- * Generate graph and return the entry point as "root"
+ * Generate graph and return the entry point as 'root'
  *
  * @param {Object[String[]]} edgeList
  * @return {Node} root
@@ -63,8 +63,8 @@ const generateGraphByEdgeList = (edgeList) => {
     let set = new Set(edgeList.flat().sort());
     let runOnceFlag = true;
 
-    // It looks like the `set` in es6 is ordered depending on the insertion order?
-    // But my understanding is that `set` should be similar to the unordered_set in c
+    // It looks like the 'set' in es6 is ordered depending on the insertion order?
+    // But my understanding is that 'set' should be similar to the unordered_set in c
     for (let item of set) {
         dict[item] = new Node(item);
         if (runOnceFlag) {
