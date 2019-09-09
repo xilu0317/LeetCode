@@ -1,3 +1,4 @@
+// 'visited' is used to distinguish visited and unvisited nodes
 let visited;
 let m;
 let n;
@@ -20,20 +21,16 @@ const exist = (board, word) => {
     return false;
 };
 
-// why a grid needs to be marked as visisted?
-// This is because that it is like the visit flag which will allow the algorithm to avoid redundent visits
-
 const search = (board, word, i, j, index) => {
     if (index === word.length) return true;
 
-    // Validating boundary edge cases
+    // Check exit condition
     // 1) search is false if out of bound
     // 2) search is false if current letter is not the same as the word[index]
     // 3) search is false if we have already visited the spot
-
-    if (i < 0 || i >= m || j < 0 || j >= n ||
-        visited[i][j] ||
-        board[i][j] !== word[index]) {
+    if (i < 0 || i >= m || j < 0 || j >= n
+        || visited[i][j]
+        || board[i][j] !== word[index]) {
         return false;
     }
 
@@ -47,7 +44,7 @@ const search = (board, word, i, j, index) => {
         search(board, word, i, j + 1, index + 1)
     ) return true;
 
-    // Mark as unvisited
+    // Erase marks so you can start a brand new search starting from a different node
     visited[i][j] = false;
 
     // If it gets this far and not found in using 'search' return false
