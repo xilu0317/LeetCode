@@ -10,7 +10,7 @@ const exist = (board, word) => {
                 .fill()
                 .map(x => Array(n).fill(false));
 
-    // Use every point as a starting point
+    // Try every starting point
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
             if (search(board, word, i, j, 0)) return true;
@@ -46,7 +46,6 @@ const search = (board, word, i, j, index) => {
         search(board, word, i, j - 1, index + 1) ||
         search(board, word, i, j + 1, index + 1)
     ) return true;
-
 
     // Mark as unvisited
     visited[i][j] = false;
