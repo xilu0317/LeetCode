@@ -4,7 +4,7 @@ const maxSubArray = (nums) => {
     const LEN = nums.length;
 
     // why is it zero-filled by not -Infinity filled?
-    const dp = Array(LEN).fill(0);
+    let dp = Array(LEN).fill(0);
     dp[0] = nums[0];
 
     let max = dp[0];
