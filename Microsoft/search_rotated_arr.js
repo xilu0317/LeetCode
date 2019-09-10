@@ -10,7 +10,7 @@ const search = (nums, target) => {
 
     while (lo < hi) {
         let mid = parseInt((lo + hi) / 2);
-        
+
         if (nums[mid] > nums[hi]) {
             lo = mid + 1;
         } else {
