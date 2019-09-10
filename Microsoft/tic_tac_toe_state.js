@@ -1,10 +1,5 @@
 // https://leetcode.com/problems/valid-tic-tac-toe-state/
 
-/**
- * @param {string[]} board
- * @return {boolean}
- */
-
 // When turns is 1, X moved.When turns is 0, O moved.rows stores the number of X or O in each row.
 // cols stores the number of X or O in each column.
 // diag stores the number of X or O in diagonal.
@@ -16,6 +11,11 @@
 // When O wins, X cannot move anymore, so turns must be 0.
 // Finally, when we return, turns must be either 0 or 1, and X and O cannot win at same time.
 
+/**
+ * @param {string[]} board
+ * @return {boolean}
+ */
+
 const validTicTacToe = (board) => {
     let turns = 0;
     let xWin = false;
@@ -24,7 +24,6 @@ const validTicTacToe = (board) => {
     let cols = [0, 0, 0];
     let diag = 0;
     let antidiag = 0;
-
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
