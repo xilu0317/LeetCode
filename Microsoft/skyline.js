@@ -117,7 +117,7 @@ const getSkyline = (buildings) => {
         // the current node is a start node
         if (skyline.type === 1) {
             if (skyline.h > pq.getMaxHeight()) {
-                // 
+                //
                 res = res.filter(r => skyline.x !== r[0]);
                 res.push([skyline.x, skyline.h]);
             }
