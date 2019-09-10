@@ -46,11 +46,11 @@ const validTicTacToe = (board) => {
 
     xWin = rows[0] === 3 || rows[1] === 3 || rows[2] === 3 ||
            cols[0] === 3 || cols[1] === 3 || cols[2] === 3 ||
-           diag === 3 || antidiag === 3;
+           diag === 3    || antidiag === 3;
 
     oWin = rows[0] === -3 || rows[1] === -3 || rows[2] === -3 ||
            cols[0] === -3 || cols[1] === -3 || cols[2] === -3 ||
-           diag === -3 || antidiag === -3;
+           diag === -3    || antidiag === -3;
 
     if (xWin && turns === 0 || oWin && turns === 1) {
         return false;
