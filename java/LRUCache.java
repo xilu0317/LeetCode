@@ -1,106 +1,90 @@
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
-public class LRUCache {
+class Node {
+    int key;
+    int value;
+    Node prev;
+    Node next;
 
-    class DLinkedNode {
-        int key;
-        int value;
-        DLinkedNode pre;
-        DLinkedNode post;
+    public Node(int key, int value) {
+        this.key = key;
+        this.value = value;
     }
+}
 
-    /**
-     * Always add the new node right after head;
-     */
-    private void addNode(DLinkedNode node) {
-        node.pre = head;
-        node.post = head.post;
+class LRUCache {
+    Node head;
+    Node tail;
+    Map<Integer, Node> map;
+    int cap = 0;
 
-        head.post.pre = node;
-        head.post = node;
-    }
-
-    /**
-     * Remove an existing node from the linked list.
-     */
-    private void removeNode(DLinkedNode node) {
-        DLinkedNode pre = node.pre;
-        DLinkedNode post = node.post;
-
-        pre.post = post;
-        post.pre = pre;
-    }
-
-    /**
-     * Move certain node in between to the head.
-     */
-    private void moveToHead(DLinkedNode node) {
-        removeNode(node);
-        addNode(node);
-    }
-
-    // pop the current tail.
-    private DLinkedNode popTail() {
-        DLinkedNode res = tail.pre;
-        removeNode(res);
-        return res;
-    }
-
-    private Hashtable<Integer, DLinkedNode> cache = new Hashtable<Integer, DLinkedNode>();
-    private int count;
-    private int capacity;
-    private DLinkedNode head, tail;
-
-    public LRUCache(int num) {
-        count = 0;
-        capacity = num;
-
-        head = new DLinkedNode();
-        head.pre = null;
-
-        tail = new DLinkedNode();
-        tail.post = null;
-
-        head.post = tail;
-        tail.pre = head;
+    public LRUCache(int capacity) {
+        this.cap = capacity;
+        this.map = new HashMap<>();
     }
 
     public int get(int key) {
-        DLinkedNode node = cache.get(key);
-        if (node == null) {
-            return -1; // should raise exception here.
+        if (map.get(key) == null) {
+            return -1;
         }
 
-        // move the accessed node to the head;
-        moveToHead(node);
+        // move to tail
+        Node t = map.get(key);
 
-        return node.value;
+        removeNode(t);
+        offerNode(t);
+
+        return t.value;
     }
 
     public void put(int key, int value) {
-        DLinkedNode node = cache.get(key);
+        if (map.containsKey(key)) {
+            Node t = map.get(key);
+            t.value = value;
 
-        if (node == null) {
-
-            DLinkedNode newNode = new DLinkedNode();
-            newNode.key = key;
-            newNode.value = value;
-
-            cache.put(key, newNode);
-            addNode(newNode);
-
-            count++;
-
-            if (count > capacity) {
-                // pop the tail
-                DLinkedNode tail = popTail();
-                cache.remove(tail.key);
-                count--;
-            }
+            // move to tail
+            removeNode(t);
+            offerNode(t);
         } else {
-            // update the value.
-            node.value = value;
-            moveToHead(node);
+            if (map.size() >= cap) {
+                // delete head
+                map.remove(head.key);
+                removeNode(head);
+            }
+
+            // add to tail
+            Node node = new Node(key, value);
+            offerNode(node);
+            map.put(key, node);
+        }
+    }
+
+    private void removeNode(Node n) {
+        if (n.prev != null) {
+            n.prev.next = n.next;
+        } else {
+            head = n.next;
+        }
+
+        if (n.next != null) {
+            n.next.prev = n.prev;
+        } else {
+            tail = n.prev;
+        }
+    }
+
+    private void offerNode(Node n) {
+        if (tail != null) {
+            tail.next = n;
+        }
+
+        n.prev = tail;
+        n.next = null;
+        tail = n;
+
+        if (head == null) {
+            head = tail;
         }
     }
 }
