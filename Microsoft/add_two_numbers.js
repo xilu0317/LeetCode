@@ -4,7 +4,7 @@ const addTwoNumbers = (l1, l2) => {
     let sum = 0;
 
     while (cur1 || cur2) {
-        // account for the carry-over
+        // key step
         sum = parseInt(sum / 10);
 
         if (cur1) {
@@ -21,7 +21,7 @@ const addTwoNumbers = (l1, l2) => {
         cur = cur.next;
     }
 
-    // account for the need for the last digit
+    // account for the last '1'
     if (sum >= 10) {
         cur.next = new ListNode(1);
     }
