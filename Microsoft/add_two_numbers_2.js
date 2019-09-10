@@ -1,5 +1,4 @@
-// The central idea is to use two stacks
-
+// The central idea is to use three stacks
 const addTwoNumbers = (l1, l2) => {
     // DO NOT USE 's1 = s2 = []'!!!
     let s1 = [], s2 = [];
