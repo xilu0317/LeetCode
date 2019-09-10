@@ -16,11 +16,13 @@ const addTwoNumbers = (l1, l2) => {
     let sum = 0;
     let s = [];
     while (s1.length || s2.length) {
+        // If it is greater than 10, initialize sum to 1
         sum = parseInt(sum / 10);
 
         sum += s1.pop() || 0;
         sum += s2.pop() || 0;
 
+        // only need ones digit
         s.push(sum % 10);
     }
     // add the last '1' if needed
