@@ -10,7 +10,7 @@
 
 /**
  * @param {character[]} s
- * @return {void} Do not return anything, modify s in-place instead.
+ * @return {void} Do NOT return anything, modify s IN-PLACE instead!
  */
 
 const reverseWords = (s) => {
@@ -23,16 +23,19 @@ const reverseWords = (s) => {
         if (s[i] == ' ') {
             // if the current is space then reverse the previous one
             reverse(s, start, i - 1);
+            // start would be the next char after the space
             start = i + 1;
         }
     }
 
+    // TODO: revisit
     // reverse the last word, if there is only one word this will solve the corner case
     reverse(s, start, s.length - 1);
 };
 
 const reverse = (s, start, end) => {
     while (start < end) {
+        // ES6
         [s[start], s[end]] = [s[end], s[start]];
         start++;
         end--;
