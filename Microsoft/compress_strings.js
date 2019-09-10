@@ -1,4 +1,5 @@
-// the gist is to use two pointers
+// The gist is to use two pointers
+
 const compress = (chars) => {
     let index = i = 0;
 
