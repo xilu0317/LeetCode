@@ -1,7 +1,7 @@
 // The central idea is to use two stacks
 
 const addTwoNumbers = (l1, l2) => {
-    // DO NOT USE 's1 = s2 = []'!!
+    // DO NOT USE 's1 = s2 = []'!!!
     let s1 = [], s2 = [];
 
     while (l1) {
