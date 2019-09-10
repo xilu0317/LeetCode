@@ -2,9 +2,11 @@
  * @param {number} n
  * @return {string[]}
  */
+
 const generateParenthesis = (n) => {
     let list = [];
     backtrack(list, '', 0, 0, n);
+
     return list;
 };
 
@@ -14,6 +16,7 @@ const backtrack = (list, str, numOpen, numClose, max) => {
     // exit condition
     if (str.length === max * 2) {
         list.push(str);
+
         return;
     }
 

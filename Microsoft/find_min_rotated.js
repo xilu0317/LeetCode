@@ -19,8 +19,3 @@ const searchMin = (nums, lo, hi) => {
 const findMin = (nums) => {
     return searchMin(nums, 0, nums.length - 1);
 };
-
-console.log(findMin([2, 1])); // 1
-console.log(findMin([1, 2, 3, 4])); // 1
-console.log(findMin([2, 3, 4, 5, 6, 1])); // 1
-console.log(findMin([1])); // 1
