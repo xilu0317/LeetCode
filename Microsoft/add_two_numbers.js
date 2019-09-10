@@ -5,17 +5,13 @@ class ListNode {
     }
 }
 
-// l1, l2 are linkedlists
 const addTwoNumbers = (l1, l2) => {
     let cur1 = l1, cur2 = l2;
-
-    let dummy = new ListNode(0);
-    let cur = dummy;
+    let cur = dummy = new ListNode(0);
     let sum = 0;
 
     while (cur1 || cur2) {
-        // parseInt() is cleaner than Math.floor()
-        // account for the carry over from the prev iteration
+        // account for the carry-over
         sum = parseInt(sum / 10);
 
         if (cur1) {
@@ -32,8 +28,8 @@ const addTwoNumbers = (l1, l2) => {
         cur = cur.next;
     }
 
-    // account for when sum is greater than 10 then carry over
-    if (parseInt(sum / 10) === 1) {
+    // account for the need for the last digit
+    if (sum >= 10) {
         cur.next = new ListNode(1);
     }
 
