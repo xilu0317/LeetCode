@@ -1,11 +1,12 @@
+// the gist is to use two pointers
 const compress = (chars) => {
-    let index = 0; i = 0;
+    let index = i = 0;
 
     while (i < chars.length) {
         // get the current char
         let cur = chars[i];
 
-        // re-init count to zero
+        // re-init count to zero for a different char
         let count = 0;
         while (chars[i] === cur) {
             i++;
