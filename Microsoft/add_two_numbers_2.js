@@ -1,7 +1,7 @@
-// DO *NOT* use 'let s1 = s2 = []'! It is ok to do it for primitive variables.
-// In this case, s1 = s2 will lead to s1 pointing at s2.
 // The central idea is to use two stacks
+
 const addTwoNumbers = (l1, l2) => {
+    // DO NOT USE 's1 = s2 = []'!!
     let s1 = [], s2 = [];
 
     while (l1) {
@@ -13,25 +13,18 @@ const addTwoNumbers = (l1, l2) => {
         l2 = l2.next;
     }
 
+    // temp stack 's' used for building a reversed linkedlist
     let sum = 0;
-    // temp stack used for building a reversed linkedlist
     let s = [];
     while (s1.length || s2.length) {
         sum = parseInt(sum / 10);
 
-        let val1 = s1.pop();
-        if (val1 !== undefined) {
-            sum += val1;
-        }
-
-        let val2 = s2.pop();
-        if (val2 !== undefined) {
-            sum += val2;
-        }
+        sum += s1.pop() || 0;
+        sum += s2.pop() || 0;
 
         s.push(sum % 10);
     }
-    // account for the last one
+    // add the last '1' if needed
     if (sum >= 10) s.push(1);
 
     // build the linkedlist using dummy
