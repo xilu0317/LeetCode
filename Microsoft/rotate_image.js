@@ -11,7 +11,7 @@ const rotate = (matrix) => {
     for (let i = 0; i < len; i++) {
         for (let j = 0; j < len; j++) {
             if (i < j) {
-                // ES6 swap
+                // ES6
                 [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
             }
         }

@@ -45,7 +45,7 @@ class PriorityQueue {
 
     // index-based swap
     _swap(i, j) {
-        // ES6 _swap
+        // ES6
         [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
     }
 
