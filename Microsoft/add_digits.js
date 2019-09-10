@@ -13,7 +13,6 @@ const digitSum = (num) => {
 const addDigits = (num) => {
     do {
         num = digitSum(num);
-        //console.log(num)
     } while (num / 10 >= 1);
 
     return num;
