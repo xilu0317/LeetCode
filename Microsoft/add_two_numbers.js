@@ -1,10 +1,3 @@
-class ListNode {
-    constructor(val) {
-        this.val = val;
-        this.next = null;
-    }
-}
-
 const addTwoNumbers = (l1, l2) => {
     let cur1 = l1, cur2 = l2;
     let cur = dummy = new ListNode(0);
@@ -35,20 +28,3 @@ const addTwoNumbers = (l1, l2) => {
 
     return dummy.next;
 };
-
-// test case
-// [2,4,3]
-l1 = new ListNode(2);
-l1.next = new ListNode(4);
-l1.next.next = new ListNode(3);
-
-// [5,6,4]
-l2 = new ListNode(5);
-l2.next = new ListNode(6);
-l2.next.next = new ListNode(4);
-
-// [7,0,8]
-l3 = addTwoNumbers(l1, l2);
-console.log(l3);
-console.log(l3.next);
-console.log(l3.next.next);
