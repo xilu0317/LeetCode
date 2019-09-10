@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/search-a-2d-matrix-ii/
 // Integers in each row are sorted in ascending from left to right.
 // Integers in each column are sorted in ascending from top to bottom.
 
@@ -14,12 +15,10 @@ const searchMatrix = (matrix, target) => {
         return false;
     }
 
-    let rowLen = matrix.length;
-    let colLen = matrix[0].length;
+    let rowLen = matrix.length, colLen = matrix[0].length;
 
     // define starting point -> first row but last column which is '15'
-    let row = 0; // row
-    let col = colLen - 1; // col
+    let row = 0, col = colLen - 1;
 
     // apply constraints on the while loop
     while (row <= rowLen - 1 && col >= 0) {
