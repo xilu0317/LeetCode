@@ -1,6 +1,6 @@
 const sortColors = (nums) => {
     let dict = {};
-    dict[0] = 0, dict[1] = 0, dict[2] = 0;
+    dict[0] = dict[1] = dict[2] = 0;
 
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] === 0) dict[0]++;
