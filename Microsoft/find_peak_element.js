@@ -7,7 +7,7 @@ const findPeak = (A, left, right) => {
 		return A[left] > A[right] ? left : right;
 	}
 
-	mid = Math.floor((left + right) / 2);
+	mid = parseInt((left + right) / 2);
 
 	// typical case
 	if (A[mid - 1] < A[mid] && A[mid] > A[mid + 1]) {

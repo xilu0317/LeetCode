@@ -60,7 +60,7 @@ const num2Arr = (num) => {
 
     while (num > 0) {
         list.push(num % 10);
-        num = Math.floor(num / 10);
+        num = parseInt(num / 10);
     }
 
     return list;

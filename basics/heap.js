@@ -42,7 +42,7 @@ class MinHeap {
 
     bubbleUp(index) {
         while (index > 0) {
-            let parent = Math.floor((index + 1) / 2) - 1;
+            let parent = parseInt((index + 1) / 2) - 1;
             if (this.data[parent] > this.data[index]) {
                 // nice syntax for swapping
                 [this.data[parent], this.data[index]] = [this.data[index], this.data[parent]];

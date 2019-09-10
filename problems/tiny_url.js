@@ -8,7 +8,7 @@ let domainName = null;
 const encode = (longUrl) => {
     domainName = extractDomainName(longUrl);
 
-    let shortKey = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(36);
+    let shortKey = parseInt(Math.random() * Number.MAX_SAFE_INTEGER).toString(36);
 
     if (long2short[longUrl]) {
         return domainName + '/' + long2short[longUrl];

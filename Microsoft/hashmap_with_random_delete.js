@@ -38,7 +38,7 @@ class BlackBox {
     // 1) Generate a random number from 0 to last index.
     // 2) Return the array element at the randomly generated index.
     getRandom() {
-        let randIndex = Math.floor(Math.random() * this.list.length);
+        let randIndex = parseInt(Math.random() * this.list.length);
 
         return this.list[randIndex];
     }
