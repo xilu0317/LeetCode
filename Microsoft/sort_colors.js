@@ -10,13 +10,8 @@ const sortColors = (nums) => {
 
     let len0 = dict[0], len1 = dict[1], len2 = dict[2];
 
-    for (let i = 0; i < len0; i++) {
-        nums[i] = 0;
-    }
-    for (let i = len0; i < len0 + len1; i++) {
-        nums[i] = 1;
-    }
-    for (let i = len0 + len1; i < len0 + len1 + len2; i++) {
-        nums[i] = 2;
-    }
+    let i = 0;
+    while (i < len0) nums[i++] = 0;
+    while (i < len0 + len1) nums[i++] = 1;
+    while (i < len0 + len1 + len2) nums[i++] = 2;
 };
