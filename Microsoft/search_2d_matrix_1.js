@@ -12,9 +12,11 @@ const searchMatrix = (matrix, target) => {
 
     while (start <= end) {
         let mid = parseInt((start + end) / 2);
+
         if (matrix[parseInt(mid / cols)][mid % cols] === target) {
             return true;
         }
+
         if (matrix[parseInt(mid / cols)][mid % cols] < target) {
             start = mid + 1;
         } else {
