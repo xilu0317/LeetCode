@@ -2,8 +2,9 @@
 // smaller than or equal the target value we should go to the right side
 
 // When puzzled always draw a diagram to assist the understanding
-//
-//                  CUR
+//                 _____
+//                 |CUR|
+//                 -----
 //                /
 //               /
 //              P
@@ -12,21 +13,24 @@
 //       Subtree   Subtree <=== The successor must be here
 //           *Case I
 //
-//
-//                  CUR
+//                 _____
+//                 |CUR|
+//                 -----
 //                /
 //               /
 //              P
 //            /   \
 //           /     \
 //       Subtree   NULL
-//           *Case II
+//          *Case II
 //
 //
-//                  Larger (Because of Case III, P can't really be here, should have already returned at this point)
+//                Larger (Because of Case III, P can't really be here, should have already returned at this point)
+//                 /
 //                /
-//               /
-//             CUR
+//            _____
+//            |CUR|
+//            -----
 //            /   \
 //           /     \
 //       Smaller   Larger (P)  <=== Since P in this subtree, direct the code to go search the right subtree
