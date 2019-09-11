@@ -21,7 +21,7 @@ class TicTacToe {
     constructor(n) {
         this.rows = Array(n).fill(0);
         this.cols = Array(n).fill(0);
-        // Please remember to initialize the numbers here
+        // Please remember to initialize the numbers here, in JS it won't default to 0 as Java.
         this.diagonal = 0;
         this.antiDiagonal = 0;
     }
