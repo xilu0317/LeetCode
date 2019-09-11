@@ -1,4 +1,3 @@
-
 // https://leetcode.com/problems/reverse-words-in-a-string-ii/
 
 // Input: ["t", "h", "e", " ", "s", "k", "y", " ", "i", "s", " ", "b", "l", "u", "e"]
@@ -30,7 +29,7 @@ const reverseWords = (s) => {
     }
 
     // TODO: revisit
-    // reverse the last word, if there is only one word this will solve the corner case
+    // wouldn't this undo the last word
     reverse(s, start, s.length - 1);
 };
 
