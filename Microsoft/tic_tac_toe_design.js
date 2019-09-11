@@ -17,11 +17,9 @@
         2: Player 2 wins. */
 // TODO: revisit
 class TicTacToe {
-
     constructor(n) {
         this.rows = Array(n).fill(0);
         this.cols = Array(n).fill(0);
-        // Please remember to initialize the numbers here, in JS it won't default to 0 as Java.
         this.diagonal = 0;
         this.antiDiagonal = 0;
     }
@@ -36,7 +34,8 @@ class TicTacToe {
             this.diagonal += toAdd;
         }
 
-        if (col === (this.cols.length - row - 1)) {
+        // the length is not necessarily 3
+        if ((col + row) === this.cols.length - 1) {
             this.antiDiagonal += toAdd;
         }
 
