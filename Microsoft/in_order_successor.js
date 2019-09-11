@@ -36,7 +36,7 @@
 //       Smaller   Larger (P)  <=== Since P in this subtree, direct the code to go search the right subtree
 //           *Case III
 //
-// Using 'cur' is preferred because it reflects the dynamic nature of the 'root'
+// In terms of nomenclature, using 'cur' is preferred over 'root' because it reflects the dynamic nature of the current 'root'
 /**
  * @param {TreeNode} root
  * @param {TreeNode} p
@@ -69,4 +69,3 @@ const predecessor = (cur, p) => {
 };
 
 // TODO: Need to understand both iterative and recursive solution
-
