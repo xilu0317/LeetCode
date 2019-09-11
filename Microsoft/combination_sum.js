@@ -20,11 +20,13 @@ const dfs = (nums, target, index, path, res) => {
     // 'res' = the result container that needs to be shared accross all rec calls
     // 'target' = new target after using nums[i]
 
+    // Exit condition 1:
     if (target < 0) {
         // overshot and result not found, terminate the function
         return;
     }
 
+    // Exit condition 2:
     if (target === 0) {
         // have found the result, add it to the result set
         res.push(path);
