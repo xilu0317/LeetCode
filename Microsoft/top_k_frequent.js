@@ -1,18 +1,16 @@
 const buildDict = (words) => {
-    const dict = {};
+    let dict = {};
 
     for (let word of words) {
-        if (!dict[word]) {
+        if (!dict[word])
             dict[word] = 1;
-        } else {
+        else
             dict[word]++;
-        }
     }
 
     return dict;
 };
 
-// This is the most important part!
 const comp = (a, b) => {
     // descending count order. ie entry with max count will appear first
     if (b[1] > a[1]) return 1;
@@ -26,15 +24,16 @@ const comp = (a, b) => {
     if (a[0] === b[0]) return 0;
 };
 
+// Note maybe need to consider priority queue
 const topKFrequent = (words, k) => {
     if (!words || k <= 0) throw 'Illegal argument exception!';
 
-    const dict = buildDict(words);
+    let dict = buildDict(words);
 
     let res = Object.entries(dict)
-        .sort(comp)
-        .map(x => x[0]);
-
+                    .sort(comp)
+                    .map(x => x[0]);
+    // truncating to k
     res.length = k;
 
     return res;
