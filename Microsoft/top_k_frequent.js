@@ -14,13 +14,13 @@ const buildDict = (words) => {
 
 // This is the most important part!
 const comp = (a, b) => {
-    // descending order
+    // descending count order. ie entry with max count will appear first
     if (b[1] > a[1]) return 1;
     if (a[1] > b[1]) return -1;
 
     // intentionally leaving out the case when a[1] === b[1]
 
-    // ascending order
+    // ascending lexicographical order
     if (a[0] > b[0]) return 1;
     if (a[0] < b[0]) return -1;
     if (a[0] === b[0]) return 0;
