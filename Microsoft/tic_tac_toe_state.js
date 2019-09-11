@@ -36,7 +36,6 @@ const validTicTacToe = (board) => {
                 rows[i]--;
                 cols[j]--;
                 if (i === j) diag--;
-                // notice it is '2' not '3'
                 if (i + j === 2) antidiag--;
             }
         }
