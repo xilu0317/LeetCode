@@ -94,7 +94,6 @@ const comp = (s1, s2) => {
     }
 };
 
-// TODO: revisit
 const getSkyline = (buildings) => {
     let pq = new PriorityQueue();
     let skylines = [];

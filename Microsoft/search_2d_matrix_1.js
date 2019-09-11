@@ -1,4 +1,4 @@
-// TODO: need to revisited search a matrix 1
+// TODO: revisit
 // https://leetcode.com/problems/search-a-2d-matrix/
 
 
