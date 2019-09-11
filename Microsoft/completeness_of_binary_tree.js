@@ -1,27 +1,30 @@
-// bfs
+// [bfs] [level-order]
+// [bfs] [level-order]
 const isCompleteTree = (root) => {
     if (!root) return false;
 
     let q = [root];
-    let flag = false;
+    let foundEmpty = false;
 
     while (q.length) {
         let len = q.length;
+        // This for loop is the signature for level order traversal
         for (let i = 0; i < len; i++) {
+
             let node = q.shift();
 
             if (node.left) {
-                if (flag) return false;
+                if (foundEmpty) return false;
                 q.push(node.left);
             } else {
-                flag = true;
+                foundEmpty = true;
             }
 
             if (node.right) {
-                if (flag) return false;
+                if (foundEmpty) return false;
                 q.push(node.right);
             } else {
-                flag = true;
+                foundEmpty = true;
             }
         }
     }
