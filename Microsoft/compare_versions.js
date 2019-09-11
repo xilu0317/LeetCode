@@ -1,12 +1,14 @@
 const compareVersion = (v1, v2) => {
+    if (!v1 && !v2) return 0;
+    if (!v1) return -1;
+    if (!v2) return 1;
+
     // use parseInt for numerical comparison
     let list1 = v1.split(/\./).map(x => parseInt(x));
     let list2 = v2.split(/\./).map(x => parseInt(x));
 
     let len1 = list1.length, len2 = list2.length
-
-    let minLen = Math.min(len1, len2)
-    let maxLen = Math.max(len1, len2);
+    let minLen = Math.min(len1, len2), maxLen = Math.max(len1, len2);
 
     // define 'i' outside the for loop to obtain more scope
     let i;
