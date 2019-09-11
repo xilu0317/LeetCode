@@ -26,13 +26,14 @@ const comp = (a, b) => {
 
 // Note maybe need to consider priority queue
 const topKFrequent = (words, k) => {
-    if (!words || k <= 0) throw 'Illegal argument exception!';
+    if (!words || k <= 0) return -1;
 
     let dict = buildDict(words);
 
     let res = Object.entries(dict)
                     .sort(comp)
                     .map(x => x[0]);
+
     // truncating to k
     res.length = k;
 
