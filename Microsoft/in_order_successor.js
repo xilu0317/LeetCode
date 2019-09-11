@@ -44,7 +44,7 @@
  */
 const inorderSuccessor = (cur, p) => {
     // Exit conition for recursion
-    if (!cur) return null;
+    if (!cur || !p) return null;
 
     if (cur.val > p.val) {
         // If the current value is greater than the p value, go search on the left subtree if nothing exisit the current value is the succeor
@@ -59,7 +59,7 @@ const inorderSuccessor = (cur, p) => {
 
 // Nothing speical to the predecessor code. All symmetrical.
 const predecessor = (cur, p) => {
-    if (!cur) return null;
+    if (!cur || !p) return null;
 
     if (cur.val >= p.val) {
         return predecessor(cur.left, p);
