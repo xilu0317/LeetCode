@@ -1,4 +1,4 @@
-// TODO: WRONG SOLUTION // REFER TO THE PYTHON SOLUTION
+// TODO: WRONG!
 const visited = new Set();
 
 const dfsCycleDeteced = (graph, course) => {
