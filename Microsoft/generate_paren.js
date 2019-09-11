@@ -24,4 +24,4 @@ const backtrack = (list, str, numOpen, numClose, max) => {
     if (numOpen < max) backtrack(list, str + '(', numOpen + 1, numClose, max);
     // if the number of close bracket is lower than the numOpen bracket recurse
     if (numClose < numOpen) backtrack(list, str + ')', numOpen, numClose + 1, max);
-}
+};
