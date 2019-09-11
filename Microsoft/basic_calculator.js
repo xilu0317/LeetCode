@@ -42,5 +42,6 @@ const calculate = (s) => {
     }
 
     if (num !== 0) res += sign * num;
+
     return res;
 };
