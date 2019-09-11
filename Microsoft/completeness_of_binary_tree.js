@@ -1,5 +1,4 @@
 // [bfs] [level-order]
-// [bfs] [level-order]
 const isCompleteTree = (root) => {
     if (!root) return false;
 
