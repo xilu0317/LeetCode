@@ -10,24 +10,27 @@
 //     [18, 21, 23, 26, 30]
 // ]
 
+// Search from top right
 const searchMatrix = (matrix, target) => {
     if (!matrix || !matrix.length || !matrix[0].length) {
         return false;
     }
 
-    let rowLen = matrix.length, colLen = matrix[0].length;
+    let rows = matrix.length, cols = matrix[0].length;
 
     // define starting point -> first row but last column which is '15'
-    let row = 0, col = colLen - 1;
+    let i = 0, j = cols - 1;
 
     // apply constraints on the while loop
-    while (row <= rowLen - 1 && col >= 0) {
-        if (matrix[row][col] === target) {
+    while (i <= rows - 1 && j >= 0) {
+        if (matrix[i][j] === target) {
             return true;
-        } else if (target < matrix[row][col]) {
-            col--;
-        } else if (target > matrix[row][col]) {
-            row++;
+        } else if (target < matrix[i][j]) {
+            // col
+            j--;
+        } else if (target > matrix[i][j]) {
+            // row
+            i++;
         }
     }
 
