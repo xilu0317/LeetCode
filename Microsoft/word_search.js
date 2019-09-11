@@ -28,11 +28,10 @@ const dfsSearch = (board, word, i, j, index) => {
     // 1) dfsSearch is negative, if out of bound
     // 2) dfsSearch is negative, if we have already visited the grid
     // 3) dfsSearch is negative, if current letter is NOT the same as the word[index]
-    if (i < 0 || i >= m || j < 0 || j >= n
-        || visited[i][j]
-        || board[i][j] !== word[index]) {
-        return false;
-    }
+    if (i < 0 || i >= m || j < 0 || j >= n ||
+        visited[i][j] ||
+        board[i][j] !== word[index]
+    ) return false;
 
     // Mark as visited
     visited[i][j] = true;
