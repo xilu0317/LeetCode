@@ -10,7 +10,7 @@ const inorderTraversal = (root) => {
         if (node) {
             // This is like trail blazing, we 'record' the path that we have taken already
             stack.push(node);
-            // keep going left as long as we could, note that the leftmost node would the absolute 
+            // keep going left as long as we could, note that the leftmost node would the absolute
             // min when the entry point is the root
             node = node.left;
         } else {
