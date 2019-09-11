@@ -18,7 +18,7 @@ const comp = (a, b) => {
     if (b[1] > a[1]) return 1;
     if (a[1] > b[1]) return -1;
 
-    // intentionally leaving out the case when a[1] === b[1]
+    // If equal then order alphabetically
 
     // ascending lexicographical order
     if (a[0] > b[0]) return 1;
