@@ -8,6 +8,7 @@ const minDistance = (word1, word2) => {
     let m = word1.length, n = word2.length;
     let dp = Array(m + 1).fill()
                          .map(() => Array(n + 1).fill(0));
+    
     // setup boundary conditions
     for (let i = 1; i <= m; i++) {
         dp[i][0] = i;
