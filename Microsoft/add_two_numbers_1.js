@@ -22,9 +22,7 @@ const addTwoNumbers = (l1, l2) => {
     }
 
     // account for the last '1'
-    if (sum >= 10) {
-        cur.next = new ListNode(1);
-    }
+    if (sum >= 10) cur.next = new ListNode(1);
 
     return dummy.next;
 };
