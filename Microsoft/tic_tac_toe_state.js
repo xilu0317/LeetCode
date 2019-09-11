@@ -15,7 +15,7 @@
  * @param {string[]} board
  * @return {boolean}
  */
-
+// TODO: revisit
 const validTicTacToe = (board) => {
     let turns = 0;
     let diag = 0, antidiag = 0;

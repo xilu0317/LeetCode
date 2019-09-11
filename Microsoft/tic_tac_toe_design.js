@@ -15,7 +15,7 @@
         0: No one wins.
         1: Player 1 wins.
         2: Player 2 wins. */
-
+// TODO: revisit
 class TicTacToe {
 
     constructor(n) {
