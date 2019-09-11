@@ -4,7 +4,7 @@ const addTwoNumbers = (l1, l2) => {
     let sum = 0;
 
     while (cur1 || cur2) {
-        // * key step
+        // KEY
         sum = parseInt(sum / 10);
 
         if (cur1) {
