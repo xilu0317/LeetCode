@@ -21,7 +21,7 @@ const minMeetingRooms = (intervals) => {
     let rooms = 0, j = 0;
     for (let i = 0; i < starts.length; i++) {
         if (starts[i] < ends[j])
-            rooms++
+            rooms++;
         else
             j++;
     }
