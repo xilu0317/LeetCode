@@ -21,9 +21,8 @@ const getAllPermutations = (word) => {
     return res;
 };
 
-
 const checkInclusion = (s1, s2) => {
-    const permList = getAllPermutations(s1);
+    let permList = getAllPermutations(s1);
 
     for (let word of permList) {
         if (s2.includes(word)) return true;
