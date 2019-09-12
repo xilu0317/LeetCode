@@ -1,3 +1,4 @@
+// TODO: revisit
 const getMax = (root) => {
     if (!root) throw 'The root node cannot be null!';
 

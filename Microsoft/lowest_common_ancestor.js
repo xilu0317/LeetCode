@@ -4,7 +4,7 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-
+// TODO: revisit
 // use 'cur' to reflect dynamic root in nature
 const lowestCommonAncestor = (cur, p, q) => {
     if (!cur) return null;
