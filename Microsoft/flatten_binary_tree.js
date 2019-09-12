@@ -13,27 +13,27 @@ class TreeNode {
  */
 
 // my own [BAD SOLUTION]
-function _flatten(node) {
-    if (!node) return null;
+function _flatten(cur) {
+    if (!cur) return null;
 
-    if (!node.left && !node.right) return node;
+    if (!cur.left && !cur.right) return cur;
 
-    if (!node.left) {
-        return _flatten(node.right);
+    if (!cur.left) {
+        return _flatten(cur.right);
     }
 
-    if (!node.right) {
-        node.right = node.left;
-        node.left = null;
-        return _flatten(node.right);
+    if (!cur.right) {
+        cur.right = cur.left;
+        cur.left = null;
+        return _flatten(cur.right);
     }
 
-    let leftTreeTail = _flatten(node.left);
-    let rightTreeTail = _flatten(node.right);
+    let leftTreeTail = _flatten(cur.left);
+    let rightTreeTail = _flatten(cur.right);
 
-    let tmpRightHead = node.right;
-    node.right = node.left;
-    node.left = null;
+    let tmpRightHead = cur.right;
+    cur.right = cur.left;
+    cur.left = null;
 
     leftTreeTail.left = null;
     leftTreeTail.right = tmpRightHead;
@@ -51,17 +51,17 @@ flatten_xi(root);
 // Pre-Order TODO: revisit
 // https://longwayjade.wordpress.com/2015/04/23/leetcode-recursion-flatten-binary-tree-to-linked-list/
 let prev = null;
-const flatten = (node) => {
-    if (!node) return;
+const flatten = (cur) => {
+    if (!cur) return;
 
-    let temp = node.right;
+    let temp = cur.right;
 
     if (prev) {
         prev.left = null;
-        prev.right = node;
+        prev.right = cur;
     }
 
-    prev = node;
-    flatten(node.left);
+    prev = cur;
+    flatten(cur.left);
     flatten(temp);
 };
