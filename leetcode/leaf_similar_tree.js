@@ -29,8 +29,6 @@ const leafSimilar = (root1, root2) => {
     let l1 = inOrderTraversal(root1);
     let l2 = inOrderTraversal(root2);
 
-    if (!l1 || !l2) return false;
-
     if (l1.length !== l2.length) return false;
 
     for (let i = 0; i < l1.length; i++) {
