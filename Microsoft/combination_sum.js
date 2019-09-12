@@ -21,16 +21,14 @@ const dfs = (nums, target, index, path, res) => {
     // 'target' = new target after using nums[i]
 
     // Exit condition 1:
-    if (target < 0) {
-        // overshot and result not found, terminate the function
-        return;
-    }
+    // overshot => not found
+    if (target < 0) return;
 
     // Exit condition 2:
     if (target === 0) {
         // have found the result, add it to the result set
         res.push(path);
-        // then terminate the function
+
         return;
     }
 
