@@ -12,14 +12,14 @@ const generate = (numRows) => {
                 if (i >= 1) {
                     a[i][j] = a[i - 1][j - 1] + a[i - 1][j];
                 }
-            } else if (i == j) {
+            } else if (i === j) {
                 a[i][j] = 1;
             }
         }
     }
 
     for (let i = 0; i < numRows; i++) {
-        while (a[i][a[i].length - 1] == 0) {
+        while (a[i][a[i].length - 1] === 0) {
             a[i].pop();
         }
     }

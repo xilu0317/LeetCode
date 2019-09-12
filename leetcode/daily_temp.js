@@ -3,7 +3,6 @@
  * @return {number[]}
  */
 const dailyTemperatures = (T) => {
-
     let res = [];
 
     for (let i = 0; i < T.length; i++) {
@@ -16,11 +15,11 @@ const dailyTemperatures = (T) => {
                 count++;
             }
 
-            if (j == T.length - 1) {
-                count = 0;
-            }
+            if (j === T.length - 1) count = 0;
         }
+
         res.push(count);
     }
+
     return res;
 };
