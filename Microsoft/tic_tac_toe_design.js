@@ -30,14 +30,12 @@ class TicTacToe {
         this.rows[row] += toAdd;
         this.cols[col] += toAdd;
 
-        if (row === col) {
+        if (row === col)
             this.diagonal += toAdd;
-        }
 
         // the length is not necessarily 3
-        if ((col + row) === this.cols.length - 1) {
+        if ((col + row) === this.cols.length - 1)
             this.antiDiagonal += toAdd;
-        }
 
         let size = this.rows.length;
         if (Math.abs(this.rows[row]) === size ||
