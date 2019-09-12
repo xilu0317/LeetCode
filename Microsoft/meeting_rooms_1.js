@@ -11,6 +11,7 @@ const canAttendMeetings = (intervals) => {
         cur = intervals[i];
 
         if (cur[0] < prev[1]) return false;
+
         prev = cur;
     }
 
