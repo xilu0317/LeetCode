@@ -11,6 +11,7 @@ class TreeNode {
     }
 }
 
+// TODO: revisit
 class Solution {
     // Shared global var across all methods
     List<Integer> nodes = new ArrayList<Integer>(100);
