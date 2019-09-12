@@ -16,9 +16,9 @@ const lowestCommonAncestor = (cur, p, q) => {
     let left = lowestCommonAncestor(cur.left, p, q);
     let right = lowestCommonAncestor(cur.right, p, q);
 
-    // if both are non null then apparently this cur is the LCA
+    // if both are non-null then apparently this cur is the LCA
     if (left && right) return cur;
 
-    // if left is non null and right null then LCA is left. Vice versa.
+    // if left is non-null and right null then LCA is left. Vice versa.
     return left ? left : right;
 };
