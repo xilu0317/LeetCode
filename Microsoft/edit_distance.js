@@ -3,7 +3,7 @@
  * @param {string} word2
  * @return {number}
  */
-// TODO: revisit
+
 const minDistance = (word1, word2) => {
     let m = word1.length, n = word2.length;
     let dp = Array(m + 1).fill()
