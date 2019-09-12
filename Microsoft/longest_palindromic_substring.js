@@ -24,7 +24,7 @@ const longestPalindrome = (s) => {
             // 'j - i + 1' is the length of the current substring
             // Watch out for off-by-one error: ie 9 - 0 + 1 = 10 elements in total
             if (dp[i][j] && j - i + 1 > res.length) {
-                // this is a substring bounded by i, j inclusive
+                // substring of [i ... j]
                 res = s.substring(i, j + 1);
             }
         }
