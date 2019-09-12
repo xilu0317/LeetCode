@@ -8,7 +8,7 @@ const searchMatrix = (matrix, target) => {
     let start = 0; rows = matrix.length, cols = matrix[0].length;
     let end = rows * cols - 1;
 
-    // KEY: index modulation
+    // KEY: index folding / modulation
     while (start <= end) {
         let mid = parseInt((start + end) / 2);
 
