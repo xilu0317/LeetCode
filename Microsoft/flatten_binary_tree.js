@@ -64,4 +64,4 @@ const flatten = (node) => {
     prev = node;
     flatten(node.left);
     flatten(temp);
-}
+};
