@@ -11,11 +11,10 @@ const search = (nums, target) => {
     while (lo < hi) {
         let mid = parseInt((lo + hi) / 2);
 
-        if (nums[mid] > nums[hi]) {
+        if (nums[mid] > nums[hi])
             lo = mid + 1;
-        } else {
+        else
             hi = mid;
-        }
     }
 
     // lo == hi is the index of the smallest value and also the number of places rotated.
@@ -26,14 +25,13 @@ const search = (nums, target) => {
         let mid = parseInt((lo + hi) / 2);
         let realMid = (mid + rot) % n;
 
-        if (nums[realMid] === target) {
+        if (nums[realMid] === target)
             return realMid;
-        }
-        if (nums[realMid] < target) {
+
+        if (nums[realMid] < target)
             lo = mid + 1;
-        } else {
+        else
             hi = mid - 1;
-        }
     }
 
     return -1;
