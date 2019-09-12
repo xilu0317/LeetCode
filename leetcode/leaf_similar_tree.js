@@ -1,23 +1,21 @@
-// The core of this problem is in order traversal
-// might be easier to do iteratively
 const inOrderTraversal = (root) => {
     if (!root) return [];
 
-    let res = [];
-    let stack = [];
-    let node = root;
+    let res = [], stack = [];
+    let cur = root;
 
     while (true) {
-        if (node) {
-            stack.push(node);
-            node = node.left;
+        if (cur) {
+            stack.push(cur);
+            cur = cur.left;
         } else {
             if (stack.length) {
-                node = stack.pop();
-                if (!node.left && !node.right) {
-                    res.push(node.val);
+                cur = stack.pop();
+                // if it is a leaf add it to res
+                if (!cur.left && !cur.right) {
+                    res.push(cur.val);
                 }
-                node = node.right;
+                cur = cur.right;
             } else {
                 break;
             }
@@ -28,15 +26,15 @@ const inOrderTraversal = (root) => {
 };
 
 const leafSimilar = (root1, root2) => {
-    let list1 = inOrderTraversal(root1);
-    let list2 = inOrderTraversal(root2);
+    let l1 = inOrderTraversal(root1);
+    let l2 = inOrderTraversal(root2);
 
-    if (!list1 || !list2) return false;
+    if (!l1 || !l2) return false;
 
-    if (list1.length !== list2.length) return false;
+    if (l1.length !== l2.length) return false;
 
-    for (let i = 0; i < list1.length; i++) {
-        if (list1[i] !== list2[i]) return false;
+    for (let i = 0; i < l1.length; i++) {
+        if (l1[i] !== l2[i]) return false;
     }
 
     return true;
