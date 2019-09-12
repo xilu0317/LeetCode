@@ -49,9 +49,8 @@ const validTicTacToe = (board) => {
            cols[0] === -3 || cols[1] === -3 || cols[2] === -3 ||
            diag === -3    || antidiag === -3;
 
-    if (xWin && turns === 0 || oWin && turns === 1) {
+    if (xWin && turns === 0 || oWin && turns === 1)
         return false;
-    }
 
     return (turns === 0 || turns === 1) && (!xWin || !oWin);
 };
