@@ -5,6 +5,7 @@
 
 const generateParenthesis = (n) => {
     let res = [];
+
     backtrack(res, '', 0, 0, n);
 
     return res;

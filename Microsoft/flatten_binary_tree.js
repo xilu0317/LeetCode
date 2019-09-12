@@ -12,7 +12,7 @@ class TreeNode {
  * @return {void} Do not return anything, modify root in-place instead.
  */
 
-// AC solution of my own
+// my own [BAD SOLUTION]
 function _flatten(node) {
     if (!node) return null;
 
@@ -48,7 +48,7 @@ const flatten_xi = (root) => {
 let root = stuff([1, 2]);
 flatten_xi(root);
 
-// Pre-Order
+// Pre-Order TODO: revisit
 // https://longwayjade.wordpress.com/2015/04/23/leetcode-recursion-flatten-binary-tree-to-linked-list/
 let prev = null;
 const flatten = (node) => {
@@ -65,17 +65,3 @@ const flatten = (node) => {
     flatten(node.left);
     flatten(temp);
 }
-
-// Might not be right
-// // Post-Order from leetcode
-// let prev2 = null;
-// const flatten_postOrder = (node) => {
-//   if (!node) return;
-
-//   flatten_postOrder(node.right);
-//   flatten_postOrder(node.left);
-
-//   node.right = prev2;
-//   node.left = null;
-//   prev2 = node;
-// }
