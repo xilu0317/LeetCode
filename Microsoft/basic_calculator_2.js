@@ -8,17 +8,15 @@ const calculate = (s) => {
     // don't forget to re-assign the processed string back to s
     s = s.replace(/\s+/g, '');
 
-    let len = s.length;
     let stack = [];
-    let num = 0;
-    let sign = '+';
+    let num = 0, sign = '+';
 
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < s.length; i++) {
         // calculate the number
         if (isDigit(s[i]))
             num = num * 10 + parseInt(s[i]);
 
-        if (!isDigit(s[i]) || i === len - 1) {
+        if (!isDigit(s[i]) || i === s.length - 1) {
             if (sign === '-')
                 stack.push(-num);
 

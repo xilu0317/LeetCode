@@ -1,17 +1,14 @@
 const isDigit = (c) => {
-    if (!c) return false;
-
-    // apparently empty space is not a digit
-    if (c === ' ') return false;
-
     return !isNaN(c);
 };
 
 const calculate = (s) => {
+    if (!s || !s.length) return 0;
+
+    s = s.replace(/\s+/g, '');
+
     let stack = [];
-    let res = 0;
-    let num = 0;
-    let sign = 1;
+    let res = 0, num = 0, sign = 1;
 
     for (let i = 0; i < s.length; i++) {
         let c = s[i];
@@ -41,6 +38,7 @@ const calculate = (s) => {
         }
     }
 
+    // Add the last number
     if (num !== 0) res += sign * num;
 
     return res;
