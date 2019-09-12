@@ -12,6 +12,7 @@ class TreeNode {
 }
 
 class Solution {
+    // Shared global var across all methods
     List<Integer> nodes = new ArrayList<Integer>(100);
 
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
@@ -19,6 +20,7 @@ class Solution {
             return nodes;
 
         nodes.add(root.val);
+
         leftBoundary(root.left);
         leaves(root.left);
         leaves(root.right);
