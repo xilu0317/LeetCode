@@ -4,31 +4,28 @@ const compareVersion = (v1, v2) => {
     if (!v2) return 1;
 
     // use parseInt for numerical comparison
-    let list1 = v1.split(/\./).map(x => parseInt(x));
-    let list2 = v2.split(/\./).map(x => parseInt(x));
+    let l1 = v1.split(/\./).map(x => parseInt(x));
+    let l2 = v2.split(/\./).map(x => parseInt(x));
 
-    let len1 = list1.length, len2 = list2.length
+    let len1 = l1.length, len2 = l2.length
     let minLen = Math.min(len1, len2), maxLen = Math.max(len1, len2);
 
-    // define 'i' outside the for loop to obtain more scope
+    // note 'i' is intentionally outside
     let i;
     for (i = 0; i < minLen; i++) {
-        if (list1[i] > list2[i]) {
+        if (l1[i] > l2[i])
             return 1;
-        }
-        if (list1[i] < list2[i]) {
+        if (l1[i] < l2[i])
             return -1
-        }
     }
 
-    // don't forget to increment 'i'
+    // Now comparison has completed for two, as long as one > 0 will be larger
     while (i < maxLen) {
-        if (list1[i] > 0) {
+        if (l1[i] > 0)
             return 1;
-        }
-        if (list2[i] > 0) {
+        if (l2[i] > 0)
             return -1;
-        }
+        // Don't forget i++
         i++;
     }
 
