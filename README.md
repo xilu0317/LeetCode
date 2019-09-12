@@ -1,6 +1,6 @@
 # Leetcode!
 
-Progress: 190 / 1187
+Progress: 193 / 1188
 
 https://leetcode.com/xilu0317js/
 
