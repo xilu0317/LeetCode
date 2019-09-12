@@ -40,7 +40,7 @@ class TicTacToe {
         let size = this.rows.length;
         if (Math.abs(this.rows[row]) === size ||
             Math.abs(this.cols[col]) === size ||
-            Math.abs(this.diagonal) === size ||
+            Math.abs(this.diagonal) === size  ||
             Math.abs(this.antiDiagonal) === size) {
             return player;
         }
