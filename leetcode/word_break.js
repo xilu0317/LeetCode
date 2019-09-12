@@ -20,8 +20,7 @@ const wordBreak = (s, wordDict) => {
     return dp[s.length];
 };
 
-// BFS: not much difference between dfs and bfs here
-// The only conspicuous difference is the direction to pop the queue/stack
+// BFS
 const wordBreak = (s, wordDict) => {
     let q = [];
     let n = s.length;
@@ -41,9 +40,8 @@ const wordBreak = (s, wordDict) => {
                 let m = word.length;
                 if (i + m <= n && s.substring(i, i + m) === word) {
                     // If we can reach the end node, then we must have found the word break
-                    if (i + m === n) {
+                    if (i + m === n)
                         return true;
-                    }
                     q.push(i + m);
                 }
             }
@@ -53,29 +51,4 @@ const wordBreak = (s, wordDict) => {
     return false;
 };
 
-// DFS
-const wordBreak = (s, wordDict) => {
-    let stack = [];
-    let n = s.length;
-    let visited = new Set();
-
-    stack = [0];
-    while (stack.length) {
-        let i = stack.pop(); // the only difference!
-        if (!visited.has(i)) {
-            visited.add(i);
-
-            for (let word of wordDict) {
-                let m = word.length;
-                if (i + m <= n && s.substring(i, i + m) === word) {
-                    if (i + m === n) {
-                        return true;
-                    }
-                    stack.push(i + m);
-                }
-            }
-        }
-    }
-
-    return false;
-};
+// DFS is very similar to BFS
