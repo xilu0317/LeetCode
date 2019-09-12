@@ -3,7 +3,7 @@
  * @param {number} amount
  * @return {number}
  */
-// TODO: revisit
+
 // TODO: Do not know how it works at all
 const coinChange = (coins, amount) => {
     let max = amount + 1;

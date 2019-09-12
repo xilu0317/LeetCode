@@ -10,21 +10,23 @@ const removeComments = (source) => {
 
     for (let line of source) {
         let i = 0;
-        let chars = [...line];
         if (!inBlock) newline = '';
 
         let len = line.length;
         while (i < len) {
-            if (!inBlock && i + 1 < len && chars[i] === '/' && chars[i + 1] == '*') {
+            // when encoutering the start '/*'
+            if (!inBlock && i + 1 < len && line[i] === '/' && line[i + 1] == '*') {
                 inBlock = true;
                 i++;
-            } else if (inBlock && i + 1 < len && chars[i] == '*' && chars[i + 1] == '/') {
+                // when encoutering the end '*/'
+            } else if (inBlock && i + 1 < len && line[i] == '*' && line[i + 1] == '/') {
                 inBlock = false;
                 i++;
-            } else if (!inBlock && i + 1 < len && chars[i] == '/' && chars[i + 1] == '/') {
+                // when encountering '//'
+            } else if (!inBlock && i + 1 < len && line[i] == '/' && line[i + 1] == '/') {
                 break;
             } else if (!inBlock) {
-                newline += chars[i];
+                newline += line[i];
             }
             i++;
         }
