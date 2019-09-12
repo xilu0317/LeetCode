@@ -5,14 +5,14 @@ const isDigit = (c) => {
 const calculate = (s) => {
     if (!s || !s.length) return 0;
 
-    // don't forget to re-assign the processed string back to s
+    // re-assign back to s
     s = s.replace(/\s+/g, '');
 
     let stack = [];
     let num = 0, sign = '+';
 
     for (let i = 0; i < s.length; i++) {
-        // calculate the number
+        // calculate the number from numeral strings
         if (isDigit(s[i]))
             num = num * 10 + parseInt(s[i]);
 
@@ -23,6 +23,7 @@ const calculate = (s) => {
             if (sign === '+')
                 stack.push(num);
 
+            // backtrack to the immeidate closest one for * or /
             if (sign === '*')
                 stack.push(stack.pop() * num);
 
@@ -34,6 +35,6 @@ const calculate = (s) => {
         }
     }
 
-    // sum of all elements in the stack
+    // sum togeter all at the end
     return stack.reduce((acc, cur) => acc + cur);
 };
