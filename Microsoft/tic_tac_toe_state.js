@@ -17,6 +17,7 @@
  */
 // TODO: revisit
 const validTicTacToe = (board) => {
+    // When turns is 1, X moved
     let turns = 0;
     let diag = 0, antidiag = 0;
     let rows = [0, 0, 0], cols = [0, 0, 0];
@@ -41,16 +42,20 @@ const validTicTacToe = (board) => {
         }
     }
 
+    // check 3 3 3 for 'x'
     xWin = rows[0] === 3 || rows[1] === 3 || rows[2] === 3 ||
            cols[0] === 3 || cols[1] === 3 || cols[2] === 3 ||
            diag === 3    || antidiag === 3;
 
+    // check 3 3 3 for 'o'
     oWin = rows[0] === -3 || rows[1] === -3 || rows[2] === -3 ||
            cols[0] === -3 || cols[1] === -3 || cols[2] === -3 ||
            diag === -3    || antidiag === -3;
 
+    // when 'x' has won, turn must be 1 per spec
     if (xWin && turns === 0 || oWin && turns === 1)
         return false;
 
+    // haven't finished the game configuration
     return (turns === 0 || turns === 1) && (!xWin || !oWin);
 };
