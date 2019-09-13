@@ -1,7 +1,7 @@
 // https://www.geeksforgeeks.org/design-a-data-structure-that-supports-insert-delete-search-and-getrandom-in-constant-time/
 
 // All operations need to be O(1) time-complexity
-class HashMapRandomDelete {
+class RandomizedSet {
     constructor() {
         this.list = [];
         this.dict = {};

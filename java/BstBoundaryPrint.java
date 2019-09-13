@@ -1,69 +1,56 @@
-import java.util.ArrayList;
-import java.util.List;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
-
-// TODO: revisit
 class Solution {
     // Shared global var across all methods
-    List<Integer> nodes = new ArrayList<Integer>(100);
+    List<Integer> res = new ArrayList<Integer>(100);
 
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
         if (root == null)
-            return nodes;
+            return res;
 
-        nodes.add(root.val);
+        res.add(root.val);
 
         leftBoundary(root.left);
-        leaves(root.left);
-        leaves(root.right);
+        addLeaves(root.left);
+        addLeaves(root.right);
         rightBoundary(root.right);
 
-        return nodes;
+        return res;
     }
 
-    public void leftBoundary(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null))
+    public void leftBoundary(TreeNode cur) {
+        if (cur == null || (cur.left == null && cur.right == null))
             return;
 
-        nodes.add(root.val);
+        res.add(cur.val);
 
-        if (root.left == null)
-            leftBoundary(root.right);
+        if (cur.left == null)
+            leftBoundary(cur.right);
         else
-            leftBoundary(root.left);
+            leftBoundary(cur.left);
     }
 
-    public void rightBoundary(TreeNode root) {
-        if (root == null || (root.right == null && root.left == null))
+    public void rightBoundary(TreeNode cur) {
+        if (cur == null || (cur.right == null && cur.left == null))
             return;
 
-        if (root.right == null)
-            rightBoundary(root.left);
+        if (cur.right == null)
+            rightBoundary(cur.left);
         else
-            rightBoundary(root.right);
+            rightBoundary(cur.right);
 
-        nodes.add(root.val); // add after child visit(reverse)
+        res.add(cur.val); // add after child visit(reverse)
     }
 
-    public void leaves(TreeNode root) {
-        if (root == null)
+    public void addLeaves(TreeNode cur) {
+        if (cur == null)
             return;
 
-        if (root.left == null && root.right == null) {
-            nodes.add(root.val);
+        if (cur.left == null && cur.right == null) {
+            res.add(cur.val);
             return;
         }
 
-        leaves(root.left);
-        leaves(root.right);
+        addLeaves(cur.left);
+        addLeaves(cur.right);
     }
 }
