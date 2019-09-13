@@ -1,4 +1,4 @@
-// Need to explain the observation to the interviewers
+// CLEAN
 const romanToInt = (s) => {
     let len = s.length;
 
