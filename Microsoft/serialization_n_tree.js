@@ -41,8 +41,11 @@ class Codec {
     // BFS
     deserializeHelper(q) {
         let node = new Node();
+        
+        // dequeue a node here
         node.val = q.shift();
 
+        // number of nodes
         let n = q.shift();
 
         node.children = [];
