@@ -1,4 +1,3 @@
-
 class Solution {
     // Shared global var across all methods
     List<Integer> res = new ArrayList<Integer>(100);
@@ -9,34 +8,34 @@ class Solution {
 
         res.add(root.val);
 
-        leftBoundary(root.left);
+        addLeftBoundary(root.left);
         addLeaves(root.left);
         addLeaves(root.right);
-        rightBoundary(root.right);
+        addRightBoundary(root.right);
 
         return res;
     }
 
-    public void leftBoundary(TreeNode cur) {
+    public void addLeftBoundary(TreeNode cur) {
         if (cur == null || (cur.left == null && cur.right == null))
             return;
 
         res.add(cur.val);
 
         if (cur.left == null)
-            leftBoundary(cur.right);
+            addLeftBoundary(cur.right);
         else
-            leftBoundary(cur.left);
+            addLeftBoundary(cur.left);
     }
 
-    public void rightBoundary(TreeNode cur) {
-        if (cur == null || (cur.right == null && cur.left == null))
+    public void addRightBoundary(TreeNode cur) {
+        if (cur == null || (cur.left == null && cur.right == null))
             return;
 
         if (cur.right == null)
-            rightBoundary(cur.left);
+            addRightBoundary(cur.left);
         else
-            rightBoundary(cur.right);
+            addRightBoundary(cur.right);
 
         res.add(cur.val); // add after child visit(reverse)
     }
