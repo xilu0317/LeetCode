@@ -2,7 +2,7 @@ class Solution {
     // Shared global var across all methods
     List<Integer> res = new ArrayList<Integer>(100);
 
-    public List<Integer> boundaryOfBinaryTree(TreeNode root) {
+    List<Integer> boundaryOfBinaryTree(TreeNode root) {
         if (root == null)
             return res;
 
@@ -16,7 +16,7 @@ class Solution {
         return res;
     }
 
-    public void addLeftBoundary(TreeNode cur) {
+    void addLeftBoundary(TreeNode cur) {
         if (cur == null || (cur.left == null && cur.right == null))
             return;
 
@@ -28,7 +28,7 @@ class Solution {
             addLeftBoundary(cur.left);
     }
 
-    public void addRightBoundary(TreeNode cur) {
+    void addRightBoundary(TreeNode cur) {
         if (cur == null || (cur.left == null && cur.right == null))
             return;
 
@@ -40,7 +40,7 @@ class Solution {
         res.add(cur.val); // add after child visit(reverse)
     }
 
-    public void addLeaves(TreeNode cur) {
+    void addLeaves(TreeNode cur) {
         if (cur == null)
             return;
 
