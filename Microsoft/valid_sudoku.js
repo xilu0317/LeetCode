@@ -1,9 +1,3 @@
-/**
- * @param {character[][]} board
- * @return {boolean}
- */
-
-// TODO: revisit
 const isValidSudoku = (board) => {
     for (let i = 0; i < 9; i++) {
         let rows = new Set();
@@ -26,10 +20,8 @@ const isValidSudoku = (board) => {
             }
 
             // KEY = index conversion to the small box
-            let RowIndex = 3 * parseInt(i / 3);
-            let ColIndex = 3 * (i % 3);
-            let boxRow = RowIndex + parseInt(j / 3);
-            let boxCol = ColIndex + j % 3;
+            let boxRow = 3 * parseInt(i / 3) + parseInt(j / 3);
+            let boxCol = 3 * (i % 3) + j % 3;
             // small box
             if (board[boxRow][boxCol] !== '.') {
                 if (cube.has(board[boxRow][boxCol]))
