@@ -3,7 +3,6 @@
 const flatten = (root) => {
     if (!root) return;
 
-    // record left and right
     let oldLeft = root.left;
     let oldRight = root.right;
 
