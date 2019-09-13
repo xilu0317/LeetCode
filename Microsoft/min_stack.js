@@ -15,7 +15,9 @@ class MinStack {
         if (min === undefined) { // Also it is easier to read when u r not doing the '!min' thing
             min = Infinity; // Forget initialization is a sin!
         }
+
         this.s1.push(x);
+
         if (x <= min) {
             this.s2.push(x);
         }
@@ -26,6 +28,7 @@ class MinStack {
             && this.s1[this.s1.length - 1] === this.s2[this.s2.length - 1]) {
             this.s2.pop();
         }
+
         this.s1.pop();
     }
 
@@ -37,8 +40,3 @@ class MinStack {
         return this.s2[this.s2.length - 1];
     }
 }
-
-
-
-
-
