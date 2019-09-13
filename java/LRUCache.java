@@ -30,11 +30,10 @@ class LRUCache {
             return -1;
         }
 
-        // move to tail
         Node t = map.get(key);
 
         removeNode(t);
-        offerNode(t);
+        addNode(t);
 
         return t.value;
     }
@@ -44,9 +43,8 @@ class LRUCache {
             Node t = map.get(key);
             t.value = value;
 
-            // move to tail
             removeNode(t);
-            offerNode(t);
+            addNode(t);
         } else {
             if (map.size() >= cap) {
                 // delete head
@@ -54,9 +52,9 @@ class LRUCache {
                 removeNode(head);
             }
 
-            // add to tail
             Node node = new Node(key, value);
-            offerNode(node);
+            addNode(node);
+
             map.put(key, node);
         }
     }
@@ -75,7 +73,7 @@ class LRUCache {
         }
     }
 
-    private void offerNode(Node n) {
+    private void addNode(Node n) {
         if (tail != null) {
             tail.next = n;
         }

@@ -26,11 +26,15 @@ class HashMapRandomDelete {
     // 4) Update index of the last element in a hash map.
     remove(x) {
         let index = this.dict[x];
+
         if (index >= 0) {
             delete this.dict[x];
+
+            // ES6
             [this.list[index], this.list[this.list.length - 1]] = [this.list[this.list.length - 1], this.list[index]];
             this.list.length--;
         }
+
         this.dict[x] = this.list.length - 1;
     }
 
