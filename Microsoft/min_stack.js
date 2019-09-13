@@ -7,10 +7,6 @@ class MinStack {
         this.s2 = [];
     }
 
-    /**
-    * @param {number} x
-    * @return {void}
-    */
     push(x) {
         let min = this.s2[this.s2.length - 1];
         // Using '!min' here is potentially dangerous
@@ -25,9 +21,6 @@ class MinStack {
         }
     }
 
-    /**
-    * @return {void}
-    */
     pop() {
         if ((this.s1.length > 0 || this.s2.length > 0)
             && this.s1[this.s1.length - 1] === this.s2[this.s2.length - 1]) {
@@ -36,16 +29,10 @@ class MinStack {
         this.s1.pop();
     }
 
-    /**
-    * @return {number}
-    */
     top() {
         return this.s1[this.s1.length - 1];
     }
 
-    /**
-    * @return {number}
-    */
     getMin() {
         return this.s2[this.s2.length - 1];
     }
