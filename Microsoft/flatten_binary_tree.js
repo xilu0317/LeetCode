@@ -6,16 +6,18 @@ const flatten = (root) => {
     let oldLeft = root.left;
     let oldRight = root.right;
 
-    // as per spec set left to zero
+    // per spec
     root.left = null;
 
     flatten(oldLeft);
     flatten(oldRight);
 
+    // grafting the old left to the right
     root.right = oldLeft;
 
     let cur = root;
     while (cur.right)
         cur = cur.right;
+    // grafting the old right to the right
     cur.right = oldRight;
 };
