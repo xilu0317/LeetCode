@@ -1,31 +1,20 @@
-// encode url
-
-// global variables
 let long2short = {};
 let short2long = {};
-let domainName = null;
 
 const encode = (longUrl) => {
-    domainName = extractDomainName(longUrl);
+    let shortUrl = parseInt((Math.random() * Infinity)).toString(36);
 
-    let shortKey = parseInt(Math.random() * Number.MAX_SAFE_INTEGER).toString(36);
+    // forward
+    long2short[longUrl] = shortUrl;
+    // backword
+    short2long[shortUrl] = longUrl;
 
-    if (long2short[longUrl]) {
-        return domainName + '/' + long2short[longUrl];
-    }
-
-    // need two dictionaries
-    short2long[shortKey] = longUrl;
-    long2short[longUrl] = shortKey;
-
-    return domainName + '/' + shortKey;
+    return 'http://tinyurl.com/' + shortUrl;
 };
 
 const decode = (shortUrl) => {
-    return short2long[shortUrl.split(domainName + '/')[1]];
-};
+    let index = shortUrl.indexOf("m/");
+    shortUrl = shortUrl.substring(index + 2);
 
-const extractDomainName = (url) => {
-    let num = url.match(/[a-zA-Z]\/[A-Za-z0-9]/).index + 1;
-    return url.substring(0, num);
+    return short2long[shortUrl];
 };
