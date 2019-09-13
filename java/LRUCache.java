@@ -2,12 +2,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Node {
-    int key;
-    int value;
-    Node prev;
-    Node next;
+    public int key;
+    public int value;
+    public Node prev;
+    public Node next;
 
-    public Node(int key, int value) {
+    Node(int key, int value) {
         this.key = key;
         this.value = value;
     }
@@ -15,72 +15,72 @@ class Node {
 
 // TODO: revisit
 class LRUCache {
-    Node head;
-    Node tail;
-    Map<Integer, Node> map;
-    int cap = 0;
+    public Node head;
+    public Node tail;
+    public Map<Integer, Node> map;
+    public int cap = 0;
 
-    public LRUCache(int capacity) {
+    LRUCache(int capacity) {
         this.cap = capacity;
         this.map = new HashMap<>();
     }
 
-    public int get(int key) {
+    int get(int key) {
         if (map.get(key) == null) {
             return -1;
         }
 
-        Node t = map.get(key);
+        Node n = map.get(key);
 
-        removeNode(t);
-        addNode(t);
+        shift(n);
+        push(n);
 
-        return t.value;
+        return n.value;
     }
 
-    public void put(int key, int value) {
+    void put(int key, int value) {
         if (map.containsKey(key)) {
-            Node t = map.get(key);
-            t.value = value;
+            Node n = map.get(key);
+            n.value = value;
 
-            removeNode(t);
-            addNode(t);
+            shift(n);
+            push(n);
         } else {
+            // oversized input
             if (map.size() >= cap) {
                 // delete head
                 map.remove(head.key);
-                removeNode(head);
+                shift(head);
             }
 
-            Node node = new Node(key, value);
-            addNode(node);
-
-            map.put(key, node);
+            Node n = new Node(key, value);
+            push(n);
+            map.put(key, n);
         }
     }
 
-    private void removeNode(Node n) {
-        if (n.prev != null) {
-            n.prev.next = n.next;
+    void shift(Node cur) {
+        if (cur.prev != null) {
+            cur.prev.next = cur.next;
         } else {
-            head = n.next;
+            head = cur.next;
         }
 
-        if (n.next != null) {
-            n.next.prev = n.prev;
+        if (cur.next != null) {
+            cur.next.prev = cur.prev;
         } else {
-            tail = n.prev;
+            tail = cur.prev;
         }
     }
 
-    private void addNode(Node n) {
+    void push(Node cur) {
         if (tail != null) {
-            tail.next = n;
+            tail.next = cur;
         }
 
-        n.prev = tail;
-        n.next = null;
-        tail = n;
+        cur.prev = tail;
+        cur.next = null;
+        tail = cur;
 
         if (head == null) {
             head = tail;
