@@ -1,4 +1,3 @@
-// TODO: revisit
 const getMax = (root) => {
     if (!root) return null;
 
