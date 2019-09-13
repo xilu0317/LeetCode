@@ -1,9 +1,12 @@
 import java.util.HashMap;
 import java.util.Map;
 
+// Use 'public' for easy access
 class Node {
     public int key;
     public int value;
+
+    // Double linked list
     public Node prev;
     public Node next;
 
@@ -13,7 +16,6 @@ class Node {
     }
 }
 
-// TODO: revisit
 class LRUCache {
     public Node head;
     public Node tail;
