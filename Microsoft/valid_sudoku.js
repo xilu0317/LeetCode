@@ -25,7 +25,7 @@ const isValidSudoku = (board) => {
                 cols.add(board[j][i]);
             }
 
-            // KEY = index transformation
+            // KEY = index conversion to the small box
             let RowIndex = 3 * parseInt(i / 3);
             let ColIndex = 3 * (i % 3);
             let boxRow = RowIndex + parseInt(j / 3);
