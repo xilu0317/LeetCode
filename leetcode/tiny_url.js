@@ -2,7 +2,7 @@ let long2short = {};
 let short2long = {};
 
 const encode = (longUrl) => {
-    let shortUrl = parseInt((Math.random() * Infinity)).toString(36);
+    let shortUrl = parseInt(Math.random() * Number.MAX_SAFE_INTEGER).toString(36);
 
     // forward
     long2short[longUrl] = shortUrl;
@@ -13,8 +13,9 @@ const encode = (longUrl) => {
 };
 
 const decode = (shortUrl) => {
-    let index = shortUrl.indexOf("m/");
-    shortUrl = shortUrl.substring(index + 2);
+    let start = shortUrl.indexOf('m/');
+
+    shortUrl = shortUrl.substring(start + 2);
 
     return short2long[shortUrl];
 };
