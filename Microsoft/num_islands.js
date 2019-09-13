@@ -3,14 +3,13 @@ let m, n;
 const dfsEraseLand = (grid, i, j) => {
     // If current grid is out of bound or on water
     // then exit the funciton immeidately
-    if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] === '0') {
+    if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] === '0')
         return;
-    }
 
     // Erase the current land grid by marking it as water
     grid[i][j] = '0';
 
-    // Recursive dfs
+    // DFS
     dfsEraseLand(grid, i + 1, j);
     dfsEraseLand(grid, i - 1, j);
     dfsEraseLand(grid, i, j + 1);
@@ -23,7 +22,6 @@ const dfsEraseLand = (grid, i, j) => {
     then increment the counter by just one for the entire 'landmass'
 */
 const numIslands = (grid) => {
-    // The spec requires to return 0 for invalid inputs
     if (!grid || !grid.length) return 0;
 
     m = grid.length;
