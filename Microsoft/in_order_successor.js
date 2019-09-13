@@ -14,7 +14,7 @@
 //           *Case I
 //
 //                 _____
-//                 |CUR|
+//                 |CUR|  <=== the successor must be here
 //                 -----
 //                /
 //               /
@@ -34,7 +34,7 @@
 //            /   \
 //           /     \
 //       Smaller   Larger (P)  <=== Since P in this subtree, direct the code to go search the right subtree
-//           *Case III
+//          *Case III
 //
 // In terms of nomenclature, using 'cur' is preferred over 'root' because it reflects the dynamic nature of the current 'root'
 /**
