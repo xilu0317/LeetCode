@@ -18,7 +18,7 @@ class MyStack {
 
         let result = this.q1.shift();
 
-        // ES6
+        // ES6 exchange references
         [this.q1, this.q2] = [this.q2, this.q1];
 
         return result;
