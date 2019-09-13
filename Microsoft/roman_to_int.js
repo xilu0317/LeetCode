@@ -1,6 +1,6 @@
 // Need to explain the observation to the interviewers
 const romanToInt = (s) => {
-    let dict = {
+    let map = {
         I: 1,
         V: 5,
         X: 10,
@@ -10,13 +10,13 @@ const romanToInt = (s) => {
         M: 1000
     };
 
-    let sum = dict[s[s.length - 1]];
+    let sum = map[s[s.length - 1]];
 
     for (let i = s.length - 2; i >= 0; i--) {
-        if (dict[s[i]] < dict[s[i + 1]])
-            sum -= dict[s[i]];
+        if (map[s[i]] < map[s[i + 1]])
+            sum -= map[s[i]];
         else
-            sum += dict[s[i]];
+            sum += map[s[i]];
     }
 
     return sum;
