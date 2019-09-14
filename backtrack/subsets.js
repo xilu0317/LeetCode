@@ -31,12 +31,12 @@ const subsets = (nums) => {
     }
 
     return res;
-}
+};
 
 // From leetcode solution
 const subsets_solution = (nums) => {
     return backtrack(nums, 0, [], []);
-}
+};
 
 const backtrack = (nums, start, set, res) => {
 
@@ -51,7 +51,7 @@ const backtrack = (nums, start, set, res) => {
     }
 
     return res;
-}
+};
 
 // [IMPORTANT]
 // '[...stack]' or 'Array.from(stack)'
