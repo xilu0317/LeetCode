@@ -1,23 +1,23 @@
 const isIsomorphic = (s, t) => {
-    if (s === null || t === null) return false;
-    if (s.length !== t.length) return false;
+    // can you use !s here? What is s = '', t = ''
+    if (s === null || t === null || s.length !== t.length)
+        return false;
 
     let dict1 = {}, dict2 = {};
 
     for (let i = 0; i < s.length; i++) {
-        if (!dict1[s[i]]) {
+        if (!dict1[s[i]])
             dict1[s[i]] = t[i];
-        } else {
+        else
             if (dict1[s[i]] !== t[i]) return false;
-        }
     }
 
+    // KEY need to think about the other direction too
     for (let i = 0; i < t.length; i++) {
-        if (!dict2[t[i]]) {
+        if (!dict2[t[i]])
             dict2[t[i]] = s[i];
-        } else {
+        else
             if (dict2[t[i]] !== s[i]) return false;
-        }
     }
 
     return true;
