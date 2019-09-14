@@ -12,7 +12,7 @@ const isIsomorphic = (s, t) => {
             if (dict1[s[i]] !== t[i]) return false;
     }
 
-    // KEY need to think about the other direction too
+    // KEY: need to think about the reverse direction too
     for (let i = 0; i < t.length; i++) {
         if (!dict2[t[i]])
             dict2[t[i]] = s[i];
