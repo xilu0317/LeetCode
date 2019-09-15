@@ -21,11 +21,10 @@ const threeSum = (nums) => {
                     hi--;
                 }
                 // two pointer problem - like two sum closest
-                else if (nums[lo] + nums[hi] < sum) {
+                else if (nums[lo] + nums[hi] < sum)
                     lo++;
-                } else {
+                else
                     hi--;
-                }
             }
         }
     }
