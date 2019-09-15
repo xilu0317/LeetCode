@@ -1,15 +1,9 @@
-/**
- * @param {number[]} coins
- * @param {number} amount
- * @return {number}
- */
-
-// TODO: Do not know how it works at all
 const coinChange = (coins, amount) => {
-    let max = amount + 1;
-    let dp = Array(amount + 1).fill(max);
+    let dp = Array(amount + 1).fill(Infinity);
 
+    // Boundary condition
     dp[0] = 0;
+
     for (let i = 1; i <= amount; i++) {
         for (let j = 0; j < coins.length; j++) {
             if (coins[j] <= i) {
