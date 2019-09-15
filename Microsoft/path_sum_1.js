@@ -12,7 +12,7 @@ const hasPathSum = (root, sum) => {
             if (total + node.val === sum) return true;
         }
 
-        // the usual adding children bit
+        // the usual adding children bit, the current nodal value has been added into the total
         if (node.right) {
             stack.push([node.right, total + node.val]);
         }
