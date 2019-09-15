@@ -6,41 +6,38 @@ class PriorityQueue {
 
     enqueue(node) {
         this.data.push(node);
-        if (this.data.length === 2) {
+        if (this.data.length === 2)
             return;
-        } else {
+        else
             this._bubbleUp(this.data.length - 1);
-        }
     }
 
     dequeue(node) {
         let nodeIndex = this.data.indexOf(node);
 
-        if (nodeIndex === -1) {
+        if (nodeIndex === -1)
             return false;
-        } else if (nodeIndex === this.data.length - 1) {
+        else if (nodeIndex === this.data.length - 1)
             this.data.pop();
-        } else {
+        else {
             this._swap(this.data.length - 1, nodeIndex);
             this.data.pop();
 
             let parentIndex = this._getParentIndex(nodeIndex);
 
-            if (this.data[parentIndex] && this.data[parentIndex].h < this.data[nodeIndex].h) {
+            if (this.data[parentIndex] && this.data[parentIndex].h < this.data[nodeIndex].h)
                 this._bubbleUp(nodeIndex);
-            } else {
+            else
                 this._bubbleDown(nodeIndex);
-            }
         }
     }
 
     // find the max height for all the nodes in the priority queue
     getMaxHeight() {
-        if (this.data.length === 1) {
+        if (this.data.length === 1)
             return 0;
-        } else {
+        else
             return this.data[1].h;
-        }
     }
 
     // index-based swap
@@ -116,7 +113,6 @@ const getSkyline = (buildings) => {
         // the current node is a start node
         if (skyline.type === 1) {
             if (skyline.h > pq.getMaxHeight()) {
-                //
                 res = res.filter(r => skyline.x !== r[0]);
                 res.push([skyline.x, skyline.h]);
             }
@@ -128,9 +124,8 @@ const getSkyline = (buildings) => {
             // if this is an end node then remove its corresponding start
             pq.dequeue(skyline.start);
 
-            if (skyline.start.h > pq.getMaxHeight()) {
+            if (skyline.start.h > pq.getMaxHeight())
                 res.push([skyline.x, pq.getMaxHeight()]);
-            }
         }
     });
 
