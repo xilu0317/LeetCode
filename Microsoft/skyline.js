@@ -24,7 +24,7 @@ class PriorityQueue {
             this._swap(this.data.length - 1, nodeIndex);
             this.data.pop();
 
-            let parentIndex = parseInt(nodeIndex / 2);
+            let parentIndex = this._getParentIndex(nodeIndex);
 
             if (this.data[parentIndex] && this.data[parentIndex].h < this.data[nodeIndex].h) {
                 this._bubbleUp(nodeIndex);
@@ -50,8 +50,7 @@ class PriorityQueue {
     }
 
     _bubbleDown(i) {
-        let largestChildIndex = this.data[i * 2 + 1] &&
-            this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
+        let largestChildIndex = this._getChildIndex(i);
 
         if (this.data[largestChildIndex] &&
             this.data[largestChildIndex].h > this.data[i].h) {
@@ -62,14 +61,20 @@ class PriorityQueue {
     }
 
     _bubbleUp(i) {
-        let parentIndex = parseInt(i / 2);
+        let parentIndex = this._getParentIndex(i);
 
-        if (this.data[parentIndex] &&
-            this.data[parentIndex].h < this.data[i].h) {
-
+        if (this.data[parentIndex] && this.data[parentIndex].h < this.data[i].h) {
             this._swap(parentIndex, i);
             this._bubbleUp(parentIndex);
         }
+    }
+
+    _getParentIndex(i) {
+        return parseInt(i / 2);
+    }
+
+    _getChildIndex(i) {
+        return this.data[i * 2 + 1] && this.data[i * 2 + 1].h > this.data[i * 2].h ? i * 2 + 1 : i * 2;
     }
 }
 
