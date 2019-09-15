@@ -1,3 +1,4 @@
+// bottom-up dp: the gist is to solve a smaller problem then cache it for it to be used later
 const coinChange = (coins, amount) => {
     let dp = Array(amount + 1).fill(Infinity);
 
