@@ -1,7 +1,7 @@
 const hasPathSum = (root, sum) => {
     if (!root) return [];
 
-    // KEY maintain a dynamic total
+    // KEY push both root and total into the stack
     let stack = [[root, 0]];
 
     // iterative dfs
@@ -10,8 +10,8 @@ const hasPathSum = (root, sum) => {
         let [node, total] = stack.pop();
 
         // if a leaf
-        if (!node.left && !node.right)
-            if (total + node.val === sum) return true;
+        if (!node.left && !node.right && total + node.val === sum)
+            return true;
 
         // the usual adding children bit, the current nodal value has been added into the total
         if (node.right)
