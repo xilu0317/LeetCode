@@ -1,6 +1,5 @@
 const isValid = (string) => {
-    let stack = [];
-    let dict = {};
+    let stack = [], dict = {};
 
     dict['{'] = '}';
     dict['['] = ']';
