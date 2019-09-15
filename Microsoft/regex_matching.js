@@ -2,9 +2,8 @@ const isMatch = (s, p) => {
     if (s === null || p === null) return false;
 
     let sLen = s.length, pLen = p.length;
-    let dp = Array(sLen + 1)
-        .fill()
-        .map(() => Array(pLen + 1).fill(false));
+    let dp = Array(sLen + 1).fill()
+                            .map(() => Array(pLen + 1).fill(false));
 
     // initialization
     dp[0][0] = true;
@@ -23,7 +22,7 @@ const isMatch = (s, p) => {
             if (p[j] === s[i])
                 dp[i + 1][j + 1] = dp[i][j];
 
-            // 
+            //
             if (p[j] === '*') {
                 if (p[j - 1] !== s[i] && p[j - 1] !== '.')
                     dp[i + 1][j + 1] = dp[i + 1][j - 1];
