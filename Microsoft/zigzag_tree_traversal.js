@@ -1,9 +1,7 @@
 const zigzagLevelOrder = (root) => {
     if (!root) return [];
 
-    let q = [root];
-    let res = [];
-    let flag = true;
+    let q = [root], res = [], flag = true;
 
     while (q.length) {
         // the length needs to be 'locked' for level order traversal
