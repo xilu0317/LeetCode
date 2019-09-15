@@ -18,7 +18,7 @@ const subsets = (nums) => {
         let len = res.length;
 
         for (let j = 0; j < len; j++) {
-            // KEY [...res[j]] is a fking must, this will provide a new reference for the array!!!
+            // KEY: [...res[j]] IS A MUST!, Shouldn't shallow copy here!!!
             res.push([...res[j]]);
         }
 
