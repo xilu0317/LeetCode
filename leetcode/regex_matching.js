@@ -8,9 +8,9 @@ const isMatch = (s, p) => {
 
     // initialization
     dp[0][0] = true;
-    for (let i = 0; i < pLen; i++) {
-        if (p[i] === '*' && dp[0][i - 1])
-            dp[0][i + 1] = true;
+    for (let j = 0; j < pLen; j++) {
+        if (p[j] === '*' && dp[0][j - 1])
+            dp[0][j + 1] = true;
     }
 
     for (let i = 0; i < sLen; i++) {
