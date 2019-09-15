@@ -6,15 +6,13 @@ const isValid = (string) => {
     dict['('] = ')';
 
     for (let c of string) {
-        if (c === '{' || c === '[' || c === '(') {
+        if (c === '{' || c === '[' || c === '(')
             stack.push(c);
-        } else {
-            if (c !== dict[stack[stack.length - 1]]) {
+        else
+            if (c !== dict[stack[stack.length - 1]])
                 return false;
-            } else {
+            else
                 stack.pop();
-            }
-        }
     }
 
     return stack.length === 0;

@@ -81,28 +81,23 @@ class PriorityQueue {
 // custom comparator 0 -> start pos 1 -> end pos 2 -> height
 const comp = (s1, s2) => {
     // first sort them by x position
-    if (s1.x !== s2.x) {
+    if (s1.x !== s2.x)
         return s1.x - s2.x;
-    }
     // start = type 1; end = type 2
     // then sort by type
-    else if (s1.type !== s2.type) {
+    else if (s1.type !== s2.type)
         return s1.type - s2.type;
-    }
     // if it is start then sort by height
-    else if (s1.type === 1) {
+    else if (s1.type === 1)
         return s1.h - s2.h;
-    }
     // if it is end then sort by their correpsonding start
-    else {
+    else
         return s1.start.h - s2.start.h;
-    }
 };
 
 const getSkyline = (buildings) => {
     let pq = new PriorityQueue();
-    let skylines = [];
-    let res = [];
+    let skylines = [], res = [];
 
     buildings.forEach(b => {
         // node: {type, x, h, start}
