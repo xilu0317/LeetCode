@@ -1,7 +1,3 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
 const missingNumber = (nums) => {
     if (!nums) return null;
 
@@ -14,4 +10,18 @@ const missingNumber = (nums) => {
     return res;
 };
 
-// TODO: add different methods
+// Option 2: use ES6 set
+const missingNumber = (nums) => {
+    let s = new Set();
+    for (let num of nums) {
+        s.add(num);
+    }
+
+    let i; // scope
+    for (i = 0; i < nums.length; i++) {
+        if (!s.has(i))
+            return i;
+    }
+
+    return i;
+};
