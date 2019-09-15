@@ -1,7 +1,7 @@
 const coinChange = (coins, amount) => {
     let dp = Array(amount + 1).fill(Infinity);
 
-    // Boundary condition
+    // Initial condition
     dp[0] = 0;
 
     for (let i = 1; i <= amount; i++) {
