@@ -2,7 +2,7 @@
 const romanToInt = (s) => {
     let len = s.length;
 
-    let map = {
+    let dict = {
         I: 1,
         V: 5,
         X: 10,
@@ -12,13 +12,13 @@ const romanToInt = (s) => {
         M: 1000
     };
 
-    let sum = map[s[len - 1]];
+    let sum = dict[s[len - 1]];
 
     for (let i = len - 2; i >= 0; i--) {
-        if (map[s[i]] < map[s[i + 1]])
-            sum -= map[s[i]];
+        if (dict[s[i]] < dict[s[i + 1]])
+            sum -= dict[s[i]];
         else
-            sum += map[s[i]];
+            sum += dict[s[i]];
     }
 
     return sum;
@@ -26,7 +26,7 @@ const romanToInt = (s) => {
 
 // EASY TO UNDERSTAND
 const romanToInt = function (s) {
-    let map = {
+    let dict = {
         I: 1,
         V: 5,
         X: 10,
@@ -38,9 +38,9 @@ const romanToInt = function (s) {
 
     let sum = 0;
     for (let i = 0; i < s.length; ++i)
-        sum += map[s[i]];
+        sum += dict[s[i]];
 
-    // rectify the values
+    // subtract over-added values
     if (s.includes('IV')) sum -= 2;
     if (s.includes('IX')) sum -= 2;
     if (s.includes('XL')) sum -= 20;
