@@ -25,4 +25,4 @@ const reverse = (nums, start, end) => {
     }
 };
 
-// TODO: add other approaches
+// TODO: add the basic approach
