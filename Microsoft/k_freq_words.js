@@ -15,7 +15,7 @@ const buildDict = (words) => {
 const twoRowComparator = (a, b) => {
     // descending order
     if (b[1] > a[1]) return 1;
-    if (a[1] > b[1]) return -1;
+    if (b[1] < a[1]) return -1;
 
     // intentionally leaving out the case when a[1] === b[1]
 
