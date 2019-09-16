@@ -11,14 +11,14 @@ const letterCombinations = (digits) => {
     dict['8'] = 'tuv';
     dict['9'] = 'wxyz';
 
-    backTrack('', digits, res, dict);
+    backtrack('', digits, res, dict);
 
     return res;
 };
 
 // Effectively this is some form of recurisve DFS. Thus, this can be done by stack too.
 // Please review DFS files for details.
-const backTrack = (combination, digits, res, dict) => {
+const backtrack = (combination, digits, res, dict) => {
     // exit condition
     if (!digits.length) {
         res.push(combination);
@@ -30,7 +30,7 @@ const backTrack = (combination, digits, res, dict) => {
     let letters = dict[digit];
 
     for (let c of letters)
-        backTrack(combination + c, digits.substring(1), res, dict);
+        backtrack(combination + c, digits.substring(1), res, dict);
 };
 
 // substring(i) => substring from i onwards
