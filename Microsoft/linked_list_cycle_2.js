@@ -8,6 +8,7 @@ const detectCycle = (head) => {
         fast = fast.next.next;
 
         if (slow === fast) {
+            // note entry is at the head at this point
             while (slow !== entry) {
                 slow = slow.next;
                 entry = entry.next;
