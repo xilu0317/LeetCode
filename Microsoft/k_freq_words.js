@@ -2,11 +2,10 @@ const buildDict = (words) => {
     let dict = {};
 
     for (let word of words) {
-        if (!dict[word]) {
+        if (!dict[word])
             dict[word] = 1;
-        } else {
+        else
             dict[word]++;
-        }
     }
 
     return dict;
