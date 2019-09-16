@@ -6,24 +6,21 @@ const isAnagram = (s, t) => {
     let sDict = {}, tDict = {};
 
     for (let c of s) {
-        if (!sDict[c]) {
+        if (!sDict[c])
             sDict[c] = 1;
-        } else {
+        else
             sDict[c]++;
-        }
     }
 
     for (let c of t) {
-        if (!tDict[c]) {
+        if (!tDict[c])
             tDict[c] = 1;
-        } else {
+        else
             tDict[c]++;
-        }
     }
 
-    for (let key in sDict) {
+    for (let key in sDict)
         if (sDict[key] !== tDict[key]) return false;
-    }
 
     return true;
 };
