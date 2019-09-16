@@ -1,3 +1,8 @@
+
+const findMin = (nums) => {
+    return searchMin(nums, 0, nums.length - 1);
+};
+
 const searchMin = (nums, lo, hi) => {
     // Avoid (lo + hi) / 2 to avoid integer overflow
     let mid = lo + parseInt((hi - lo) / 2);
@@ -9,13 +14,8 @@ const searchMin = (nums, lo, hi) => {
     if (mid === 0) return nums[0];
 
     // Note 'mid + 1 and mid - 1' won't work
-    if (nums[mid] > nums[hi]) {
+    if (nums[mid] > nums[hi])
         return searchMin(nums, mid, hi);
-    } else {
+    else
         return searchMin(nums, lo, mid);
-    }
-};
-
-const findMin = (nums) => {
-    return searchMin(nums, 0, nums.length - 1);
 };

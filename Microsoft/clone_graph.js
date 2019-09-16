@@ -3,8 +3,7 @@ const cloneGraph = (root) => {
     if (!root) return null;
 
     let q = [root];
-    // Do *NOT* use let map = {}; because the JS objects only do 'string -> object' mapping
-    // For 'object -> object' mapping, use ES6 Map() instead.
+    // KEY: For 'object -> object' mapping, use ES6 Map() instead.
     let map = new Map();
 
     // First traversal is aimed to created a collection of disconnected nodes
