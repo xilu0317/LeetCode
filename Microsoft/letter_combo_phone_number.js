@@ -1,8 +1,7 @@
 const letterCombinations = (digits) => {
     if (!digits) return [];
 
-    let res = [];
-    let dict = {};
+    let res = [], dict = {};
     dict['2'] = 'abc';
     dict['3'] = 'def';
     dict['4'] = 'ghi';
@@ -30,9 +29,8 @@ const backTrack = (combination, digits, res, dict) => {
     let digit = digits[0];
     let letters = dict[digit];
 
-    for (let c of letters) {
+    for (let c of letters)
         backTrack(combination + c, digits.substring(1), res, dict);
-    }
 };
 
 // substring(i) => substring from i onwards

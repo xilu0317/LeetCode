@@ -1,12 +1,8 @@
 const convertToTitle = (n) => {
-    let len = 26;
-    let dict = {};
+    let len = 26, dict = {}, res = [];
 
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++)
         dict[i] = String.fromCharCode(i + 65);
-    }
-
-    let res = [];
 
     while (n > 0) {
         res.push(dict[(n - 1) % len]);

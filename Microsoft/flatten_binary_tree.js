@@ -6,7 +6,6 @@ const flatten = (root) => {
     let oldLeft = root.left;
     let oldRight = root.right;
 
-    // per spec
     root.left = null;
 
     flatten(oldLeft);
