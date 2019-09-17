@@ -1,4 +1,4 @@
-// KEY
+// KEY: come up wit a good comparator
 const comp = (a, b) => {
     let aRest = a.substring(a.indexOf(' ') + 1);
     let bRest = b.substring(b.indexOf(' ') + 1);
