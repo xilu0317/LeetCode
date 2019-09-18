@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Node {
     int val;
     Node next;

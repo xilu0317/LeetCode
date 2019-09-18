@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
     // Shared global var across all methods
     List<Integer> res = new ArrayList<Integer>(100);
