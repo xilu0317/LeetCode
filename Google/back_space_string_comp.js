@@ -1,3 +1,6 @@
+// scan the string from back to front
+// maintain a counter whenever we encounter '#'
+// if the counter exists we will just skip the current char 
 const getString = (s) => {
     let count = 0, res = '';
 
