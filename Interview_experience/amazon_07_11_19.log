@@ -51,7 +51,8 @@ Went to some restaurant just off campus, talked about anything, doesn't count to
 
 >>>> Interview 3 - 1 Hour
 100% Technical
-The interviewer showed me some simple design that was created in a webpage, and stated 'Assume you are given an API that uses an AJAX call to return a list of labels. Using HTML/CSS/JS format them as seen on the screen.'
+The interviewer showed me some simple design that was created in a webpage, and stated 
+'Assume you are given an API that uses an AJAX call to return a list of labels. Using HTML/CSS/JS format them as seen on the screen.'
 
 Now I want to add a button within each cell to remove a label from the screen
 Now I want to be able sort the labels, how would I do that? How is this effected by the removing of the labels?
