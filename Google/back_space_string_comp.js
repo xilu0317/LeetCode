@@ -1,6 +1,7 @@
 // scan the string from back to front
 // maintain a counter whenever we encounter '#'
 // if the counter exists we will just skip the current char
+
 const getString = (s) => {
     let count = 0, res = '';
 
@@ -8,12 +9,11 @@ const getString = (s) => {
         let c = s[i];
         if (c === '#')
             count++;
-        else {
+        else
             if (count > 0)
                 count--;
             else
                 res += c;
-        }
     }
 
     return res;
