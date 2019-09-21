@@ -20,11 +20,11 @@ There is a button on a page with text inside that says 'Clicked {#} times' with 
 Follow up: Now each time the button is clicked, spawn a new button with its own counter, and the same functionality.
 I was invited for an onsite interview and scheduled to come in about a month after my screen.
 
-###############
-### Onsite ####
-###############
+#############################################
+###               Onsite                 ####
+#############################################
 
-Interview 1 [Hiring Manager] - 1 Hour
+>>>> Interview 1 [Hiring Manager] - 1 Hour
 100% Behavioral
 
 Tell me about a time you had a tight deadline?
@@ -32,7 +32,7 @@ Tell me about a time you went about the status quo?
 Tell me about a time you had a disagreement with a coworker?
 Possibly one or two more I can't remember
 
-Interview 2 [Bar Raiser] - 1 Hour
+>>>> Interview 2 [Bar Raiser] - 1 Hour
 50% Behavioral 50% Technical
 
 Why Amazon?
@@ -49,7 +49,7 @@ Now what if we want to extend this to friends of friends?
 
 Went to some restaurant just off campus, talked about anything, doesn't count towards the hiring decision.
 
-Interview 3 - 1 Hour
+>>>> Interview 3 - 1 Hour
 100% Technical
 The interviewer showed me some simple design that was created in a webpage, and stated 'Assume you are given an API that uses an AJAX call to return a list of labels. Using HTML/CSS/JS format them as seen on the screen.'
 
@@ -58,7 +58,7 @@ Now I want to be able sort the labels, how would I do that? How is this effected
 You now notice that what is being returned from the AJAX call is not the same as before, what steps do you take to solve the problem?
 I asked if I could use React, and she seemed okay with it, as long as I could explain what I would have to do if I wasn't using React. I ended up using a somewhat blend between normal JS and React, as it seemed she did not entirely understand the React code. Similarly, it seemed as if the interviewer was typing everything I had written on the whiteboard word-for-word.
 
-Interview 4 - 1 Hour
+>>>> Interview 4 - 1 Hour
 100% Technical
 The interviewer provided a sheet of paper that had some JSON data on it, and a small diagram of what the data should look like. I was asked to recreate the diagram and fill it with the JSON data as applicable. The diagram showed a table, and the interviewer said that it should be recreated as such.
 
