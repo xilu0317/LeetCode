@@ -12,9 +12,9 @@ const digitSum = (num) => {
 };
 
 const addDigits = (num) => {
-    do {
+    do
         num = digitSum(num);
-    } while (num / 10 >= 1);
+    while (num / 10 >= 1);
 
     return num;
 };
