@@ -1,4 +1,5 @@
 # Leetcode!
+Language: JavaScript
 
 Progress: 211 / 1195
 
