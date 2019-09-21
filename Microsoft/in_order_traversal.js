@@ -1,8 +1,7 @@
 const inorderTraversal = (root) => {
     if (!root) return [];
 
-    let res = [];
-    let stack = [];
+    let res = [], stack = [];
     let node = root; // node is basically cur, the reference will move
 
     while (true) {
@@ -41,8 +40,7 @@ const inorderTraversal = (root) => {
     if (!root) return [];
 
     let curNode = root;
-    let stack = [];
-    let res = [];
+    let stack = [], res = [];
 
     do {
         if (curNode) {
