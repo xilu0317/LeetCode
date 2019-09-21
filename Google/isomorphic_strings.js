@@ -8,16 +8,16 @@ const isIsomorphic = (s, t) => {
     for (let i = 0; i < s.length; i++) {
         if (!dict1[s[i]])
             dict1[s[i]] = t[i];
-        else
-            if (dict1[s[i]] !== t[i]) return false;
+        else if (dict1[s[i]] !== t[i])
+            return false;
     }
 
     // KEY: reverse mapping needs to hold true too
     for (let i = 0; i < t.length; i++) {
         if (!dict2[t[i]])
             dict2[t[i]] = s[i];
-        else
-            if (dict2[t[i]] !== s[i]) return false;
+        else if (dict2[t[i]] !== s[i])
+            return false;
     }
 
     return true;
