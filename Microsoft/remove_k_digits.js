@@ -1,25 +1,22 @@
-/**
- * @param {string} num
- * @param {number} k
- * @return {string}
- */
+// https://leetcode.com/problems/remove-k-digits/
+
 const removeKdigits = (num, k) => {
-    // num += '';
+    let res = [];
 
-    // let stack = [];
-    // let res = '';
-    // for (let i = 0; i < num.length; i++) {
-    //     let cur = num[i];
+    num += '';
+    for (let c of num) {
+        while (res.length && res[res.length - 1] > c && k) {
+            // make sure digits in 'res' are in ascending order
+            res.pop();
+            k--;
+        }
 
-    //     stack.push(cur);
+        // can't have leading '0's
+        if (res.length || c !== '0') res.push(c);
+    }
 
-    //     if (stack[stack.length - 1] > cur && k > 0) {
-    //         stack.pop();
-    //         k--;
-    //     }
+    // make sure remove k digits in total
+    while (res.length && k--) res.pop();
 
-    //     res += cur;
-    // }
-
-    // return res;
+    return res.length ? res.join('') : '0';
 };
