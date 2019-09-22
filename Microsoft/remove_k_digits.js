@@ -11,11 +11,11 @@ const removeKdigits = (num, k) => {
             k--;
         }
 
-        // can't have leading '0's
+        // can't have leading '0's => De Morgan's law if hard to read
         if (res.length || c !== '0') res.push(c);
     }
 
-    // make sure remove k digits in total
+    // need to remove k digits in total. pay attention to the scope of 'k'
     while (res.length && k--) res.pop();
 
     return res.length ? res.join('') : '0';
