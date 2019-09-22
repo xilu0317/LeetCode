@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/remove-k-digits/
 
 // The key to solving this problem is the observation to how to make the number small
-// THINK: why don't we just pick the first largest k values
+// THINK: why don't we just pick the first largest k values?
 const removeKdigits = (num, k) => {
     let res = [];
 
@@ -19,7 +19,7 @@ const removeKdigits = (num, k) => {
     }
 
     // need to remove k digits in total.
-    // THINK: why is k valid here
+    // THINK: why is k valid here?
     while (res.length && k--) res.pop();
 
     return res.length ? res.join('') : '0';
