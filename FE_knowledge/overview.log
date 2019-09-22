@@ -14,7 +14,7 @@ Common Misconceptions
 
 One of the biggest mistakes I see candidates make is preparing for trivia style questions such as “What is the box model?” or “Tell me the difference between == and === in JavaScript?“. While knowing the answers to such trivia type questions is great, it doesn’t really tell the interviewer much.
 
-Instead, what you can expect is a more hands-on interview where you’ll write code using JavaScript, CSS and HTML. During your interview expect to implement UIs, build a widget or write commonly used utility functions from a library such as Lodash and Underscore.js. For example:
+Instead, what you can expect is a more hands-on interview where you’ll write code using JavaScript, CSS and HTML. During your interview expect to implement UIs, build a widget or write commonly used utility functions from a library such as Lodash.js and Underscore.js. For example:
 
     Build the layout and interactions of common web applications, such as the Netflix browser site.
     Implement widgets like a date picker, carousel or e-commerce cart.
