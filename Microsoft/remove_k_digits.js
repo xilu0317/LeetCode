@@ -1,12 +1,13 @@
 // https://leetcode.com/problems/remove-k-digits/
 
+// THINK why don't we just pick the first largest k values
 const removeKdigits = (num, k) => {
     let res = [];
 
     num += '';
     for (let c of num) {
+        // KEY: make sure digits in 'res' are in ascending order
         while (res.length && res[res.length - 1] > c && k) {
-            // make sure digits in 'res' are in ascending order
             res.pop();
             k--;
         }
