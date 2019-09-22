@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/remove-k-digits/
 
-// The key to solving this problem is the observation to how to make the number small
+// The key to solving this problem is the observation that stack is needed.
 // THINK: why don't we just pick the first largest k values?
 const removeKdigits = (num, k) => {
     let res = [];
