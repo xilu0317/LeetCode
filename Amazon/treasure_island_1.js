@@ -20,9 +20,8 @@
     };
 
     const dfs = (grid, i, j, step) => {
-        if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] === 'D')
+        if (i < 0 || j < 0 || i === m || j === n || grid[i][j] === 'D')
             return;
-
 
         if (grid[i][j] === 'X') {
             min = Math.min(min, step);
@@ -31,6 +30,7 @@
 
         step++;
 
+        // mark as visited
         grid[i][j] = 'D';
 
         dfs(grid, i + 1, j, step);
@@ -38,6 +38,7 @@
         dfs(grid, i, j + 1, step);
         dfs(grid, i, j - 1, step);
 
+        // unmark as unvisited
         grid[i][j] = 'O';
     };
 
