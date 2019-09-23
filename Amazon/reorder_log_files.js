@@ -1,7 +1,8 @@
 // KEY: come up with a good comp
 const comp = (a, b) => {
-    let aIndex = a.indexOf(' '), bIndex = b.indexOf(' ');
     // look for the first space
+    let aIndex = a.indexOf(' '), bIndex = b.indexOf(' ');
+
     let aRest = a.substring(aIndex + 1);
     let bRest = b.substring(bIndex + 1);
 
