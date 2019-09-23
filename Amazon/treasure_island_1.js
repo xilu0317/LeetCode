@@ -1,5 +1,5 @@
 // BFS
-(function main() {
+(() => {
     const grid = [['O', 'O', 'O', 'O'],
                   ['D', 'O', 'D', 'O'],
                   ['O', 'O', 'O', 'O'],
@@ -57,4 +57,4 @@
 
     // test the code
     console.log('min step => ' + minStep());
-}());
+})();
