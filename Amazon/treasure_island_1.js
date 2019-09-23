@@ -9,8 +9,7 @@
     const treasureIsland = (grid) => {
         if (!grid || !grid.length) return -1;
 
-        m = grid.length;
-        n = grid[0].length;
+        m = grid.length, n = grid[0].length;
         min = Infinity;
 
         dfs(grid, 0, 0, 0);
