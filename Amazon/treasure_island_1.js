@@ -14,14 +14,14 @@
     const x = 0, y = 0, lenX = grid[0].length - 1, lenY = grid.length - 1;
 
     const minStep = () => {
-        let node = {
+        let root = {
             x: x,
             y: y,
             val: 'O',
             step: 0
         };
 
-        let q = [node];
+        let q = [root];
         while (q.length) {
             let cur = q.shift();
 
