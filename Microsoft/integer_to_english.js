@@ -5,7 +5,7 @@ let TENS = ['', 'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy',
 let THOUSANDS = ['', 'Thousand', 'Million', 'Billion'];
 
 const numberToWords = (num) => {
-    if (num == 0) return 'Zero';
+    if (num === 0) return 'Zero';
 
     let i = 0;
     let words = '';
@@ -21,7 +21,7 @@ const numberToWords = (num) => {
 };
 
 const helper = (num) => {
-    if (num == 0)
+    if (num === 0)
         return '';
     else if (num < 20)
         return LESS_THAN_20[num] + ' ';
