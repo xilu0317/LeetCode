@@ -21,7 +21,7 @@
         while (q.length) {
             let cur = q.shift();
 
-            // got the treasure
+            // got the treasure, this is the 'do' part
             if (cur.val === 'X')
                 return cur.step;
 
