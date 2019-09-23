@@ -24,7 +24,7 @@ const reorderLogFiles = (logs) => {
     let letterList = [], digitList = [];
 
     for (let log of logs) {
-        // this is smart: looking at the last char to determine if the file is a digit file or string file
+        // because of uniformity, just need to check if the last char is a number or not
         let isDigit = !isNaN(log[log.length - 1]);
         if (isDigit)
             digitList.push(log);
