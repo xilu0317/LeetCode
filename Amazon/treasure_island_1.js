@@ -1,12 +1,12 @@
 (() => {
-    const grid = [['O', 'O', 'O', 'O'],
-                  ['D', 'O', 'D', 'O'],
-                  ['O', 'O', 'O', 'O'],
-                  ['X', 'D', 'D', 'O']];
+    let grid = [['O', 'O', 'O', 'O'],
+                ['D', 'O', 'D', 'O'],
+                ['O', 'O', 'O', 'O'],
+                ['X', 'D', 'D', 'O']];
 
     // unit vector
-    const [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
-    const x = 0, y = 0, lenX = grid[0].length, lenY = grid.length;
+    let [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
+    let x = 0, y = 0, lenX = grid[0].length, lenY = grid.length;
 
     // BFS apporach
     const treasureIsland = () => {
@@ -56,5 +56,8 @@
     };
 
     // run test code
-    console.log('min step => ' + treasureIsland());
+    if (treasureIsland() === 5)
+        console.log('### PASS ###');
+    else
+        console.log('### FAIL ###');
 })();
