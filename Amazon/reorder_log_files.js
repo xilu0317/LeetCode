@@ -23,6 +23,7 @@ const comp = (a, b) => {
     let aRest = a.substring(aIndex);
     let bRest = b.substring(bIndex);
 
+    // lexicographical comparison
     if (aRest > bRest)
         return 1;
     if (aRest < bRest)
