@@ -30,7 +30,8 @@
 
         step++;
 
-        // mark as visited
+        // THINK If you reach this point the current gird must be 'O'
+        // KEY to avoid revisit, mark it as 'D'
         grid[i][j] = 'D';
 
         dfs(grid, i + 1, j, step);
@@ -38,7 +39,7 @@
         dfs(grid, i, j + 1, step);
         dfs(grid, i, j - 1, step);
 
-        // unmark as unvisited
+        // KEY unmark as unvisited
         grid[i][j] = 'O';
     };
 
