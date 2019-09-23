@@ -1,3 +1,20 @@
+const reorderLogFiles = (logs) => {
+    let letterList = [], digitList = [];
+
+    for (let log of logs) {
+        // because of uniformity, just need to check if the last char is a number or not
+        let isDigit = !isNaN(log[log.length - 1]);
+        if (isDigit)
+            digitList.push(log);
+        else
+            letterList.push(log);
+    }
+
+    letterList.sort(comp);
+
+    return [...letterList, ...digitList];
+};
+
 // KEY: come up with a good comp
 const comp = (a, b) => {
     // look for the first space
@@ -18,21 +35,4 @@ const comp = (a, b) => {
         return 1;
     else
         return -1;
-};
-
-const reorderLogFiles = (logs) => {
-    let letterList = [], digitList = [];
-
-    for (let log of logs) {
-        // because of uniformity, just need to check if the last char is a number or not
-        let isDigit = !isNaN(log[log.length - 1]);
-        if (isDigit)
-            digitList.push(log);
-        else
-            letterList.push(log);
-    }
-
-    letterList.sort(comp);
-
-    return [...letterList, ...digitList];
 };
