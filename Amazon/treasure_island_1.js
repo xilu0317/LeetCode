@@ -5,15 +5,12 @@
                   ['O', 'O', 'O', 'O'],
                   ['X', 'D', 'D', 'O']];
 
-    const isSafe = (x, y, width, height) => {
-        return x >= 0 && x <= width && y >= 0 && y <= height && grid[x][y] !== 'D';
-    };
-    // unit vector, destructuring
+    // unit vector
     const [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
-
     const x = 0, y = 0, lenX = grid[0].length - 1, lenY = grid.length - 1;
 
-    const minStep = () => {
+    // CORE
+    const treasureIsland = () => {
         let root = {
             x: x,
             y: y,
@@ -54,6 +51,10 @@
         return -1;
     };
 
+    const isSafe = (x, y, width, height) => {
+        return x >= 0 && x <= width && y >= 0 && y <= height && grid[x][y] !== 'D';
+    };
+
     // run test code
-    console.log('min step => ' + minStep());
+    console.log('min step => ' + treasureIsland());
 })();
