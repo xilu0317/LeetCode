@@ -23,12 +23,13 @@ const comp = (a, b) => {
     let aRest = a.substring(aIndex);
     let bRest = b.substring(bIndex);
 
-    // lexicographical comparison
+    // lexicographical comparison of the contents
     if (aRest > bRest)
         return 1;
     if (aRest < bRest)
         return -1;
 
+    // if the contents are of tie then the identifiers needs to be ordered lexicographically
     let aFirst = a.substring(0, aIndex);
     let bFirst = b.substring(0, bIndex);
 
