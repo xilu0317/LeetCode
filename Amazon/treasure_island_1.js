@@ -32,6 +32,7 @@
 
             // use unit vector to reduce code reps
             for (let i = 0; i < dx.length; i++) {
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
                 let [nextX, nextY] = [cur.x + dx[i], cur.y + dy[i]];
 
                 // give up current exploration once hit 'D'
