@@ -1,4 +1,3 @@
-// BFS
 (() => {
     const grid = [['O', 'O', 'O', 'O'],
                   ['D', 'O', 'D', 'O'],
@@ -9,7 +8,7 @@
     const [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
     const x = 0, y = 0, lenX = grid[0].length - 1, lenY = grid.length - 1;
 
-    // CORE
+    // BFS apporach
     const treasureIsland = () => {
         let root = {
             x: x,
