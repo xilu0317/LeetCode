@@ -1,8 +1,9 @@
+// TODO: solution wrong
 (() => {
     let grid = [['O', 'O', 'O', 'O'],
                 ['D', 'O', 'D', 'O'],
-                ['O', 'O', 'O', 'O'],
-                ['X', 'D', 'D', 'O']];
+                ['O', 'D', 'O', 'O'],
+                ['X', 'O', 'O', 'O']];
 
     // unit vector
     let [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
@@ -60,4 +61,5 @@
         console.log('### PASS ###');
     else
         console.log('### FAIL ###');
+    console.log('steps = ' + treasureIsland());
 })();
