@@ -39,7 +39,7 @@
                     y: nextY,
                     val: grid[nextX][nextY],
                     step: cur.step + 1
-                }
+                };
 
                 // mark as visisted
                 grid[nextX][nextY] = 'D';
