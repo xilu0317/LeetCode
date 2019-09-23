@@ -7,6 +7,13 @@ class FakeMinHeap {
         console.log(this.arr);
     }
 
+    load(arr) {
+        if (Array.isArray(arr)) {
+            arr.sort((a, b) => a - b);
+            this.arr = arr;
+        }
+    }
+
     push(x) {
         this.arr.push(x);
         this.arr.sort((a, b) => a - b);
