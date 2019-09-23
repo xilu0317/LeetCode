@@ -11,8 +11,7 @@
     // unit vector, destructuring
     const [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
 
-    // destructring
-    const [startX, startY, endX, endY] = [0, 0, grid[0].length - 1, grid.length - 1];
+    const startX = 0, startY = 0, endX = grid[0].length - 1, endY = grid.length - 1;
 
     const minStep = () => {
         let node = {
@@ -26,14 +25,16 @@
         while (q.length) {
             let cur = q.shift();
 
-            // got treasure
+            // got the treasure
             if (cur.val === 'X') {
                 return cur.step;
             }
 
+            // use unit vector to reduce code reps
             for (let i = 0; i < dx.length; i++) {
                 let [nextX, nextY] = [cur.x + dx[i], cur.y + dy[i]];
 
+                // give up current exploration once hit 'D'
                 if (!isSafe(nextX, nextY, endX, endY))
                     continue;
 
