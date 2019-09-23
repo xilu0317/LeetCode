@@ -1,8 +1,8 @@
 (function main() {
     const grid = [['O', 'O', 'O', 'O'],
-                 ['D', 'O', 'D', 'O'],
-                 ['O', 'O', 'O', 'O'],
-                 ['X', 'D', 'D', 'O']];
+                  ['D', 'O', 'D', 'O'],
+                  ['O', 'O', 'O', 'O'],
+                  ['X', 'D', 'D', 'O']];
 
     const isSafe = (x, y, width, height) => {
         return x >= 0 && x <= width && y >= 0 && y <= height && grid[x][y] !== 'D';
