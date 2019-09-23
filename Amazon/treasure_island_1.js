@@ -30,7 +30,7 @@
                 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
                 let [nextX, nextY] = [cur.x + dx[i], cur.y + dy[i]];
 
-                // give up current exploration once hit 'D'
+                // give up the current exploration once hit 'D'
                 if (!isSafe(nextX, nextY, lenX, lenY))
                     continue;
 
@@ -50,6 +50,7 @@
         return -1;
     };
 
+    // De Morgan
     const isSafe = (x, y, width, height) => {
         return x >= 0 && x <= width && y >= 0 && y <= height && grid[x][y] !== 'D';
     };
