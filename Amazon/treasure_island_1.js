@@ -2,64 +2,46 @@
 (() => {
     let grid = [['O', 'O', 'O', 'O'],
                 ['D', 'O', 'D', 'O'],
-                ['O', 'D', 'O', 'O'],
+                ['O', 'O', 'O', 'O'],
                 ['X', 'O', 'O', 'O']];
 
-    // unit vector
-    let [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
-    let x = 0, y = 0, lenX = grid[0].length, lenY = grid.length;
+    let m, n, min;
 
-    // BFS apporach
-    const treasureIsland = () => {
-        let root = {
-            x: x,
-            y: y,
-            val: 'O',
-            step: 0
-        };
+    const treasureIsland = (grid) => {
+        if (!grid || !grid.length) return -1;
 
-        let q = [root];
-        while (q.length) {
-            let cur = q.shift();
+        m = grid.length;
+        n = grid[0].length;
+        min = Infinity;
 
-            // got the treasure, this is the 'do' part
-            if (cur.val === 'X')
-                return cur.step;
+        dfs(grid, 0, 0, 0);
 
-            // use unit vector to reduce code reps
-            for (let i = 0; i < dx.length; i++) {
-                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-                let [nextX, nextY] = [cur.x + dx[i], cur.y + dy[i]];
+        return min;
+    };
 
-                // give up the current exploration once hit 'D'
-                if (!isSafe(nextX, nextY, lenX, lenY))
-                    continue;
+    const dfs = (grid, i, j, step) => {
+        if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] === 'D')
+            return;
 
-                let next = {
-                    x: nextX,
-                    y: nextY,
-                    val: grid[nextX][nextY],
-                    step: cur.step + 1
-                };
 
-                // mark as visisted
-                grid[nextX][nextY] = 'D';
-                q.push(next);
-            }
+        if (grid[i][j] === 'X') {
+            min = Math.min(min, step);
+            return;
         }
 
-        return -1;
+        step++;
+
+        grid[i][j] = 'D';
+
+        dfs(grid, i + 1, j, step);
+        dfs(grid, i - 1, j, step);
+        dfs(grid, i, j + 1, step);
+        dfs(grid, i, j - 1, step);
+
+        grid[i][j] = 'O';
     };
 
-    // De Morgan
-    const isSafe = (x, y, width, height) => {
-        return x >= 0 && x < width && y >= 0 && y < height && grid[x][y] !== 'D';
-    };
-
-    // run test code
-    if (treasureIsland() === 5)
-        console.log('### PASS ###');
-    else
-        console.log('### FAIL ###');
-    console.log('steps = ' + treasureIsland());
+    // test stuff
+    console.log();
+    console.log('Min steps taken to get treasure ==> ' + treasureIsland(grid));
 })();
