@@ -20,8 +20,7 @@ const comp = (a, b) => {
     // look for the first space
     let aIndex = a.indexOf(' '), bIndex = b.indexOf(' ');
 
-    let aRest = a.substring(aIndex);
-    let bRest = b.substring(bIndex);
+    let aRest = a.substring(aIndex), bRest = b.substring(bIndex);
 
     // lexicographical comparison of the contents
     if (aRest > bRest)
@@ -30,8 +29,7 @@ const comp = (a, b) => {
         return -1;
 
     // if the contents are of tie then the identifiers needs to be ordered lexicographically
-    let aFirst = a.substring(0, aIndex);
-    let bFirst = b.substring(0, bIndex);
+    let aFirst = a.substring(0, aIndex), bFirst = b.substring(0, bIndex);
 
     if (aFirst > bFirst)
         return 1;
