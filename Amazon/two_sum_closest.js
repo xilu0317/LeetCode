@@ -1,5 +1,5 @@
 const twoSumClosest = (nums, target) => {
-    // KEY: sorting
+    // KEY: numeral sorting
     nums.sort((a, b) => a > b);
 
     let min = Infinity;

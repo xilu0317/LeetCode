@@ -6,7 +6,7 @@
 
     // unit vector
     const [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
-    const x = 0, y = 0, lenX = grid[0].length - 1, lenY = grid.length - 1;
+    const x = 0, y = 0, lenX = grid[0].length, lenY = grid.length;
 
     // BFS apporach
     const treasureIsland = () => {
@@ -52,7 +52,7 @@
 
     // De Morgan
     const isSafe = (x, y, width, height) => {
-        return x >= 0 && x <= width && y >= 0 && y <= height && grid[x][y] !== 'D';
+        return x >= 0 && x < width && y >= 0 && y < height && grid[x][y] !== 'D';
     };
 
     // run test code
