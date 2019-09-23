@@ -11,14 +11,14 @@
     // unit vector, destructuring
     const [dx, dy] = [[0, 1, 0, -1], [1, 0, -1, 0]];
 
-    const startX = 0, startY = 0, endX = grid[0].length - 1, endY = grid.length - 1;
+    const x = 0, y = 0, lenX = grid[0].length - 1, lenY = grid.length - 1;
 
     const minStep = () => {
         let node = {
-            x: startX,
-            y: startY,
+            x: x,
+            y: y,
             val: 'O',
-            step: 0,
+            step: 0
         };
 
         let q = [node];
@@ -26,9 +26,8 @@
             let cur = q.shift();
 
             // got the treasure
-            if (cur.val === 'X') {
+            if (cur.val === 'X')
                 return cur.step;
-            }
 
             // use unit vector to reduce code reps
             for (let i = 0; i < dx.length; i++) {
@@ -36,14 +35,14 @@
                 let [nextX, nextY] = [cur.x + dx[i], cur.y + dy[i]];
 
                 // give up current exploration once hit 'D'
-                if (!isSafe(nextX, nextY, endX, endY))
+                if (!isSafe(nextX, nextY, lenX, lenY))
                     continue;
 
                 let next = {
                     x: nextX,
                     y: nextY,
                     val: grid[nextX][nextY],
-                    step: cur.step + 1,
+                    step: cur.step + 1
                 }
 
                 // mark as visisted
@@ -55,6 +54,6 @@
         return -1;
     };
 
-    // test the code
+    // run test code
     console.log('min step => ' + minStep());
 })();
