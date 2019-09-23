@@ -1,3 +1,4 @@
+// BFS
 (function main() {
     const grid = [['O', 'O', 'O', 'O'],
                   ['D', 'O', 'D', 'O'],
