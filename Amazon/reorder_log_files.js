@@ -3,16 +3,16 @@ const comp = (a, b) => {
     // look for the first space
     let aIndex = a.indexOf(' '), bIndex = b.indexOf(' ');
 
-    let aRest = a.substring(aIndex + 1);
-    let bRest = b.substring(bIndex + 1);
+    let aRest = a.substring(aIndex);
+    let bRest = b.substring(bIndex);
 
     if (aRest > bRest)
         return 1;
     if (aRest < bRest)
         return -1;
 
-    let aBefore = a.substring(0, aIndex + 1);
-    let bBefore = b.substring(0, bIndex + 1);
+    let aBefore = a.substring(0, aIndex);
+    let bBefore = b.substring(0, bIndex);
 
     if (aBefore > bBefore)
         return 1;
