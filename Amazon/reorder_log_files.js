@@ -11,10 +11,10 @@ const comp = (a, b) => {
     if (aRest < bRest)
         return -1;
 
-    let aBefore = a.substring(0, aIndex);
-    let bBefore = b.substring(0, bIndex);
+    let aFirst = a.substring(0, aIndex);
+    let bFirst = b.substring(0, bIndex);
 
-    if (aBefore > bBefore)
+    if (aFirst > bFirst)
         return 1;
     else
         return -1;
