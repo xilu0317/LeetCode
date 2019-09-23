@@ -1,4 +1,3 @@
-// TODO: solution wrong
 (() => {
     let grid = [['O', 'O', 'O', 'O'],
                 ['D', 'O', 'D', 'O'],
