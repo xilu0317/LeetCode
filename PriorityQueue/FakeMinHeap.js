@@ -1,4 +1,5 @@
 class FakeMinHeap {
+
     constructor() {
         this.arr = [];
     }
@@ -22,6 +23,7 @@ class FakeMinHeap {
     shift() {
         return this.arr.shift();
     }
+
 }
 
 (() => {
