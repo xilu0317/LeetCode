@@ -9,7 +9,6 @@ const isCompleteTree = (root) => {
         let len = q.length;
         // This for loop is the signature for level order traversal
         for (let i = 0; i < len; i++) {
-
             let node = q.shift();
 
             if (node.left) {
