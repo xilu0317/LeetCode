@@ -8,3 +8,5 @@ const lowestCommonAncestor = (root, p, q) => {
     // note this does take care !root edge case and more elegant
     return root;
 };
+
+// TODO: ADD interative solution as well

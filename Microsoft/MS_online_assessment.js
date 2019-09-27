@@ -2,9 +2,8 @@
 const isInOrder = (list) => {
     if (!list) return false;
 
-    for (let i = 0; i < list.length; i++) {
+    for (let i = 0; i < list.length; i++)
         if (list[i] < list[i + 1]) return false;
-    }
 
     return true;
 };
@@ -14,11 +13,10 @@ const removeLetters = (s) => {
 
     const dict = {};
     for (const c of s) {
-        if (!dict[c]) {
+        if (!dict[c])
             dict[c] = 1;
-        } else {
+        else
             dict[c]++;
-        }
     }
 
     let list = [];
@@ -76,9 +74,8 @@ const intSum = (list) => {
         if (!dict[sum]) {
             dict[sum] = [];
             dict[sum].push(item);
-        } else {
+        } else
             dict[sum].push(item);
-        }
     }
 
     const res = [];
