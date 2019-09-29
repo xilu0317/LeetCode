@@ -27,7 +27,7 @@ const comp = (a, b) => {
     if (aRest < bRest)
         return -1;
 
-    // if the contents are of tie, then the identifiers needs to be ordered lexicographically
+    // if the contents are of tie, then the identifiers need to be ordered lexicographically
     let aFirst = a.substring(0, aIndex), bFirst = b.substring(0, bIndex);
 
     if (aFirst > bFirst)

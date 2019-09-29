@@ -10,9 +10,7 @@
         let i = 0; j = b.length - 1;
         let min = Infinity;
         while (i < a.length && j >= 0) {
-
             min = Math.min(min, target - a[i][1] - b[j][1]);
-            if (a[i][1] + b[j][1] >= target) break;
 
             if (a[i][1] + b[j][1] > target)
                 j--;
@@ -20,19 +18,23 @@
                 i++;
         }
 
-        let res = [];
-        let dict = {};
-        // for (let i = 0; i < b.length; i++) {
-        // 	dict[b[i][1]] = b[i][0];
-        // }
+        for (let i = 0; i < b.length; i++) {
+            dict[b[i][1]] = b[i][0];
+        }
 
-        // for (let i = 0; i < a.length; i++) {
-        // 	if (a[i][1] + )
-        // }
+        let res = [];
+        for (let i = 0; i < a.length; i++) {
+            let goal = min - a[i][1];
+            if (dict[goal]) {
+                res.push(a[i][0], dict[goal]);
+            }
+        }
 
         return res;
     };
 
+    console.log('fuck it ');
     let stuff = twoSumClosest(a, b, target);
     console.log('solution = ', stuff);
+    console.log('done');
 })();
