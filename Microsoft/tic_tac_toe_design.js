@@ -31,6 +31,7 @@ class TicTacToe {
 
         // rows
         this.rows[i] += addOne;
+
         // cols
         this.cols[j] += addOne;
 
@@ -43,9 +44,9 @@ class TicTacToe {
             this.anttDiag += addOne;
 
         let size = this.rows.length;
-        if (Math.abs(this.rows[i]) === size ||
-            Math.abs(this.cols[j]) === size ||
-            Math.abs(this.diag) === size    ||
+        if (Math.abs(this.rows[i])  === size ||
+            Math.abs(this.cols[j])  === size ||
+            Math.abs(this.diag)     === size ||
             Math.abs(this.anttDiag) === size) {
             return player;
         }
