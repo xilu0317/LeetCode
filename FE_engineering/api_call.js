@@ -7,8 +7,6 @@
     const readline = require('readline');
     const API_ENDPOINT = 'https://data.sfgov.org/resource/jjew-r69b.json';
 
-
-    // define the callback
     const callback = (err, response, body) => {
         if (err) {
             console.error(err.toString());
@@ -24,6 +22,11 @@
 
         main(body);
     };
+
+    // run the main program
+    console.log('Running the program ...');
+    console.log('Making remote API call ...');
+    request(API_ENDPOINT, callback);
 
     const main = (body) => {
         const truckList = JSON.parse(body);
@@ -120,7 +123,7 @@
     const isFoodTruckOpen2 = (foodTruck) => {
         if (!foodTruck) return false;
 
-        const currentHour = 5;
+        const currentHour = 7;
         const currentMin = 15;
         const start = convertTimeTo24(foodTruck.starttime);
         const end = convertTimeTo24(foodTruck.endtime);
@@ -133,10 +136,4 @@
 
         return true;
     };
-
-    // run the main program
-    console.log('Running the program ...');
-    console.log('Making remote API call ...');
-
-    request(API_ENDPOINT, callback);
 })();
