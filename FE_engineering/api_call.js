@@ -54,8 +54,7 @@
             return;
         }
 
-        let batch = [];
-        let count = 0;
+        let batch = [], count = 0;
         for (const item of result) {
             if (count < 10) {
                 batch.push(item);
@@ -63,8 +62,8 @@
             } else {
                 console.log(batch);
                 await pressToContinue();
-                count = 0;
                 batch = [];
+                count = 0;
             }
         }
 
