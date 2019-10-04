@@ -31,7 +31,7 @@
     const main = (body) => {
         const truckList = JSON.parse(body);
 
-        const openTrucks = truckList.filter(x => isFoodTruckOpen2(x));
+        const openTrucks = truckList.filter(x => isFoodTruckOpen(x));
 
         const openTrucksKeys = openTrucks.map(x => `Name: ${x.applicant} | Address: ${x.location}`);
 
@@ -85,7 +85,7 @@
     };
 
     const getCurrentDay = () => {
-        return new Date().getDay();
+        return new Date().getDay().toString();
     };
 
     const getCurrentHour = () => {
@@ -124,7 +124,7 @@
         if (!foodTruck) return false;
 
         const currentHour = 7;
-        const currentMin = 15;
+        const currentMin = 34;
         const start = convertTimeTo24(foodTruck.starttime);
         const end = convertTimeTo24(foodTruck.endtime);
 
