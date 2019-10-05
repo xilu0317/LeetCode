@@ -1,4 +1,3 @@
-// To run locally
 // $ npm install request && node FoodTruckFinder.js
 
 // IIFE for scope safty
@@ -23,7 +22,7 @@
         main(body);
     };
 
-    // run the main program
+    // main
     console.log('Running the program ...');
     console.log('Making remote API call ...');
     request(API_ENDPOINT, callback);
@@ -80,7 +79,7 @@
             }
         }
 
-        // print whatever that is left
+        // dump what's left
         console.table(batch);
     };
 
@@ -131,21 +130,4 @@
         return true;
     };
 
-    // TODO: remove when done testing
-    const isFoodTruckOpen2 = (foodTruck) => {
-        if (!foodTruck) return false;
-
-        const currentHour = 7;
-        const currentMin = 34;
-        const start = convertTimeTo24(foodTruck.starttime);
-        const end = convertTimeTo24(foodTruck.endtime);
-
-        if (currentHour < start) return false;
-
-        if (currentHour > end) return false;
-
-        if (currentMin === end && currentMin > 0) return false;
-
-        return true;
-    };
 })();
