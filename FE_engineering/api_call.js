@@ -73,6 +73,7 @@
             if (count === 10) {
                 console.table(batch);
                 await pressToContinue();
+                // reset batch per dump
                 batch = [];
                 count = 0;
             }
