@@ -54,7 +54,7 @@
         }
 
         if (result.length <= 10) {
-            console.log(result);
+            console.table(result);
             return;
         }
 
