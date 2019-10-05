@@ -31,14 +31,18 @@
     const main = (body) => {
         const truckList = JSON.parse(body);
 
-        const openTrucks = truckList.filter(x => isFoodTruckOpen(x));
-
-        const openTrucksKeys = openTrucks.map(x => `Name: ${x.applicant} | Address: ${x.location}`);
+        const openTrucksKeys = truckList.filter(x => isFoodTruckOpen(x))
+                                        .map(x => {
+                                            return {
+                                                NAME: x.applicant,
+                                                ADDRESS: x.location
+                                            }
+                                        });
 
         // de-duplicate
         const uniqueOpenTrucks = new Set(openTrucksKeys);
 
-        const result = [...uniqueOpenTrucks].sort();
+        const result = [...uniqueOpenTrucks].sort((a, b) => a.NAME > b.NAME ? 1 : -1);
 
         displayResult(result);
     };
@@ -60,7 +64,7 @@
                 batch.push(item);
                 count++;
             } else {
-                console.log(batch);
+                console.table(batch);
                 await pressToContinue();
                 batch = [];
                 count = 0;
@@ -68,7 +72,7 @@
         }
 
         // print whatever that is left
-        console.log(batch);
+        console.table(batch);
     };
 
     const pressToContinue = () => {
