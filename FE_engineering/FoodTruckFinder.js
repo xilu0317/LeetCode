@@ -50,7 +50,7 @@
 
         const truckList = JSON.parse(body);
 
-        const openTrucksObjects = truckList.filter(x => isFoodTruckOpen(x))
+        const openTrucksObjects = truckList.filter(x => isFoodTruckOpen2(x))
                                            .map(x => {
                                                 return {
                                                     NAME: x.applicant,
@@ -136,6 +136,25 @@
 
         const currentHour = getCurrentHour();
         const currentMin = getCurrentMin();
+        const start = parseInt(foodTruck.start24);
+        const end = parseInt(foodTruck.end24);
+
+        if (currentHour < start) return false;
+
+        if (currentHour > end) return false;
+
+        if (currentHour === end && currentMin > 0) return false;
+
+        return true;
+    };
+
+    const isFoodTruckOpen2 = (foodTruck) => {
+        if (!foodTruck) return false;
+
+        if (getCurrentDay() !== foodTruck.dayorder) return false;
+
+        const currentHour = 9;
+        const currentMin = 11;
         const start = parseInt(foodTruck.start24);
         const end = parseInt(foodTruck.end24);
 
