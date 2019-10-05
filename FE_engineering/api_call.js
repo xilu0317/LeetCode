@@ -30,16 +30,16 @@
     const main = (body) => {
         const truckList = JSON.parse(body);
 
-        const openTrucksKeys = truckList.filter(x => isFoodTruckOpen(x))
-                                        .map(x => {
-                                            return {
-                                                NAME: x.applicant,
-                                                ADDRESS: x.location
-                                            }
-                                        });
+        const openTrucksObjects = truckList.filter(x => isFoodTruckOpen(x))
+                                           .map(x => {
+                                                return {
+                                                    NAME: x.applicant,
+                                                    ADDRESS: x.location
+                                                }
+                                            });
 
         // de-dup
-        const uniqueOpenTrucks = new Set(openTrucksKeys);
+        const uniqueOpenTrucks = new Set(openTrucksObjects);
 
         const result = [...uniqueOpenTrucks].sort(comp);
 
