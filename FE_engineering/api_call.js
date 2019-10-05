@@ -5,7 +5,6 @@
     const request = require('request');
     const readline = require('readline');
     const API_ENDPOINT = 'https://data.sfgov.org/resource/jjew-r69b.json';
-    const PAGE_LIMIT = 10;
 
     const callback = (err, response, body) => {
         if (err)
@@ -20,14 +19,37 @@
         processBody(body);
     };
 
-    // main
+    const printCurrentTime = () => {
+        const dict = {
+            1: 'Monday',
+            2: 'Tuesday',
+            3: 'Wednesday',
+            4: 'Thursday',
+            5: 'Friday',
+            6: 'Saturday',
+            7: 'Sunday'
+        }
+
+        const now = new Date();
+        const day = now.getDay();
+        const hour = now.getHours();
+        const min = now.getMinutes();
+
+        console.log(`Current time: ${hour}:${min} on ${dict[day]}`);
+    };
+
+    // running main program
     (() => {
-        console.log('Calling API ...');
+        printCurrentTime();
+
+        console.log(`Calling API at ${API_ENDPOINT}`);
+
         request(API_ENDPOINT, callback);
     })();
 
     const processBody = (body) => {
-        console.log('Processing body ...');
+        console.log(`Data fetched from remote`);
+
         const truckList = JSON.parse(body);
 
         const openTrucksObjects = truckList.filter(x => isFoodTruckOpen(x))
@@ -46,6 +68,7 @@
         displayResult(result);
     };
 
+    // comparator - first sort by name then by address
     const comp = (a, b) => {
         if (a.NAME > b.NAME)
             return 1;
@@ -55,23 +78,23 @@
         return a.ADDRESS > b.ADDRESS ? 1 : -1;
     };
 
-    const displayResult = async (result) => {
+    const displayResult = async (result, pageSize = 10) => {
         if (!result || !result.length) {
             console.log('The result list is empty');
             return;
         }
 
-        if (result.length <= PAGE_LIMIT) {
+        if (result.length <= pageSize) {
             console.table(result);
             return;
         }
 
         let batch = [], count = 0;
         for (const item of result) {
-            if (count === PAGE_LIMIT) {
+            if (count === pageSize) {
                 console.table(batch);
                 await pressToContinue();
-                // reset batch per dump
+                // reset batch per data dump
                 batch = [];
                 count = 0;
             }
