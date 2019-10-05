@@ -34,7 +34,9 @@
                                            .map(x => {
                                                 return {
                                                     NAME: x.applicant,
-                                                    ADDRESS: x.location
+                                                    ADDRESS: x.location,
+                                                    start: x.start24,
+                                                    end: x.end24
                                                 }
                                             });
 
@@ -49,7 +51,7 @@
     const comp = (a, b) => {
         if (a.NAME > b.NAME)
             return 1;
-        else if (a.NAME < b.NAME)
+        if (a.NAME < b.NAME)
             return -1;
 
         return a.ADDRESS > b.ADDRESS ? 1 : -1;
@@ -68,19 +70,19 @@
 
         let batch = [], count = 0;
         for (const item of result) {
-            if (count < 10) {
-                batch.push(item);
-                count++;
-            } else {
+            if (count === 10) {
                 console.table(batch);
                 await pressToContinue();
                 batch = [];
                 count = 0;
             }
+
+            batch.push(item);
+            count++;
         }
 
         // dump what's left
-        console.table(batch);
+        if (batch.length) console.table(batch);
     };
 
     const pressToContinue = () => {
@@ -107,10 +109,6 @@
         return new Date().getMinutes();
     };
 
-    const convertTimeTo24 = (time) => {
-        return time.includes('PM') ? parseInt(time) + 12 : parseInt(time);
-    };
-
     const isFoodTruckOpen = (foodTruck) => {
         if (!foodTruck) return false;
 
@@ -118,14 +116,34 @@
 
         const currentHour = getCurrentHour();
         const currentMin = getCurrentMin();
-        const start = convertTimeTo24(foodTruck.starttime);
-        const end = convertTimeTo24(foodTruck.endtime);
+        const start = parseInt(foodTruck.start24);
+        const end = parseInt(foodTruck.end24);
 
         if (currentHour < start) return false;
 
         if (currentHour > end) return false;
 
-        if (currentMin === end && currentMin > 0) return false;
+        if (currentHour === end && currentMin > 0) return false;
+
+        return true;
+    };
+
+    // TODO: remove
+    const isFoodTruckOpen2 = (foodTruck) => {
+        if (!foodTruck) return false;
+
+        if (getCurrentDay() !== foodTruck.dayorder) return false;
+
+        const currentHour = 24;
+        const currentMin = 1;
+        const start = parseInt(foodTruck.start24);
+        const end = parseInt(foodTruck.end24);
+
+        if (currentHour < start) return false;
+
+        if (currentHour > end) return false;
+
+        if (currentHour === end && currentMin > 0) return false;
 
         return true;
     };
