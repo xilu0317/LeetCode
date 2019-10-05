@@ -5,6 +5,7 @@
     const request = require('request');
     const readline = require('readline');
     const API_ENDPOINT = 'https://data.sfgov.org/resource/jjew-r69b.json';
+    const PAGE_LIMIT = 10;
 
     const callback = (err, response, body) => {
         if (err) {
@@ -63,14 +64,14 @@
             return;
         }
 
-        if (result.length <= 10) {
+        if (result.length <= PAGE_LIMIT) {
             console.table(result);
             return;
         }
 
         let batch = [], count = 0;
         for (const item of result) {
-            if (count === 10) {
+            if (count === PAGE_LIMIT) {
                 console.table(batch);
                 await pressToContinue();
                 // reset batch per dump
