@@ -1,3 +1,5 @@
 .DS_Store
 .vscode/
 /Users/xilu/leetcode/test/*
+/Users/xilu/leetcode/FE_engineering/node_modules/*
+*lock.json
