@@ -1,5 +1,3 @@
-// $ npm install request && node FoodTruckFinder.js
-
 // IIFE for scope safty
 (() => {
     const request = require('request');
@@ -110,7 +108,7 @@
     const pressToContinue = () => {
         const rl = readline.createInterface({
             input: process.stdin,
-            output: process.stdout,
+            output: process.stdout
         });
 
         return new Promise(resolve => rl.question('Press anything to continue ...', ans => {
