@@ -1,4 +1,4 @@
 .DS_Store
 .vscode/
-FE_engineering/node_modules/
-*lock.json
+/Users/xilu/leetcode/FE_engineering/node_modules/
+/Users/xilu/leetcode/FE_engineering/package-lock.json
