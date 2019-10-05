@@ -17,24 +17,24 @@
         if (!body)
             console.error('The reponse body does not exisit.');
 
-        main(body);
+        processBody(body);
     };
 
     // main
-    console.log('Running the program ...');
-    console.log('Making remote API call ...');
-    request(API_ENDPOINT, callback);
+    (() => {
+        console.log('Calling API ...');
+        request(API_ENDPOINT, callback);
+    })();
 
-    const main = (body) => {
+    const processBody = (body) => {
+        console.log('Processing body ...');
         const truckList = JSON.parse(body);
 
         const openTrucksObjects = truckList.filter(x => isFoodTruckOpen(x))
                                            .map(x => {
                                                 return {
                                                     NAME: x.applicant,
-                                                    ADDRESS: x.location,
-                                                    start: x.start24,
-                                                    end: x.end24
+                                                    ADDRESS: x.location
                                                 }
                                             });
 
@@ -115,26 +115,6 @@
 
         const currentHour = getCurrentHour();
         const currentMin = getCurrentMin();
-        const start = parseInt(foodTruck.start24);
-        const end = parseInt(foodTruck.end24);
-
-        if (currentHour < start) return false;
-
-        if (currentHour > end) return false;
-
-        if (currentHour === end && currentMin > 0) return false;
-
-        return true;
-    };
-
-    // TODO: remove
-    const isFoodTruckOpen2 = (foodTruck) => {
-        if (!foodTruck) return false;
-
-        if (getCurrentDay() !== foodTruck.dayorder) return false;
-
-        const currentHour = 24;
-        const currentMin = 1;
         const start = parseInt(foodTruck.start24);
         const end = parseInt(foodTruck.end24);
 
