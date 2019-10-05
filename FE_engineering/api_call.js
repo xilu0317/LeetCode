@@ -39,7 +39,7 @@
                                             }
                                         });
 
-        // de-duplicate
+        // de-dup
         const uniqueOpenTrucks = new Set(openTrucksKeys);
 
         const result = [...uniqueOpenTrucks].sort(comp);
