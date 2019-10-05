@@ -8,17 +8,14 @@
     const PAGE_LIMIT = 10;
 
     const callback = (err, response, body) => {
-        if (err) {
+        if (err)
             console.error(err.toString());
-        }
 
-        if (response.statusMessage !== 'OK' || response.statusCode !== 200) {
+        if (response.statusMessage !== 'OK' || response.statusCode !== 200)
             console.error('Failed to fetch data from the API endpoint.');
-        }
 
-        if (!body) {
+        if (!body)
             console.error('The reponse body does not exisit.');
-        }
 
         main(body);
     };
