@@ -42,9 +42,18 @@
         // de-duplicate
         const uniqueOpenTrucks = new Set(openTrucksKeys);
 
-        const result = [...uniqueOpenTrucks].sort((a, b) => a.NAME > b.NAME ? 1 : -1);
+        const result = [...uniqueOpenTrucks].sort(comp);
 
         displayResult(result);
+    };
+
+    const comp = (a, b) => {
+        if (a.NAME > b.NAME)
+            return 1;
+        else if (a.NAME < b.NAME)
+            return -1;
+
+        return a.ADDRESS > b.ADDRESS ? 1 : -1;
     };
 
     const displayResult = async (result) => {
