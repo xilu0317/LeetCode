@@ -48,7 +48,7 @@
     })();
 
     const processBody = (body) => {
-        console.log(`Data fetched from remote`);
+        console.log('Data fetched from remote');
 
         const truckList = JSON.parse(body);
 
