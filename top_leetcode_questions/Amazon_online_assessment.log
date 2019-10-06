@@ -8,18 +8,7 @@ Optimal Utilization ⭐⭐⭐ [Experienced]
 Min Cost to Connect Ropes / Min Time to Merge Files ⭐⭐⭐[Experienced]
 Treasure Island / Min Distance to Remove the Obstacle (BFS) ⭐⭐⭐ [Experienced]
 Treasure Island II (Multi-source BFS)
-Find Pair With Given Sum (a.k.a. Sort Center) ⭐ [Experienced]
-Movies on Flight ⭐ [Experienced]
-Distance Between Nodes in BST
-K Closest Points to Origin
-Find Pair With Max Appeal Sum
-Min Cost to Connect All Nodes (a.k.a. Min Cost to Add New Roads)
-Min Cost to Repair Edges (MST)
-Prison Cells After N Days
-Substrings of size K with K distinct chars
-Partition Labels
-Subtree with Maximum Average
-
+Find Pair With Given Sum ⭐⭐ [Experienced, Intern]
 Copy List with Random Pointer ⭐⭐ [New Grad]
 Merge Two Sorted Lists ⭐⭐ [New Grad]
 Subtree of Another Tree ⭐⭐ [New Grad]
@@ -28,11 +17,20 @@ Critical Connections ⭐⭐ [New Grad]
 Favorite Genres ⭐⭐ [New Grad]
 Two Sum - Unique Pairs ⭐⭐ [New Grad]
 Spiral Matrix ⭐ [New Grad]
-
 Count substrings with exactly K distinct chars ⭐ [Intern]
-Path With Maximum Score ⭐ [Intern]
-Longest Palindromic Substring ⭐ [Intern]
-Most Common Word ⭐ [Intern]
+Path With Maximum Score ⭐⭐ [Intern]
+Longest Palindromic Substring ⭐⭐ [Intern]
+Movies on Flight ⭐ [Experienced, Intern]
+Substrings of size K with K distinct chars ⭐⭐ [Intern]
+Most Common Word ⭐⭐ [Intern]
+Distance Between Nodes in BST
+K Closest Points to Origin
+Find Pair With Max Appeal Sum
+Min Cost to Connect All Nodes (a.k.a. Min Cost to Add New Roads)
+Min Cost to Repair Edges (MST)
+Prison Cells After N Days
+Partition Labels
+Subtree with Maximum Average
 
 =========================================================
 Others:
