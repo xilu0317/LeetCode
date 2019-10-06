@@ -28,7 +28,6 @@ class FakeMinHeap {
     shift() {
         return this.arr.shift();
     }
-
 }
 
 const connectRope = (arr) => {
