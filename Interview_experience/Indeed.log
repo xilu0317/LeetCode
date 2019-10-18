@@ -130,8 +130,17 @@ Interview Questions:
 merge two sorted list
 1 Answer
 What is the difference between LinkedIn and indeed
+Linkedin is a professinal networking social platform. Its business model is preisum subscritpion, talent solution and advertising.
+Indeed is a job search engine. Pay by click model and advertisment.
+
 2 Answers
 How to increase the change for people to use indeed after they have found a job.
+Partner with intermidate and big companies and their recuriters.
+Build an indeed in-mail system so the recuriters can reach out to qualied candidates.
+Send out job alerts to people who subcribe to indeed.
+Build a better reveiwing services to have people stay on the sites longer.
+Implement reward mechanism/point system to try to lure the user to stay on the website as long as they can.
+Diversify Indeed's services to professional networking and E-learning so people stay on the site for longer.
 
 ===============================================================================================================
 
@@ -168,6 +177,12 @@ Find number of substrings within another string.
 
 Find some static numbers that could be used for comparing two websites functionality.
 
+Jobs per click
+average time spent on the website
+number of visiters per hour
+number of resume posted on indeed
+number of registered accounts
+indeed premium registeration
 
 ==============================================================================================================
 Interview
