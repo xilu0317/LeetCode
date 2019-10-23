@@ -5,10 +5,10 @@
 const consecutiveNumbersSum = (N) => {
     let res = 0;
     for (let m = 1; ; m++) {
-        let mx = N - m * (m - 1) / 2;
-        if (mx <= 0)
+        let diff = N - m * (m - 1) / 2;
+        if (diff <= 0)
             break;
-        if (mx % m === 0)
+        if (diff % m === 0)
             res++;
     }
 
