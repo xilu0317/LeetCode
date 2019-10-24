@@ -4,8 +4,11 @@
 // n = length of the list
 // x = the unkown equal target number
 
+// Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+
 // equation 1: this is basically the statement of our problem
-// sum + m * (n - 1) = x * n
+// m evolutions to (n - 1) elements, each evolution increments n - 1 elements by 1
+// sum + m * 1 * (n - 1) = x * n
 
 // equation 2: the min after m evolutions will become x
 // min + m = x
