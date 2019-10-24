@@ -17,7 +17,7 @@ class Codec {
         return list.join(',');
     }
 
-    // BFS
+    // DFS
     serializeHelper(node, list) {
         if (!node) return;
 
@@ -38,7 +38,7 @@ class Codec {
         return this.deserializeHelper(q);
     }
 
-    // BFS
+    // DFS
     deserializeHelper(q) {
         let node = new Node();
 
