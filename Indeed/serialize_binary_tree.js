@@ -1,35 +1,49 @@
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-
-/**
- * Encodes a tree to a single string.
- *
- * @param {TreeNode} root
- * @return {string}
- */
 const serialize = (root) => {
-    
+    if (!root) return '';
+
+    let q = [root];
+    let res = [];
+
+    while (q.length) {
+        let node = q.shift();
+        if (!node) {
+            res.push('n');
+            continue
+        }
+
+        res.push(node.val);
+
+        q.push(node.left);
+        q.push(node.right);
+    }
+
+    return res.join(' ');
 };
 
-const serializeHelper = (root) => {
-
-};
-
-/**
- * Decodes your encoded data to tree.
- *
- * @param {string} data
- * @return {TreeNode}
- */
 const deserialize = (data) => {
-    
-};
+    if (data === '') return null;
 
-const deserializeHelper = (root) => {
+    let values = data.split(' ');
+    let root = new TreeNode(parseInt(values[0]));
+    let q = [root];
 
+    for (let i = 0; i < values.length; i++) {
+        let parent = q.shift();
+
+        if (values[i] !== 'n') {
+            let left = new TreeNode(parseInt(values[i]));
+            parent.left = left;
+            q.push(left);
+        }
+
+        i++;
+
+        if (values[i] !== 'n') {
+            let right = new TreeNode(parseInt(values[i]));
+            parent.right = right;
+            q.push(right);
+        }
+    }
+
+    return root;
 };
