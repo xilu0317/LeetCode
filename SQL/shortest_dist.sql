@@ -1,5 +1,3 @@
-# https://leetcode.com/problems/shortest-distance-in-a-plane/submissions/
-
 -- Table point_2d holds the coordinates (x,y) of some unique points (more than two) in a plane.
 
 -- Write a query to find the shortest distance between these points rounded to 2 decimals.
