@@ -6,11 +6,11 @@ const serialize = (root) => {
 
     while (q.length) {
         let node = q.shift();
-        if (!node) {
-            res.push('n');
-            continue
-        }
 
+        if (node === null) {
+            res.push('n');
+            continue;
+        }
         res.push(node.val);
 
         q.push(node.left);
@@ -31,17 +31,17 @@ const deserialize = (data) => {
         let parent = q.shift();
 
         if (values[i] !== 'n') {
-            let left = new TreeNode(parseInt(values[i]));
-            parent.left = left;
-            q.push(left);
+            let node = new TreeNode(parseInt(values[i]));
+            parent.left = node;
+            q.push(node);
         }
 
         i++;
 
         if (values[i] !== 'n') {
-            let right = new TreeNode(parseInt(values[i]));
-            parent.right = right;
-            q.push(right);
+            let node = new TreeNode(parseInt(values[i]));
+            parent.right = node;
+            q.push(node);
         }
     }
 
