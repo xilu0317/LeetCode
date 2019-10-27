@@ -35,8 +35,7 @@
 -- In IT department, Max earns the highest salary, both Randy and Joe earn the second highest salary, and Will earns the third highest salary. There are only two employees in the Sales department, Henry earns the highest salary while Sam earns the second highest salary.
 
 SELECT d.Name Department, e1.Name Employee, e1.Salary
-FROM
-Employee e1 JOIN Department d
+FROM Employee e1 JOIN Department d
 ON e1.DepartmentId = d.Id
 WHERE (SELECT COUNT(DISTINCT(e2.Salary))
        FROM Employee e2
