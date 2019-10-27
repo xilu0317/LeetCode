@@ -1,6 +1,7 @@
 // TODO: bug here
 // trailing n's
 
+// BFS
 const serialize = (root) => {
     if (!root) return '';
 
