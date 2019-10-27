@@ -17,4 +17,4 @@ ORDER BY COUNT(CustomerID) DESC;
 -- 3					Italy
 -- 2					Austria
 
--- Note: omission of 'AS' keyword
+-- Note: omission of 'AS' keyword between 
