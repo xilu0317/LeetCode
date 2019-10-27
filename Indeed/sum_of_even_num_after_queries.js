@@ -1,5 +1,5 @@
 const sumEvenAfterQueries = (A, queries) => {
-    if (!queries || !queries.length) return [];
+    if (!queries || !queries.length) return [0];
 
     let res = [];
 
@@ -16,7 +16,6 @@ const sumEvenAfterQueries = (A, queries) => {
                 sum += item;
         }
         res.push(sum);
-
     }
 
     return res;
