@@ -19,6 +19,3 @@ const getAllPermutations = (word) => {
 
     return res;
 };
-
-// test case
-getAllPermutations('abc');
