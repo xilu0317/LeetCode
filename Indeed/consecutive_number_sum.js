@@ -1,9 +1,11 @@
-// algebraic sequence
-// the key to solving this problem is equation derivation
+// please derive the general term formula for the algebric sequence
+
 const consecutiveNumbersSum = (N) => {
     let res = 0;
+    // didn't specify the running condition because of the 'break'
     for (let m = 1; ; m++) {
         let xm = N - m * (m - 1) / 2; // need to derive this
+        // consecutive positive integers AND numbers of terms can never be zero
         if (xm <= 0)
             break;
         // check if xm divided by m is still an integer

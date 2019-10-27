@@ -1,3 +1,4 @@
+// TODO:  REWORK
 // HELPER FUNCTION GOOD
 const findMaxContious = (arr) => {
     if (!arr || !arr.length) return 0;
@@ -20,20 +21,21 @@ const maximalRectangle = (matrix) => {
     if (!matrix || !matrix.length) return 0;
 
     let max = -Infinity;
-    let arr = Array(matrix[0].length).fill(0);
+    let arr = matrix[0];
     for (let row of matrix) {
-
-        // TODO: logic error here
-        for (let i = 0; i < row.length; i++) {
-            if (arr[i] === 0)
+        for (let i = 1; i < row.length; i++) {
+            if (row[i] === '0')
                 arr[i] = 0;
             else
-                arr[i] += row[i];
+                arr[i]++;
         }
 
-        let min = Math.min.apply(null, arr);
+        let myMax = Math.max.apply(null, arr);
         let minLen = findMaxContious(arr);
-        max = Math.max(max, min * minLen);
+        console.log(myMax)
+        console.log(minLen)
+
+        max = Math.max(max, myMax * minLen);
     }
 
     return max;
