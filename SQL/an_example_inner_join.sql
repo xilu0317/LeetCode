@@ -1,6 +1,7 @@
 SELECT Orders.OrderID, Customers.CustomerName
-FROM Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+FROM
+Orders INNER JOIN Customers
+ON Orders.CustomerID = Customers.CustomerID;
 
 -- OrderID	CustomerName
 -- 10248	Wilman Kala

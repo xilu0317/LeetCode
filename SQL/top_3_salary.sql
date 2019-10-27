@@ -1,5 +1,4 @@
 -- The Employee table holds all employees. Every employee has an Id, and there is also a column for the department Id.
-
 -- +----+-------+--------+--------------+
 -- | Id | Name  | Salary | DepartmentId |
 -- +----+-------+--------+--------------+
@@ -11,16 +10,16 @@
 -- | 6  | Randy | 85000  | 1            |
 -- | 7  | Will  | 70000  | 1            |
 -- +----+-------+--------+--------------+
--- The Department table holds all departments of the company.
 
+-- The Department table holds all departments of the company.
 -- +----+----------+
 -- | Id | Name     |
 -- +----+----------+
 -- | 1  | IT       |
 -- | 2  | Sales    |
 -- +----+----------+
--- Write a SQL query to find employees who earn the top three salaries in each of the department. For the above tables, your SQL query should return the following rows (order of rows does not matter).
 
+-- Write a SQL query to find employees who earn the top three salaries in each of the department. For the above tables, your SQL query should return the following rows (order of rows does not matter).
 -- +------------+----------+--------+
 -- | Department | Employee | Salary |
 -- +------------+----------+--------+
@@ -31,8 +30,8 @@
 -- | Sales      | Henry    | 80000  |
 -- | Sales      | Sam      | 60000  |
 -- +------------+----------+--------+
--- Explanation:
 
+-- Explanation:
 -- In IT department, Max earns the highest salary, both Randy and Joe earn the second highest salary, and Will earns the third highest salary. There are only two employees in the Sales department, Henry earns the highest salary while Sam earns the second highest salary.
 
 SELECT d.Name Department, e1.Name Employee, e1.Salary
