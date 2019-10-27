@@ -1,4 +1,6 @@
 // TODO: bug here
+// trailing n's
+
 const serialize = (root) => {
     if (!root) return '';
 

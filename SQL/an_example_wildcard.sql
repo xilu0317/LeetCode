@@ -1,5 +1,6 @@
 -- example 1
-SELECT * FROM Customers
+SELECT * 
+FROM Customers
 WHERE City LIKE 'ber%';
 
 -- CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
@@ -8,7 +9,8 @@ WHERE City LIKE 'ber%';
 -- 49	Magazzini Alimentari Riuniti	Giovanni Rovelli	Via Ludovico il Moro 22	Bergamo	24100	Italy
 
 -- example 2
-SELECT * FROM Customers
+SELECT * 
+FROM Customers
 WHERE City LIKE '%es%';
 
 -- CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
@@ -17,7 +19,8 @@ WHERE City LIKE '%es%';
 -- 26	France restauration	Carine Schmitt	54, rue Royale	Nantes	44000	France
 
 -- example 3
-SELECT * FROM Customers
+SELECT * 
+FROM Customers
 WHERE City LIKE 'L_n_on';
 
 -- CustomerID	CustomerName	ContactName	Address	City	PostalCode	Country
