@@ -17,4 +17,7 @@
 -- | 2  | bob@example.com  |
 -- +----+------------------+
 
-DELETE p FROM Person p, Person q WHERE p.Id > q.Id AND q.Email=p.Email;
+DELETE a
+FROM Person a, Person b
+WHERE a.Id > b.Id
+AND   b.Email=a.Email;
