@@ -1,3 +1,4 @@
+// TODO: bug here
 const serialize = (root) => {
     if (!root) return '';
 
