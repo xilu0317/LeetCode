@@ -2,8 +2,7 @@ const pivotIndex = (nums) => {
     if (!nums || !nums.length) return -1;
 
     let right = nums.reduce((acc, cur) => acc + cur);
-    let left = 0;
-    let index = 0;
+    let left = 0, index = 0;
     for (let num of nums) {
         right -= num;
 
