@@ -1,4 +1,4 @@
-// TODO: rework
+// TODO: need to rework
 
 /**
  * @param {number[]} nums
