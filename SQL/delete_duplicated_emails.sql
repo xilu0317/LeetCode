@@ -19,6 +19,7 @@
 -- +----+------------------+
 
 DELETE a
-FROM Person a, Person b
+FROM Person a, 
+	 Person b
 WHERE a.Id > b.Id
 AND   b.Email=a.Email;

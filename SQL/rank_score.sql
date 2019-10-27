@@ -22,6 +22,9 @@
 -- | 3.50  | 4    |
 -- +-------+------+
 
-SELECT Score, (SELECT COUNT(DISTINCT Score) FROM Scores WHERE Score > a.Score) + 1 AS Rank
+SELECT Score, (SELECT COUNT(DISTINCT Score)
+               FROM Scores
+               WHERE Score > a.Score) + 1
+               AS Rank
 FROM Scores a
-ORDER by Score DESC;
+ORDER BY Score DESC;
