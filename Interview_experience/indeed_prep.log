@@ -1,0 +1,42 @@
+Self into:
+
+2.5 years of expereince as a full stack software engineer with a diverse background ranging from software maintenance and active software development of backend and frontend.
+
+
+what does TBAs do?
+TODO:
+
+Why did you apply for the TBA role?
+- generalist by philosophy and training
+- full stack dev are by trait generalists, also dev ops and support
+- educational background that reflects generalists training (havard phil)
+- enjoy bussiness aspect of things and it is a syngergic amalgamation of bussines + tech
+  which is curcial to succsss in 21 cententry
+
+what is your hardest challenge at Sophos and how did you overcome it
+Situation:
+Sophos is a cloud-based software company specializing in firewall solutions. In our product CWG, we provide users with up to min live loggings for cilents' network traffics. The endpoint agent => Netguards (funnel servers) geo => backend server hosted on AWS for further data processing (for example, removing PPI and sharding) and then send to Hadoop so users will be able to see. In the process, the logs were delayed by ours of in some cases days.
+
+Task:
+Find out investigate why the logging has high latency.
+
+Actions:
+Given the humongous scope of the project, we were struggling 
+
+Result:
+Resolve the task and deployed our fixes so that logging services are almost rendering in real time in Sophos Central.
+
+what is your career goal in five years
+Becoming a product manager and a decsion maker for a product that I will be prond of.
+Strategization of products has long been my career aspriations. Currently, my font line dev experience could prove to be
+highly valuable when it comes to accure my experience needed to be succesful. To
+
+What is your strength?
+Generalist with training outside the scope of the project. 
+I belive I can always bring values and insights from other
+
+Stress tolerant
+Frequently work under very demanding conditions where stakes are always high because the nature of the production impact. 
+
+Multitasking
+Being a memeber of two teams of CWG and XG, I have to constantly switch between two Teams
