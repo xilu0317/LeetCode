@@ -7,7 +7,8 @@
 -- | 3  | 300    |
 -- +----+--------+
 
--- For example, given the above Employee table, the nth highest salary where n = 2 is 200. If there is no nth highest salary, then the query should return null.
+-- For example, given the above Employee table, the nth highest salary where n = 2 is 200. 
+-- If there is no nth highest salary, then the query should return null.
 -- +------------------------+
 -- | getNthHighestSalary(2) |
 -- +------------------------+
@@ -19,5 +20,8 @@ BEGIN
     DECLARE M INT;
     SET M = N - 1;
     
-    RETURN (SELECT DISTINCT Salary FROM Employee ORDER BY Salary DESC LIMIT M, 1);
+    RETURN (SELECT DISTINCT Salary 
+            FROM Employee 
+            ORDER BY Salary 
+            DESC LIMIT M, 1);
 END
