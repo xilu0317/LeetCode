@@ -22,4 +22,4 @@ DELETE a
 FROM Person a,
      Person b
 WHERE a.Id > b.Id
-AND   b.Email=a.Email;
+AND   a.Email = b.Email;
