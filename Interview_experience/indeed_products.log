@@ -56,7 +56,6 @@ number of resume posted on indeed
 number of registered accounts
 indeed premium registeration
 
-
 Indeed:
 - started as a job aggregator
 - main focus is a job board
@@ -72,17 +71,15 @@ Linkedin:
 Glassdoor:
 - company review platform
 
-
 What would I use to incentivize a deal between Indeed and an e-learning company?
-
+- implement a commission to share the profit between indeed and the 3rd party company
+- offer rebates to the partner to consume paid indeed services at a discounted rate
+- commence a partner incentive program
 
 What metrics would you develop to compare Indeed to Glassdoor
-
-How do you classify high dimensional dataset?
-
-If you have existing classification dataset, how do you deal with new dataset without classification?
-
-How will build a model to predict the price of real-estate? How will you verify it works?
+- number of total jobs
+- types of jobs
+- avaiablity of geo locaitlity
 
 How would you go about designing a promotional mug for Indeed?
 -core idea is to promote visbility as well as 'infestivity'
@@ -91,5 +88,3 @@ How would you go about designing a promotional mug for Indeed?
 - texture: unique textures enough to stop passers-by to stare at the target and paying attention
 - utility: improved ease of use would promote the likelyhood of the target to be carried around
 - combination of all above
-
-Coding question was to analyze hospital record data from and excel file and display it.

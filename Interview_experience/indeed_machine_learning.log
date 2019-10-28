@@ -1,0 +1,19 @@
+https://www.roberthalf.com.au/career-advice/interview/common-questions/finance-accounting/business-analyst
+
+How do you classify high dimensional dataset?
+The best way is to use deep learning.
+
+If you have existing classification dataset, how do you deal with new dataset without classification?
+Typically, unlabeled data consists of samples of natural or human-created artifacts that you can obtain relatively easily from the world. Some examples of unlabeled data might include photos, audio recordings, videos, news articles, tweets, x-rays (if you were working on a medical application), etc. There is no "explanation" for each piece of unlabeled data -- it just contains the data, and nothing else.
+
+Labeled data typically takes a set of unlabeled data and augments each piece of that unlabeled data with some sort of meaningful "tag," "label," or "class" that is somehow informative or desirable to know. For example, labels for the above types of unlabeled data might be whether this photo contains a horse or a cow, which words were uttered in this audio recording, what type of action is being performed in this video, what the topic of this news article is, what the overall sentiment of this tweet is, whether the dot in this x-ray is a tumor, etc.
+
+Labels for data are often obtained by asking humans to make judgments about a given piece of unlabeled data (e.g., "Does this photo contain a horse or a cow?") and are significantly more expensive to obtain than the raw unlabeled data.
+
+After obtaining a labeled dataset, machine learning models can be applied to the data so that new unlabeled data can be presented to the model and a likely label can be guessed or predicted for that piece of unlabeled data.
+
+There are many active areas of research in machine learning that are aimed at integrating unlabeled and labeled data to build better and more accurate models of the world. Semi-supervised learning attempts to combine unlabeled and labeled data (or, more generally, sets of unlabeled data where only some data points have labels) into integrated models. Deep neural networks and feature learning are areas of research that attempt to build models of the unlabeled data alone, and then apply information from the labels to the interesting parts of the models.
+
+How will build a model to predict the price of real-estate? How will you verify it works?
+- Extract historial data points from real-estates and employ certian polynomial regression aglogirthm
+- Once polynomial model has been established, we can use the model to test how well the model corresponds the actual price. If the model is off, we can then incorrepate the new data points to refine the correctness of the model.
