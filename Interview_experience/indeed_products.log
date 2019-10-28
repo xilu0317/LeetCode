@@ -72,7 +72,9 @@ Linkedin:
 Glassdoor:
 - company review platform
 
+
 What would I use to incentivize a deal between Indeed and an e-learning company?
+
 
 What metrics would you develop to compare Indeed to Glassdoor
 
@@ -83,5 +85,11 @@ If you have existing classification dataset, how do you deal with new dataset wi
 How will build a model to predict the price of real-estate? How will you verify it works?
 
 How would you go about designing a promotional mug for Indeed?
+-core idea is to promote visbility as well as 'infestivity'
+- shape: to capture people's attention, a strange geometrical shape would be benefical but there is a trade of between the shape and its utility
+- color: distinct color such as red or orange so that people's attnetion will be immediate captured
+- texture: unique textures enough to stop passers-by to stare at the target and paying attention
+- utility: improved ease of use would promote the likelyhood of the target to be carried around
+- combination of all above
 
-Coding question was to analyze hospital record data from and excel file and display it. Very routine, not difficult.
+Coding question was to analyze hospital record data from and excel file and display it.
