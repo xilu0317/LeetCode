@@ -24,6 +24,7 @@ const serialize = (root) => {
     return res.join(' ');
 };
 
+// unpack the tree the same way it was seralized using BFS
 const deserialize = (data) => {
     if (data === '') return null;
 
