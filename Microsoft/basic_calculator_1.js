@@ -15,15 +15,17 @@ const calculate = (s) => {
         if (isDigit(c)) {
             num = 10 * num + parseInt(c);
         } else if (c === '+') {
+            // note this is calculation for things before the '+' sign
             res += sign * num;
             num = 0;
             sign = 1;
         } else if (c === '-') {
+            // note this is calculation for things before the '-' sign
             res += sign * num;
             num = 0;
             sign = -1;
         } else if (c === '(') {
-            // notice the order is reversed so when poping
+            // notice the order is reversed so when popping
             stack.push(res);
             stack.push(sign);
             sign = 1;
