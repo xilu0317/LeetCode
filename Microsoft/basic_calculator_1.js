@@ -2,7 +2,6 @@ const isDigit = (c) => {
     return !isNaN(c);
 };
 
-
 // KEY: only use stack when we encounter parentheses
 const calculate = (s) => {
     if (!s || !s.length) return 0;
