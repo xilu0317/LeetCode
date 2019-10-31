@@ -2,25 +2,29 @@ const isDigit = (c) => {
     return !isNaN(c);
 };
 
+
+// KEY: only use stack when we encounter parentheses
 const calculate = (s) => {
     if (!s || !s.length) return 0;
-
-    s = s.replace(/\s+/g, '');
 
     let stack = [];
     let res = 0, num = 0, sign = 1;
 
     for (let i = 0; i < s.length; i++) {
+
         let c = s[i];
+        if (c === ' ') continue;
+
         if (isDigit(c)) {
             num = 10 * num + parseInt(c);
         } else if (c === '+') {
-            // note this is calculation for things before the '+' sign
+            // note this is calculation for things before this '+' sign
             res += sign * num;
+            // reset the number
             num = 0;
             sign = 1;
         } else if (c === '-') {
-            // note this is calculation for things before the '-' sign
+            // note this is calculation for things before this '-' sign
             res += sign * num;
             num = 0;
             sign = -1;
