@@ -27,6 +27,7 @@ const calculate = (s) => {
             // note this is calculation for things before this '-' sign
             res += sign * num;
             num = 0;
+            // setup sign for the next operation
             sign = -1;
         } else if (c === '(') {
             // notice the order is reversed so when popping
