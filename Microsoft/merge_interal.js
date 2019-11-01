@@ -3,7 +3,7 @@
 const merge = (intervals) => {
     if (!intervals || !intervals.length) return [];
 
-    // KEY
+    // KEY: sort by starting point
     intervals.sort((a, b) => a[0] - b[0]);
 
     let prev = intervals[0];
