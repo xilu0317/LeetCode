@@ -9,6 +9,7 @@ const cloneGraph = (root) => {
     // First traversal is aimed to created a collection of disconnected nodes
     while (q.length) {
         let node = q.shift();
+
         if (!map.get(node)) {
             // clone happens here
             let newNode = new Node(node.val, []);
@@ -26,6 +27,7 @@ const cloneGraph = (root) => {
     q = [root];
     while (q.length) {
         let node = q.shift();
+
         if (!set.has(node)) {
             let newNode = map.get(node);
             // mark as visisted by adding the node into the set
