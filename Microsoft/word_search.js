@@ -1,7 +1,5 @@
 // 'visited' is used to distinguish visited and unvisited nodes
-let visited;
-let m;
-let n;
+let visited, m, n;
 
 const exist = (board, word) => {
     m = board.length;
