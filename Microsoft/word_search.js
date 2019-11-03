@@ -6,7 +6,7 @@ const exist = (board, word) => {
     n = board[0].length;
     // Underlying visit map is to mark the visit status
     visited = Array(m).fill()
-                      .map(x => Array(n).fill(false));
+                      .map(() => Array(n).fill(false));
 
     // Try every starting point
     for (let i = 0; i < m; i++) {
