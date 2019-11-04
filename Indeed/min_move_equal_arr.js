@@ -17,11 +17,11 @@
 // sum - min * n = m
 
 const minMoves = (nums) => {
-    if (!nums) return -1;
+    if (!nums) return -1
 
-    let sum = nums.reduce((acc, cur) => acc + cur);
-    let min = Math.min.apply(null, nums);
-    let len = nums.length;
+    let sum = nums.reduce((acc, cur) => acc + cur)
+    let min = Math.min.apply(null, nums)
+    let len = nums.length
 
-    return sum - len * min;
-};
+    return sum - len * min
+}

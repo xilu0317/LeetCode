@@ -1,24 +1,24 @@
 const judgeCircle = (moves) => {
-    if (!moves) return false;
+    if (!moves) return false
 
-    let x = 0, y = 0;
+    let x = 0, y = 0
 
     for (let move of moves) {
         switch (move) {
             case 'L':
-                x--;
-                break;
+                x--
+                break
             case 'R':
-                x++;
-                break;
+                x++
+                break
             case 'U':
-                y++;
-                break;
+                y++
+                break
             case 'D':
-                y--;
-                break;
+                y--
+                break
         }
     }
 
-    return x === 0 && y === 0;
-};
+    return x === 0 && y === 0
+}

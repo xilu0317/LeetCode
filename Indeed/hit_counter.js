@@ -1,17 +1,17 @@
 class HitCounter {
     constructor() {
-        this.q = [];
+        this.q = []
     }
 
     hit(t) {
-        this.q.push(t);
+        this.q.push(t)
     }
 
     getHits(t) {
         while (this.q.length && t - q[0] >= 300) {
-            this.q.shift();
+            this.q.shift()
         }
 
-        return this.q.length;
+        return this.q.length
     }
 }
