@@ -2,6 +2,7 @@ const longestCommonPrefix = (strs) => {
     if (!strs || !strs.length) return ''
 
     // NOTE: spread operator used with Math.min
+    // Another way to do it Math.min.apply(null, [1, 2, 3])
     let minLen = Math.min(...strs.map(x => x.length))
 
     let res = ''
