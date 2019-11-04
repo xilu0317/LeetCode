@@ -1,21 +1,21 @@
 const isValid = (string) => {
-    let stack = [];
+    let stack = []
     // define parentheses pairs
     let dict = {
         '{': '}',
         '[': ']',
         '(': ')',
-    };
+    }
 
     for (let c of string) {
         if (c === '{' || c === '[' || c === '(')
-            stack.push(c);
+            stack.push(c)
         else
             if (c !== dict[stack[stack.length - 1]])
-                return false;
+                return false
             else
-                stack.pop();
+                stack.pop()
     }
 
-    return stack.length === 0;
-};
+    return stack.length === 0
+}
