@@ -1,25 +1,25 @@
 // 'visited' is used to distinguish visited and unvisited nodes
-let visited, m, n;
+let visited, m, n
 
 const exist = (board, word) => {
-    m = board.length;
-    n = board[0].length;
+    m = board.length
+    n = board[0].length
     // Underlying visit map is to mark the visit status
     visited = Array(m).fill()
-                      .map(() => Array(n).fill(false));
+                      .map(() => Array(n).fill(false))
 
     // Try every starting point
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
-            if (dfsSearch(board, word, i, j, 0)) return true;
+            if (dfsSearch(board, word, i, j, 0)) return true
         }
     }
 
-    return false;
-};
+    return false
+}
 
 const dfsSearch = (board, word, i, j, index) => {
-    if (index === word.length) return true;
+    if (index === word.length) return true
 
     // Check exit condition
     // 1) dfsSearch is negative, if out of bound
@@ -28,21 +28,21 @@ const dfsSearch = (board, word, i, j, index) => {
     if (i < 0 || i >= m || j < 0 || j >= n ||
         visited[i][j] ||
         board[i][j] !== word[index]
-    ) return false;
+    ) return false
 
     // Mark as visited
-    visited[i][j] = true;
+    visited[i][j] = true
 
     // Recursively visits all grids
     if (dfsSearch(board, word, i - 1, j, index + 1) ||
         dfsSearch(board, word, i + 1, j, index + 1) ||
         dfsSearch(board, word, i, j - 1, index + 1) ||
         dfsSearch(board, word, i, j + 1, index + 1)
-    ) return true;
+    ) return true
 
     // Erase marks so you can start a brand new 'dfsSearch' starting from a different node
-    visited[i][j] = false;
+    visited[i][j] = false
 
     // If it gets this far and haven't found the word then the current search is negative
-    return false;
-};
+    return false
+}
