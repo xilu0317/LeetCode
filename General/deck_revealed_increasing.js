@@ -22,9 +22,8 @@ const deckRevealedIncreasing = (deck) => {
         res.unshift(deck.shift())
 
         // I won't figure out the edge case without the simulation 
-        if (deck.length > 0) {
+        if (deck.length > 0)
             res.unshift(res.pop())
-        }
     }
 
     return res

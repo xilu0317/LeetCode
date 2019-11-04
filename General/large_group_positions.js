@@ -1,8 +1,3 @@
-/**
- * @param {string} S
- * @return {number[][]}
- */
-
 // Maintain two pointers 'start' and 'finish'
 // Speical processing of the boundary condition where you have 'abbccbbbb'
 // Note there is no way to use the 'change of character' to detect the last group
