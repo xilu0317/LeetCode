@@ -3,22 +3,22 @@
 // if the counter exists we will just skip the current char
 
 const getString = (s) => {
-    let count = 0, res = '';
+    let count = 0, res = ''
 
     for (let i = s.length - 1; i >= 0; i--) {
-        let c = s[i];
+        let c = s[i]
         if (c === '#')
-            count++;
+            count++
         else
             if (count > 0)
-                count--;
+                count--
             else
-                res += c;
+                res += c
     }
 
-    return res;
-};
+    return res
+}
 
 const backspaceCompare = (S, T) => {
-    return getString(S) === getString(T);
-};
+    return getString(S) === getString(T)
+}
