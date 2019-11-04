@@ -1,18 +1,18 @@
 const pivotIndex = (nums) => {
-    if (!nums || !nums.length) return -1;
+    if (!nums || !nums.length) return -1
 
-    let right = nums.reduce((acc, cur) => acc + cur);
-    let left = 0, index = 0;
+    let right = nums.reduce((acc, cur) => acc + cur)
+    let left = 0, index = 0
     for (let num of nums) {
-        right -= num;
+        right -= num
 
         if (left === right)
-            return index;
+            return index
 
-        left += num;
+        left += num
 
-        index++;
+        index++
     }
 
-    return -1;
-};
+    return -1
+}

@@ -3,52 +3,52 @@
 
 // BFS
 const serialize = (root) => {
-    if (!root) return '';
+    if (!root) return ''
 
-    let q = [root];
-    let res = [];
+    let q = [root]
+    let res = []
 
     while (q.length) {
-        let node = q.shift();
+        let node = q.shift()
 
         if (node === null) {
-            res.push('n');
-            continue;
+            res.push('n')
+            continue
         }
-        res.push(node.val);
+        res.push(node.val)
 
-        q.push(node.left);
-        q.push(node.right);
+        q.push(node.left)
+        q.push(node.right)
     }
 
-    return res.join(' ');
-};
+    return res.join(' ')
+}
 
 // unpack the tree the same way it was seralized using BFS
 const deserialize = (data) => {
-    if (data === '') return null;
+    if (data === '') return null
 
-    let values = data.split(' ');
-    let root = new TreeNode(parseInt(values[0]));
-    let q = [root];
+    let values = data.split(' ')
+    let root = new TreeNode(parseInt(values[0]))
+    let q = [root]
 
     for (let i = 0; i < values.length; i++) {
-        let parent = q.shift();
+        let parent = q.shift()
 
         if (values[i] !== 'n') {
-            let node = new TreeNode(parseInt(values[i]));
-            parent.left = node;
-            q.push(node);
+            let node = new TreeNode(parseInt(values[i]))
+            parent.left = node
+            q.push(node)
         }
 
-        i++;
+        i++
 
         if (values[i] !== 'n') {
-            let node = new TreeNode(parseInt(values[i]));
-            parent.right = node;
-            q.push(node);
+            let node = new TreeNode(parseInt(values[i]))
+            parent.right = node
+            q.push(node)
         }
     }
 
-    return root;
-};
+    return root
+}
