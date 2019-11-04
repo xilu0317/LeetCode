@@ -12,7 +12,7 @@ const isIsomorphic = (s, t) => {
             return false
     }
 
-    // KEY: reverse mapping needs to hold true too
+    // EDGE CASE: s = [a, b, c, d], t = [aa, bb, cc, cc]
     for (let i = 0; i < t.length; i++) {
         if (!dict2[t[i]])
             dict2[t[i]] = s[i]
