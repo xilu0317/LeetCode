@@ -1,6 +1,5 @@
 const isValid = (string) => {
     let stack = []
-    // define parentheses pairs
     let dict = {
         '{': '}',
         '[': ']',
