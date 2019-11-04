@@ -31,9 +31,8 @@ const leafSimilar = (root1, root2) => {
 
     if (l1.length !== l2.length) return false
 
-    for (let i = 0; i < l1.length; i++) {
+    for (let i = 0; i < l1.length; i++)
         if (l1[i] !== l2[i]) return false
-    }
 
     return true
 }
