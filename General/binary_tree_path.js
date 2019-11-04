@@ -1,4 +1,3 @@
-// Please put down your thoughts, you future self would be deeply gratful.
 // Again, to fully comprehend traversal it is easier to assoicate the 'pictoral' version of the algorithm
 // Imaging trying to traverse all the nodes in a forest
 // You hold a note book called 'stack' and use the notebook to record the current position
@@ -9,26 +8,26 @@
 
 // Stack approach
 const binaryTreePaths = (root) => {
-    if (!root) return [];
+    if (!root) return []
 
-    let stack = [[root, '']];
-    let res = [];
+    let stack = [[root, '']]
+    let res = []
 
     while (stack.length) {
-        let [node, total] = stack.pop();
+        let [node, total] = stack.pop()
 
         if (!node.left && !node.right) {
-            res.push(total + node.val);
+            res.push(total + node.val)
         }
 
         if (node.right) {
-            stack.push([node.right, total + node.val + '->']);
+            stack.push([node.right, total + node.val + '->'])
         }
 
         if (node.left) {
-            stack.push([node.left, total + node.val + '->']);
+            stack.push([node.left, total + node.val + '->'])
         }
     }
 
-    return res;
+    return res
 }
