@@ -1,38 +1,37 @@
 // Recursive
 const isUnivalTree = (root) => {
-    if (!root) return false;
+    if (!root) return false
 
-    if (!root.left && !root.right) return true;
+    if (!root.left && !root.right) return true
 
-    if (!root.left) return isUnivalTree(root.right) && root.val === root.right.val;
+    if (!root.left) return isUnivalTree(root.right) && root.val === root.right.val
 
-    if (!root.right) return isUnivalTree(root.left) && root.val === root.left.val;
+    if (!root.right) return isUnivalTree(root.left) && root.val === root.left.val
 
-    return isUnivalTree(root.right) && isUnivalTree(root.left) && root.val === root.left.val && root.val === root.right.val;
-};
+    return isUnivalTree(root.right) && isUnivalTree(root.left) && root.val === root.left.val && root.val === root.right.val
+}
 
 // Iterative
 const isUnivalTree = (root) => {
-    if (!root) return false;
+    if (!root) return false
 
-    let stack = [];
-    let node = root;
+    let stack = [], node = root
 
     while (true) {
         if (node) {
-            stack.push(node);
-            node = node.left;
+            stack.push(node)
+            node = node.left
         } else {
             if (stack.length) {
-                node = stack.pop();
+                node = stack.pop()
                 // visit
-                if (node.val !== root.val) return false;
-                node = node.right;
+                if (node.val !== root.val) return false
+                node = node.right
             } else {
-                break;
+                break
             }
         }
     }
 
-    return true;
-};
+    return true
+}

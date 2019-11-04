@@ -5,22 +5,22 @@
 //              /          \
 //          cur.left     cur.right
 const increasingBST = (root) => {
-    return increasingBSTRec(root, null);
-};
+    return increasingBSTRec(root, null)
+}
 
 // In terms of naming, it is better to use 'cur' instead of 'root' to reflect that it is a generic node
 const increasingBSTRec = (cur, parent) => {
     // exit condition for recursion
     // If 'cur' is null it means 'cur' is a leaf. The 'parent' would be whatever parent node of that leaf
     // 'parent can also be named as 'next'.
-    if (!cur) return parent;
+    if (!cur) return parent
 
-    let res = increasingBSTRec(cur.left, cur);
-    cur.left = null;
-    cur.right = increasingBSTRec(cur.right, parent);
+    let res = increasingBSTRec(cur.left, cur)
+    cur.left = null
+    cur.right = increasingBSTRec(cur.right, parent)
 
-    return res;
-};
+    return res
+}
 
 //  'parent' really is just the parent node of the 'cur' node
 //

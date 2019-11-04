@@ -12,15 +12,14 @@
 // 3 11 5 17 7 13  ===> 13 3 11 5 17 7
 // 2 13 3 11 5 17 7 
 
-
 const deckRevealedIncreasing = (deck) => {
-    if (!deck) return deck;
+    if (!deck) return deck
 
     deck.sort((a, b) => b - a)
-    let res = [];
+    let res = []
 
     while (deck.length > 0) {
-        res.unshift(deck.shift());
+        res.unshift(deck.shift())
 
         // I won't figure out the edge case without the simulation 
         if (deck.length > 0) {
@@ -28,5 +27,5 @@ const deckRevealedIncreasing = (deck) => {
         }
     }
 
-    return res;
-};
+    return res
+}

@@ -1,17 +1,17 @@
 const longestCommonPrefix = (strs) => {
-    if (!strs || !strs.length) return '';
+    if (!strs || !strs.length) return ''
 
-    let minLen = Math.min(...strs.map(x => x.length));
+    let minLen = Math.min(...strs.map(x => x.length))
 
-    let res = '';
+    let res = ''
     for (let i = 0; i < minLen; i++) {
-        let common = strs[0][i];
+        let common = strs[0][i]
 
         if (strs.map(x => x[i]).every(x => x === common))
-            res += common;
+            res += common
         else
-            break;
+            break
     }
 
-    return res;
-};
+    return res
+}
