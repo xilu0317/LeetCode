@@ -2,21 +2,21 @@
 class MinHeap {
 
     constructor() {
-        this.arr = [];
+        this.arr = []
 
     }
 
     dump() {
-        return this.arr;
+        return this.arr
     }
 
     push(x) {
-        this.arr.push(x);
-        this.bubbleUp(this.arr.length - 1);
+        this.arr.push(x)
+        this.bubbleUp(this.arr.length - 1)
     }
 
     shift() {
-        let val = this.arr[0];
+        let val = this.arr[0]
     }
 
     bubbleUp(i) {
