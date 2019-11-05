@@ -1,13 +1,13 @@
-// Don't need this for the latest nodejs runtime
 const flat = (arr) => {
 	return arr.reduce((a, b) => a.concat(b))
 }
 
 const kClosest = (points, K) => {
 	let dictArr = []
-	for (let point of points) {
-		let distanceSquare = point[0] * point[0] + point[1] * point[1]
-		dictArr.push([distanceSquare, point])
+	for (let p of points) {
+		let dist = p[0] * p[0] + p[1] * p[1]
+
+		dictArr.push([dist, p])
 	}
 
 	dictArr.sort((a, b) => a[0] > b[0] ? 1 : -1)
