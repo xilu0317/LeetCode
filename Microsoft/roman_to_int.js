@@ -37,8 +37,9 @@ const romanToInt = function (s) {
     }
 
     let sum = 0
-    for (let i = 0; i < s.length; i++)
+    for (let i = 0; i < s.length; i++) {
         sum += dict[s[i]]
+    }
 
     // subtract over-added values
     if (s.includes('IV')) sum -= 2
