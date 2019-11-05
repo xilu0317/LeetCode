@@ -1,5 +1,5 @@
 // This is the most important part!
-const twoRowComparator = (a, b) => {
+const comp = (a, b) => {
     // descending order
     if (b[1] > a[1]) return 1
     if (b[1] < a[1]) return -1
@@ -24,7 +24,7 @@ const topKFrequent = (words, k) => {
     }
 
     let res = Object.entries(dict)
-                    .sort(twoRowComparator)
+                    .sort(comp)
                     .map(x => x[0])
 
     res.length = k
