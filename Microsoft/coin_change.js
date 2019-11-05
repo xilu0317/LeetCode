@@ -10,9 +10,11 @@ const coinChange = (coins, amount) => {
     for (let i = 1; i <= amount; i++) {
         // loop through different coin denomination
         for (let j = 0; j < coins.length; j++) {
-            // if the current denomination is smaller than the current amount 'i'
-            if (coins[j] <= i)
+            // if the current denomination is smaller than or equal the current amount 'i'
+            if (coins[j] <= i) {
+                // make a locally optimized choice for change
                 dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1)
+            }
         }
     }
 
