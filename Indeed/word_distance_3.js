@@ -1,7 +1,6 @@
 // NOTE: don't forget absolute value
 const shotestwordDist = (words, w1, w2) => {
-    let dict = {}
-    let min = Infinity
+    let dict = {}, min = Infinity
 
     for (let i = 0; i < words.length; i++) {
         if (!dict[words[i]])

@@ -1,8 +1,7 @@
 const binaryTreePaths = (root) => {
     if (!root) return []
 
-    let stack = [[root, '']]
-    let res = []
+    let stack = [[root, '']], res = []
 
     while (stack.length) {
         let [node, total] = stack.pop()

@@ -33,8 +33,10 @@ const dictSubtraction = (dict1, dict2) => {
             dict1[key] = Math.min(dict1[key], dict2[key])
             if (dict1[key] === 0)
                 delete dict1[key]
+
         } else
             delete dict1[key]
+
     }
 
     return dict1

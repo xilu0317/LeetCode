@@ -63,7 +63,7 @@ function getMyClassBFS(className, root = document.body) {
         let node = q.shift()
 
         // If the className is a match, add it to the result list
-        if (node.classList.contains(className)) 
+        if (node.classList.contains(className))
             res.push(node)
 
         for (const c of node.children) {
@@ -83,7 +83,7 @@ function getMyClassDFS(className, root = document.body) {
     while (stack.length) {
         let node = stack.pop()
 
-        if (node.classList.contains(className)) 
+        if (node.classList.contains(className))
             classList.push(node)
 
         for (let child of node.children) {
@@ -113,10 +113,10 @@ function getClassNameByHier(hierName) {
         while (node.parentNode) {
 
             // if contains hier increment count
-            if (node.classList.contains(hierList[i])) 
+            if (node.classList.contains(hierList[i]))
                 i++
 
-            if (i === hierList.length) 
+            if (i === hierList.length)
                 classNamesRes.push(nodeWithClass)
 
             node = node.parentNode
@@ -130,15 +130,13 @@ function getClassNameByHier(hierName) {
 const bfs = (className, root = document.body) => {
     if (!className) return null
 
-    let q = [root]
-    let res = []
+    let q = [root], res = []
 
     while (q.length) {
         let node = q.shift()
 
-        if (node.classList.contains(className)) 
+        if (node.classList.contains(className))
             res.push(node)
-        
 
         for (let child of node.children) {
             q.push(child)
@@ -151,20 +149,18 @@ const bfs = (className, root = document.body) => {
 const getHier = (hierString) => {
     if (!hierString) return null
 
-    let hierList = hierString
-        .split(/>/)
-        .reverse()
+    let hierList = hierString.split(/>/)
+                             .reverse()
 
     let lastClassName = hierList[0]
     let nodeClassList = bfs(lastClassName)
     let res = []
 
     for (let nodeClass of nodeClassList) {
-        let node = nodeClass
-        let i = 1
+        let node = nodeClass, i = 1
 
         while (node) {
-            if (node.classList.contains(hierList[i])) 
+            if (node.classList.contains(hierList[i]))
                 i++
 
             if (i === hierList.length) {
