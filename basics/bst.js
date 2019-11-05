@@ -1,22 +1,22 @@
 class TreeNode {
     constructor(val) {
-        this.val = val;
-        this.left = this.right = null;
+        this.val = val
+        this.left = this.right = null
     }
 }
 
 const _generateBSTRec = (arr, low, high) => {
-    if (!arr) return null;
-    if (low > high) return null;
+    if (!arr) return null
+    if (low > high) return null
 
-    let mid = parseInt((low + high) / 2);
-    let root = new TreeNode(arr[mid]);
+    let mid = parseInt((low + high) / 2)
+    let root = new TreeNode(arr[mid])
 
-    root.left = _generateBSTRec(arr, low, mid - 1);
-    root.right = _generateBSTRec(arr, mid + 1, high);
+    root.left = _generateBSTRec(arr, low, mid - 1)
+    root.right = _generateBSTRec(arr, mid + 1, high)
 
-    return root;
-};
+    return root
+}
 
 /**
  * @param {number} num
@@ -37,9 +37,9 @@ const _generateBSTRec = (arr, low, high) => {
 //   1   3 5   7  9  11 13  15
 //
 const generateBST = (num) => {
-    let arr = Array(num).fill().map((v, i) => i + 1);
-    return _generateBSTRec(arr, 0, arr.length - 1);
-};
+    let arr = Array(num).fill().map((v, i) => i + 1)
+    return _generateBSTRec(arr, 0, arr.length - 1)
+}
 
 // Generate a tree from an array
 // Input array:
@@ -57,53 +57,52 @@ const generateBST = (num) => {
  * @return {TreeNode} root
  */
 const generateBinaryTreeFromArray = (arr) => {
-    if (!arr) return null;
+    if (!arr) return null
 
-    let root = new TreeNode(arr[0]);
-    let q = [root];
+    let root = new TreeNode(arr[0])
+    let q = [root]
 
     for (let i = 0; i < arr.length; i++) {
-        let left = 2 * i + 1;
-        let right = 2 * i + 2;
-        let node = q.shift();
+        let left = 2 * i + 1
+        let right = 2 * i + 2
+        let node = q.shift()
 
         if (left < arr.length && arr[left] !== null) {
-            let newLeft = new TreeNode(arr[left]);
-            q.push(newLeft);
-            node.left = newLeft;
+            let newLeft = new TreeNode(arr[left])
+            q.push(newLeft)
+            node.left = newLeft
         }
 
         if (right < arr.length && arr[right] !== null) {
-            let newRight = new TreeNode(arr[right]);
-            q.push(newRight);
-            node.right = newRight;
+            let newRight = new TreeNode(arr[right])
+            q.push(newRight)
+            node.right = newRight
         }
     }
 
-    return root;
-};
+    return root
+}
 
 // Tree Traversal
 // BFS iterative
 const bfs = (root) => {
-    if (!root) return;
+    if (!root) return
 
-    let q = [root];
+    let q = [root]
     while (q.length) {
-        let len = q.length;
+        let len = q.length
+
         for (let i = 0; i < len; i++) {
-            let node = q.shift();
-            console.log('vist -> ' + node.val);
-            if (node.left) {
-                q.push(node.left);
-            }
-            if (node.right) {
-                q.push(node.right);
-            }
+            let node = q.shift()
+            console.log('vist -> ' + node.val)
+
+            if (node.left) q.push(node.left)
+
+            if (node.right) q.push(node.right)
         }
-        console.log('-----level-------');
+        console.log('-----level-------')
     }
-};
+}
 
 // DFS [Backtrack] iterative using stack, In-order traversal
 // Here is how you remember it.
@@ -115,69 +114,68 @@ const bfs = (root) => {
 // You tirelessly repeat the above procedure, once you have marked off all positions in your notebook you have finally arived in
 // destination! Surprise surpise you are still stuck in the fking woods LOL!
 const dfs = (root) => {
-    if (!root) return;
+    if (!root) return
 
-    let node = root;
-    let stack = [];
+    let node = root
+    let stack = []
 
     while (true) {
         if (node) {
-            stack.push(node);
-            node = node.left;
+            stack.push(node)
+            node = node.left
         } else {
             if (stack.length) {
-                node = stack.pop(); // backtrack to the last position
-                console.log('visit -> ' + node.val); // visit
-                node = node.right;
-            } else {
-                break;
-            }
+                node = stack.pop() // backtrack to the last position
+                console.log('visit -> ' + node.val) // visit
+                node = node.right
+            } else
+                break
         }
     }
-};
+}
 
 // PreOrder Recursive
 const preOrderTraversal = (root) => {
-    if (!root) return;
+    if (!root) return
 
-    console.log('visit -> ' + root.val);
-    preOrderTraversal(root.left);
-    preOrderTraversal(root.right);
-};
+    console.log('visit -> ' + root.val)
+    preOrderTraversal(root.left)
+    preOrderTraversal(root.right)
+}
 
 // InOrder Recursive
 const InOrderTraversal = (root) => {
-    if (!root) return;
+    if (!root) return
 
-    InOrderTraversal(root.left);
-    console.log('visit -> ' + root.val);
-    InOrderTraversal(root.right);
-};
+    InOrderTraversal(root.left)
+    console.log('visit -> ' + root.val)
+    InOrderTraversal(root.right)
+}
 
 // PostOrder Recursive
 const postOrderTraversal = (root) => {
-    if (!root) return;
+    if (!root) return
 
-    postOrderTraversal(root.left);
-    postOrderTraversal(root.right);
-    console.log('visit -> ' + root.val);
-};
+    postOrderTraversal(root.left)
+    postOrderTraversal(root.right)
+    console.log('visit -> ' + root.val)
+}
 
 // use this line to export the function you want in Nodejs, note browser Javascript might be different
-// const stuff = require('./basics/bst.js');
+// const stuff = require('./basics/bst.js')
 // 'stuff' will then be an alias to 'generateBinaryTreeFromArray' in the calling file
 
-module.exports = generateBinaryTreeFromArray;
-//module.exports = generateBST;
+module.exports = generateBinaryTreeFromArray
+//module.exports = generateBST
 
 // Main
 // Binary tree initialization
-//let root = generateBST(15);
-//let root = generateBinaryTreeFromArray([1,2,5,3,4,null,6]);
+//let root = generateBST(15)
+//let root = generateBinaryTreeFromArray([1,2,5,3,4,null,6])
 
 // Tree traversal
-// bfs(root);
-// dfs(root);
-// preOrderTraversal(root);
-// InOrderTraversal(root);
-// postOrderTraversal(root);
+// bfs(root)
+// dfs(root)
+// preOrderTraversal(root)
+// InOrderTraversal(root)
+// postOrderTraversal(root)

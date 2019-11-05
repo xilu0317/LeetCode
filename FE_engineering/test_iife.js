@@ -2,35 +2,35 @@
 
 let test = (function (args) {
     function Car(args) {
-        this.name = args.name;
-        this.make = args.make;
-        this.year = args.year;
+        this.name = args.name
+        this.make = args.make
+        this.year = args.year
     }
 
     Car.prototype.start = function () {
-        console.log(`start ${this.name}`);
+        console.log(`start ${this.name}`)
     }
 
     Car.prototype.stop = function () {
-        console.log(`stop ${this.name}`);
+        console.log(`stop ${this.name}`)
     }
 
     Car.prototype.getInfo = function () {
-        console.log(`${this.name} is driving ...`);
+        console.log(`${this.name} is driving ...`)
     }
 
     Car.prototype.resetName = function (name) {
-        this.name = name;
+        this.name = name
     }
 
-    return Car;
-})();
+    return Car
+})()
 
-let args = { name: 'my1', year: 1234, make: 'toyota' };
+let args = { name: 'my1', year: 1234, make: 'toyota' }
 
-test(args);
+test(args)
 
 
-console.log(test);
+console.log(test)
 
-test.start();
+test.start()

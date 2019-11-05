@@ -1,21 +1,21 @@
 // IIFE for scope safty
 (() => {
-    const request = require('request');
-    const readline = require('readline');
-    const API_ENDPOINT = 'https://data.sfgov.org/resource/jjew-r69b.json';
+    const request = require('request')
+    const readline = require('readline')
+    const API_ENDPOINT = 'https://data.sfgov.org/resource/jjew-r69b.json'
 
     const callback = (err, response, body) => {
         if (err)
-            console.error(err.toString());
+            console.error(err.toString())
 
         if (response.statusMessage !== 'OK' || response.statusCode !== 200)
-            console.error('Failed to fetch data from the API endpoint.');
+            console.error('Failed to fetch data from the API endpoint.')
 
         if (!body)
-            console.error('The reponse body does not exisit.');
+            console.error('The reponse body does not exisit.')
 
-        processBody(body);
-    };
+        processBody(body)
+    }
 
     const printCurrentTime = () => {
         const dict = {
@@ -28,143 +28,143 @@
             7: 'Sunday'
         }
 
-        const now = new Date();
-        const day = now.getDay();
-        const hour = now.getHours();
-        const min = now.getMinutes();
+        const now = new Date()
+        const day = now.getDay()
+        const hour = now.getHours()
+        const min = now.getMinutes()
 
-        console.log(`Current time: ${hour}:${min} on ${dict[day]}`);
-    };
+        console.log(`Current time: ${hour}:${min} on ${dict[day]}`)
+    }
 
     // running main program
     (() => {
-        printCurrentTime();
+        printCurrentTime()
 
-        console.log(`Calling API at ${API_ENDPOINT}`);
+        console.log(`Calling API at ${API_ENDPOINT}`)
 
-        request(API_ENDPOINT, callback);
-    })();
+        request(API_ENDPOINT, callback)
+    })()
 
     const processBody = (body) => {
-        console.log('Data fetched from remote');
+        console.log('Data fetched from remote')
 
-        const truckList = JSON.parse(body);
+        const truckList = JSON.parse(body)
 
         const openTrucksObjects = truckList.filter(x => isFoodTruckOpen2(x))
-                                           .map(x => {
-                                                return {
-                                                    NAME: x.applicant,
-                                                    ADDRESS: x.location
-                                                }
-                                            });
+            .map(x => {
+                return {
+                    NAME: x.applicant,
+                    ADDRESS: x.location
+                }
+            })
 
         // de-dup
-        const uniqueOpenTrucks = new Set(openTrucksObjects);
+        const uniqueOpenTrucks = new Set(openTrucksObjects)
 
-        const result = [...uniqueOpenTrucks].sort(comp);
+        const result = [...uniqueOpenTrucks].sort(comp)
 
-        displayResult(result);
-    };
+        displayResult(result)
+    }
 
     // comparator - first sort by name then by address
     const comp = (a, b) => {
         if (a.NAME > b.NAME)
-            return 1;
+            return 1
         if (a.NAME < b.NAME)
-            return -1;
+            return -1
 
-        return a.ADDRESS > b.ADDRESS ? 1 : -1;
-    };
+        return a.ADDRESS > b.ADDRESS ? 1 : -1
+    }
 
     const displayResult = async (result, pageSize = 10) => {
         if (!result || !result.length) {
-            console.log('The result list is empty');
-            return;
+            console.log('The result list is empty')
+            return
         }
 
         if (result.length <= pageSize) {
-            console.table(result);
-            return;
+            console.table(result)
+            return
         }
 
-        let batch = [], count = 0;
+        let batch = [], count = 0
         for (const item of result) {
             if (count === pageSize) {
-                console.table(batch);
-                await pressToContinue();
+                console.table(batch)
+                await pressToContinue()
                 // reset batch per data dump
-                batch = [];
-                count = 0;
+                batch = []
+                count = 0
             }
 
-            batch.push(item);
-            count++;
+            batch.push(item)
+            count++
         }
 
         // dump what's left
-        if (batch.length) console.table(batch);
-    };
+        if (batch.length) console.table(batch)
+    }
 
     const pressToContinue = () => {
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
-        });
+        })
 
         return new Promise(resolve => rl.question('Press anything to continue ...', ans => {
-            rl.close();
-            resolve(ans);
-        }));
-    };
+            rl.close()
+            resolve(ans)
+        }))
+    }
 
     const getCurrentDay = () => {
-        return new Date().getDay().toString();
-    };
+        return new Date().getDay().toString()
+    }
 
     const getCurrentHour = () => {
-        return new Date().getHours();
-    };
+        return new Date().getHours()
+    }
 
     const getCurrentMin = () => {
-        return new Date().getMinutes();
-    };
+        return new Date().getMinutes()
+    }
 
     const isFoodTruckOpen = (foodTruck) => {
-        if (!foodTruck) return false;
+        if (!foodTruck) return false
 
-        if (getCurrentDay() !== foodTruck.dayorder) return false;
+        if (getCurrentDay() !== foodTruck.dayorder) return false
 
-        const currentHour = getCurrentHour();
-        const currentMin = getCurrentMin();
-        const start = parseInt(foodTruck.start24);
-        const end = parseInt(foodTruck.end24);
+        const currentHour = getCurrentHour()
+        const currentMin = getCurrentMin()
+        const start = parseInt(foodTruck.start24)
+        const end = parseInt(foodTruck.end24)
 
-        if (currentHour < start) return false;
+        if (currentHour < start) return false
 
-        if (currentHour > end) return false;
+        if (currentHour > end) return false
 
-        if (currentHour === end && currentMin > 0) return false;
+        if (currentHour === end && currentMin > 0) return false
 
-        return true;
-    };
+        return true
+    }
 
     const isFoodTruckOpen2 = (foodTruck) => {
-        if (!foodTruck) return false;
+        if (!foodTruck) return false
 
-        if (getCurrentDay() !== foodTruck.dayorder) return false;
+        if (getCurrentDay() !== foodTruck.dayorder) return false
 
-        const currentHour = 9;
-        const currentMin = 11;
-        const start = parseInt(foodTruck.start24);
-        const end = parseInt(foodTruck.end24);
+        const currentHour = 9
+        const currentMin = 11
+        const start = parseInt(foodTruck.start24)
+        const end = parseInt(foodTruck.end24)
 
-        if (currentHour < start) return false;
+        if (currentHour < start) return false
 
-        if (currentHour > end) return false;
+        if (currentHour > end) return false
 
-        if (currentHour === end && currentMin > 0) return false;
+        if (currentHour === end && currentMin > 0) return false
 
-        return true;
-    };
+        return true
+    }
 
-})();
+})()
