@@ -2,8 +2,9 @@ const getMax = (root) => {
     if (!root) return null
 
     // keep going right as long as right exists
-    while (root.right)
+    while (root.right) {
         root = root.right
+    }
 
     return root.val
 }
@@ -11,8 +12,9 @@ const getMax = (root) => {
 const getMin = (root) => {
     if (!root) return null
 
-    while (root.left)
+    while (root.left) {
         root = root.left
+    }
 
     return root.val
 }
