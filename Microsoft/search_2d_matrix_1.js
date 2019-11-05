@@ -3,23 +3,23 @@
 
 // Use parseInt
 const searchMatrix = (matrix, target) => {
-    if (!matrix || !matrix.length) return false;
+    if (!matrix || !matrix.length) return false
 
-    let start = 0; rows = matrix.length, cols = matrix[0].length;
-    let end = rows * cols - 1;
+    let start = 0, rows = matrix.length, cols = matrix[0].length
+    let end = rows * cols - 1
 
     // KEY: index folding / modulation
     while (start <= end) {
-        let mid = parseInt((start + end) / 2);
+        let mid = parseInt((start + end) / 2)
 
         if (matrix[parseInt(mid / cols)][mid % cols] === target)
-            return true;
+            return true
 
         if (matrix[parseInt(mid / cols)][mid % cols] < target)
-            start = mid + 1;
+            start = mid + 1
         else
-            end = mid - 1;
+            end = mid - 1
     }
 
-    return false;
-};
+    return false
+}

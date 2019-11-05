@@ -12,13 +12,13 @@
 // Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 const maxProfit = (prices) => {
-    let total = 0;
+    let total = 0
 
     for (let i = 0; i < prices.length - 1; i++) {
-        if (prices[i + 1] > prices[i]) {
-            total += prices[i + 1] - prices[i];
-        }
+        if (prices[i + 1] > prices[i])
+            total += prices[i + 1] - prices[i]
+
     }
 
-    return total;
-};
+    return total
+}

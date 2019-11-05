@@ -1,29 +1,29 @@
 const mostCommonWord = (paragraph, banned) => {
-    if (!paragraph) return null;
+    if (!paragraph) return null
 
     let words = paragraph.split(/\W+/)
                          .filter(x => x !== '')
-                         .map(x => x.toLowerCase());
+                         .map(x => x.toLowerCase())
 
-    let dict = {};
+    let dict = {}
     for (let word of words) {
         if (!dict[word])
-            dict[word] = 1;
+            dict[word] = 1
         else
-            dict[word]++;
+            dict[word]++
     }
 
-    let set = new Set(banned);
-    let max = -Infinity, maxKey = null;
+    let set = new Set(banned)
+    let max = -Infinity, maxKey = null
 
     for (let key in dict) {
         if (!set.has(key)) {
             if (dict[key] > max) {
-                max = dict[key];
-                maxKey = key;
+                max = dict[key]
+                maxKey = key
             }
         }
     }
 
-    return maxKey;
-};
+    return maxKey
+}

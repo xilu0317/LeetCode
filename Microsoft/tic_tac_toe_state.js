@@ -18,26 +18,26 @@
 // TODO: revisit
 const validTicTacToe = (board) => {
     // When turns is 1, X moved
-    let turns = 0;
-    let diag = 0, antidiag = 0;
-    let rows = [0, 0, 0], cols = [0, 0, 0];
-    let xWin = false, oWin = false;
+    let turns = 0
+    let diag = 0, antidiag = 0
+    let rows = [0, 0, 0], cols = [0, 0, 0]
+    let xWin = false, oWin = false
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             if (board[i][j] === 'X') {
-                turns++;
-                rows[i]++;
-                cols[j]++;
-                if (i === j) diag++;
+                turns++
+                rows[i]++
+                cols[j]++
+                if (i === j) diag++
                 // notice it is '2' not '3'
-                if (i + j === 2) antidiag++;
+                if (i + j === 2) antidiag++
             } else if (board[i][j] === 'O') {
-                turns--;
-                rows[i]--;
-                cols[j]--;
-                if (i === j) diag--;
-                if (i + j === 2) antidiag--;
+                turns--
+                rows[i]--
+                cols[j]--
+                if (i === j) diag--
+                if (i + j === 2) antidiag--
             }
         }
     }
@@ -45,17 +45,16 @@ const validTicTacToe = (board) => {
     // check 3 3 3 for 'x'
     xWin = rows[0] === 3 || rows[1] === 3 || rows[2] === 3 ||
            cols[0] === 3 || cols[1] === 3 || cols[2] === 3 ||
-           diag === 3    || antidiag === 3;
+           diag === 3 || antidiag === 3
 
     // check 3 3 3 for 'o'
     oWin = rows[0] === -3 || rows[1] === -3 || rows[2] === -3 ||
            cols[0] === -3 || cols[1] === -3 || cols[2] === -3 ||
-           diag === -3    || antidiag === -3;
+           diag === -3 || antidiag === -3
 
     // when 'x' has won, turn must be 1 per spec
-    if (xWin && turns === 0 || oWin && turns === 1)
-        return false;
+    if (xWin && turns === 0 || oWin && turns === 1) return false
 
     // haven't finished the game configuration
-    return (turns === 0 || turns === 1) && (!xWin || !oWin);
-};
+    return (turns === 0 || turns === 1) && (!xWin || !oWin)
+}

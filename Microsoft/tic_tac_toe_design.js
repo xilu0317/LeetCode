@@ -19,38 +19,38 @@
 class TicTacToe {
     constructor(n) {
         // it is better not to use a matrix
-        this.rows = Array(n).fill(0);
-        this.cols = Array(n).fill(0);
-        this.diag = 0;
-        this.anttDiag = 0;
+        this.rows = Array(n).fill(0)
+        this.cols = Array(n).fill(0)
+        this.diag = 0
+        this.anttDiag = 0
     }
 
     move(i, j, player) {
         // note 'addOne' can be -1 for player 2
-        let addOne = player === 1 ? 1 : -1;
+        let addOne = player === 1 ? 1 : -1
 
         // rows
-        this.rows[i] += addOne;
+        this.rows[i] += addOne
 
         // cols
-        this.cols[j] += addOne;
+        this.cols[j] += addOne
 
         // diag
         if (i === j)
-            this.diag += addOne;
+            this.diag += addOne
 
         // anti-diag
         if ((j + i) === this.cols.length - 1)
-            this.anttDiag += addOne;
+            this.anttDiag += addOne
 
-        let size = this.rows.length;
-        if (Math.abs(this.rows[i])  === size ||
-            Math.abs(this.cols[j])  === size ||
-            Math.abs(this.diag)     === size ||
+        let size = this.rows.length
+        if (Math.abs(this.rows[i]) === size ||
+            Math.abs(this.cols[j]) === size ||
+            Math.abs(this.diag) === size ||
             Math.abs(this.anttDiag) === size) {
-            return player;
+            return player
         }
 
-        return 0;
+        return 0
     }
 }

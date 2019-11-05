@@ -3,8 +3,8 @@
 // All operations need to be O(1) time-complexity
 class RandomizedSet {
     constructor() {
-        this.list = [];
-        this.dict = {};
+        this.list = []
+        this.dict = {}
     }
 
     // insert(x)
@@ -13,8 +13,8 @@ class RandomizedSet {
     // 3) Add in the hash table also, x is added as key and last array index as the index.
     insert(x) {
         if (!this.dict[x]) {
-            this.list.push(x);
-            this.dict[x] = this.list.length - 1;
+            this.list.push(x)
+            this.dict[x] = this.list.length - 1
         }
     }
 
@@ -25,31 +25,31 @@ class RandomizedSet {
     // Swapping is done because the last element can be removed in O(1) time.
     // 4) Update index of the last element in a hash map.
     remove(x) {
-        let index = this.dict[x];
+        let index = this.dict[x]
 
         if (index >= 0) {
             delete this.dict[x];
 
             // ES6
-            [this.list[index], this.list[this.list.length - 1]] = [this.list[this.list.length - 1], this.list[index]];
-            this.list.length--;
+            [this.list[index], this.list[this.list.length - 1]] = [this.list[this.list.length - 1], this.list[index]]
+            this.list.length--
         }
 
-        this.dict[x] = this.list.length - 1;
+        this.dict[x] = this.list.length - 1
     }
 
     // getRandom()
     // 1) Generate a random number from 0 to last index.
     // 2) Return the array element at the randomly generated index.
     getRandom() {
-        let randIndex = parseInt(Math.random() * this.list.length);
+        let randIndex = parseInt(Math.random() * this.list.length)
 
-        return this.list[randIndex];
+        return this.list[randIndex]
     }
 
     // search(x)
     // Do a lookup for x in hash map.
     search(x) {
-        return this.dict[x];
+        return this.dict[x]
     }
 }

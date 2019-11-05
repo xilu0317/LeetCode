@@ -2,13 +2,13 @@
 
 const reverseList = (head) => {
     // If the head is null or the head is the only node there
-    if (!head || !head.next) return head;
+    if (!head || !head.next) return head
 
-    let reversedHead = reverseList(head.next);
+    let reversedHead = reverseList(head.next)
 
     // move pointers
-    head.next.next = head;
-    head.next = null;
+    head.next.next = head
+    head.next = null
 
-    return reversedHead;
-};
+    return reversedHead
+}

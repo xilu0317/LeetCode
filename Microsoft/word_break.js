@@ -1,8 +1,3 @@
-/**
- * @param {string} s
- * @param {string[]} wordDict
- * @return {boolean}
- */
 // DP
 const wordBreak = (s, wordDict) => {
     let dp = Array(s.length + 1).fill(false)
@@ -22,15 +17,14 @@ const wordBreak = (s, wordDict) => {
 
 // BFS
 const wordBreak = (s, wordDict) => {
-    let q = []
     let n = s.length
     // Use this set to mark if the node has been visited or not
     let visited = new Set()
 
     // Just treat the indices as nodes
-    q = [0]
+    let q = [0]
     while (q.length) {
-        let i = q.shift() // dequeue
+        let i = q.shift()
 
         if (!visited.has(i)) {
             visited.add(i)
@@ -40,8 +34,8 @@ const wordBreak = (s, wordDict) => {
                 let m = word.length
                 if (i + m <= n && s.substring(i, i + m) === word) {
                     // If we can reach the end node, then we must have found the word break
-                    if (i + m === n)
-                        return true
+                    if (i + m === n) return true
+
                     q.push(i + m)
                 }
             }

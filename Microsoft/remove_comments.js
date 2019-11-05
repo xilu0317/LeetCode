@@ -1,40 +1,34 @@
-/**
-* @param {string[]} source
-* @return {string[]}
-*/
 // TODO: revisit
 const removeComments = (source) => {
-    let inBlock = false;
-    let newline = '';
-    let res = [];
+    let inBlock = false, newline = '', res = []
 
     for (let line of source) {
-        let i = 0;
-        if (!inBlock) newline = '';
+        let i = 0
+        if (!inBlock) newline = ''
 
-        let len = line.length;
+        let len = line.length
         while (i < len) {
             // when encoutering the start '/*'
             if (!inBlock && i + 1 < len && line[i] === '/' && line[i + 1] == '*') {
-                inBlock = true;
-                i++;
+                inBlock = true
+                i++
                 // when encoutering the end '*/'
             } else if (inBlock && i + 1 < len && line[i] == '*' && line[i + 1] == '/') {
-                inBlock = false;
-                i++;
+                inBlock = false
+                i++
                 // when encountering '//'
             } else if (!inBlock && i + 1 < len && line[i] == '/' && line[i + 1] == '/') {
-                break;
+                break
             } else if (!inBlock) {
-                newline += line[i];
+                newline += line[i]
             }
-            i++;
+            i++
         }
 
         if (!inBlock && newline.length > 0) {
-            res.push(newline);
+            res.push(newline)
         }
     }
 
-    return res;
-};
+    return res
+}

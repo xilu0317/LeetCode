@@ -11,16 +11,15 @@ const zigzagLevelOrder = (root) => {
         // for each level
         for (let i = 0; i < len; i++) {
             let node = q.shift()
-            if (node) {
+            if (node)
                 level.push(node.val)
-            }
+
             // push child nodes
-            if (node.left) {
+            if (node.left)
                 q.push(node.left)
-            }
-            if (node.right) {
+
+            if (node.right)
                 q.push(node.right)
-            }
         }
 
         res.push(flag ? level : level.reverse())

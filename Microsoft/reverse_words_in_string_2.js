@@ -15,29 +15,28 @@
 
 const reverseWords = (s) => {
     // reverse the whole sentence
-    reverse(s, 0, s.length - 1);
+    reverse(s, 0, s.length - 1)
 
     // reverse each word
-    let start = 0;
+    let start = 0
     for (let i = 0; i < s.length; i++) {
         if (s[i] == ' ') {
             // if the current is space then reverse the previous one
-            reverse(s, start, i - 1);
+            reverse(s, start, i - 1)
             // start would be the next char after the space
-            start = i + 1;
+            start = i + 1
         }
     }
 
     // TODO: revisit
     // wouldn't this undo the last word
-    reverse(s, start, s.length - 1);
-};
+    reverse(s, start, s.length - 1)
+}
 
 const reverse = (s, start, end) => {
     while (start < end) {
-        // ES6
-        [s[start], s[end]] = [s[end], s[start]];
-        start++;
-        end--;
+        [s[start], s[end]] = [s[end], s[start]]
+        start++
+        end--
     }
-};
+}

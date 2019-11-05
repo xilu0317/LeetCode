@@ -1,58 +1,58 @@
 // ES6
 class Node {
     constructor() {
-        this.val;
-        this.children;
+        this.val
+        this.children
     }
 }
 
 class Codec {
     // object -> string
     serialize(root) {
-        let list = [];
+        let list = []
 
-        this.serializeHelper(root, list);
+        this.serializeHelper(root, list)
 
         // join method is important
-        return list.join(',');
+        return list.join(',')
     }
 
     // DFS
     serializeHelper(node, list) {
-        if (!node) return;
+        if (!node) return
 
-        list.push(node.val);
-        list.push(node.children.length);
+        list.push(node.val)
+        list.push(node.children.length)
 
         for (let child of node.children) {
-            this.serializeHelper(child, list);
+            this.serializeHelper(child, list)
         }
     }
 
     // str -> object
     deserialize(str) {
-        if (!str) return null;
+        if (!str) return null
 
-        let q = str.split(',');
+        let q = str.split(',')
 
-        return this.deserializeHelper(q);
+        return this.deserializeHelper(q)
     }
 
     // DFS
     deserializeHelper(q) {
-        let node = new Node();
+        let node = new Node()
 
         // dequeue a node here
-        node.val = q.shift();
+        node.val = q.shift()
 
         // number of nodes
-        let n = q.shift();
+        let n = q.shift()
 
-        node.children = [];
+        node.children = []
         for (let i = 0; i < n; i++) {
-            node.children.push(this.deserializeHelper(q));
+            node.children.push(this.deserializeHelper(q))
         }
 
-        return node;
+        return node
     }
 }

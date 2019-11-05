@@ -1,25 +1,22 @@
-/**
- * @param {number[]} T
- * @return {number[]}
- */
 const dailyTemperatures = (T) => {
-    let res = [];
+    let res = []
 
     for (let i = 0; i < T.length; i++) {
-        let count = 0;
+        let count = 0
+
         for (let j = i + 1; j < T.length; j++) {
             if (T[i] < T[j]) {
-                count++;
-                break;
+                count++
+                break
             } else {
-                count++;
+                count++
             }
 
-            if (j === T.length - 1) count = 0;
+            if (j === T.length - 1) count = 0
         }
 
-        res.push(count);
+        res.push(count)
     }
 
-    return res;
-};
+    return res
+}

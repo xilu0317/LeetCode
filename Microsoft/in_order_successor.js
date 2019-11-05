@@ -44,26 +44,26 @@
  */
 const inorderSuccessor = (cur, p) => {
     // Exit conition for recursion
-    if (!cur || !p) return null;
+    if (!cur || !p) return null
 
     if (cur.val > p.val)
         // If the current value is greater than the p value, go search on the left subtree if nothing exisit the current value is the succeor
-        return inorderSuccessor(cur.left, p) || cur;
+        return inorderSuccessor(cur.left, p) || cur
     //                      *Case I           *Case II
     else
         // If the current value is smaller, go search on the right subtree
-        return inorderSuccessor(cur.right, p);
+        return inorderSuccessor(cur.right, p)
     //                 *Case III
-};
+}
 
 // Predecessor is symmetrical
 const predecessor = (cur, p) => {
-    if (!cur || !p) return null;
+    if (!cur || !p) return null
 
     if (cur.val >= p.val)
-        return predecessor(cur.left, p);
+        return predecessor(cur.left, p)
     else
-        return predecessor(cur.right, p) || cur;
-};
+        return predecessor(cur.right, p) || cur
+}
 
 // TODO: Need to understand both iterative and recursive solution
