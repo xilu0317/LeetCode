@@ -1,3 +1,4 @@
+// Iterative
 const hasPathSum = (root, sum) => {
     if (!root) return []
 
@@ -24,6 +25,7 @@ const hasPathSum = (root, sum) => {
     return false
 }
 
+// Recursive approach
 const hasPathSum = (root, sum) => {
     if (!root) return false
 
