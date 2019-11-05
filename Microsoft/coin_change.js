@@ -3,11 +3,14 @@
 const coinChange = (coins, amount) => {
     let dp = Array(amount + 1).fill(Infinity)
 
-    // Initial condition
+    // init
     dp[0] = 0
 
+    // loop through different 'amount'
     for (let i = 1; i <= amount; i++) {
+        // loop through different coin denomination
         for (let j = 0; j < coins.length; j++) {
+            // if the current denomination is smaller than the current amount 'i'
             if (coins[j] <= i)
                 dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1)
         }
