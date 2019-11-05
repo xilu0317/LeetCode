@@ -16,11 +16,12 @@
 // unite eq 1 and eq 2 and solve for m
 // sum - min * n = m
 
+// KEY: math
 const minMoves = (nums) => {
     if (!nums) return -1
 
     let sum = nums.reduce((acc, cur) => acc + cur)
-    let min = Math.min.apply(null, nums)
+    let min = Math.min(...nums)
     let len = nums.length
 
     return sum - len * min
