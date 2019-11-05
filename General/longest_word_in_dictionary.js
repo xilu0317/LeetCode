@@ -1,53 +1,47 @@
 const comp = (a, b) => {
-    if (a.length > b.length) {
-        return -1;
-    }
-    if (a.length < b.length) {
-        return 1;
-    }
+    if (a.length > b.length)
+        return -1
 
-    return a.localeCompare(b);
-};
+    if (a.length < b.length)
+        return 1
 
-/**
- * @param {string[]} words
- * @return {string}
- */
+    return a.localeCompare(b)
+}
+
 const longestWord = (words) => {
-    let s = new Set();
+    let set = new Set()
 
     // add to set
     for (let word of words) {
-        s.add(word);
+        set.add(word)
     }
 
     // build tire
-    const root = {};
+    const root = {}
     for (const word of words) {
-        let cur = root;
+        let cur = root
         for (const c of word) {
-            cur[c] = cur[c] || {};
+            cur[c] = cur[c] || {}
         }
     }
 
     // traverse trie
-    let strArr = [];
+    let strArr = []
     for (const word of words) {
-        let cur = root;
-        let str = '';
+        let cur = root
+        let str = ''
         for (const c of word) {
             if (cur[c]) {
-                str += c;
-                if (!s.has(str)) {
-                    str = '';
-                    break;
+                str += c
+                if (!set.has(str)) {
+                    str = ''
+                    break
                 }
             }
         }
-        if (str.length) {
-            strArr.push(str);
-        }
+
+        if (str.length) strArr.push(str)
     }
 
-    return strArr.sort(comp)[0];
-};
+    return strArr.sort(comp)[0]
+}

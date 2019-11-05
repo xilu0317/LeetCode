@@ -1,13 +1,13 @@
 class TrieNode {
     constructor() {
-        this.children = {};
-        this.isEnd = false;
+        this.children = {}
+        this.isEnd = false
     }
 }
 
 class WordDictionary {
     constructor() {
-        this.root = new TrieNode();
+        this.root = new TrieNode()
     }
 
     /**
@@ -16,14 +16,14 @@ class WordDictionary {
      * @return {void}
      */
     addWord(word) {
-        let cur = this.root;
+        let cur = this.root
         for (let i = 0; i < word.length; i++) {
             if (!(word[i] in cur.children)) {
-                cur.children[word[i]] = new TrieNode();
+                cur.children[word[i]] = new TrieNode()
             }
-            cur = cur.children[word[i]];
+            cur = cur.children[word[i]]
         }
-        cur.isEnd = true;
+        cur.isEnd = true
     }
 
     /**
@@ -35,27 +35,27 @@ class WordDictionary {
     search(word) {
         const search = (cur, level) => {
             if (!cur || (level === word.length && !cur.isEnd)) {
-                return false;
+                return false
             }
 
             if (level === word.length && cur.isEnd) {
-                return true;
+                return true
             }
 
             if (word[level] === '.') {
                 for (let i = 0; i < 26; i++) {
-                    let ch = String.fromCharCode(97 + i);
+                    let ch = String.fromCharCode(97 + i)
                     if (search(cur.children[ch], level + 1)) {
-                        return true;
+                        return true
                     }
                 }
 
-                return false;
+                return false
             }
 
-            return search(cur.children[word[level]], level + 1);
-        };
+            return search(cur.children[word[level]], level + 1)
+        }
 
-        return search(this.root, 0);
+        return search(this.root, 0)
     }
 }

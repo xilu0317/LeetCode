@@ -1,28 +1,31 @@
 class Node {
     constructor(val, children) {
-        this.val = val;
-        this.children = children;
+        this.val = val
+        this.children = children
     }
 }
 
-// note queue is dynamic
-// must record the size of the current queue
 const maxDepth = (root) => {
-    if (!root) return 0;
-    let res = 0;
-    let q = [root]; // put root in the queue
+    if (!root) return 0
+
+    let res = 0, q = [root]
+
     while (q.length > 0) {
-        let curQueueLen = q.length; // 1) record current q length
-        for (let i = 0; i < curQueueLen; i++) {
-            let node = q.shift(); // queue is shrinking
-            for (let child of node.children) {
-                q.push(child); // queue is expanding
+        let len = q.length
+
+        for (let i = 0; i < len; i++) {
+            let node = q.shift()
+
+            for (let c of node.children) {
+                q.push(c)
             }
         }
-        ++res;
+
+        res++
     }
-    return res;
-};
+
+    return res
+}
 // r
 // 1        2     3     4
 // 5 6 7 8              9 10
