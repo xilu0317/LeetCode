@@ -1,5 +1,7 @@
 // KEY: remember the constant 65
 const convertToTitle = (n) => {
+    if (n < 0) return -1
+
     let len = 26, dict = {}, res = []
 
     // map numberal to char
