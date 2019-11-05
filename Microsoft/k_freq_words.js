@@ -1,16 +1,3 @@
-const buildDict = (words) => {
-    let dict = {}
-
-    for (let word of words) {
-        if (!dict[word])
-            dict[word] = 1
-        else
-            dict[word]++
-    }
-
-    return dict
-}
-
 // This is the most important part!
 const twoRowComparator = (a, b) => {
     // descending order
@@ -26,15 +13,20 @@ const twoRowComparator = (a, b) => {
 }
 
 const topKFrequent = (words, k) => {
-    if (words === null || k <= 0) throw 'Illegal argument exception!'
+    if (words === null || k <= 0) return -1
 
-    let dict = buildDict(words)
+    let dict = {}
+    for (let word of words) {
+        if (!dict[word])
+            dict[word] = 1
+        else
+            dict[word]++
+    }
 
     let res = Object.entries(dict)
                     .sort(twoRowComparator)
                     .map(x => x[0])
 
-    // truncation here
     res.length = k
 
     return res
