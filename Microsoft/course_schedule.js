@@ -57,16 +57,20 @@ const canFinish = (num, preq) => {
 }
 
 // brute force method
+// num - number of courses
+// preq - a list of preprequiste pairs. For example [0, 1] means course 0 depends on course 1
 const canFinish = (num, preq) => {
     // array initialization is needed
-    let graph = Array(num).fill().map(() => [])
+    let graph = Array(num).fill().map(x => [])
 
     // create an array to record visit status
     let visited = Array(num).fill(false)
 
-    // build an ajacendcy list graph
+    // build an ajacendcy-list based graph
     for (let i = 0; i < preq.length; i++) {
-        graph[preq[i][1]].push(preq[i][0])
+        let pre = preq[i][1], course = preq[i][0]
+
+        graph[pre].push(course)
     }
 
     // run cycle detection starting from every node
@@ -77,10 +81,13 @@ const canFinish = (num, preq) => {
     return true
 }
 
-// helper dfs: no cycle => true
-// recursive dfs
+// Recursive dfs
+// Definition: no cycle => true && cycle => false
+// graph -> graph to traverse
+// visited -> external array to keep track of visit status
+// course -> course id
 const dfs = (graph, visited, course) => {
-    // if there is a cycle return false
+    // if you are visiting a visted node that means there is a cycle
     if (visited[course]) return false
 
     // mark as visited
@@ -91,7 +98,7 @@ const dfs = (graph, visited, course) => {
         if (!dfs(graph, visited, graph[course][j])) return false
     }
 
-    // erase the mark when done
+    // erase the visited mark when done visiting so other dfs can 
     visited[course] = false
 
     // finally if no cycle found, return true
