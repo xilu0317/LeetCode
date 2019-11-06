@@ -58,7 +58,7 @@ const canFinish = (num, preq) => {
 
 // brute force method
 // num - number of courses
-// preq - a list of preprequiste pairs. For example [0, 1] means course 0 depends on course 1
+// preq - a list of preprequiste pairs. For example [0, 1] means course 0 depends on course 1.
 const canFinish = (num, preq) => {
     // array initialization is needed
     let graph = Array(num).fill().map(x => [])
