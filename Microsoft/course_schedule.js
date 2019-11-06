@@ -69,9 +69,9 @@ const canFinish = (num, preq) => {
     // build an ajacendcy-list based graph
     for (let i = 0; i < preq.length; i++) {
         // order doesn't matter
-        graph[preq[i][1]].push(preq[i][0])
+        graph[preq[i][0]].push(preq[i][1])
         // the line below works too
-        // graph[preq[i][0]].push(preq[i][1])
+        // graph[preq[i][1]].push(preq[i][0])
     }
 
     // run cycle detection starting from every node
@@ -99,7 +99,7 @@ const dfs = (graph, visited, course) => {
         if (!dfs(graph, visited, graph[course][j])) return false
     }
 
-    // erase the visited mark when done visiting so other dfs can 
+    // why? 
     visited[course] = false
 
     // finally if no cycle found, return true
