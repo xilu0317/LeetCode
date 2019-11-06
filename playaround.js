@@ -16,8 +16,6 @@
         return min
     }
 
-
-    
     const dfs = (grid, i, j, step) => {
         if (i < 0 || j < 0 || i === m || j === n || grid[i][j] === 'D')
             return
