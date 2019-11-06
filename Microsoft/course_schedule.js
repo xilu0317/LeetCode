@@ -68,9 +68,10 @@ const canFinish = (num, preq) => {
 
     // build an ajacendcy-list based graph
     for (let i = 0; i < preq.length; i++) {
-        let pre = preq[i][1], course = preq[i][0]
-
-        graph[pre].push(course)
+        // order doesn't matter
+        graph[preq[i][1]].push(preq[i][0])
+        // the line below works too
+        // graph[preq[i][0]].push(preq[i][1])
     }
 
     // run cycle detection starting from every node
