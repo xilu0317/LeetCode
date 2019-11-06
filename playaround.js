@@ -1,3 +1,15 @@
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "type": "node",
+//             "request": "launch",
+//             "name": "Launch Program",
+//             "program": "${workspaceFolder}/playaround.js"
+//         }
+//     ]
+// }
+
 (() => {
     let grid = [['O', 'O', 'O', 'O'],
                 ['D', 'O', 'D', 'O'],
