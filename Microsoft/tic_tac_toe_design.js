@@ -47,9 +47,8 @@ class TicTacToe {
         if (Math.abs(this.rows[i])  === size ||
             Math.abs(this.cols[j])  === size ||
             Math.abs(this.diag)     === size ||
-            Math.abs(this.anttDiag) === size) {
+            Math.abs(this.anttDiag) === size)
             return player
-        }
 
         return 0
     }

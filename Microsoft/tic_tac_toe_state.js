@@ -29,28 +29,31 @@ const validTicTacToe = (board) => {
                 turns++
                 rows[i]++
                 cols[j]++
+                // diag
                 if (i === j) diag++
-                // notice it is '2' not '3'
+                // anti-diag notice it is '2' not '3'
                 if (i + j === 2) antidiag++
             } else if (board[i][j] === 'O') {
                 turns--
                 rows[i]--
                 cols[j]--
+                // diag
                 if (i === j) diag--
+                // anti-diag
                 if (i + j === 2) antidiag--
             }
         }
     }
 
     // check 3 3 3 for 'x'
-    xWin = rows[0] === 3 || rows[1] === 3 || rows[2] === 3 ||
-           cols[0] === 3 || cols[1] === 3 || cols[2] === 3 ||
-           diag === 3 || antidiag === 3
+    xWin = rows[0] === 3 || rows[1]  === 3 || rows[2] === 3 ||
+           cols[0] === 3 || cols[1]  === 3 || cols[2] === 3 ||
+           diag    === 3 || antidiag === 3
 
     // check 3 3 3 for 'o'
-    oWin = rows[0] === -3 || rows[1] === -3 || rows[2] === -3 ||
-           cols[0] === -3 || cols[1] === -3 || cols[2] === -3 ||
-           diag === -3 || antidiag === -3
+    oWin = rows[0] === -3 || rows[1]  === -3 || rows[2] === -3 ||
+           cols[0] === -3 || cols[1]  === -3 || cols[2] === -3 ||
+           diag    === -3 || antidiag === -3
 
     // when 'x' has won, turn must be 1 per spec
     if (xWin && turns === 0 || oWin && turns === 1) return false
