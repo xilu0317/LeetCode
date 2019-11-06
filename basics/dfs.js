@@ -85,62 +85,69 @@ const generateGraphByEdgeList = (edgeList) => {
     return root
 }
 
-// DFS iterative + using node's is visisted method
-const dfs = (root) => {
-    if (!root) return
+// 1) DFS iterative 
+// the node has a flag to track visit status
+const dfs1 = (node) => {
+    if (!node) return
 
-    let stack = [root]
+    let stack = [node]
 
     while (stack.length) {
         let node = stack.pop()
 
         if (!node.visited) {
             node.visited = true
-            // visit
+            // visit current node
             console.log(node.val)
         }
 
-        for (const n of node.neighbors) {
+        for (let n of node.neighbors) {
             if (!n.visited)
                 stack.push(n)
         }
     }
 }
 
-// DFS iterative + Set method
-const dfs2 = (root) => {
-    if (!root) return
+// 2) DFS iterative
+// maintain a set to keep track of visited nodes
+const dfs2 = (node) => {
+    if (!node) return
 
-    let stack = [root]
-    let set = new Set()
+    let stack = [node]
+    let visisted = new Set()
 
     while (stack.length) {
         let node = stack.pop()
 
-        if (!set.has(node)) {
-            set.add(node)
+        if (!visisted.has(node)) {
+            visisted.add(node)
+            // visit current node
             console.log(node.val)
         }
 
-        for (let nb of node.neighbors) {
+        for (let n of node.neighbors) {
             // Don't re-push nodes to stack if they have been visited before
-            if (!set.has(nb)) {
-                stack.push(nb)
+            if (!visisted.has(n)) {
+                stack.push(n)
             }
         }
     }
 }
 
-// DFS Recursive method
-const dfsRec = (root) => {
-    if (!root) return
+// 3) DFS Recursive method
+// the node maintains a flag to keep track of visit status
+const dfs3 = (node) => {
+    if (!node) return
 
-    console.log(root.val)
-    root.visited = true
+    // visit the current node
+    console.log(node.val)
+    // set visit status
+    node.visited = true
 
-    for (let nb of root.neighbors) {
-        if (!nb.visited)
-            dfsRec(nb)
+    // recursively visit neighbors/children
+    for (let n of node.neighbors) {
+        // won't revisit nodes that have been visted
+        if (!n.visited) dfs3(n)
     }
 }
 

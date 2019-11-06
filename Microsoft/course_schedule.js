@@ -29,13 +29,16 @@
 //     return edgeCnt == 0;
 // }
 
+// topological sort
 const canFinish = (num, preq) => {
     let incomingEdges = Array(num)
     let courses = Array(num).fill().map(() => [])
+
     for (let pair of preq) {
         incomingEdges[pair[0]]++
         courses[pair[1]].push(pair[0])
     }
+
     let q = []
     for (let i = 0; i < incomingEdges.length; i++) {
         if (incomingEdges[i] === 0) q.push(i)
@@ -57,10 +60,11 @@ const canFinish = (num, preq) => {
 const canFinish = (num, preq) => {
     // array initialization is needed
     let graph = Array(num).fill().map(() => [])
+
     // create an array to record visit status
     let visited = Array(num).fill(false)
 
-    // build graph
+    // build an ajacendcy list graph
     for (let i = 0; i < preq.length; i++) {
         graph[preq[i][1]].push(preq[i][0])
     }
@@ -73,8 +77,10 @@ const canFinish = (num, preq) => {
     return true
 }
 
-// acyclic => true
+// helper dfs: no cycle => true
+// recursive dfs
 const dfs = (graph, visited, course) => {
+    // if there is a cycle return false
     if (visited[course]) return false
 
     // mark as visited
@@ -88,5 +94,6 @@ const dfs = (graph, visited, course) => {
     // erase the mark when done
     visited[course] = false
 
+    // finally if no cycle found, return true
     return true
 }
