@@ -58,7 +58,7 @@ const canFinish = (num, preq) => {
 
 // brute force method
 // num - number of courses
-// preq - a list of preprequiste pairs. For example [0, 1] means course 0 depends on course 1.
+// preq - a list of preprequiste pairs. For example, [0, 1] means course 0 depends on course 1.
 const canFinish = (num, preq) => {
     // array initialization is needed
     let graph = Array(num).fill().map(x => [])
@@ -99,7 +99,7 @@ const dfs = (graph, visited, course) => {
         if (!dfs(graph, visited, graph[course][j])) return false
     }
 
-    // why? 
+    // why?
     visited[course] = false
 
     // finally if no cycle found, return true
