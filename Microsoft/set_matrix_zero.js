@@ -8,7 +8,6 @@ const setZeroes = (matrix) => {
         for (let j = 1; j < cols; j++) {
             if (matrix[i][j] === 0)
                 matrix[i][0] = matrix[0][j] = 0
-
         }
     }
 
@@ -16,7 +15,6 @@ const setZeroes = (matrix) => {
         for (let j = cols - 1; j >= 1; j--) {
             if (matrix[i][0] === 0 || matrix[0][j] === 0)
                 matrix[i][j] = 0
-
         }
 
         if (col0 === 0) matrix[i][0] = 0
