@@ -1,5 +1,5 @@
-// topological sort
-const canFinish = (num, preq) => {
+// 1) topological sort
+const canFinish1 = (num, preq) => {
     let incomingEdges = Array(num).fill(0)
     let courses = Array(num).fill().map(() => [])
 
@@ -26,10 +26,10 @@ const canFinish = (num, preq) => {
     return count === 0
 }
 
-// brute force method
+// 2) brute force method
 // num - number of graph
 // preq - a list of preprequiste pairs. For example, [0, 1] means course 0 depends on course 1.
-const canFinish = (num, preq) => {
+const canFinish2 = (num, preq) => {
     // array initialization is needed
     let graph = Array(num).fill().map(x => [])
 
