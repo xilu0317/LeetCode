@@ -11,8 +11,9 @@ const numberToWords = (num) => {
     let i = 0, words = ''
 
     while (num > 0) {
-        if (num % 1000 !== 0)
+        if (num % 1000 !== 0) {
             words = helper(num % 1000) + THOUSANDS[i] + ' ' + words
+        }
         num = parseInt(num / 1000)
         i++
     }
