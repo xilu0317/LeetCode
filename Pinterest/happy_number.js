@@ -14,6 +14,7 @@ const calculate = (n) => {
 // recall slow and faster pointer to detect cycle in a linkedlist
 const isHappy = (n) => {
     let slow = fast = n
+
     do {
         slow = calculate(slow)
         fast = calculate(calculate(fast))
