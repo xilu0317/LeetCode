@@ -5,14 +5,15 @@ class Node {
     }
 }
 
+// BFS
 const maxDepth = (root) => {
     if (!root) return 0
 
     let res = 0, q = [root]
 
-    while (q.length > 0) {
+    while (q.length) {
+        // lock current length
         let len = q.length
-
         for (let i = 0; i < len; i++) {
             let node = q.shift()
 
@@ -26,12 +27,15 @@ const maxDepth = (root) => {
 
     return res
 }
-// r
-// 1        2     3     4
-// 5 6 7 8              9 10
-//                      11
 
-// BFS is essentially layer by layer exploration
-// Queue evolving like following
-// | 1 2 3 4 | 5 6 7 8 9 10 | 11 
-// Whenever you finish the first for loop you finish a layer
+// Recursive
+const maxDepth = (node) => {
+    if (!node) return 0
+
+    let max = 0
+    for (let c of node.children) {
+        max = Math.max(max, maxDepth(c))
+    }
+
+    return max + 1
+}
