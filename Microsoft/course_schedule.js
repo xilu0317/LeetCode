@@ -13,7 +13,7 @@ const canFinish1 = (num, preq) => {
         graph[pair[1]].push(pair[0])
     }
 
-    // build the edge container
+    // build the indegree container
     let q = []
     for (let i = 0; i < indegree.length; i++) {
         // initialize using nodes with 0 indegree
