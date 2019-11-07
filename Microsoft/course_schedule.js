@@ -1,21 +1,23 @@
 // 1) topological sort
-// edges = incoming edges
+// indegree = incoming edges
 const canFinish1 = (num, preq) => {
     // init
     let graph = Array(num).fill().map(x => [])
-    let edges = Array(num).fill(0)
+    let indegree = Array(num).fill(0)
 
-    // build graph
+    // build the graph
+    // [0, 1] means '0' depends on '1'
     for (let pair of preq) {
-        edges[pair[0]]++
+        indegree[pair[0]]++
         // order DOES matter here
         graph[pair[1]].push(pair[0])
     }
 
-    // build edge container
+    // build the edge container
     let q = []
-    for (let i = 0; i < edges.length; i++) {
-        if (edges[i] === 0) q.push(i)
+    for (let i = 0; i < indegree.length; i++) {
+        // initialize using nodes with 0 indegree
+        if (indegree[i] === 0) q.push(i)
     }
 
     // similar to BFS
@@ -24,7 +26,7 @@ const canFinish1 = (num, preq) => {
         let n = q.shift()
         for (let c of graph[n]) {
             count--
-            if (--edges[c] === 0) q.push(c)
+            if (--indegree[c] === 0) q.push(c)
         }
     }
 
