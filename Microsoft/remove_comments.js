@@ -1,4 +1,4 @@
-// TODO: revisit
+// TODO: revisit // SOLUTION NOT CORRECT
 const removeComments = (source) => {
     let inBlock = false, newline = '', res = []
 
