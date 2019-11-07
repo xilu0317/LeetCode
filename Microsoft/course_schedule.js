@@ -1,39 +1,9 @@
-// TODO: topo sort method still wrong
-// topological sort method
-
-// public boolean canFinish(int numCourses, int[][] prerequisites){
-//     int[] incomingEdges = new int[numCourses];
-//     List < Integer > [] goCourses = new List[numCourses];
-//     for (int i = 0; i < goCourses.length; i++) {
-//         goCourses[i] = new LinkedList<Integer>();
-//     }
-//     for (int[] pair: prerequisites) {
-//         incomingEdges[pair[0]]++;
-//         goCourses[pair[1]].add(pair[0]);
-//     }
-//     Queue < Integer > queue = new LinkedList<Integer>();
-//     for (int i = 0; i < incomingEdges.length; i++) {
-//         if (incomingEdges[i] == 0) {
-//             queue.add(i);
-//         }
-//     }
-//     int edgeCnt = prerequisites.length;
-//     while (!queue.isEmpty()) {
-//         int cur = queue.poll();
-//         for (int goCrs: goCourses[cur]) {
-//             edgeCnt--;
-//             if (--incomingEdges[goCrs] == 0)
-//                 queue.add(goCrs);
-//         }
-//     }
-//     return edgeCnt == 0;
-// }
-
 // topological sort
 const canFinish = (num, preq) => {
-    let incomingEdges = Array(num)
+    let incomingEdges = Array(num).fill(0)
     let courses = Array(num).fill().map(() => [])
 
+    // build graph
     for (let pair of preq) {
         incomingEdges[pair[0]]++
         courses[pair[1]].push(pair[0])
@@ -57,7 +27,7 @@ const canFinish = (num, preq) => {
 }
 
 // brute force method
-// num - number of courses
+// num - number of graph
 // preq - a list of preprequiste pairs. For example, [0, 1] means course 0 depends on course 1.
 const canFinish = (num, preq) => {
     // array initialization is needed
