@@ -1,25 +1,28 @@
 // 1) topological sort
+// edges = incoming edges
 const canFinish1 = (num, preq) => {
-    let incomingEdges = Array(num).fill(0)
-    let courses = Array(num).fill().map(() => [])
+    let graph = Array(num).fill().map(x => [])
+    let edges = Array(num).fill(0)
 
     // build graph
     for (let pair of preq) {
-        incomingEdges[pair[0]]++
-        courses[pair[1]].push(pair[0])
+        edges[pair[0]]++
+        graph[pair[1]].push(pair[0])
     }
 
+    // build edge container
     let q = []
-    for (let i = 0; i < incomingEdges.length; i++) {
-        if (incomingEdges[i] === 0) q.push(i)
+    for (let i = 0; i < edges.length; i++) {
+        if (edges[i] === 0) q.push(i)
     }
 
+    // similar to BFS
     let count = preq.length
     while (q.length) {
-        let node = q.shift()
-        for (let c of courses[node]) {
+        let n = q.shift()
+        for (let c of graph[n]) {
             count--
-            if (--incomingEdges[c] === 0) q.push(c)
+            if (--edges[c] === 0) q.push(c)
         }
     }
 
