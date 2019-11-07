@@ -1,7 +1,8 @@
 const commonChars = (A) => {
     // 1) please use map, otherwise the copied object will copy by reference
     // 2) you cannot return {} while using the arrow function, use 'new Ojbect()' instead
-    let arrOfDict = Array(A.length).fill().map(() => new Object())
+    let arrOfDict = Array(A.length).fill()
+                                   .map(() => new Object())
 
     for (let i = 0; i < A.length; i++) {
         let curDict = arrOfDict[i]
@@ -11,7 +12,6 @@ const commonChars = (A) => {
                 curDict[word[j]] = 1
             else
                 curDict[word[j]]++
-
         }
     }
 
@@ -31,12 +31,12 @@ const dictSubtraction = (dict1, dict2) => {
     for (let key in dict1) {
         if (dict2[key]) {
             dict1[key] = Math.min(dict1[key], dict2[key])
-            if (dict1[key] === 0)
+            if (dict1[key] === 0) {
                 delete dict1[key]
-
-        } else
+            }
+        } else {
             delete dict1[key]
-
+        }
     }
 
     return dict1
