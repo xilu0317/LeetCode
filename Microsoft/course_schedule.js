@@ -1,12 +1,14 @@
 // 1) topological sort
 // edges = incoming edges
 const canFinish1 = (num, preq) => {
+    // init
     let graph = Array(num).fill().map(x => [])
     let edges = Array(num).fill(0)
 
     // build graph
     for (let pair of preq) {
         edges[pair[0]]++
+        // order DOES matter here
         graph[pair[1]].push(pair[0])
     }
 
