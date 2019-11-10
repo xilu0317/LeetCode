@@ -3,6 +3,7 @@ const compareVersion = (v1, v2) => {
     if (!v1) return -1
     if (!v2) return 1
 
+    // Regex is gonna make things slow in real life
     // use parseInt for numerical comparison
     let l1 = v1.split(/\./).map(x => parseInt(x))
     let l2 = v2.split(/\./).map(x => parseInt(x))
@@ -11,12 +12,13 @@ const compareVersion = (v1, v2) => {
     let minLen = Math.min(len1, len2), maxLen = Math.max(len1, len2)
 
     // note 'i' is intentionally outside
-    let i
-    for (i = 0; i < minLen; i++) {
+    let i = 0
+    while (i < minLen) {
         if (l1[i] > l2[i])
             return 1
         if (l1[i] < l2[i])
             return -1
+        i++
     }
 
     // Now comparison has completed for two, as long as one > 0 will be larger
@@ -25,7 +27,6 @@ const compareVersion = (v1, v2) => {
             return 1
         if (l2[i] > 0)
             return -1
-        // Don't forget i++
         i++
     }
 
