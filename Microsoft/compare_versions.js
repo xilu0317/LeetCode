@@ -1,17 +1,10 @@
 const compareVersion = (v1, v2) => {
-    if (!v1 && !v2) return 0
-    if (!v1) return -1
-    if (!v2) return 1
-
-    // Regex is gonna make things slow in real life
-    // use parseInt for numerical comparison
-    let l1 = v1.split(/\./).map(x => parseInt(x))
-    let l2 = v2.split(/\./).map(x => parseInt(x))
+    let l1 = v1.split('.').map(x => parseInt(x))
+    let l2 = v2.split('.').map(x => parseInt(x))
 
     let len1 = l1.length, len2 = l2.length
     let minLen = Math.min(len1, len2), maxLen = Math.max(len1, len2)
 
-    // note 'i' is intentionally outside
     let i = 0
     while (i < minLen) {
         if (l1[i] > l2[i])
