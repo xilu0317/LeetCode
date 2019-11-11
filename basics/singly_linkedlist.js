@@ -6,18 +6,14 @@ class ListNode {
 }
 
 const generateListNodeFromArray = (arr) => {
-    let cur = head = new ListNode(0)
+    let cur = dummy = new ListNode(Infinity)
 
-    for (let i = 0; i < arr.length; i++) {
-        cur.val = arr[i]
-
-        if (i < arr.length - 1)
-            cur.next = new ListNode(0)
-
+    for (let item of arr) {
+        dummy.next = new ListNode(item)
         cur = cur.next
     }
 
-    return head
+    return dummy.next
 }
 
 module.exports = generateListNodeFromArray

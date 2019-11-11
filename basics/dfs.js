@@ -145,9 +145,9 @@ const dfs3 = (node) => {
     node.visited = true
 
     // recursively visit neighbors/children
-    for (let n of node.neighbors) {
+    for (let nb of node.neighbors) {
         // won't revisit nodes that have been visted
-        if (!n.visited) dfs3(n)
+        if (!nb.visited) dfs3(nb)
     }
 }
 
