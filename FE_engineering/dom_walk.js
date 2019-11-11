@@ -1,20 +1,18 @@
 // BFS full tree
 const domTreeTraversalBFS = (root = document.getRootNode()) => {
-    let q = [root]
-    let nodeList = []
+    const q = [root], list = []
 
     while (q.length) {
         let node = q.shift()
 
-        // 'the Do'
-        nodeList.push(node)
+        list.push(node)
 
-        for (let child of node.children) {
-            q.push(child)
+        for (let x of node.children) {
+            q.push(x)
         }
     }
 
-    return nodeList
+    return list
 }
 
 // DFS full tree, iterative
@@ -150,7 +148,7 @@ const getHier = (hierString) => {
     if (!hierString) return null
 
     let hierList = hierString.split(/>/)
-                             .reverse()
+        .reverse()
 
     let lastClassName = hierList[0]
     let nodeClassList = bfs(lastClassName)
