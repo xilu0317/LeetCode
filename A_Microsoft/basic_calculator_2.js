@@ -12,7 +12,8 @@ const calculate = (s) => {
     let num = 0, sign = '+'
 
     for (let i = 0; i < s.length; i++) {
-        // calculate the number from numeral strings
+        if (s[i] === ' ') continue
+
         if (isDigit(s[i]))
             num = num * 10 + parseInt(s[i])
 

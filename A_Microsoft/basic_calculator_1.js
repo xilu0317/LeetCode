@@ -9,7 +9,6 @@ const calculate = (s) => {
     let res = 0, num = 0, sign = 1
 
     for (let i = 0; i < s.length; i++) {
-
         let c = s[i]
         if (c === ' ') continue
 
