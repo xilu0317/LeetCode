@@ -2,7 +2,6 @@ const isDigit = (c) => {
     return !isNaN(c)
 }
 
-// KEY: only use stack when we encounter parentheses
 const calculate = (s) => {
     if (!s || !s.length) return 0
 
@@ -17,19 +16,17 @@ const calculate = (s) => {
         if (isDigit(c)) {
             num = 10 * num + parseInt(c)
         } else if (c === '+') {
-            // note this is calculation for things before this '+' sign
+            // calculate things before this '+' sign
             res += sign * num
             // reset the number
             num = 0
+            // setup sign for the next operation
             sign = 1
         } else if (c === '-') {
-            // note this is calculation for things before this '-' sign
             res += sign * num
             num = 0
-            // setup sign for the next operation
             sign = -1
         } else if (c === '(') {
-            // notice the order is reversed so when popping
             stack.push(res)
             stack.push(sign)
             sign = 1
@@ -37,15 +34,12 @@ const calculate = (s) => {
         } else if (c === ')') {
             res += sign * num
             num = 0
-            // first the sign is popped
             res *= stack.pop()
-            // then the number is popped
             res += stack.pop()
         }
     }
 
-    // Add the last number
-    if (num !== 0) res += sign * num
+    res += sign * num
 
     return res
 }
