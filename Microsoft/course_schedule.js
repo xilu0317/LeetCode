@@ -1,6 +1,6 @@
 // 1) topological sort
 // indegree = incoming edges
-const canFinish1 = (num, preq) => {
+const canFinishKahn = (num, preq) => {
     // init
     let graph = Array(num).fill().map(x => [])
     let indegree = Array(num).fill(0)
@@ -36,7 +36,7 @@ const canFinish1 = (num, preq) => {
 // 2) brute force method
 // num - number of graph
 // preq - a list of preprequiste pairs. For example, [0, 1] means course 0 depends on course 1.
-const canFinish2 = (num, preq) => {
+const canFinishBruteForce = (num, preq) => {
     // array initialization is needed
     let graph = Array(num).fill().map(x => [])
 
@@ -47,8 +47,7 @@ const canFinish2 = (num, preq) => {
     for (let i = 0; i < preq.length; i++) {
         // order doesn't matter
         graph[preq[i][0]].push(preq[i][1])
-        // the line below works too
-        // graph[preq[i][1]].push(preq[i][0])
+        // works too: graph[preq[i][1]].push(preq[i][0])
     }
 
     // run cycle detection starting from every node
