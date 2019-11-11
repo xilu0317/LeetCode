@@ -16,20 +16,17 @@ const addTwoNumbers = (l1, l2) => {
     // temp stack 's' used for building a reversed linkedlist
     let sum = 0, s = []
     while (s1.length || s2.length) {
-        // If it is greater than 10, initialize sum to 1
         sum = parseInt(sum / 10)
 
         sum += s1.pop() || 0
         sum += s2.pop() || 0
 
-        // only need ones digit
         s.push(sum % 10)
     }
-    // add the last '1' if needed
+
     if (sum >= 10) s.push(1)
 
-    // build the linkedlist using dummy
-    let cur = dummy = new ListNode(0)
+    let cur = dummy = new ListNode(Infinity)
     while (s.length) {
         cur.next = new ListNode(s.pop())
         cur = cur.next
@@ -37,5 +34,3 @@ const addTwoNumbers = (l1, l2) => {
 
     return dummy.next
 }
-
-// option 2 maybe we can try some pointer manipulation to cut the need for the final stack 's'
