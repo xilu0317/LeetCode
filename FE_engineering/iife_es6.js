@@ -17,7 +17,7 @@
 
     const remove = (keys) => {
         chrome.storage.local.remove(keys, () => {
-            xlog("Removed keys from local storage:", keys)
+            xlog('Removed keys from local storage:', keys)
         })
     }
 
@@ -31,9 +31,9 @@
                 let success = !chrome.runtime.lastError
 
                 if (success)
-                    xlog("Cleared all local storage records.")
+                    xlog('Cleared all local storage records.')
                 else
-                    xwarn("Failed to clear all records message=", lastError.message)
+                    xwarn('Failed to clear all records message=', lastError.message)
 
                 if (callback)
                     callback(success)
@@ -93,8 +93,8 @@
         }
 
         addTabToRefresh(tabId, url) {
-            if (url.indexOf("chrome") === 0) {
-                xlog("Not adding tab to refresh trusted url:", url)
+            if (url.indexOf('chrome') === 0) {
+                xlog('Not adding tab to refresh trusted url:', url)
             } else {
                 this.getTabsToRefresh((tabsToRefresh) => {
                     if (!tabsToRefresh) {
@@ -103,7 +103,7 @@
 
                     tabsToRefresh[tabId] = url
 
-                    xlog("Adding tab to refresh (id=" + tabId + ", url=" + url + ")")
+                    xlog('Adding tab to refresh (id=' + tabId + ', url=' + url + ')')
 
                     store({ tabsToRefresh: tabsToRefresh })
                 })
@@ -114,7 +114,7 @@
             this.getTabsToRefresh((tabsToRefresh) => {
                 if (tabsToRefresh) {
                     if (tabsToRefresh[tabId]) {
-                        xlog("Deleting tab to refresh (id=" + tabId + ")")
+                        xlog('Deleting tab to refresh (id=' + tabId + ')')
 
                         delete tabsToRefresh[tabId]
 
@@ -122,12 +122,12 @@
                             callback()
                         })
                     } else {
-                        xwarn("Unable to delete tab to refresh (id=" + tabId + ") tabId not found in tabsToRefresh")
+                        xwarn('Unable to delete tab to refresh (id=' + tabId + ') tabId not found in tabsToRefresh')
 
                         callback()
                     }
                 } else {
-                    xwarn("Unable to delete tab to refresh (id=" + tabId + ") tabsToRefresh not found")
+                    xwarn('Unable to delete tab to refresh (id=' + tabId + ') tabsToRefresh not found')
 
                     callback()
                 }
@@ -160,11 +160,11 @@
             if (status === 'active' || status === 'idle')
                 store({ 'registrationStatus': status })
             else
-                xwarn("Unable to store registration status illegal status value:", status)
+                xwarn('Unable to store registration status illegal status value:', status)
         }
 
         getMixpanelLastHeartbeatDate(callback) {
-            fetch(["mixpanelLastHeartbeatDate"], (items) => {
+            fetch(['mixpanelLastHeartbeatDate'], (items) => {
                 if (items.mixpanelLastHeartbeatDate) {
                     if (callback)
                         callback(new Date(Date.parse(items.mixpanelLastHeartbeatDate)))
@@ -178,11 +178,11 @@
         setMixpanelLastHeartbeatDate(date) {
             if (date) {
                 if (date instanceof Date)
-                    store({ "mixpanelLastHeartbeatDate": date.toJSON() })
+                    store({ 'mixpanelLastHeartbeatDate': date.toJSON() })
                 else
-                    xwarn("Unable to store last heartbeat date not instanceof Date")
+                    xwarn('Unable to store last heartbeat date not instanceof Date')
             } else {
-                xwarn("Unable to store last heartbeat date date is null")
+                xwarn('Unable to store last heartbeat date date is null')
             }
         }
     }
