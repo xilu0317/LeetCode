@@ -1,35 +1,35 @@
 // BFS full tree
 function domTreeTraversalBFS(root = document.getRootNode()) {
-    let q = [root], nodeList = []
+    let q = [root], list = []
 
     while (q.length) {
         let node = q.shift()
 
-        nodeList.push(node)
+        list.push(node)
 
-        for (let child of node.children) {
-            q.push(child)
+        for (let x of node.children) {
+            q.push(x)
         }
     }
 
-    return nodeList
+    return list
 }
 
 // DFS full tree, iterative
 function domTreeTraversalDFS(root = document.getRootNode()) {
-    let stack = [root], nodeList = []
+    let stack = [root], list = []
 
     while (stack.length) {
         let node = stack.pop()
 
-        nodeList.push(node)
+        list.push(node)
 
-        for (let child of node.children) {
-            stack.push(child)
+        for (let x of node.children) {
+            stack.push(x)
         }
     }
 
-    return nodeList
+    return list
 }
 
 // DFS full tree, recursive
@@ -62,8 +62,8 @@ function getMyClassBFS(className, root = document.body) {
         if (node.classList.contains(className))
             classList.push(node)
 
-        for (let child of node.children) {
-            q.push(child)
+        for (let x of node.children) {
+            q.push(x)
         }
     }
 
@@ -81,8 +81,8 @@ function getMyClassDFS(className, root = document.body) {
         if (node.classList.contains(className))
             classList.push(node)
 
-        for (let child of node.children) {
-            stack.push(child)
+        for (let x of node.children) {
+            stack.push(x)
         }
     }
 
