@@ -1,3 +1,7 @@
+// Input: coins = [1, 2, 5], amount = 11
+// Output: 3
+// Explanation: 11 = 5 + 5 + 1
+
 // bottom-up dp
 // KEY: the gist is to solve a smaller problem then cache it for it to be used later
 const coinChange = (coins, amount) => {
