@@ -1,5 +1,4 @@
 function render(template, node) {
-    // I think inner html is better because it does that interpretation
     node.innerHTML = template
 }
 
