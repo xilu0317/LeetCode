@@ -17,16 +17,15 @@ const domTreeTraversalBFS = (root = document.getRootNode()) => {
 
 // DFS full tree, iterative
 function domTreeTraversalDFS(root = document.getRootNode()) {
-    let stack = [root]
-    let nodeList = []
+    let stack = [root], nodeList = []
 
     while (stack.length) {
         let node = stack.pop()
 
         nodeList.push(node)
 
-        for (let child of node.children) {
-            stack.push(child)
+        for (let x of node.children) {
+            stack.push(x)
         }
     }
 

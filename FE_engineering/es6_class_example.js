@@ -12,11 +12,11 @@ class Student {
     }
 
     // instance methods
-    myNameIs() {
-        console.log('Name = ',this.name)
+    getName() {
+        console.log('Name = ', this.name)
     }
 
-    myAgeIs() {
+    getAge() {
         console.log('Age = ', this.age)
     }
 
@@ -26,26 +26,19 @@ class Student {
     }
 }
 
-// create a bunch of objects
-let s1 = new Student('john1', 1, 1.0)
-let s2 = new Student('john2', 2, 2.0)
-let s3 = new Student('john3', 3, 3.0)
-let s4 = new Student('john4', 4, 4.0)
-let s5 = new Student('john5', 5, 5.0)
+let s1 = new Student('Alex', 17, 3.12)
+let s2 = new Student('Bob', 22, 2.57)
+let s3 = new Student('Craft', 43, 4.00)
 
 // class method
 Student.showTotalNumberOfStudents()
 
 // name
-s1.myNameIs()
-s2.myNameIs()
-s3.myNameIs()
-s4.myNameIs()
-s5.myNameIs()
+s1.getName()
+s2.getName()
+s3.getName()
 
 // age
-s1.myAgeIs()
-s2.myAgeIs()
-s3.myAgeIs()
-s4.myAgeIs()
-s5.myAgeIs()
+s1.getAge()
+s2.getAge()
+s3.getAge()

@@ -1,48 +1,44 @@
-(() => {
-    let grid = [['O', 'O', 'O', 'O'],
-                ['D', 'O', 'D', 'O'],
-                ['O', 'O', 'O', 'O'],
-                ['O', 'D', 'O', 'O'],
-                ['O', 'O', 'O', 'O'],
-                ['X', 'D', 'O', 'O']]
+class Student {
+    // static variable
+    static count = 0
 
-    let m, n, min
+    constructor(name, age, gpa) {
+        // instance variables
+        this.name = name
+        this.age = age
+        this.gpa = gpa
 
-    const treasureIsland = (grid) => {
-        if (!grid || !grid.length) return -1
-
-        m = grid.length, n = grid[0].length, min = Infinity
-
-        dfs(grid, 0, 0, 0)
-
-        return min
+        Student.count++
     }
 
-    const dfs = (grid, i, j, step) => {
-        if (i < 0 || j < 0 || i === m || j === n || grid[i][j] === 'D')
-            return
-
-        if (grid[i][j] === 'X') {
-            min = Math.min(min, step)
-            return
-        }
-
-        step++
-
-        // THINK If you reach this point the current gird must be 'O'
-        // KEY to avoid revisit, mark it as 'D'
-        grid[i][j] = 'D'
-
-        dfs(grid, i + 1, j, step)
-        dfs(grid, i - 1, j, step)
-        dfs(grid, i, j + 1, step)
-        dfs(grid, i, j - 1, step)
-
-        // KEY unmark as unvisited
-        grid[i][j] = 'O'
+    // instance methods
+    getName() {
+        console.log('Name = ', this.name)
     }
 
-    // test stuff
-    console.log()
-    console.log('Min steps taken to get treasure ==> ' + treasureIsland(grid))
-})()
+    getAge() {
+        console.log('Age = ', this.age)
+    }
+
+    // static methods
+    static showTotalNumberOfStudents() {
+        console.log('The total number of students is ', Student.count)
+    }
+}
+
+let s1 = new Student('Alex', 17, 3.12)
+let s2 = new Student('Bob', 22, 2.57)
+let s3 = new Student('Craft', 43, 4.00)
+
+// class method
+Student.showTotalNumberOfStudents()
+
+// name
+s1.getName()
+s2.getName()
+s3.getName()
+
+// age
+s1.getAge()
+s2.getAge()
+s3.getAge()

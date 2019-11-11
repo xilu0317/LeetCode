@@ -12,4 +12,5 @@ p = new Promise((resolve, reject) => {
 })
 
 // promise consumption
+// KEY: the callback in 'then' usually will happen a 'long' time afterwords
 p.then(x => callback(x))
