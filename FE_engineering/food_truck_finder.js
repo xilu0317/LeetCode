@@ -53,9 +53,9 @@
         const openTrucksObjects = truckList.filter(x => isFoodTruckOpen2(x))
             .map(x => {
                 return {
-                    NAME: x.applicant,
-                    ADDRESS: x.location
-                }
+                            NAME:    x.applicant,
+                            ADDRESS: x.location
+                       }
             })
 
         // de-dup
