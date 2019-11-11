@@ -46,9 +46,3 @@ const mergeTwoLists = (head1, head2) => {
         return head2
     }
 }
-
-// [Test case]
-let head1 = stuff([1])
-let head2 = stuff([2])
-let head = mergeTwoLists(head1, head2)
-console.log(head)
