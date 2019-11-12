@@ -1,24 +1,10 @@
+// 1) await method
+// Note fetch is not supported by IE11 which is about to go extinct in 2025
 (async () => {
-    let p1 = new Promise((resolve, rejct) => {
-        setTimeout(() => resolve('==> 1st'), 3000)
-    })
+    let res = await fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
 
-    let p2 = new Promise((resolve, rejct) => {
-        // resolves immeidtely
-        resolve('==> 2nd')
-    })
+    let myJson = await res.json()
 
-    let p3 = new Promise((resolve, rejct) => {
-        setTimeout(() => resolve('==> 3rd'), 1000)
-    })
-
-
-    let v1 = await p1
-    console.log(v1)
-
-    let v2 = await p2
-    console.log(v2)
-
-    let v3 = await p3
-    console.log(v3)
+    console.table(myJson)
 })()
+
