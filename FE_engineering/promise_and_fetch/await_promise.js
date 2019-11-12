@@ -4,7 +4,6 @@
 	})
 
 	let p2 = new Promise((resolve, rejct) => {
-		// resolves immeidtely
 		resolve('==> 2nd')
 	})
 

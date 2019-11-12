@@ -4,7 +4,6 @@ setInterval(() => {
 }, 1000)
 
 let p1 = new Promise((resolve, rejct) => {
-	// resolve immeidately
 	resolve('why am i so bad at coding, should i quit')
 })
 
