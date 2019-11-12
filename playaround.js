@@ -1,37 +1,24 @@
-// promise definition
+(async () => {
+    let p1 = new Promise((resolve, rejct) => {
+        setTimeout(() => resolve('==> 1st'), 3000)
+    })
 
-// resolve
-p1 = new Promise((resolve, reject) => {
-    let time = 3
-    // simulate the delay using setTimeout
-    setTimeout(() => resolve(`My promise has been RESOVLED at ${time} sec`), time * 1000)
-})
+    let p2 = new Promise((resolve, rejct) => {
+        // resolves immeidtely
+        resolve('==> 2nd')
+    })
 
-// reject
-p2 = new Promise((resolve, reject) => {
-    let time = 1
+    let p3 = new Promise((resolve, rejct) => {
+        setTimeout(() => resolve('==> 3rd'), 1000)
+    })
 
-    setTimeout(() => reject(`My promise has been REJECTED at ${time} sec`), time * 1000)
-})
 
-// resolve will settle the state and invalidate pending
-p3 = new Promise((resolve, reject) => {
-    resolve(' 1) First solve')
-    // either resolve or reject will settle the state
-    reject(' 2) Then reject')
-})
+    let v1 = await p1
+    console.log(v1)
 
-p4 = new Promise((resolve, reject) => {
-    reject(' 1) First reject')
-    // either resolve or reject will settle the state
-    resolve(' 2) Then solve')
-})
+    let v2 = await p2
+    console.log(v2)
 
-// promise consumption
-
-// the 1st argument of 'then' handles 'resovle'
-// the 2st argument of 'then' handles 'rejecte'
-p1.then(x => console.log(x), y => console.log(y))
-p2.then(x => console.log(x), y => console.log(y))
-p3.then(x => console.log(x), y => console.log(y))
-p4.then(x => console.log(x), y => console.log(y))
+    let v3 = await p3
+    console.log(v3)
+})()
