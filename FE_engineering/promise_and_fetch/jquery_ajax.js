@@ -1,5 +1,5 @@
 // GET
-$.ajax('/to/your/url/dot/com',
+$.ajax('/url/to/target/resource',
     {
         success: (data, status, xhr) => {
             console.log(`data: ${data}`)
@@ -7,7 +7,7 @@ $.ajax('/to/your/url/dot/com',
     })
 
 // GET JSON
-$.ajax('/to/your/json',
+$.ajax('/url/to/target/resource',
     {
         dataType: 'json', // type of response data
         timeout: 500,
@@ -21,20 +21,23 @@ $.ajax('/to/your/json',
     })
 
 // POST
-$.ajax('/to/your/url/dot/com', {
-    type: 'POST',
+$.ajax('/url/to/target/resource', {
+    type: 'POST', // type of HTTP method
 
+    // data to be sent over the wire
     data: {
         age: 13,
         name: 'xilu',
         description: 'I have been working very hard'
     },
 
+    // callback when successful
     success: (data, status, xhr) => {
         console.log(`data: ${data}`)
         console.log(`status: ${status}`)
     },
 
+    // callback when in error
     error: (jqXhr, textStatus, errorMessage) => {
         console.log(errorMessage)
     }
