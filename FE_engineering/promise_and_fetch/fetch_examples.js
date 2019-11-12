@@ -18,3 +18,14 @@
     myPromise.then(res => res.json())
              .then(data => console.table(data))
 })()
+
+fetch(url, {
+    method: 'post',
+    headers: {
+        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    },
+    body: 'foo=bar&lorem=ipsum'
+})
+.then(json)
+.then(data => console.log('Request succeeded with JSON response', data))
+.catch(error => console.log('Request failed', error))
