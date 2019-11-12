@@ -1,7 +1,7 @@
 // GET
 $.ajax('/to/your/url/dot/com',
     {
-        success: function (data, status, xhr) {
+        success: (data, status, xhr) => {
             console.log(`data: ${data}`)
         }
     })
@@ -11,11 +11,11 @@ $.ajax('/to/your/json',
     {
         dataType: 'json', // type of response data
         timeout: 500,
-        success: function (data, status, xhr) {
+        success: (data, status, xhr) => {
             console.log(`data: ${data}`)
         },
 
-        error: function (jqXhr, textStatus, errorMessage) {
+        error: (jqXhr, textStatus, errorMessage) => {
             console.log(errorMessage)
         }
     })
@@ -30,12 +30,12 @@ $.ajax('/to/your/url/dot/com', {
         description: 'I have been working very hard'
     },
 
-    success: function (data, status, xhr) {
+    success: (data, status, xhr) => {
         console.log(`data: ${data}`)
         console.log(`status: ${status}`)
     },
 
-    error: function (jqXhr, textStatus, errorMessage) {
+    error: (jqXhr, textStatus, errorMessage) => {
         console.log(errorMessage)
     }
 })
