@@ -15,7 +15,7 @@
     let myPromise = fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
 
     myPromise.then(res => res.json())
-        .then(data => console.table(data))
+             .then(data => console.table(data))
 })()
 
 fetch(url, {
