@@ -42,4 +42,3 @@ $.ajax('/url/to/target/resource', {
         console.log(errorMessage)
     }
 })
-

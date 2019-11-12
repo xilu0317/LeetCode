@@ -1,8 +1,7 @@
-// Note 1: fetch is not supported by Nodejs 
-// Note 2: fetch is not supported by IE11 which is about to go extinct in 2025
+// Note 1: doesn't work on Node
+// Note 2: doesn't work on IE11
 
-
-// 1) await method
+// 1) using 'await'
 (async () => {
     let res = await fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
 
@@ -11,12 +10,12 @@
     console.table(myJson)
 })()
 
-// 2) then method
+// 2) using 'then'
 (() => {
     let myPromise = fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
 
     myPromise.then(res => res.json())
-             .then(data => console.table(data))
+        .then(data => console.table(data))
 })()
 
 fetch(url, {
@@ -26,6 +25,6 @@ fetch(url, {
     },
     body: 'foo=bar&lorem=ipsum'
 })
-.then(json)
-.then(data => console.log('Request succeeded with JSON response', data))
-.catch(error => console.log('Request failed', error))
+  .then(json)
+  .then(data => console.log('Request succeeded with JSON response', data))
+  .catch(error => console.log('Request failed', error))
