@@ -18,15 +18,15 @@ let p2 = new Promise((resolve, rejct) => {
 })
 
 let p3 = new Promise((resolve, rejct) => {
-	let myAwesomeObject = {}
+	let obj = {}
 
-	myAwesomeObject.name = 'i didn choose to be a loser'
-	myAwesomeObject.age = 33
+	obj.name = 'i didn choose to be a loser'
+	obj.age = 33
 
-	setTimeout(() => resolve(myAwesomeObject), 5000)
+	setTimeout(() => resolve(obj), 5000)
 })
 
-// note 'then' is async
+// note 'then' is async, callbacks go to 'then'
 Promise.all([p1, p2, p3]).then(res => console.table(res))
 
 // this function will be run immeidately
