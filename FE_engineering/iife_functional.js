@@ -1,3 +1,4 @@
+// TODO: this example is not clear enough, need a shorter example too
 (function (exports) {
     'use strict'
 
