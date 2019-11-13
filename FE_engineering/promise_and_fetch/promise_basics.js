@@ -4,14 +4,14 @@
 p1 = new Promise((resolve, reject) => {
     let time = 3
     // simulate the delay using setTimeout
-    setTimeout(() => resolve(`My promise has been RESOVLED at ${time} sec`), time * 1000)
+    setTimeout(() => resolve(` My promise has been RESOVLED at ${time} sec`), time * 1000)
 })
 
 // reject
 p2 = new Promise((resolve, reject) => {
     let time = 1
 
-    setTimeout(() => reject(`My promise has been REJECTED at ${time} sec`), time * 1000)
+    setTimeout(() => reject(` My promise has been REJECTED at ${time} sec`), time * 1000)
 })
 
 // resolve will settle the state and invalidate pending
@@ -29,8 +29,8 @@ p4 = new Promise((resolve, reject) => {
 
 // promise consumption
 
-// the 1st argument of 'then' handles 'resovle'
-// the 2st argument of 'then' handles 'rejecte'
+console.log('------------------------------------')
+
 p1.then(console.log)
   .catch(console.error)
 
