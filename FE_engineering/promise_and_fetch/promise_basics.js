@@ -31,7 +31,14 @@ p4 = new Promise((resolve, reject) => {
 
 // the 1st argument of 'then' handles 'resovle'
 // the 2st argument of 'then' handles 'rejecte'
-p1.then(console.log).catch(console.error)
-p2.then(console.log).catch(console.error)
-p3.then(console.log).catch(console.error)
-p4.then(console.log).catch(console.error)
+p1.then(console.log)
+  .catch(console.error)
+
+p2.then(console.log)
+  .catch(console.error)
+
+p3.then(console.log)
+  .catch(console.error)
+
+p4.then(console.log)
+  .catch(console.error)
