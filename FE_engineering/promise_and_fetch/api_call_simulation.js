@@ -6,15 +6,10 @@ const uuid = () => {
 }
 
 const callApiEndpoint = (time = 800, rejectFlag = false) => new Promise((resolve, reject) => {
-    const obj = {}
-    obj.id = uuid()
-    obj.date = new Date().toLocaleString()
-    obj.description = 'This object is used to simulate a remote api call'
-
     if (rejectFlag)
-        setTimeout(() => reject('This API call has been rejected'), time)
+        setTimeout(() => reject('API call failed'), time)
     else
-        setTimeout(() => resolve(obj), time)
+        setTimeout(() => resolve('API Call succeeded'), time)
 })
 
 // successful api call 
