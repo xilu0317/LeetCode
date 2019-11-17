@@ -1,5 +1,3 @@
-// This is the most straightforward solution
-// Other solutions are too hard to understand
 const flatten = (root) => {
     if (!root) return
 
