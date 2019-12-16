@@ -1,36 +1,46 @@
-// when dealing with nested structures, think about recursively
-let arr = ['a', ['c', ['a', ['a']], 'b', ['a', 'e'], 'g']]
-let target = 'a'
+(() => {
+    let grid = [['O', 'O', 'O', 'O'],
+    ['D', 'O', 'D', 'O'],
+    ['O', 'O', 'O', 'O'],
+    ['X', 'O', 'O', 'O']]
 
-const findItem = (arr, target) => {
-    let c = {}
-    c.count = 0
+    let m, n, min
 
-    _helper(arr, target, c)
+    const treasureIsland = (grid) => {
+        if (!grid || !grid.length) return -1
 
-    return c.count
-}
+        m = grid.length, n = grid[0].length, min = Infinity
 
-const _helper = (arr, target, c) => {
-    if (!Array.isArray(arr)) {
-        if (arr === target) c.count++
-        return
+        dfs(grid, 0, 0, 0)
+
+        return min
     }
 
-    for (let item of arr) {
-        _helper(item, target, c)
+    const dfs = (grid, i, j, step) => {
+        if (i < 0 || j < 0 || i === m || j === n || grid[i][j] === 'D')
+            return
+
+        if (grid[i][j] === 'X') {
+            min = Math.min(min, step)
+            return
+        }
+
+        step++
+
+        // THINK If you reach this point the current gird must be 'O'
+        // KEY to avoid revisit, mark it as 'D'
+        grid[i][j] = 'D'
+
+        dfs(grid, i + 1, j, step)
+        dfs(grid, i - 1, j, step)
+        dfs(grid, i, j + 1, step)
+        dfs(grid, i, j - 1, step)
+
+        // KEY unmark as unvisited
+        grid[i][j] = 'O'
     }
-}
 
-const solution2 = (arr, target) => {
-    return arr.flat(Infinity).filter(x => x === target).length
-}
-
-const s1 = findItem(arr, target)
-const s2 = solution2(arr, target)
-
-console.log(`Found ${s1} target items.`)
-if (s1 === s2)
-    console.log('Solution is correct!')
-else
-    console.log('Solution is wrong!')
+    // test stuff
+    console.log()
+    console.log('Min steps taken to get treasure ==> ' + treasureIsland(grid))
+})()
